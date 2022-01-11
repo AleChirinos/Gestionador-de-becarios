@@ -122,6 +122,18 @@ CREATE TABLE `items` (
   `lastUpdated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+CREATE TABLE `becarios` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `name` varchar(50) NOT NULL,
+  `code` varchar(50) NOT NULL,
+  `totalhours` int(6) NOT NULL,
+  `checkedhours` int(6) NOT NULL,
+  `assignedhours` int(6) NOT NULL,
+  `missinghours` int(6) NOT NULL,
+  `dateAdded` datetime NOT NULL,
+  `lastUpdated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
 CREATE TABLE `processes` (
                          `id` bigint(20) UNSIGNED NOT NULL,
                          `name` varchar(50) NOT NULL,
@@ -242,6 +254,11 @@ ALTER TABLE `items`
   ADD UNIQUE KEY `name` (`name`),
   ADD UNIQUE KEY `code` (`code`);
 
+ALTER TABLE `becarios`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `name` (`name`),
+  ADD UNIQUE KEY `code` (`code`);
+
 ALTER TABLE `processes`
     ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `name` (`name`),
@@ -284,6 +301,9 @@ ALTER TABLE `eventlog`
 -- AUTO_INCREMENT for table `items`
 --
 ALTER TABLE `items`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+ALTER TABLE `becarios`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `processes`

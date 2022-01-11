@@ -82,6 +82,18 @@ class Search extends CI_Controller{
         //set final output
         $this->output->set_content_type('application/json')->set_output(json_encode($json));
     }
+
+    public function becarioSearch(){
+            $data['allBecarios'] = $this->item->becariosearch($this->value);
+            $data['sn'] = 1;
+
+            $json['becariosListTable'] = $data['allBecarios'] ? $this->load->view('becarios/becarioslisttable', $data, TRUE) : "No existen coincidencias";
+
+            //set final output
+            $this->output->set_content_type('application/json')->set_output(json_encode($json));
+        }
+
+
     
     /*
     ********************************************************************************************************************************

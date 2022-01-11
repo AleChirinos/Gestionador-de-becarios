@@ -175,10 +175,10 @@ defined('BASEPATH') OR exit('');
                         </li>
                         
                         <?php if($this->session->admin_role === "Super"):?>
-                        <li class="<?= $pageTitle == 'Items' ? 'active' : '' ?>">
-                            <a id ="inv" href="<?= site_url('items') ?>"  style="color:#FFFFFF;"  onmouseenter="myEnter4()"  onclick="myClick4()" onmouseout="myOut4()" >
-                                <i class="fa fa-shopping-cart"></i>
-                                Inventario
+                        <li class="<?= $pageTitle == 'Becarios' ? 'active' : '' ?>">
+                            <a id ="inv" href="<?= site_url('becarios') ?>"  style="color:#FFFFFF;"  onmouseenter="myEnter4()"  onclick="myClick4()" onmouseout="myOut4()" >
+                                <i class="fa fa-user"></i>
+                                Becarios
                             </a>
                         </li>
 
