@@ -58,6 +58,7 @@ class Becario extends CI_Model{
             WHERE 
             name LIKE '%".$this->db->escape_like_str($value)."%'
             ";
+
         
         $run_q = $this->db->query($q, [$value, $value]);
         
@@ -86,11 +87,11 @@ class Becario extends CI_Model{
      * @return boolean
      */
 
-     public function updateTotalHours($becarioId, $totalHours){
-             $q = "UPDATE becarios SET totalhours= ?  WHERE id = ?";
+     public function updateMissingHours($becarioId, $missingHours){
+             $q = "UPDATE becarios SET missinghours= ?, totalhours=?+assignedhours+checkedhours WHERE id = ?";
 
 
-             $this->db->query($q, [$totalHours, $becarioId]);
+             $this->db->query($q, [$missingHours, $missingHours, $becarioId]);
 
 
 
@@ -139,13 +140,15 @@ class Becario extends CI_Model{
 
 
    public function edit($becarioId,$becarioName, $becarioCode){
-       $data = ['name'=>$becarioName, 'code'=>$becarioCode, ];
+       $data = ['name'=>$becarioName, 'code'=>$becarioCode ];
 
-       $this->db->where('id', $itemId);
+       $this->db->where('id', $becarioId);
        $this->db->update('becarios', $data);
        
        return TRUE;
    }
+
+
 
 
 

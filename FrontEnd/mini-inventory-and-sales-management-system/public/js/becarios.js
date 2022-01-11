@@ -176,7 +176,7 @@ $(document).ready(function(){
             $.ajax({
                 url: appRoot+"search/becarioSearch",
                 type: "get",
-                data: {v:value},
+                data: {value:value},
                 success: function(returnedData){
                     $("#becariosListTable").html(returnedData.becariosListTable);
                 }
@@ -202,22 +202,22 @@ $(document).ready(function(){
         
         //get item info
         var becarioId = $(this).attr('id').split("-")[1];
-
         var becarioName = $("#becarioName-"+becarioId).html();
-
         var becarioCode = $("#becarioCode-"+becarioId).html();
-        
+
         //prefill form with info
         $("#becarioIdEdit").val(becarioId);
-        $("#becarioNameEdit").val(itemName);
-        $("#becarioCodeEdit").val(itemCode);
+        $("#becarioNameEdit").val(becarioName);
+        $("#becarioCodeEdit").val(becarioCode);
 
-        
-        //remove all error messages that might exist
+
+
         $("#editBecarioFMsg").html("");
         $("#becarioNameEditErr").html("");
         $("#becarioCodeEditErr").html("");
-        
+
+
+
         //launch modal
         $("#editBecarioModal").modal('show');
     });
@@ -273,42 +273,21 @@ $(document).ready(function(){
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     
     //trigers the modal to update stock
-    $("#becariosListTable").on('click', '.updateStock', function(){
+    $("#becariosListTable").on('click', '.updateMissingHours', function(){
         //get item info and fill the form with them
-        var itemId = $(this).attr('id').split("-")[1];
-        var itemName = $("#itemName-"+itemId).html();
-        var itemCurQuantity = $("#itemQuantity-"+itemId).html();
-        var itemCode = $("#itemCode-"+itemId).html();
+        var becarioId = $(this).attr('id').split("-")[1];
+        var becarioName = $("#becarioName-"+becarioId).html();
+        var becarioMissingHours = $("#missinghours-"+becarioId).html();
+        var becarioCode = $("#becarioCode-"+becarioId).html();
         
-        $("#stockUpdateItemId").val(itemId);
-        $("#stockUpdateItemName").val(itemName);
-        $("#stockUpdateItemCode").val(itemCode);
-        $("#stockUpdateItemQInStock").val(itemCurQuantity);
+        $("#mhUpdateBecarioId").val(becarioId);
+        $("#mhUpdateBecarioName").val(becarioName);
+        $("#mhUpdateBecarioCode").val(becarioCode);
+        $("#mhUpdateMissingHours").val(becarioMissingHours);
         
-        $("#updateStockModal").modal('show');
+        $("#updateMissingHoursModal").modal('show');
     });
-    
-    
-    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    
-    //runs when the update type is changed while trying to update stock
-    //sets a default description if update type is "newStock"
-    $("#stockUpdateType").on('change', function(){
-        var updateType = $("#stockUpdateType").val();
-        
-        if(updateType && (updateType === 'newStock')){
-            $("#stockUpdateDescription").val("New items were purchased");
-        }
-        
-        else{
-            $("#stockUpdateDescription").val("");
-        }
-    });
-    
+
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -316,53 +295,41 @@ $(document).ready(function(){
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     
     //handles the updating of item's quantity in stock
-    $("#stockUpdateSubmit").click(function(){
-        var updateType = $("#stockUpdateType").val();
-        var stockUpdateQuantity = $("#stockUpdateQuantity").val();
-        var stockUpdateDescription = $("#stockUpdateDescription").val();
-        var itemId = $("#stockUpdateItemId").val();
+    $("#mhUpdateSubmit").click(function(){
+        var mhUpdateMissingHours = $("#mhUpdateMissingHours").val();
+        var becarioId = $("#mhUpdateBecarioId").val();
         
-        if(!updateType || !stockUpdateQuantity || !stockUpdateDescription || !itemId){
-            !updateType ? $("#stockUpdateTypeErr").html("required") : "";
-            !stockUpdateQuantity ? $("#stockUpdateQuantityErr").html("required") : "";
-            !stockUpdateDescription ? $("#stockUpdateDescriptionErr").html("required") : "";
-            !itemId ? $("#stockUpdateItemIdErr").html("required") : "";
-            
+        if(!mhUpdateMissingHours || !becarioId){
+            !mhUpdateMissingHours ? $("#mhUpdateMissingHoursErr").html("El campo de horas faltantes no debe estar vacío") : "";
+            !becarioId ? $("#mhUpdateBecarioIdErr").html("El id del becario no debe estar vacío") : "";
             return;
         }
         
-        $("#stockUpdateFMsg").html("<i class='"+spinnerClass+"'></i> Updating Stock.....");
+        $("#mhUpdateFMsg").html("<i class='"+spinnerClass+"'></i> Modificando horas de trabajo faltantes...");
         
         $.ajax({
             method: "POST",
-            url: appRoot+"items/updatestock",
-            data: {_bId:becarioId, _upType:updateType, qty:stockUpdateQuantity, desc:stockUpdateDescription}
+            url: appRoot+"becarios/updateMissingHours",
+            data: {_bId:becarioId, mhUpdateMissingHours:mhUpdateMissingHours}
         }).done(function(returnedData){
             if(returnedData.status === 1){
-                $("#stockUpdateFMsg").html(returnedData.msg);
-                
-                //refresh items' list
-                lilt();
-                
-                //reset form
-                document.getElementById("updateStockForm").reset();
-                
-                //dismiss modal after some secs
+                $("#mhUpdateFMsg").css('color', 'green').html(returnedData.msg);
+
                 setTimeout(function(){
-                    $("#updateStockModal").modal('hide');//hide modal
-                    $("#stockUpdateFMsg").html("");//remove msg
+                    $("#updateMissingHoursModal").modal('hide');//hide modal
+                    $("#mhUpdateFMsg").html("");
                 }, 1000);
+
+                cargarBecarios();
+
             }
             
             else{
-                $("#stockUpdateFMsg").html(returnedData.msg);
-                
-                $("#stockUpdateTypeErr").html(returnedData._upType);
-                $("#stockUpdateQuantityErr").html(returnedData.qty);
-                $("#stockUpdateDescriptionErr").html(returnedData.desc);
+                $("#mhUpdateFMsg").html(returnedData.msg);
+                $("#mhUpdateDescriptionErr").html(returnedData.mhUpdateMissingHours);
             }
         }).fail(function(){
-            $("#stockUpdateFMsg").html("Unable to process your request at this time. Please check your internet connection and try again");
+            $("#mhUpdateFMsg").html("No se puede realizar la acción en este momento. Por favor, verificar conexión a internet e intentar nuevamente más tarde");
         });
     });
     
@@ -401,7 +368,7 @@ $(document).ready(function(){
                 $.ajax({
                     url: appRoot+"becarios/delete",
                     method: "POST",
-                    data: {i:becarioId}
+                    data: {b:becarioId}
                 }).done(function(rd){
                     if(rd.status === 1){
                         //remove item from list, update items' SN, display success msg
@@ -409,6 +376,8 @@ $(document).ready(function(){
 
                         //update the SN
                         resetBecarioSN();
+
+                        cargarBecarios();
 
                         //display success message
                         changeFlashMsgContent('Becario eliminado del sistema', '', 'green', 1000);

@@ -16,14 +16,14 @@
                         <th>Nº</th>
                         <th>NOMBRE</th>
                         <th>CÓDIGO</th>
-                        <th>HORAS DE TRABAJO BECARIO TOTALES</th>
-                        <th>HORAS DE TRABAJO BECARIO CUMPLIDAS</th>
-                        <th>HORAS DE TRABAJO BECARIO ASIGNADAS</th>
-                        <th>HORAS DE TRABAJO BECARIO FALTANTES</th>
+                        <th>HORAS TOTALES</th>
+                        <th>HORAS CUMPLIDAS</th>
+                        <th>HORAS ASIGNADAS</th>
+                        <th>HORAS FALTANTES</th>
                         <th>TRABAJOS ASIGNADOS</th>
-                        <th>ACTUALIZAR HORAS DE TRABAJO BECARIO TOTALES</th>
-                        <th>EDITAR INFORMACION DE BECARIO</th>
-                        <th>ELIMINAR BECARIO</th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -46,8 +46,11 @@
                         <td>
                              <span id="missinghours-<?=$get->id?>"><?=$get->missinghours?></span>
                         </td>
+                         <td>
 
-                        <td><a class="pointer updateStock" id="stock-<?=$get->id?>">Actualizar cantidad</a></td>
+                         </td>
+
+                        <td><a class="pointer updateMissingHours" id="stock-<?=$get->id?>">Modificar horas a cumplir</a></td>
 
                         <td class="text-center text-primary">
                             <span class="editBecario" id="edit-<?=$get->id?>"><i class="fa fa-pencil pointer"></i> </span>

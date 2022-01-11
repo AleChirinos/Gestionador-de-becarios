@@ -34,7 +34,7 @@ class Becarios extends CI_Controller{
         $orderFormat = $this->input->get('orderFormat', TRUE) ? $this->input->get('orderFormat', TRUE) : "ASC";
         
         //count the total number of items in db
-        $totalItems = $this->db->count_all('becarios');
+        $totalBecarios= $this->db->count_all('becarios');
         
         $this->load->library('pagination');
         
@@ -44,12 +44,12 @@ class Becarios extends CI_Controller{
         $start = $pageNumber == 0 ? 0 : ($pageNumber - 1) * $limit;//start from 0 if pageNumber is 0, else start from the next iteration
         
         //call setPaginationConfig($totalRows, $urlToCall, $limit, $attributes) in genlib to configure pagination
-        $config = $this->genlib->setPaginationConfig($totalItems, "becarios/cargarBecarios", $limit, ['onclick'=>'return cargarBecarios(this.href);']);
+        $config = $this->genlib->setPaginationConfig($totalBecarios, "becarios/cargarBecarios", $limit, ['onclick'=>'return cargarBecarios(this.href);']);
         
         $this->pagination->initialize($config);//initialize the library class
         
         //get all items from db
-        $data['allBecarios'] = $this->item->getAll($orderBy, $orderFormat, $start, $limit);
+        $data['allBecarios'] = $this->becario->getAll($orderBy, $orderFormat, $start, $limit);
         $data['range'] = $totalBecarios > 0 ? "Mostrando " . ($start+1) . "-" . ($start + count($data['allBecarios'])) . " de " . $totalBecarios : "";
         $data['links'] = $this->pagination->create_links();//page links
         $data['sn'] = $start+1;
@@ -79,7 +79,7 @@ class Becarios extends CI_Controller{
             $this->db->trans_start();//start transaction
             
 
-            $insertedId = $this->item->add(set_value('becarioName'), set_value('becarioCode'));
+            $insertedId = $this->becario->add(set_value('becarioName'), set_value('becarioCode'));
             
             $becarioName = set_value('becarioName');
             $becarioCode = set_value('becarioCode');
@@ -143,7 +143,7 @@ class Becarios extends CI_Controller{
         $becarioCode = $this->input->get('_bC', TRUE);
         
         if($itemCode){
-            $becario_info = $this->item->getBecarioInfo(['code'=>$becarioCode], ['missinghours']);
+            $becario_info = $this->becario->getBecarioInfo(['code'=>$becarioCode], ['missinghours']);
 
             if($becario_info){
                 $json['missinghours'] = $becario_info->missinghours;
@@ -165,55 +165,48 @@ class Becarios extends CI_Controller{
     */
     
     
-    public function updatestock(){
+    public function updateMissingHours(){
         $this->genlib->ajaxOnly();
         
         $this->load->library('form_validation');
 
         $this->form_validation->set_error_delimiters('', '');
         
-        $this->form_validation->set_rules('_iId', 'Item ID', ['required', 'trim', 'numeric'], ['required'=>"required"]);
-        $this->form_validation->set_rules('_upType', 'Update type', ['required', 'trim', 'in_list[newStock,deficit]'], ['required'=>"required"]);
-        $this->form_validation->set_rules('qty', 'Quantity', ['required', 'trim', 'numeric'], ['required'=>"required"]);
-        $this->form_validation->set_rules('desc', 'Update Description', ['required', 'trim'], ['required'=>"required"]);
+        $this->form_validation->set_rules('_bId', 'Becario ID', ['required', 'trim', 'numeric'], ['required'=>"required"]);
+        $this->form_validation->set_rules('mhUpdateMissingHours', 'Becario missing hours', ['required', 'trim', 'numeric'], ['required'=>"required"]);
+
         
         if($this->form_validation->run() !== FALSE){
             //update stock based on the update type
-            $updateType = set_value('_upType');
-            $itemId = set_value('_iId');
-            $qty = set_value('qty');
-            $desc = set_value('desc');
+
+            $becarioId = set_value('_bId');
+            $mhUpdateMissingHours = set_value('mhUpdateMissingHours');
+
             
             $this->db->trans_start();
             
-            $updated = $updateType === "deficit" 
-                    ? 
-                $this->item->deficit($itemId, $qty, $desc) 
-                    : 
-                $this->item->newstock($itemId, $qty, $desc);
+            $updated = $this->becario->updateMissingHours($becarioId, $mhUpdateMissingHours) ;
+
             
             //add event to log if successful
-            $stockUpdateType = $updateType === "deficit" ? "Deficit" : "New Stock";
+
+            $event = "Modificado de horas de trabajo becario a cumplir";
             
-            $event = "Stock Update ($stockUpdateType)";
-            
-            $action = $updateType === "deficit" ? "removed from" : "added to";//action that happened
-            
-            $eventDesc = "<p>{$qty} quantities of {$this->genmod->gettablecol('items', 'name', 'id', $itemId)} was {$action} stock</p>
-                Reason: <p>{$desc}</p>";
+
+            $eventDesc = "<p>{$mhUpdateMissingHours} horas a cumplir de trabajo becario para {$this->genmod->gettablecol('becarios', 'name', 'id', $becarioId)} fueron establecidas</p>";
             
             //function header: addevent($event, $eventRowId, $eventDesc, $eventTable, $staffId)
-            $updated ? $this->genmod->addevent($event, $itemId, $eventDesc, "items", $this->session->admin_id) : "";
+            $updated ? $this->genmod->addevent($event, $becarioId, $eventDesc, "becarios", $this->session->admin_id) : "";
             
             $this->db->trans_complete();//end transaction
             
             $json['status'] = $this->db->trans_status() !== FALSE ? 1 : 0;
-            $json['msg'] = $updated ? "Stock successfully updated" : "Unable to update stock at this time. Please try again later";
+            $json['msg'] = $updated ? "La cantidad de horas de trabajo becario a cumplir ha sido modificada" : "Se generó un problema al modificar las horas de trabajo becario a cumplir...Intente nuevamente";
         }
         
         else{
             $json['status'] = 0;
-            $json['msg'] = "One or more required fields are empty or not correctly filled";
+            $json['msg'] = "Verifique que todos los campos hayan sido llenados correctamente";
             $json = $this->form_validation->error_array();
         }
         
@@ -237,10 +230,10 @@ class Becarios extends CI_Controller{
 
         $this->form_validation->set_error_delimiters('', '');
         
-        $this->form_validation->set_rules('_bId', 'Item ID', ['required', 'trim', 'numeric']);
-        $this->form_validation->set_rules('becarioName', 'Item Name', ['required', 'trim',
+        $this->form_validation->set_rules('_bId', 'Becario ID', ['required', 'trim', 'numeric']);
+        $this->form_validation->set_rules('becarioName', 'Becario Name', ['required', 'trim',
             'callback_crosscheckName['.$this->input->post('_bId', TRUE).']'], ['required'=>'required']);
-        $this->form_validation->set_rules('becarioCode', 'Item Code', ['required', 'trim',
+        $this->form_validation->set_rules('becarioCode', 'Becario Code', ['required', 'trim',
             'callback_crosscheckCode['.$this->input->post('_bId', TRUE).']'], ['required'=>'required']);
 
         if($this->form_validation->run() !== FALSE){
@@ -341,8 +334,8 @@ class Becarios extends CI_Controller{
         $json['status'] = 0;
         $becario_id = $this->input->post('b', TRUE);
         
-        if($item_id){
-            $this->db->where('id', $item_id)->delete('becarios');
+        if($becario_id){
+            $this->db->where('id', $becario_id)->delete('becarios');
             
             $json['status'] = 1;
         }

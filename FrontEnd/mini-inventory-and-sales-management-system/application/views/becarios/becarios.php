@@ -9,7 +9,7 @@ defined('BASEPATH') OR exit('');
             <div class="row">
                 <div class="col-sm-12">
                     <div class="col-sm-2 form-inline form-group-sm">
-                        <button class="btn btn-primary btn-sm" id='createItem'>Añadir nuevo becario</button>
+                        <button class="btn btn-primary btn-sm" id='createBecario'>Añadir nuevo becario</button>
                     </div>
                     <div class="col-sm-3 form-inline form-group-sm">
                         <label for="becariosListPerPage">Mostrar</label>
@@ -70,7 +70,7 @@ defined('BASEPATH') OR exit('');
                         <div class="row">
                             <div class="col-sm-12 form-group-sm">
                                 <label for="becarioCode">Código UPB del Becario</label>
-                                <input type="text" id="becarioCode" name="becarioCode" placeholder="Código UPB del Becario" maxlength="80"
+                                <input type="text" id="becarioCode" name="becarioCode" placeholder="Ej: 51225" maxlength="80"
                                     class="form-control" onchange="checkField(this.value, 'becarioCodeErr')" autofocus>
                                 <!--<span class="help-block"><input type="checkbox" id="gen4me"> auto-generate</span>-->
                                 <span class="help-block errMsg" id="becarioCodeErr"></span>
@@ -80,7 +80,7 @@ defined('BASEPATH') OR exit('');
                         <div class="row">
                             <div class="col-sm-12 form-group-sm">
                                 <label for="becarioName">Nombre y apellido del becario</label>
-                                <input type="text" id="becarioName" name="becarioName" placeholder="Nombre y apellido del becario" maxlength="80"
+                                <input type="text" id="becarioName" name="becarioName" placeholder="Ej: Patricio Vargas" maxlength="80"
                                     class="form-control" onchange="checkField(this.value, 'becarioNameErr')">
                                 <span class="help-block errMsg" id="becarioNameErr"></span>
                             </div>
@@ -93,7 +93,7 @@ defined('BASEPATH') OR exit('');
                             </div>
 
                             <div class="col-sm-6 form-group-sm">
-                                <button type="reset" id="cancelAddBecario" class="btn btn-danger btn-sm cancelAddBecario" form='addNewItemForm'>Cancelar</button>
+                                <button type="reset" id="cancelAddBecario" class="btn btn-danger btn-sm cancelAddBecario" form='addNewBecarioForm'>Cancelar</button>
                             </div>
                         </div>
                     </form><!-- end of form-->
@@ -122,6 +122,52 @@ defined('BASEPATH') OR exit('');
     <!-- End of row of adding new item form and items list table-->
 </div>
 
+
+
+<div id="updateMissingHoursModal" class="modal fade" role="dialog" data-backdrop="static">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button class="close" data-dismiss="modal">&times;</button>
+                <h4 class="text-center">Modificar horas no cumplidas de trabajo becario </h4>
+                <div id="mhUpdateFMsg" class="text-center"></div>
+            </div>
+            <div class="modal-body">
+                <form name="updateMissingHoursForm" id="updateMissingHoursForm" role="form">
+                    <div class="row">
+                        <div class="col-sm-4 form-group-sm">
+                            <label>Nombre del estudiante</label>
+                            <input type="text" readonly id="mhUpdateBecarioName" class="form-control">
+                        </div>
+
+                        <div class="col-sm-4 form-group-sm">
+                            <label>Código UPB del estudiante</label>
+                            <input type="text" readonly id="mhUpdateBecarioCode" class="form-control">
+                        </div>
+
+                    </div>
+                    <br>
+                    <div class="row">
+
+                        <div class="col-sm-6 form-group-sm">
+                            <label for="mhUpdateMissingHours">Horas de trabajo becario faltantes</label>
+                            <input type="number" id="mhUpdateMissingHours"
+                                class="form-control checkField" min="0">
+                            <span class="help-block errMsg" id="mhUpdateMissingHoursErr"></span>
+                        </div>
+                    </div>
+                    <input type="hidden" id="mhUpdateBecarioId">
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-primary" id="mhUpdateSubmit">Modificar horas faltantes</button>
+                <button class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
 <!--modal to edit item-->
 <div id="editBecarioModal" class="modal fade" role="dialog" data-backdrop="static">
     <div class="modal-dialog">
@@ -145,8 +191,6 @@ defined('BASEPATH') OR exit('');
                             <input type="text" id="becarioCodeEdit" class="form-control">
                             <span class="help-block errMsg" id="becarioCodeEditErr"></span>
                         </div>
-                        
-
                     </div>
 
                     <input type="hidden" id="becarioIdEdit">
