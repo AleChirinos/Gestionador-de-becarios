@@ -16,7 +16,7 @@ class Search extends CI_Controller{
         
         $this->genlib->ajaxOnly();
         
-        $this->load->model(['transaction', 'item','becario']);
+        $this->load->model(['transaction', 'item','becario', 'trabajo']);
         
         $this->load->helper('text');
         
@@ -94,6 +94,18 @@ class Search extends CI_Controller{
             //set final output
             $this->output->set_content_type('application/json')->set_output(json_encode($json));
         }
+
+    public function trabajoSearch(){
+
+        $data['allTrabajos'] = $this->trabajo->trabajosearch($this->value);
+
+        $data['sn'] = 1;
+
+        $json['trabajosListTable'] = $data['allTrabajos'] ? $this->load->view('trabajos/trabajoslisttable', $data, TRUE) : "No existen coincidencias";
+
+        //set final output
+        $this->output->set_content_type('application/json')->set_output(json_encode($json));
+    }
 
 
     

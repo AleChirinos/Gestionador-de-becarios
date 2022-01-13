@@ -161,10 +161,10 @@ defined('BASEPATH') OR exit('');
                                 Inicio
                             </a>
                         </li>
-                        <li class="<?= $pageTitle == 'Transactions' ? 'active' : '' ?>">
-                            <a id ="trans" href="<?= site_url('transactions') ?>" style="color:#FFFFFF;"  onmouseenter="myEnter2()"  onclick="myClick2()" onmouseout="myOut2()" >
+                        <li class="<?= $pageTitle == 'Trabajos' ? 'active' : '' ?>">
+                            <a id ="trans" href="<?= site_url('trabajos') ?>" style="color:#FFFFFF;"  onmouseenter="myEnter2()"  onclick="myClick2()" onmouseout="myOut2()" >
                                 <i class="fa fa-exchange"></i>
-                                Transacciones
+                                Trabajos
                             </a>
                         </li>
                         <li class="<?= $pageTitle == 'Reservations' ? 'active' : '' ?>">
