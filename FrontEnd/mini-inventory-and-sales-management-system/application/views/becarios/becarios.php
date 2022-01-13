@@ -33,13 +33,17 @@ defined('BASEPATH') OR exit('');
                         <label for="becariosListSortBy">Ordenar por</label>
                         <select id="becariosListSortBy" class="form-control">
                             <option value="name-ASC">Nombre del becario (A-Z)</option>
-                            <option value="code-ASC">Código del becario (Ascendente)</option>
-                            <option value="unitPrice-DESC">Precio unitario (El mas alto primero)</option>
-                            <option value="quantity-DESC">Cantidad (El mas alto primero)</option>
                             <option value="name-DESC">Nombre del becario (Z-A)</option>
+                            <option value="code-ASC">Código del becario (Ascendente)</option>
                             <option value="code-DESC">Código del becario (Descendente)</option>
-                            <option value="unitPrice-ASC">Precio unitario (El mas bajo primero)</option>
-                            <option value="quantity-ASC">Cantidad (El mas bajo primero)</option>
+                            <option value="totalhours-DESC">Horas de trabajo Totales (Mayor cantidad primero)</option>
+                            <option value="totalhours-ASC">Horas de trabajo Totales (Menor cantidad primero)</option>
+                            <option value="checkedhours-DESC">Horas de trabajo Cumplidas (Mayor cantidad primero)</option>
+                            <option value="checkedhours-ASC">Horas de trabajo Cumplidas (Menor cantidad primero)</option>
+                            <option value="assignedhours-DESC">Horas de trabajo Asignadas (Mayor cantidad primero)</option>
+                            <option value="assignedhours-ASC">Horas de trabajo Asignadas (Menor cantidad primero)</option>
+                            <option value="missinghours-DESC">Horas de trabajo Faltantes (Mayor cantidad primero)</option>
+                            <option value="missinghours-ASC">Horas de trabajo Faltantes (Menor cantidad primero)</option>
                         </select>
                     </div>
 

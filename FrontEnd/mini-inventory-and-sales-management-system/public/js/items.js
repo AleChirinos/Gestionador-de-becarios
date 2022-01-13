@@ -177,7 +177,8 @@ $(document).ready(function(){
     
     $("#itemSearch").keyup(function(){
         var value = $(this).val();
-        
+
+
         if(value){
             $.ajax({
                 url: appRoot+"search/itemsearch",

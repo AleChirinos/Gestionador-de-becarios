@@ -16,7 +16,7 @@ class Search extends CI_Controller{
         
         $this->genlib->ajaxOnly();
         
-        $this->load->model(['transaction', 'item']);
+        $this->load->model(['transaction', 'item','becario']);
         
         $this->load->helper('text');
         
@@ -84,7 +84,9 @@ class Search extends CI_Controller{
     }
 
     public function becarioSearch(){
+
             $data['allBecarios'] = $this->becario->becariosearch($this->value);
+
             $data['sn'] = 1;
 
             $json['becariosListTable'] = $data['allBecarios'] ? $this->load->view('becarios/becarioslisttable', $data, TRUE) : "No existen coincidencias";

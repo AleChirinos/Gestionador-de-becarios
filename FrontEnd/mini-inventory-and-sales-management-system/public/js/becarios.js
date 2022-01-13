@@ -171,12 +171,12 @@ $(document).ready(function(){
     
     $("#becarioSearch").keyup(function(){
         var value = $(this).val();
-        
+
         if(value){
             $.ajax({
-                url: appRoot+"search/becarioSearch",
+                url: appRoot+"search/becariosearch",
                 type: "get",
-                data: {value:value},
+                data: {v:value},
                 success: function(returnedData){
                     $("#becariosListTable").html(returnedData.becariosListTable);
                 }

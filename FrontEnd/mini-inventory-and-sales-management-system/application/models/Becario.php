@@ -54,10 +54,7 @@ class Becario extends CI_Model{
     }
 
     public function becariosearch($value){
-        $q = "SELECT * FROM becarios
-            WHERE 
-            name LIKE '%".$this->db->escape_like_str($value)."%'
-            ";
+        $q = "SELECT * FROM becarios WHERE name LIKE '%".$this->db->escape_like_str($value)."%' ";
 
         
         $run_q = $this->db->query($q, [$value, $value]);

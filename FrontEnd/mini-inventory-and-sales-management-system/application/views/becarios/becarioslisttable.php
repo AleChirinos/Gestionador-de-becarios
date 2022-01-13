@@ -21,9 +21,8 @@
                         <th>HORAS ASIGNADAS</th>
                         <th>HORAS FALTANTES</th>
                         <th>TRABAJOS ASIGNADOS</th>
-                        <th></th>
-                        <th></th>
-                        <th></th>
+                        <th colspan="3"> Acciones</th>
+
                     </tr>
                 </thead>
                 <tbody>
@@ -34,7 +33,7 @@
                         <td><span id="becarioName-<?=$get->id?>"><?=$get->name?></span></td>
                         <td><span id="becarioCode-<?=$get->id?>"><?=$get->code?></td>
 
-                        <td class="<?=$get->totalhours >= 50 ? 'bg-danger' : ($get->totalhours >= 25 ? 'bg-warning' : '')?>">
+                        <td>
                             <span id="totalhours-<?=$get->id?>"><?=$get->totalhours?></span>
                         </td>
                         <td>
@@ -43,7 +42,7 @@
                         <td>
                              <span id="assignedhours-<?=$get->id?>"><?=$get->assignedhours?></span>
                         </td>
-                        <td>
+                        <td class="<?=$get->missinghours >= 50 ? 'bg-danger' : ($get->missinghours >= 25 ? 'bg-warning' : '')?>">
                              <span id="missinghours-<?=$get->id?>"><?=$get->missinghours?></span>
                         </td>
                          <td>

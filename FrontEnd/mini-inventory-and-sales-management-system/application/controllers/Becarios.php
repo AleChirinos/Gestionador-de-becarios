@@ -42,7 +42,8 @@ class Becarios extends CI_Controller{
 	
         $limit = $this->input->get('limit', TRUE) ? $this->input->get('limit', TRUE) : 10;//show $limit per page
         $start = $pageNumber == 0 ? 0 : ($pageNumber - 1) * $limit;//start from 0 if pageNumber is 0, else start from the next iteration
-        
+
+
         //call setPaginationConfig($totalRows, $urlToCall, $limit, $attributes) in genlib to configure pagination
         $config = $this->genlib->setPaginationConfig($totalBecarios, "becarios/cargarBecarios", $limit, ['onclick'=>'return cargarBecarios(this.href);']);
         
