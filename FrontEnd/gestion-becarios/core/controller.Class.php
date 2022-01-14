@@ -87,7 +87,7 @@ class Controller {
             if($insertNewUser){
                 setcookie("id", $db->lastInsertId(), time()+60*60*24*30, "/", NULL);
                 setcookie("sess", $session, time()+60*60*24*30, "/", NULL);
-                header('Location: glogin.php');
+                header('Location: dashboard');
                 exit();
             }else{
                 return "Error inserting user!";
@@ -95,7 +95,7 @@ class Controller {
         }else{
             setcookie("id", $info['id'], time()+60*60*24*30, "/", NULL);
             setcookie("sess", $info["session"], time()+60*60*24*30, "/", NULL);
-            header('Location: glogin.php');
+            header('Location: dashboard');
             exit();
         }
     }

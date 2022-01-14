@@ -4,7 +4,7 @@ require_once 'config.php';
 if (isset($_GET['code'])) {
     $token = $gClient->fetchAccessTokenWithAuthCode($_GET["code"]);
 }else{
-    header('Location: glogin.php');
+    header('Location: dashboard');
     exit();
 }
 if(isset($token["error"]) != "invalid_grant"){
@@ -21,8 +21,9 @@ if(isset($token["error"]) != "invalid_grant"){
             'givenName' => $userData['givenName'],
         )
     );
+    header('Location: dashboard');
 }else{
-    header('Location: glogin.php');
+    header('Location: dashboard');
     exit();
 }
 ?>
