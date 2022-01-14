@@ -1,0 +1,32 @@
+<?php defined('BASEPATH') OR exit('No direct script access allowed'); ?>
+
+ERROR - 2022-01-13 00:38:38 --> Severity: error --> Exception: Division by zero C:\xampp\htdocs\mini-inventory-and-sales-management-system\application\controllers\Dashboard.php 165
+ERROR - 2022-01-13 00:39:45 --> Severity: 8192 --> ctype_digit(): Argument of type null will be interpreted as string in the future C:\xampp\htdocs\mini-inventory-and-sales-management-system\system\libraries\Pagination.php 522
+ERROR - 2022-01-13 00:39:58 --> Severity: Warning --> Undefined property: Search::$becario C:\xampp\htdocs\mini-inventory-and-sales-management-system\application\controllers\Search.php 88
+ERROR - 2022-01-13 00:39:58 --> Severity: error --> Exception: Call to a member function becariosearch() on null C:\xampp\htdocs\mini-inventory-and-sales-management-system\application\controllers\Search.php 88
+ERROR - 2022-01-13 00:39:58 --> Severity: Warning --> Undefined property: Search::$becario C:\xampp\htdocs\mini-inventory-and-sales-management-system\application\controllers\Search.php 88
+ERROR - 2022-01-13 00:39:58 --> Severity: error --> Exception: Call to a member function becariosearch() on null C:\xampp\htdocs\mini-inventory-and-sales-management-system\application\controllers\Search.php 88
+ERROR - 2022-01-13 00:39:58 --> Severity: Warning --> Undefined property: Search::$becario C:\xampp\htdocs\mini-inventory-and-sales-management-system\application\controllers\Search.php 88
+ERROR - 2022-01-13 00:39:58 --> Severity: error --> Exception: Call to a member function becariosearch() on null C:\xampp\htdocs\mini-inventory-and-sales-management-system\application\controllers\Search.php 88
+ERROR - 2022-01-13 00:39:58 --> Severity: Warning --> Undefined property: Search::$becario C:\xampp\htdocs\mini-inventory-and-sales-management-system\application\controllers\Search.php 88
+ERROR - 2022-01-13 00:39:58 --> Severity: error --> Exception: Call to a member function becariosearch() on null C:\xampp\htdocs\mini-inventory-and-sales-management-system\application\controllers\Search.php 88
+ERROR - 2022-01-13 00:39:59 --> Severity: Warning --> Undefined property: Search::$becario C:\xampp\htdocs\mini-inventory-and-sales-management-system\application\controllers\Search.php 88
+ERROR - 2022-01-13 00:39:59 --> Severity: error --> Exception: Call to a member function becariosearch() on null C:\xampp\htdocs\mini-inventory-and-sales-management-system\application\controllers\Search.php 88
+ERROR - 2022-01-13 00:39:59 --> Severity: Warning --> Undefined property: Search::$becario C:\xampp\htdocs\mini-inventory-and-sales-management-system\application\controllers\Search.php 88
+ERROR - 2022-01-13 00:39:59 --> Severity: error --> Exception: Call to a member function becariosearch() on null C:\xampp\htdocs\mini-inventory-and-sales-management-system\application\controllers\Search.php 88
+ERROR - 2022-01-13 00:39:59 --> Severity: Warning --> Undefined property: Search::$becario C:\xampp\htdocs\mini-inventory-and-sales-management-system\application\controllers\Search.php 88
+ERROR - 2022-01-13 00:39:59 --> Severity: error --> Exception: Call to a member function becariosearch() on null C:\xampp\htdocs\mini-inventory-and-sales-management-system\application\controllers\Search.php 88
+ERROR - 2022-01-13 01:34:10 --> Severity: 8192 --> ctype_digit(): Argument of type null will be interpreted as string in the future C:\xampp\htdocs\mini-inventory-and-sales-management-system\system\libraries\Pagination.php 522
+ERROR - 2022-01-13 01:34:18 --> Severity: 8192 --> ctype_digit(): Argument of type null will be interpreted as string in the future C:\xampp\htdocs\mini-inventory-and-sales-management-system\system\libraries\Pagination.php 522
+ERROR - 2022-01-13 01:34:31 --> Severity: 8192 --> ctype_digit(): Argument of type null will be interpreted as string in the future C:\xampp\htdocs\mini-inventory-and-sales-management-system\system\libraries\Pagination.php 522
+ERROR - 2022-01-13 01:34:33 --> Severity: 8192 --> ctype_digit(): Argument of type null will be interpreted as string in the future C:\xampp\htdocs\mini-inventory-and-sales-management-system\system\libraries\Pagination.php 522
+ERROR - 2022-01-13 01:40:08 --> Severity: error --> Exception: Call to undefined method CI_DB_pdo_mysql_driver::res_start() C:\xampp\htdocs\mini-inventory-and-sales-management-system\application\controllers\Reservations.php 259
+ERROR - 2022-01-13 01:40:14 --> Severity: error --> Exception: Call to undefined method CI_DB_pdo_mysql_driver::res_start() C:\xampp\htdocs\mini-inventory-and-sales-management-system\application\controllers\Reservations.php 259
+ERROR - 2022-01-13 01:40:26 --> Severity: error --> Exception: Call to undefined method CI_DB_pdo_mysql_driver::res_start() C:\xampp\htdocs\mini-inventory-and-sales-management-system\application\controllers\Reservations.php 259
+ERROR - 2022-01-13 01:42:03 --> Severity: 8192 --> ctype_digit(): Argument of type null will be interpreted as string in the future C:\xampp\htdocs\mini-inventory-and-sales-management-system\system\libraries\Pagination.php 522
+ERROR - 2022-01-13 01:42:26 --> Severity: 8192 --> ctype_digit(): Argument of type null will be interpreted as string in the future C:\xampp\htdocs\mini-inventory-and-sales-management-system\system\libraries\Pagination.php 522
+ERROR - 2022-01-13 01:42:28 --> Severity: 8192 --> ctype_digit(): Argument of type null will be interpreted as string in the future C:\xampp\htdocs\mini-inventory-and-sales-management-system\system\libraries\Pagination.php 522
+ERROR - 2022-01-13 01:42:31 --> Severity: 8192 --> ctype_digit(): Argument of type null will be interpreted as string in the future C:\xampp\htdocs\mini-inventory-and-sales-management-system\system\libraries\Pagination.php 522
+ERROR - 2022-01-13 01:42:37 --> Severity: 8192 --> ctype_digit(): Argument of type null will be interpreted as string in the future C:\xampp\htdocs\mini-inventory-and-sales-management-system\system\libraries\Pagination.php 522
+ERROR - 2022-01-13 01:49:06 --> Severity: error --> Exception: count(): Argument #1 ($value) must be of type Countable|array, bool given C:\xampp\htdocs\mini-inventory-and-sales-management-system\application\controllers\Administrators.php 53
+ERROR - 2022-01-13 02:59:32 --> Severity: 8192 --> ctype_digit(): Argument of type null will be interpreted as string in the future C:\xampp\htdocs\mini-inventory-and-sales-management-system\system\libraries\Pagination.php 522

@@ -161,10 +161,10 @@ defined('BASEPATH') OR exit('');
                                 Inicio
                             </a>
                         </li>
-                        <li class="<?= $pageTitle == 'Transactions' ? 'active' : '' ?>">
-                            <a id ="trans" href="<?= site_url('transactions') ?>" style="color:#FFFFFF;"  onmouseenter="myEnter2()"  onclick="myClick2()" onmouseout="myOut2()" >
+                        <li class="<?= $pageTitle == 'Trabajos' ? 'active' : '' ?>">
+                            <a id ="trans" href="<?= site_url('trabajos') ?>" style="color:#FFFFFF;"  onmouseenter="myEnter2()"  onclick="myClick2()" onmouseout="myOut2()" >
                                 <i class="fa fa-exchange"></i>
-                                Transacciones
+                                Trabajos
                             </a>
                         </li>
                         <li class="<?= $pageTitle == 'Reservations' ? 'active' : '' ?>">
@@ -175,10 +175,10 @@ defined('BASEPATH') OR exit('');
                         </li>
                         
                         <?php if($this->session->admin_role === "Super"):?>
-                        <li class="<?= $pageTitle == 'Items' ? 'active' : '' ?>">
-                            <a id ="inv" href="<?= site_url('items') ?>"  style="color:#FFFFFF;"  onmouseenter="myEnter4()"  onclick="myClick4()" onmouseout="myOut4()" >
-                                <i class="fa fa-shopping-cart"></i>
-                                Inventario
+                        <li class="<?= $pageTitle == 'Becarios' ? 'active' : '' ?>">
+                            <a id ="inv" href="<?= site_url('becarios') ?>"  style="color:#FFFFFF;"  onmouseenter="myEnter4()"  onclick="myClick4()" onmouseout="myOut4()" >
+                                <i class="fa fa-user"></i>
+                                Becarios
                             </a>
                         </li>
 

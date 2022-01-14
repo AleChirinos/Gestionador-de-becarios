@@ -122,6 +122,41 @@ CREATE TABLE `items` (
   `lastUpdated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+
+
+CREATE TABLE `becarios` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `name` varchar(50) NOT NULL,
+  `code` varchar(50) NOT NULL,
+  `totalhours` int(6) NOT NULL,
+  `checkedhours` int(6) NOT NULL,
+  `assignedhours` int(6) NOT NULL,
+  `missinghours` int(6) NOT NULL,
+  `dateAdded` datetime NOT NULL,
+  `lastUpdated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+CREATE TABLE `trabajos` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `name` varchar(100) NOT NULL,
+  `description` text,
+  `workhours` int(6) NOT NULL,
+  `dateAdded` datetime NOT NULL,
+  `lastUpdated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+
+CREATE TABLE `asignaciones` (
+  `asignId` bigint(20) UNSIGNED NOT NULL,
+  `becarioName` varchar(50) NOT NULL,
+  `becarioCode` varchar(50) NOT NULL,
+  `trabajo_name` varchar(100) DEFAULT NULL,
+  `trabajo_code` varchar(50) DEFAULT NULL,
+  `accomplished` char(1) NOT NULL DEFAULT '0',
+  `assignDate` datetime NOT NULL,
+  `lastUpdated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
 CREATE TABLE `processes` (
                          `id` bigint(20) UNSIGNED NOT NULL,
                          `name` varchar(50) NOT NULL,
@@ -242,6 +277,15 @@ ALTER TABLE `items`
   ADD UNIQUE KEY `name` (`name`),
   ADD UNIQUE KEY `code` (`code`);
 
+ALTER TABLE `becarios`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `name` (`name`),
+  ADD UNIQUE KEY `code` (`code`);
+
+ALTER TABLE `trabajos`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `name` (`name`);
+
 ALTER TABLE `processes`
     ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `name` (`name`),
@@ -252,6 +296,9 @@ ALTER TABLE `processes`
 --
 ALTER TABLE `transactions`
   ADD PRIMARY KEY (`transId`);
+
+ALTER TABLE `asignaciones`
+  ADD PRIMARY KEY (`asignId`);
 
 ALTER TABLE `reservations`
     ADD PRIMARY KEY (`resId`);
@@ -285,6 +332,12 @@ ALTER TABLE `eventlog`
 --
 ALTER TABLE `items`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+ALTER TABLE `becarios`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+ALTER TABLE `trabajos`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `processes`
 --
@@ -293,6 +346,10 @@ ALTER TABLE `processes`
 --
 -- AUTO_INCREMENT for table `transactions`
 --
+
+ALTER TABLE `asignaciones`
+  MODIFY `asignId` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;COMMIT;
+
 ALTER TABLE `transactions`
   MODIFY `transId` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;COMMIT;
 --
