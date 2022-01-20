@@ -10,13 +10,14 @@ class Becarios extends CI_Controller{
         
         $this->genlib->checkLogin();
         
-        $this->load->model(['becario']);
+        $this->load->model(['becario','asignacion']);
     }
     
     /**
      * 
      */
     public function index(){
+
         $data['pageContent'] = $this->load->view('becarios/becarios', '', TRUE);
         $data['pageTitle'] = "Becarios";
 
@@ -51,6 +52,7 @@ class Becarios extends CI_Controller{
         
         //get all items from db
         $data['allBecarios'] = $this->becario->getAll($orderBy, $orderFormat, $start, $limit);
+        $data['allAsignaciones']=$this->asignacion->getAll("trabajo_name", "ASC");
         $data['range'] = $totalBecarios > 0 ? "Mostrando " . ($start+1) . "-" . ($start + count($data['allBecarios'])) . " de " . $totalBecarios : "";
         $data['links'] = $this->pagination->create_links();//page links
         $data['sn'] = $start+1;
@@ -122,7 +124,8 @@ class Becarios extends CI_Controller{
         
         $json['status'] = $a ? 1 : 0;
         $json['colVal'] = $a;
-        
+
+
         $this->output->set_content_type('application/json')->set_output(json_encode($json));
     }
     
@@ -138,16 +141,19 @@ class Becarios extends CI_Controller{
     /**
      * 
      */
-    public function getcodeandhours(){
+    public function getcodenameandhours(){
         $json['status'] = 0;
         
         $becarioCode = $this->input->get('_bC', TRUE);
+
         
-        if($itemCode){
-            $becario_info = $this->becario->getBecarioInfo(['code'=>$becarioCode], ['missinghours']);
+        if($becarioCode){
+            $becario_info = $this->becario->getBecarioInfo(['code'=>$becarioCode], ['missinghours','name','id']);
 
             if($becario_info){
                 $json['missinghours'] = $becario_info->missinghours;
+                $json['name'] = $becario_info->name;
+                $json['becarioId'] = $becario_info->id;
                 $json['status'] = 1;
             }
         }
@@ -245,7 +251,9 @@ class Becarios extends CI_Controller{
             //update item in db
             $updated = $this->becario->edit($becarioId, $becarioName, $becarioCode);
 
-            $json['status'] = $updated ? 1 : 0;
+            $updated2 = $this->asignacion->editByBecario($becarioCode,$becarioName,$becarioId);
+
+            $json['status'] = $updated && $updated2 ? 1 : 0;
 
             //add event to log
             //function header: addevent($event, $eventRowId, $eventDesc, $eventTable, $staffId)
@@ -334,10 +342,12 @@ class Becarios extends CI_Controller{
         
         $json['status'] = 0;
         $becario_id = $this->input->post('b', TRUE);
+        $becario_name = $this->input->post('bn', TRUE);
         
-        if($becario_id){
-            $this->db->where('id', $becario_id)->delete('becarios');
-            
+        if($becario_id && $becario_name){
+
+        $this->db->delete('becarios', array('id' => $becario_id));
+        $this->db->delete('asignaciones', array('becarioName' => $becario_name));
             $json['status'] = 1;
         }
         

@@ -39,17 +39,29 @@
                         </td>
                         
                         <td>
+                          <ul>
+                                                    <?php if(!is_bool($allAsignaciones)) {
+                                                     foreach($allAsignaciones as $getIt)
+                                                                                                        {
+                                                                                                         if ($getIt->trabajo_name === $get->name && $getIt->accomplished==0 ) {
+                                                                                                             echo '<li><a class="pointer delBecario" id="'.$getIt->becarioName.'">'.$getIt->becarioName.'</a></li>';
+                                                                                                             }
+                                                                                                        }
+                                                    }
 
+                                                    ?>
+
+                                                    </ul>
                         </td>
 
-                        <td class="text-center text-primary"><span class="pointer assignBecarios" id="asign-<?=$get->id?>"><i class="fa fa-user-circle pointer" aria-hidden="true"></i></a></td>
+                        <td class="text-center text-primary"><span class=" assignBecarios" id="asign-<?=$get->id?>" title="Añadir Becario"><i class="fa fa-user-plus fa-2x pointer" ></i></a></td>
 
-                        <td class="text-center text-primary"><span class="pointer updateTrabajoHours" id="stock-<?=$get->id?>"><i class="fa fa-clock-o fa-2x pointer"></i></a></td>
+                        <td class="text-center text-primary"><span class=" updateTrabajoHours" id="stock-<?=$get->id?>" title="Modificar horas de trabajo"><i class="fa fa-clock-o fa-2x pointer"></i></a></td>
 
                         <td class="text-center text-primary">
-                            <span class="editTrabajo" id="edit-<?=$get->id?>"><i class="fa fa-pencil fa-2x pointer"></i> </span>
+                            <span class="editTrabajo" id="edit-<?=$get->id?>"  title="Modificar información de trabajo"><i class="fa fa-pencil fa-2x pointer"></i> </span>
                         </td>
-                        <td class="text-center"><i class="fa fa-trash fa-2x text-danger delTrabajo pointer"></i></td>
+                        <td class="text-center"><i class="fa fa-trash fa-2x text-danger delTrabajo pointer"  title="Eliminar trabajo"></i></td>
                     </tr>
                     <?php $sn++; ?>
                     <?php endforeach; ?>

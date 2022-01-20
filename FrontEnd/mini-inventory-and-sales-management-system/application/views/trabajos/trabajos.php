@@ -1,6 +1,23 @@
 <?php
 defined('BASEPATH') OR exit('');
+
+$current_items = [];
+
+if(isset($becarios) && !empty($becarios)){
+    foreach($becarios as $get){
+        $current_items[$get->code] = $get->name;
+         echo '<script>';
+         echo 'console.log('. json_encode( $get->name ) .')';
+         echo '</script>';
+    }
+}
 ?>
+
+<script>
+    var currentBecarios = <?=json_encode($current_items)?>;
+    console.log(currentBecarios);
+</script>
+
 
 <div class="pwell hidden-print">   
     <div class="row">
@@ -202,6 +219,64 @@ defined('BASEPATH') OR exit('');
     </div>
 </div>
 
+
+<!--modal to edit item-->
+<div id="addBecarioTrabajoModal" class="modal fade" role="dialog" data-backdrop="static">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button class="close" data-dismiss="modal">&times;</button>
+                <h4 class="text-center">Asignar becario al trabajo</h4>
+                <div id="becTrabajoFMsg" class="text-center"></div>
+            </div>
+            <div class="modal-body">
+                <form role="form">
+                    <div class="row">
+
+
+                     <div class="col-sm-4 form-group-sm">
+                            <label for="selectedBecarioDefault">Becario</label>
+                            <select class="form-control" id="selectedBecarioDefault" onchange="selectedBecario(this)">
+                            <option selected>Selecciona a tu becario:</option>
+                             <?php
+
+                                foreach($becarios as $row)
+                                        {
+                                          echo '<option value="'.$row->code.'">'.$row->name.'</option>';
+                                 }
+                              ?>
+                            </select>
+                             <span class="help-block errMsg" id="selectedBecarioDefaultErr"></span>
+                        </div>
+
+                        <div class="col-sm-4 form-group-sm">
+                            <label for="becarioAssignHours">Horas del trabajo</label>
+                            <input type="number" readonly id="becarioAssignHours"
+                            class="form-control checkField" min="0">
+                            <span class="help-block errMsg" id="becarioAssignHoursErr"></span>
+                        </div>
+
+                        <div class="col-sm-4 form-group-sm">
+                            <label for="becarioDisHours">Horas faltantes (becario) </label>
+                            <input type="number" readonly id="becarioDisHours"
+                            class="form-control checkField" min="0">
+                            <span class="help-block errMsg" id="becarioDisHoursErr"></span>
+                        </div>
+                     </div>
+                     <input  id="trabajoBecName">
+                    <input  id="trabajoNameBec">
+                    <input  id="trabajoIdBec">
+                    <input  id="becId">
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-primary" id="assignBecarioSubmit">Guardar informacion</button>
+                <button class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
 <div class="modal fade" id='reportIt' data-backdrop='static' role='dialog'>
     <div class="modal-dialog">
         <div class="modal-content">
@@ -217,5 +292,7 @@ defined('BASEPATH') OR exit('');
         </div>
     </div>
 </div>
+
+
 <!--end of modal-->
 <script src="<?=base_url()?>public/js/trabajos.js"></script>

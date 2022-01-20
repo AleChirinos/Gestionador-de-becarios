@@ -101,8 +101,10 @@ class Trabajo extends CI_Model{
    public function edit($trabajoId, $trabajoName, $trabajoDesc){
        $data = ['name'=>$trabajoName, 'description'=>$trabajoDesc ];
 
+
        $this->db->where('id', $trabajoId);
        $this->db->update('trabajos', $data);
+
        
        return TRUE;
    }

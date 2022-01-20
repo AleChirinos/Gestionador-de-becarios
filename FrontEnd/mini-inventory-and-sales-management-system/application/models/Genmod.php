@@ -73,7 +73,37 @@ class Genmod extends CI_Model{
             return FALSE;
         }
     }
-    
+
+     public function getTableColumns($tableName, $selColName, $whereColName, $colValue){
+            $q = "SELECT $selColName FROM $tableName WHERE $whereColName = ?";
+
+            $run_q = $this->db->query($q, [$colValue]);
+
+            if($run_q->num_rows() > 0){
+                return $run_q->result();
+            }
+
+            else{
+                return FALSE;
+            }
+    }
+
+
+    public function getTableColMultiQuery($tableName, $selColName, $whereCol1Name,  $whereCol2Name, $colValue1, $colValue2){
+            $q = "SELECT $selColName FROM $tableName WHERE $whereCol1Name = ? AND  $whereCol2Name= ?";
+
+            $run_q = $this->db->query($q, [$colValue1, $colValue2]);
+
+            if($run_q->num_rows() > 0){
+                foreach($run_q->result() as $get){
+                    return $get->$selColName;
+                }
+            }
+
+            else{
+                return FALSE;
+            }
+        }
     /*
     ********************************************************************************************************************************
     ********************************************************************************************************************************

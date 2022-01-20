@@ -13,7 +13,7 @@ class Reservations extends CI_Controller{
         
         $this->genlib->checkLogin();
         
-        $this->load->model(['reservation', 'item']);
+        $this->load->model(['reservation', 'item','becario']);
     }
     
     /*
@@ -25,7 +25,7 @@ class Reservations extends CI_Controller{
     */
     
     public function index(){
-        $resData['items'] = $this->item->getActiveItems('name', 'ASC');//get items with at least one qty left, to be used when doing a new reservation
+        $resData['becarios'] = $this->becario->getAll('name', 'ASC');//get items with at least one qty left, to be used when doing a new reservation
         
         $data['pageContent'] = $this->load->view('reservations/reservations', $resData, TRUE);
         $data['pageTitle'] = "Reservations";

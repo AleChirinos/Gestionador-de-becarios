@@ -46,15 +46,28 @@
                              <span id="missinghours-<?=$get->id?>"><?=$get->missinghours?></span>
                         </td>
                          <td>
+                           <ul>
+                           <?php if(!is_bool($allAsignaciones)) {
+                            foreach($allAsignaciones as $getIt)
+                                                      {
+                                                       if ($getIt->becarioName === $get->name && $getIt->accomplished==0 ) {
+                                                           echo '<li><a class="pointer delBecario" id="'.$getIt->trabajo_name.'">'.$getIt->trabajo_name.'</a></li>';
+                                                           }
+                                                      }
+                           }
+
+                           ?>
+
+                           </ul>
 
                          </td>
 
-                        <td><a class="pointer updateMissingHours" id="stock-<?=$get->id?>">Modificar horas a cumplir</a></td>
+                        <td class="text-center text-primary"><span class=" updateMissingHours" id="stock-<?=$get->id?>" title="Modificar horas de trabajo becario a cumplir"><i class="fa fa-clock-o fa-2x pointer"></i></a></td>
 
                         <td class="text-center text-primary">
-                            <span class="editBecario" id="edit-<?=$get->id?>"><i class="fa fa-pencil pointer"></i> </span>
+                            <span class="editBecario" id="edit-<?=$get->id?>" title="Modificar información de becario"><i class="fa fa-pencil fa-2x pointer"></i> </span>
                         </td>
-                        <td class="text-center"><i class="fa fa-trash text-danger delBecario pointer"></i></td>
+                        <td class="text-center"><i class="fa fa-trash fa-2x text-danger delBecario pointer" title="Eliminar becario" ></i></td>
                     </tr>
                     <?php $sn++; ?>
                     <?php endforeach; ?>
