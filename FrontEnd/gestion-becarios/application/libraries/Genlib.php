@@ -57,7 +57,7 @@ class Genlib {
      */
     public function superOnly() {
         //prevent access if user is not logged in or role is not "Super"
-        if (empty($_SESSION['admin_id']) || (isset($_SESSION['admin_role']) && $_SESSION['admin_role'] !== "Super")) {
+        if (empty($_SESSION['admin_id']) || (isset($_SESSION['admin_role']) && $_SESSION['admin_role'] === "Gesti" )) {
             redirect(base_url());
         }
     }

@@ -1,8 +1,9 @@
 'use strict';
 
 $(document).ready(function(){
+
     checkDocumentVisibility(checkLogin);//check document visibility in order to confirm user's log in status
-	
+
     //load all items once the page is ready
     cargarTrabajos();
 
@@ -11,7 +12,7 @@ $(document).ready(function(){
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    
+
     /**
      * Toggle the form to add a new item
      */
@@ -20,69 +21,69 @@ $(document).ready(function(){
         $("#createNewTrabajoDiv").toggleClass('hidden');
         $("#trabajoName").focus();
     });
-    
+
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    
-    
+
+
     $(".cancelAddTrabajo").click(function(){
         //reset and hide the form
         document.getElementById("addNewTrabajoForm").reset();//reset the form
         $("#createNewTrabajoDiv").addClass('hidden');//hide the form
         $("#trabajosListDiv").attr('class', "col-sm-12");//make the table span the whole div
     });
-    
+
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    
+
     //handles the submission of adding new item
     $("#addNewTrabajo").click(function(e){
         e.preventDefault();
-        
+
         changeInnerHTML(['trabajoNameErr', 'trabajoHoursErr', 'addCustErrMsg'], "");
-        
+
         var trabajoName = $("#trabajoName").val();
         var trabajoHours = $("#trabajoHours").val();
         var trabajoDescription = $("#trabajoDescription").val();
-        
+
         if(!trabajoName || !trabajoHours){
             !trabajoName ? $("#trabajoNameErr").text("Se requiere llenar el campo") : "";
 
             !trabajoHours ? $("#trabajoHoursErr").text("Se requiere llenar el campo") : "";
-            
+
             $("#addCustErrMsg").text("Existen uno o varios campos vacíos");
-            
+
             return;
         }
-        
+
         displayFlashMsg("Creando trabajo "+trabajoName+"'", "fa fa-spinner faa-spin animated", '', '');
-        
+
         $.ajax({
             type: "post",
             url: appRoot+"trabajos/add",
             data:{trabajoName:trabajoName, trabajoHours:trabajoHours, trabajoDesc:trabajoDescription},
-            
+
             success: function(returnedData){
                 if(returnedData.status === 1){
                     changeFlashMsgContent(returnedData.msg, "text-success", '', 1500);
                     document.getElementById("addNewTrabajoForm").reset();
-                    
+
                     //refresh the items list table
                     cargarTrabajos();
-                    
+
                     //return focus to item code input to allow adding item with barcode scanner
                     $("#trabajoName").focus();
                 }
-                
+
                 else{
                     hideFlashMsg();
-                    
+
                     //display all errors
                     $("#trabajoNameErr").text(returnedData.trabajoName);
                     $("#trabajoHoursErr").text(returnedData.trabajoHours);
@@ -101,26 +102,26 @@ $(document).ready(function(){
             }
         });
     });
-    
-    
+
+
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    
+
     //reload items list table when events occur
     $("#trabajosListPerPage, #trabajosListSortBy").change(function(){
         displayFlashMsg("Espere un momento...", spinnerClass, "", "");
         cargarTrabajos();
     });
-    
+
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    
+
     $("#trabajoSearch").keyup(function(){
         var value = $(this).val();
 
@@ -134,24 +135,24 @@ $(document).ready(function(){
                 }
             });
         }
-        
+
         else{
             //reload the table if all text in search box has been cleared
             displayFlashMsg("Cargando página...", spinnerClass, "", "");
             cargarTrabajos();
         }
     });
-    
+
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    
+
     //triggers when an item's "edit" icon is clicked
     $("#trabajosListTable").on('click', ".editTrabajo", function(e){
         e.preventDefault();
-        
+
         //get item info
         var trabajoId = $(this).attr('id').split("-")[1];
         var trabajoName = $("#trabajoName-"+trabajoId).html();
@@ -172,22 +173,118 @@ $(document).ready(function(){
         //launch modal
         $("#editTrabajoModal").modal('show');
     });
-    
 
-    
+    $("#trabajosListTable").on('click', ".assignBecarios", function(){
+
+
+        //get item info
+        var trabajoId = $(this).attr('id').split("-")[1];
+        var trabajoName = $("#trabajoName-"+trabajoId).html();
+        var trabajoHours = $("#workhours-"+trabajoId).html();
+
+
+
+        //prefill form with info
+        $("#trabajoIdBec").val(trabajoId);
+        $("#trabajoNameBec").val(trabajoName);
+        $("#becarioAssignHours").val(trabajoHours);
+        $("#becarioDisHours").val("");
+
+
+        $("#becTrabajoFMsg").html("");
+        $("#trabajoNameBecErr").html("");
+        $("#becarioAssignHoursErr").html("");
+        $("#becarioDisHoursErr").html("");
+        $("#selectedBecarioDefaultErr").html("");
+
+
+
+
+
+        $("#addBecarioTrabajoModal").modal('show');
+
+
+
+        //launch modal
+
+    });
+
+    $("#assignBecarioSubmit").click(function(){
+
+        var trabajoName = $("#trabajoNameBec").val();
+        var trabajoId = $("#trabajoIdBec").val();
+        var becarioCode = $("#selectedBecarioDefault").val();
+        var becarioName=$("#trabajoBecName").val();
+        var trabajoHours=$("#becarioAssignHours").val();
+        var becarioHours=$("#becarioDisHours").val();
+        var becarioId=$("#becId").val();
+
+        console.log('Trabajo: Nombre '+trabajoName+' Id '+trabajoId+ ' hours '+trabajoHours);
+        console.log('Becario: Nombre '+becarioName+' Codigo '+becarioCode+ ' becarioHours '+becarioHours+' id '+becarioId);
+
+
+
+
+        if(!becarioHours || (!becarioCode || becarioCode==='Selecciona a tu becario:') ){
+            !becarioHours || becarioHours==0 ? $("#becarioDisHoursErr").html("Becario no escogido") : "";
+            !becarioCode || becarioCode==='Selecciona a tu becario:'? $("#selectedBecarioDefaultErr").html("Se requiere escoger un becario") : "";
+            return;
+        }
+
+        $("#becTrabajoFMsg").css('color', 'black').html("<i class='"+spinnerClass+"'></i> Realizando la asignación...");
+
+        $.ajax({
+            method: "POST",
+            url: appRoot+"trabajos/assignBecario",
+            data: {becarioName:becarioName,becarioCode:becarioCode, trabajoName:trabajoName ,_tId:trabajoId, _bId:becarioId,trabajoHours:trabajoHours, becHours:becarioHours}
+        }).done(function(returnedData){
+
+            if(returnedData.status === 1){
+                $("#becTrabajoFMsg").css('color', 'green').html("Asignación del becario exitosa");
+
+                setTimeout(function(){
+                    $("#addBecarioTrabajoModal").modal('hide');
+                }, 1000);
+
+                cargarTrabajos();
+            }
+
+            else{
+                $("#becTrabajoFMsg").css('color', 'red').html("Existen uno o más campos vacíos o llenados de manera incorrecta");
+                $("#becarioDisHoursErr").html(returnedData.becarioHours);
+
+
+            }
+        }).fail(function(){
+            $("#becTrabajoFMsg").css('color', 'red').html("No se puede realizar la acción en este momento. Por favor, verificar conexión a internet e intentar nuevamente más tarde");
+        });
+
+        $("#trabajoNameBecErr").html("");
+        $("#becarioAssignHoursErr").html("");
+        $("#becarioDisHoursErr").html("");
+        $("#selectedBecarioDefaultErr").html("");
+
+
+    });
+
+
+
+
+
+
     $("#editTrabajoSubmit").click(function(){
         var trabajoName = $("#trabajoNameEdit").val();
         var trabajoId = $("#trabajoIdEdit").val();
         var trabajoDesc = $("#trabajoDescriptionEdit").val();
-        
+
         if(!trabajoName || !trabajoId){
             !trabajoName ? $("#trabajoNameEditErr").html("El campo de nombre no debe estar vacío") : "";
             !trabajoId ? $("#editTrabajoFMsg").html("Trabajo desconocido") : "";
             return;
         }
-        
+
         $("#editTrabajoFMsg").css('color', 'black').html("<i class='"+spinnerClass+"'></i> Realizando la edición...");
-        
+
         $.ajax({
             method: "POST",
             url: appRoot+"trabajos/edit",
@@ -195,17 +292,17 @@ $(document).ready(function(){
         }).done(function(returnedData){
             if(returnedData.status === 1){
                 $("#editTrabajoFMsg").css('color', 'green').html("Información del trabajo actualizada");
-                
+
                 setTimeout(function(){
                     $("#editTrabajoModal").modal('hide');
                 }, 1000);
-                
+
                 cargarTrabajos();
             }
-            
+
             else{
                 $("#editTrabajoFMsg").css('color', 'red').html("Existen uno o más campos vacíos o llenados de manera incorrecta");
-                
+
                 $("#trabajoNameEditErr").html(returnedData.trabajoName);
 
             }
@@ -213,25 +310,25 @@ $(document).ready(function(){
             $("#editTrabajoFMsg").css('color', 'red').html("No se puede realizar la acción en este momento. Por favor, verificar conexión a internet e intentar nuevamente más tarde");
         });
     });
-    
-    
+
+
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    
+
     //trigers the modal to update stock
     $("#trabajosListTable").on('click', '.updateTrabajoHours', function(){
         //get item info and fill the form with them
         var trabajoId = $(this).attr('id').split("-")[1];
         var trabajoName = $("#trabajoName-"+trabajoId).html();
         var workHours = $("#workhours-"+trabajoId).html();
-        
+
         $("#thUpdateTrabajoId").val(trabajoId);
         $("#thUpdateTrabajoName").val(trabajoName);
         $("#thUpdateTrabajoHours").val(workHours);
-        
+
         $("#updateTrabajoHoursModal").modal('show');
     });
 
@@ -240,20 +337,20 @@ $(document).ready(function(){
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    
-    //handles the updating of item's quantity in stock
+
+
     $("#thUpdateSubmit").click(function(){
         var thUpdateTrabajoHours = $("#thUpdateTrabajoHours").val();
         var trabajoId = $("#thUpdateTrabajoId").val();
-        
+
         if(!thUpdateTrabajoHours || !trabajoId){
             !thUpdateTrabajoHours ? $("#thUpdateTrabajoHoursErr").html("El campo de horas faltantes no debe estar vacío") : "";
             !trabajoId ? $("#thUpdateTrabajoIdErr").html("El id del trabajo no debe estar vacío") : "";
             return;
         }
-        
+
         $("#thUpdateFMsg").html("<i class='"+spinnerClass+"'></i> Modificando horas de trabajo faltantes...");
-        
+
         $.ajax({
             method: "POST",
             url: appRoot+"trabajos/updateTrabajoHours",
@@ -270,7 +367,7 @@ $(document).ready(function(){
                 cargarTrabajos();
 
             }
-            
+
             else{
                 $("#thUpdateFMsg").html(returnedData.msg);
                 $("#thUpdateTrabajoHoursErr").html(returnedData.thUpdateTrabajoHours);
@@ -279,43 +376,45 @@ $(document).ready(function(){
             $("#thUpdateFMsg").html("No se puede realizar la acción en este momento. Por favor, verificar conexión a internet e intentar nuevamente más tarde");
         });
     });
-    
+
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    
+
     //PREVENT AUTO-SUBMISSION BY THE BARCODE SCANNER
     $("#itemCode").keypress(function(e){
         if(e.which === 13){
             e.preventDefault();
-            
+
             //change to next input by triggering the tab keyboard
             $("#itemName").focus();
         }
     });
-    
-    
-    
+
+
+
     //TO DELETE AN ITEM (The item will be marked as "deleted" instead of removing it totally from the db)
     $("#trabajosListTable").on('click', '.delTrabajo', function(e){
         e.preventDefault();
-        
+
         //get the item id
         var trabajoId = $(this).parents('tr').find('.curTrabajoId').val();
         var trabajoRow = $(this).closest('tr');//to be used in removing the currently deleted row
-        
+        var trabajoName = $("#trabajoName-"+trabajoId).html();
+        var trabajoHours = $("#workhours-"+trabajoId).html();
+
         if(trabajoId){
             var confirm = window.confirm("¿Está seguro de borrar este trabajo? La acción no puede deshacerse");
-            
+
             if(confirm){
                 displayFlashMsg('Espere un momento...', spinnerClass, 'black');
-                
+
                 $.ajax({
                     url: appRoot+"trabajos/delete",
                     method: "POST",
-                    data: {t:trabajoId}
+                    data: {t:trabajoId,tn:trabajoName,th:trabajoHours}
                 }).done(function(rd){
                     if(rd.status === 1){
                         //remove item from list, update items' SN, display success msg
@@ -358,25 +457,27 @@ function cargarTrabajos(url){
     var orderBy = $("#trabajosListSortBy").val().split("-")[0];
     var orderFormat = $("#trabajosListSortBy").val().split("-")[1];
     var limit = $("#trabajosListPerPage").val();
-    
-    
+
+
     $.ajax({
         type:'get',
         url: url ? url : appRoot+"trabajos/cargarTrabajos/",
         data: {orderBy:orderBy, orderFormat:orderFormat, limit:limit},
-        
+
         success: function(returnedData){
             hideFlashMsg();
             $("#trabajosListTable").html(returnedData.trabajosListTable);
         },
-        
+
         error: function(){
-            
+
         }
     });
-    
+
     return false;
 }
+
+
 
 
 /**
@@ -386,12 +487,38 @@ function cargarTrabajos(url){
  */
 function vittrhist(itemId){
     if(itemId){
-        
+
     }
-    
+
     return false;
 }
 
+function selectedBecario(selectedNode){
+    if(selectedNode){
+        var itemCode = selectedNode.value;
+
+        $.ajax({
+            url: appRoot+"becarios/getcodenameandhours",
+            type: "get",
+            data: {_bC:itemCode},
+            success: function(returnedData){
+                if(returnedData.status === 1){
+
+                    $("#becarioDisHours").val(returnedData.missinghours);
+                    $("#trabajoBecName").val(returnedData.name);
+                    $("#becId").val(returnedData.becarioId);
+
+
+                }else{
+                    $("#becarioDisHours").val("0");
+                    $("#trabajoBecName").val("");
+                    $("#becId").val("");
+                }
+
+            }
+        });
+    }
+}
 
 
 function resetTrabajoSN(){

@@ -77,8 +77,8 @@ defined('BASEPATH') OR exit('');
                             </a>
                         </li>
 
-                        <?php if($this->session->admin_role !== "Gestionador"):?>
-                        
+                        <?php if($this->session->admin_role === "o"):?>
+
                         <li class="<?= $pageTitle == 'Administrators' ? 'active' : '' ?>">
                             <a href="<?= site_url('administrators') ?>">
                                 <i class="fa fa-user"></i>
@@ -127,14 +127,16 @@ defined('BASEPATH') OR exit('');
                                 Trabajos
                             </a>
                         </li>
-                        
-                        <?php if($this->session->admin_role === "Super"):?>
                         <li class="<?= $pageTitle == 'Becarios' ? 'active' : '' ?>">
                             <a id ="inv" href="<?= site_url('becarios') ?>"  style="color:#365b99;"  onmouseenter="myEnter4()"  onclick="myClick4()" onmouseout="myOut4()" >
                                 <i class="fa fa-user"></i>
                                 Becarios
                             </a>
                         </li>
+
+
+                        <?php if($this->session->admin_role !== "Gesti"):?>
+
 
                             <li class="<?= $pageTitle == 'Administrators' ? 'active' : '' ?>">
                                 <a  id ="admi" href="<?= site_url('administrators') ?>" style="color:#365b99;"  onmouseenter="myEnter6()"  onclick="myClick6()" onmouseout="myOut6()" >

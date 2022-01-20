@@ -22,9 +22,9 @@ defined('BASEPATH') OR exit('');
                 </tr>
             </thead>
             <tbody>
-                <?php if($this->session->admin_role == "Jefe"): ?>
+                <?php if($this->session->admin_role === "Jefe"): ?>
                     <?php foreach($allAdministrators as $get):?>
-                        <?php if($get->deleted == "0"):?>
+                        <?php if($get->deleted == "0" && $get->role == "Gesti"):?>
                             <tr>
                                 <th class="adminSN"><?=$sn?>.</th>
                                 <td class="adminName"><?=$get->first_name ." ". $get->last_name?></td>
