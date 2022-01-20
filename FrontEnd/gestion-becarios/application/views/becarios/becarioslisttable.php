@@ -1,0 +1,77 @@
+<?php defined('BASEPATH') OR exit('') ?>
+
+<div class='col-sm-6'>
+    <?= isset($range) && !empty($range) ? $range : ""; ?>
+</div>
+
+<div class='col-xs-12'>
+    <div class="panel panel-primary">
+        <!-- Default panel contents -->
+        <div class="panel-heading">TABLA DE BECARIOS</div>
+        <?php if($allBecarios): ?>
+        <div class="table table-responsive">
+            <table class="table table-bordered table-striped" style="background-color: #f5f5f5">
+                <thead>
+                    <tr>
+                        <th>Nº</th>
+                        <th>NOMBRE</th>
+                        <th>CÓDIGO</th>
+                        <th>HORAS TOTALES</th>
+                        <th>HORAS CUMPLIDAS</th>
+                        <th>HORAS ASIGNADAS</th>
+                        <th>HORAS FALTANTES</th>
+                        <th>TRABAJOS ASIGNADOS</th>
+                        <th colspan="3"> Acciones</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php foreach($allBecarios as $get): ?>
+                    <tr>
+                        <input type="hidden" value="<?=$get->id?>" class="curBecarioId">
+                        <th class="becarioSN"><?=$sn?>.</th>
+                        <td><span id="becarioName-<?=$get->id?>"><?=$get->name?></span></td>
+                        <td><span id="becarioCode-<?=$get->id?>"><?=$get->code?></td>
+
+                        <td>
+                            <span id="totalhours-<?=$get->id?>"><?=$get->totalhours?></span>
+                        </td>
+                        <td>
+                             <span id="checkedhours-<?=$get->id?>"><?=$get->checkedhours?></span>
+                        </td>
+                        <td>
+                             <span id="assignedhours-<?=$get->id?>"><?=$get->assignedhours?></span>
+                        </td>
+                        <td class="<?=$get->missinghours >= 50 ? 'bg-danger' : ($get->missinghours >= 25 ? 'bg-warning' : '')?>">
+                             <span id="missinghours-<?=$get->id?>"><?=$get->missinghours?></span>
+                        </td>
+                         <td>
+
+                         </td>
+
+                        <td><a class="pointer updateMissingHours" id="stock-<?=$get->id?>">Modificar horas a cumplir</a></td>
+
+                        <td class="text-center text-primary">
+                            <span class="editBecario" id="edit-<?=$get->id?>"><i class="fa fa-pencil pointer"></i> </span>
+                        </td>
+                        <td class="text-center"><i class="fa fa-trash text-danger delBecario pointer"></i></td>
+                    </tr>
+                    <?php $sn++; ?>
+                    <?php endforeach; ?>
+                </tbody>
+            </table>
+        </div>
+        <!-- table div end-->
+        <?php else: ?>
+        <ul><li>Sin elementos</li></ul>
+        <?php endif; ?>
+    </div>
+    <!--- panel end-->
+</div>
+
+<!---Pagination div-->
+<div class="col-sm-12 text-center">
+    <ul class="pagination">
+        <?= isset($links) ? $links : "" ?>
+    </ul>
+</div>
