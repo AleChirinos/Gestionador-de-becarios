@@ -1,6 +1,7 @@
 'use strict';
 
 $(document).ready(function(){
+
     checkDocumentVisibility(checkLogin);//check document visibility in order to confirm user's log in status
 	
     //load all items once the page is ready
@@ -172,6 +173,102 @@ $(document).ready(function(){
         //launch modal
         $("#editTrabajoModal").modal('show');
     });
+
+     $("#trabajosListTable").on('click', ".assignBecarios", function(){
+
+
+            //get item info
+            var trabajoId = $(this).attr('id').split("-")[1];
+            var trabajoName = $("#trabajoName-"+trabajoId).html();
+            var trabajoHours = $("#workhours-"+trabajoId).html();
+
+
+
+            //prefill form with info
+            $("#trabajoIdBec").val(trabajoId);
+            $("#trabajoNameBec").val(trabajoName);
+            $("#becarioAssignHours").val(trabajoHours);
+            $("#becarioDisHours").val("");
+
+
+            $("#becTrabajoFMsg").html("");
+            $("#trabajoNameBecErr").html("");
+            $("#becarioAssignHoursErr").html("");
+            $("#becarioDisHoursErr").html("");
+             $("#selectedBecarioDefaultErr").html("");
+
+
+
+
+
+            $("#addBecarioTrabajoModal").modal('show');
+
+
+
+            //launch modal
+
+        });
+
+     $("#assignBecarioSubmit").click(function(){
+
+            var trabajoName = $("#trabajoNameBec").val();
+            var trabajoId = $("#trabajoIdBec").val();
+            var becarioCode = $("#selectedBecarioDefault").val();
+            var becarioName=$("#trabajoBecName").val();
+            var trabajoHours=$("#becarioAssignHours").val();
+            var becarioHours=$("#becarioDisHours").val();
+            var becarioId=$("#becId").val();
+
+            console.log('Trabajo: Nombre '+trabajoName+' Id '+trabajoId+ ' hours '+trabajoHours);
+            console.log('Becario: Nombre '+becarioName+' Codigo '+becarioCode+ ' becarioHours '+becarioHours+' id '+becarioId);
+
+
+
+
+           if(!becarioHours || (!becarioCode || becarioCode==='Selecciona a tu becario:') ){
+              !becarioHours || becarioHours==0 ? $("#becarioDisHoursErr").html("Becario no escogido") : "";
+              !becarioCode || becarioCode==='Selecciona a tu becario:'? $("#selectedBecarioDefaultErr").html("Se requiere escoger un becario") : "";
+              return;
+           }
+
+            $("#becTrabajoFMsg").css('color', 'black').html("<i class='"+spinnerClass+"'></i> Realizando la asignación...");
+
+           $.ajax({
+                  method: "POST",
+                  url: appRoot+"trabajos/assignBecario",
+                  data: {becarioName:becarioName,becarioCode:becarioCode, trabajoName:trabajoName ,_tId:trabajoId, _bId:becarioId,trabajoHours:trabajoHours, becHours:becarioHours}
+           }).done(function(returnedData){
+
+              if(returnedData.status === 1){
+                   $("#becTrabajoFMsg").css('color', 'green').html("Asignación del becario exitosa");
+
+                      setTimeout(function(){
+                          $("#addBecarioTrabajoModal").modal('hide');
+                      }, 1000);
+
+                      cargarTrabajos();
+                   }
+
+              else{
+                      $("#becTrabajoFMsg").css('color', 'red').html("Existen uno o más campos vacíos o llenados de manera incorrecta");
+                      $("#becarioDisHoursErr").html(returnedData.becarioHours);
+
+
+              }
+             }).fail(function(){
+                      $("#becTrabajoFMsg").css('color', 'red').html("No se puede realizar la acción en este momento. Por favor, verificar conexión a internet e intentar nuevamente más tarde");
+                  });
+
+                   $("#trabajoNameBecErr").html("");
+                   $("#becarioAssignHoursErr").html("");
+                   $("#becarioDisHoursErr").html("");
+                   $("#selectedBecarioDefaultErr").html("");
+
+
+    });
+
+
+
     
 
     
@@ -241,7 +338,7 @@ $(document).ready(function(){
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     
-    //handles the updating of item's quantity in stock
+
     $("#thUpdateSubmit").click(function(){
         var thUpdateTrabajoHours = $("#thUpdateTrabajoHours").val();
         var trabajoId = $("#thUpdateTrabajoId").val();
@@ -305,6 +402,8 @@ $(document).ready(function(){
         //get the item id
         var trabajoId = $(this).parents('tr').find('.curTrabajoId').val();
         var trabajoRow = $(this).closest('tr');//to be used in removing the currently deleted row
+        var trabajoName = $("#trabajoName-"+trabajoId).html();
+        var trabajoHours = $("#workhours-"+trabajoId).html();
         
         if(trabajoId){
             var confirm = window.confirm("¿Está seguro de borrar este trabajo? La acción no puede deshacerse");
@@ -315,7 +414,7 @@ $(document).ready(function(){
                 $.ajax({
                     url: appRoot+"trabajos/delete",
                     method: "POST",
-                    data: {t:trabajoId}
+                    data: {t:trabajoId,tn:trabajoName,th:trabajoHours}
                 }).done(function(rd){
                     if(rd.status === 1){
                         //remove item from list, update items' SN, display success msg
@@ -379,6 +478,8 @@ function cargarTrabajos(url){
 }
 
 
+
+
 /**
  * "vittrhist" = "View item's transaction history"
  * @param {type} itemId
@@ -392,6 +493,32 @@ function vittrhist(itemId){
     return false;
 }
 
+function selectedBecario(selectedNode){
+    if(selectedNode){
+    var itemCode = selectedNode.value;
+
+      $.ajax({
+                url: appRoot+"becarios/getcodenameandhours",
+                type: "get",
+                data: {_bC:itemCode},
+                success: function(returnedData){
+                if(returnedData.status === 1){
+
+                $("#becarioDisHours").val(returnedData.missinghours);
+                $("#trabajoBecName").val(returnedData.name);
+                $("#becId").val(returnedData.becarioId);
+
+
+                }else{
+                $("#becarioDisHours").val("0");
+                $("#trabajoBecName").val("");
+                 $("#becId").val("");
+                }
+
+             }
+    });
+    }
+}
 
 
 function resetTrabajoSN(){

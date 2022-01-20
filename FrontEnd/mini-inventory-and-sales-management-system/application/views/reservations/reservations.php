@@ -3,9 +3,12 @@ defined('BASEPATH') OR exit('');
 
 $current_items = [];
 
-if(isset($items) && !empty($items)){
-    foreach($items as $get){
+if(isset($becarios) && !empty($becarios)){
+    foreach($becarios as $get){
         $current_items[$get->code] = $get->name;
+         echo '<script>';
+                  echo 'console.log('. json_encode( $get->name ) .')';
+                  echo '</script>';
     }
 }
 ?>
@@ -14,6 +17,7 @@ if(isset($items) && !empty($items)){
 
 <script>
     var currentItems = <?=json_encode($current_items)?>;
+    console.log(currentItems);
 </script>
 
 <div class="pwell hidden-print">

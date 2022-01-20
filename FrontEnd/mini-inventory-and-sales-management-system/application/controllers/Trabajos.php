@@ -1,5 +1,6 @@
 <?php
 defined('BASEPATH') OR exit('');
+require_once 'functions.php';
 
 
 
@@ -10,14 +11,16 @@ class Trabajos extends CI_Controller{
         
         $this->genlib->checkLogin();
         
-        $this->load->model(['trabajo']);
+        $this->load->model(['trabajo','becario','asignacion']);
     }
     
     /**
      * 
      */
     public function index(){
-        $data['pageContent'] = $this->load->view('trabajos/trabajos', '', TRUE);
+        $resData['becarios'] = $this->becario->getAll('name', 'ASC');
+
+        $data['pageContent'] = $this->load->view('trabajos/trabajos', $resData, TRUE);
         $data['pageTitle'] = "Trabajos";
 
         $this->load->view('main', $data);
@@ -26,9 +29,9 @@ class Trabajos extends CI_Controller{
 
     public function cargarTrabajos(){
         $this->genlib->ajaxOnly();
-        
+
         $this->load->helper('text');
-        
+
         //set the sort order
         $orderBy = $this->input->get('orderBy', TRUE) ? $this->input->get('orderBy', TRUE) : "name";
         $orderFormat = $this->input->get('orderFormat', TRUE) ? $this->input->get('orderFormat', TRUE) : "ASC";
@@ -51,6 +54,7 @@ class Trabajos extends CI_Controller{
         
         //get all items from db
         $data['allTrabajos'] = $this->trabajo->getAll($orderBy, $orderFormat, $start, $limit);
+        $data['allAsignaciones']=$this->asignacion->getAll("trabajo_name", "ASC");
         $data['range'] = $totalTrabajos > 0 ? "Mostrando " . ($start+1) . "-" . ($start + count($data['allTrabajos'])) . " de " . $totalTrabajos : "";
         $data['links'] = $this->pagination->create_links();//page links
         $data['sn'] = $start+1;
@@ -212,8 +216,9 @@ class Trabajos extends CI_Controller{
 
             //update item in db
             $updated = $this->trabajo->edit($trabajoId, $trabajoName, $trabajoDesc);
+            $updated2 = $this->asignacion->editByTrabajo($trabajoName,$trabajoId);
 
-            $json['status'] = $updated ? 1 : 0;
+            $json['status'] = $updated && $updated2 ? 1 : 0;
 
             //add event to log
             //function header: addevent($event, $eventRowId, $eventDesc, $eventTable, $staffId)
@@ -228,6 +233,57 @@ class Trabajos extends CI_Controller{
         }
         
         $this->output->set_content_type('application/json')->set_output(json_encode($json));
+    }
+
+
+
+    public function assignBecario(){
+        $this->genlib->ajaxOnly();
+
+        $this->load->library('form_validation');
+
+        $this->form_validation->set_error_delimiters('', '');
+
+        $this->form_validation->set_rules('_tId', 'Trabajo ID', ['required', 'trim', 'numeric']);
+        $this->form_validation->set_rules('becarioName', 'Becario Name', ['required', 'trim',
+                'callback_crosscheckBecarioTrabajo['.$this->input->post('trabajoName', TRUE).']'], ['required'=>'required']);
+
+
+        if($this->form_validation->run() !== FALSE){
+        $becarioName = set_value('becarioName');
+         $becarioCode = set_value('becarioCode');
+         $trabajoName = set_value('trabajoName');
+         $trabajoCode = set_value('_tId');
+         $becarioId=set_value('_bId');
+         $hoursToAdd=set_value('trabajoHours');
+         $hoursDisp=set_value('becHours');
+
+         $this->db->trans_start();//start transaction
+
+          //$insertedId = $this->asignacion->add($becarioName, $becarioCode, $trabajoName, $trabajoCode,$becarioId);
+
+          $hoursToRest = $hoursToAdd>=$hoursDisp ? $hoursDisp : $hoursToAdd;
+
+          $modifiedHours= $this->becario->incrementAssignedHours($becarioCode,$hoursToRest);
+
+          $desc = "Inscripción del becario {$becarioName} de código UPB {$becarioCode} al trabajo {$trabajoName} ";
+
+        //$insertedId ? $this->genmod->addevent("Asignacion de becario a trabajo", $insertedId, $desc, "becarios", $this->session->admin_id) : "";
+
+         $this->db->trans_complete();
+
+         $json = $this->db->trans_status() !== FALSE ?
+         ['status'=>1, 'msg'=>"Se agregó el becario al trabajo correctamente"]
+         :
+         ['status'=>0, 'msg'=>"Se generó un problema al asignar al becario al trabajo...Intente nuevamente"];
+
+
+         }else{
+                $json['status'] = 0;
+                $json = $this->form_validation->error_array();
+         }
+
+            $this->output->set_content_type('application/json')->set_output(json_encode($json));
     }
 
 
@@ -256,6 +312,24 @@ class Trabajos extends CI_Controller{
             return FALSE;
         }
     }
+
+
+    public function crosscheckBecarioTrabajo($becarioName,$trabajoName){
+            //check db to ensure name was previously used for the item we are updating
+            $trabajoConBecario = $this->genmod->getTableColMultiQuery('asignaciones', 'asignId', 'becarioName','trabajo_name',$becarioName, $trabajoName);
+
+
+
+            if(!$trabajoConBecario){
+                return TRUE;
+            }
+
+            else{
+                $this->form_validation->set_message('crosscheckBecarioTrabajo', 'El becario ya esta registrado en este trabajo');
+
+                return FALSE;
+            }
+        }
     
     
     /*
@@ -272,9 +346,42 @@ class Trabajos extends CI_Controller{
         
         $json['status'] = 0;
         $trabajo_id = $this->input->post('t', TRUE);
+        $trabajo_name = $this->input->post('tn', TRUE);
+        $trabajo_hours= $this->input->post('th', TRUE);
+
+
         
-        if($trabajo_id){
-            $this->db->where('id', $trabajo_id)->delete('trabajos');
+        if($trabajo_id && $trabajo_name){
+
+            $check=$this->asignacion->getBecarios(['trabajo_name'=>$trabajo_name], ['becarioId']);
+
+             if($check){
+                         foreach($check as $item):
+                         $becarioInfo=$this->becario->getBecarioInfo(['id'=>$item->becarioId], ['assignedhours']);
+                         if($becarioInfo){
+                            foreach($becarioInfo as $item2):
+                            if($item2->assignedhours <= $trabajo_hours){
+                                $this->becario->decrementAssignedHours($item->becarioId,$item2->assignedhours);
+                            } else {
+                                $this->becario->decrementAssignedHours($item->becarioId,$trabajo_hours);
+                            }
+
+
+                            endforeach;
+                         }
+
+
+
+                         endforeach;
+             }
+
+
+
+
+            $this->db->delete('trabajos', array('id' => $trabajo_id));
+            $this->db->delete('asignaciones', array('trabajo_name' => $trabajo_name));
+
+
             
             $json['status'] = 1;
         }

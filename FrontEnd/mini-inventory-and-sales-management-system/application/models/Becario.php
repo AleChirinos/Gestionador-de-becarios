@@ -19,6 +19,7 @@ class Becario extends CI_Model{
     public function getAll($orderBy, $orderFormat, $start=0, $limit=''){
         $this->db->limit($limit, $start);
         $this->db->order_by($orderBy, $orderFormat);
+
         
         $run_q = $this->db->get('becarios');
         
@@ -67,6 +68,16 @@ class Becario extends CI_Model{
             return FALSE;
         }
     }
+
+     public function getBecarioInfo($where_clause, $fields_to_fetch){
+            $this->db->select($fields_to_fetch);
+
+            $this->db->where($where_clause);
+
+            $run_q = $this->db->get('becarios');
+
+            return $run_q->num_rows() ? $run_q->row() : FALSE;
+        }
     
     
     /*
@@ -101,11 +112,12 @@ class Becario extends CI_Model{
              }
      }
 
-    public function incrementAssignedHours($becarioId, $numberToadd){
-        $q = "UPDATE becarios SET assignedhours= assignedhours + ?  WHERE id = ?";
+    public function incrementAssignedHours($becarioCode, $numberToadd){
+
+        $q = "UPDATE becarios SET assignedhours= assignedhours + ?, missinghours=missinghours - ?, totalhours=missinghours+assignedhours+checkedhours WHERE code = ?";
 
 
-        $this->db->query($q, [$numberToadd, $becarioId]);
+        $this->db->query($q, [$numberToadd, $numberToadd, $becarioCode]);
 
 
 
@@ -121,7 +133,9 @@ class Becario extends CI_Model{
 
     
     public function decrementAssignedHours($becarioId, $numberToRemove){
-        $q = "UPDATE becarios SET assignedhours = assignedhours - ? WHERE id = ?";
+
+
+        $q = "UPDATE becarios SET assignedhours = assignedhours - ?, totalhours=missinghours+assignedhours+checkedhours WHERE id = ?";
         
         $this->db->query($q, [$numberToRemove, $becarioId]);
         

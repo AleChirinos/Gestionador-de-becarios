@@ -20,6 +20,7 @@
       <change afterPath="$PROJECT_DIR$/application/logs/log-2021-12-19.php" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/application/logs/log-2021-12-20.php" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/application/logs/log-2021-12-21.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/application/models/Asignacion.php" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/application/models/Becario.php" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/application/models/Client.php" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/application/models/Process.php" afterDir="false" />
@@ -1461,6 +1462,7 @@
       <change beforePath="$PROJECT_DIR$/public/js/jquery.backstretch.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/jquery.backstretch.min.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/js/transactions.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/transactions.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/system/core/Model.php" beforeDir="false" afterPath="$PROJECT_DIR$/system/core/Model.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/system/libraries/Form_validation.php" beforeDir="false" afterPath="$PROJECT_DIR$/system/libraries/Form_validation.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/system/libraries/Session/drivers/Session_files_driver.php" beforeDir="false" afterPath="$PROJECT_DIR$/system/libraries/Session/drivers/Session_files_driver.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/system/sessions/_1410__919c2j8k9ddlpu2pvr1mioo7veos12ho" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/system/sessions/_1410__a1edvab023j7h4jniqk4qphoad3gfq5l" beforeDir="false" />
@@ -1477,6 +1479,10 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/application/views/trabajos/trabajos.php" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/application/controllers/Trabajos.php" root0="FORCE_HIGHLIGHTING" />
+  </component>
   <component name="ProjectId" id="23VswYqo4il6wJ90gb2freeMXqp" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -1485,13 +1491,13 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/public/js" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/application/models" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\mini-inventory-and-sales-management-system\application\models" />
       <recent name="C:\xampp\htdocs\mini-inventory-and-sales-management-system\public\js" />
       <recent name="C:\xampp\htdocs\mini-inventory-and-sales-management-system\application\views\becarios" />
-      <recent name="C:\xampp\htdocs\mini-inventory-and-sales-management-system\application\models" />
       <recent name="C:\xampp\htdocs\mini-inventory-and-sales-management-system\application\controllers" />
     </key>
   </component>

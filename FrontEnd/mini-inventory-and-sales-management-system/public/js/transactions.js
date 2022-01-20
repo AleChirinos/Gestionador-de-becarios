@@ -979,7 +979,6 @@ function latr_(url){
         
         success: function(returnedData){
             hideFlashMsg();
-			
             $("#transListTable").html(returnedData.transTable);
         },
         

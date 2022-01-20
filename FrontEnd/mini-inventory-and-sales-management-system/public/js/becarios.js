@@ -358,6 +358,7 @@ $(document).ready(function(){
         //get the item id
         var becarioId = $(this).parents('tr').find('.curBecarioId').val();
         var becarioRow = $(this).closest('tr');//to be used in removing the currently deleted row
+        var becarioName = $("#becarioName-"+becarioId).html();
         
         if(becarioId){
             var confirm = window.confirm("¿Está seguro de borrar este becario? La acción no puede deshacerse");
@@ -368,7 +369,7 @@ $(document).ready(function(){
                 $.ajax({
                     url: appRoot+"becarios/delete",
                     method: "POST",
-                    data: {b:becarioId}
+                    data: {b:becarioId,bn:becarioName}
                 }).done(function(rd){
                     if(rd.status === 1){
                         //remove item from list, update items' SN, display success msg
