@@ -51,21 +51,15 @@ class Home extends CI_Controller {
         $this->form_validation->set_error_delimiters('', '');
         
         $this->form_validation->set_rules('email', 'E-mail', ['required', 'trim', 'valid_email']);
-        $this->form_validation->set_rules('password', 'Password', ['required']);
         
         if($this->form_validation->run() !== FALSE){
             $givenEmail = strtolower(set_value('email'));
-            $givenPassword = set_value('password');
-            
-            $passwordInDb = $this->genmod->getTableCol('admin', 'password', 'email', $givenEmail);
+
             $account_status = $this->genmod->getTableCol('admin', 'account_status', 'email', $givenEmail);
             $deleted = $this->genmod->getTableCol('admin', 'deleted', 'email', $givenEmail);
-        
-            //verify password if $passwordInDb has a value (i.e. is set)
-            $verifiedPassword = $passwordInDb ? password_verify($givenPassword, $passwordInDb) : FALSE;
-            
-            //allow log in if password and email matches and admin's account has not been suspended or deleted
-            if($verifiedPassword && $account_status != 0 && $deleted != 1){
+
+            //allow log in if email matches and admin's account has not been suspended or deleted
+            if($account_status != 0 && $deleted != 1){
                 $this->load->model('admin');
                 
                 //set session details
@@ -89,8 +83,8 @@ class Home extends CI_Controller {
                 $json['status'] = 1;//set status to return
             }
             
-            else{//if password is not correct
-                $json['msg'] = "Incorrect email and password combination";
+            else{//if  is not correct
+                $json['msg'] = "Incorrect email combination";
                 $json['status'] = 0;
             }
         }

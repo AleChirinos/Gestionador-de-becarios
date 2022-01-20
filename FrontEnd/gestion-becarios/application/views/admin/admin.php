@@ -114,18 +114,7 @@ defined('BASEPATH') OR exit('');
                         </div>
                     </div>
                     -->
-                    <div class="row">
-                        <div class="form-group-sm col-sm-6">
-                            <label for="passwordOrig" class="control-label">Contraseña:</label>
-                            <input type="password" class="form-control checkField" id="passwordOrig" placeholder="Contraseña">
-                            <span class="help-block errMsg" id="passwordOrigErr"></span>
-                        </div>
-                        <div class="form-group-sm col-sm-6">
-                            <label for="passwordDup" class="control-label">Vuelva a ingresar la contraseña:</label>
-                            <input type="password" class="form-control checkField" id="passwordDup" placeholder="Contraseña">
-                            <span class="help-block errMsg" id="passwordDupErr"></span>
-                        </div>
-                    </div>
+
                 </form>
             </div>
             <div class="modal-footer">

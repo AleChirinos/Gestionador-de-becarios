@@ -233,11 +233,6 @@ defined('BASEPATH') OR exit('');
                                     <input type="email" id='logInModalEmail' class="form-control checkField" placeholder="E-mail" autofocus>
                                     <span class="help-block errMsg" id="logInModalEmailErr"></span>
                                 </div>
-                                <div class="col-sm-12 form-group">
-                                    <label for='logInPassword' class="control-label">Password</label>
-                                    <input type="password" id='logInModalPassword'class="form-control checkField" placeholder="Password">
-                                    <span class="help-block errMsg" id="logInModalPasswordErr"></span>
-                                </div>
                             </div>
                             
                             <div class="row">

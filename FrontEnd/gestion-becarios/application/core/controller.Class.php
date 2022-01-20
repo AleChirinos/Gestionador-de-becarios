@@ -59,18 +59,13 @@ class Controller {
         $db = new Connect;
         $user = $db -> prepare("SELECT email FROM users WHERE email=:email AND session=:session");
         $user -> execute([
-            ':email'       => $email,
+            ':email'       => intval($email),
             ':session'  => $sess
         ]);
-
-        $admi = $db -> prepare("SELECT email FROM admin WHERE email=:email");
-        $admi -> execute([
-            ':email'       => $email,
-        ]);
-
+        $givenEmail = $user["email"];
+        $account_status = $this->genmod->getTableCol('admin', 'account_status', 'email', $givenEmail);
         $userInfo = $user -> fetch(PDO::FETCH_ASSOC);
-        $adminInfo = $admi -> fetch(PDO::FETCH_ASSOC);
-        if(!$userInfo["email"] && !$adminInfo["email"]){
+        if(!$userInfo["email"] && $account_status != 0){
             return FALSE;
         }else{
             return TRUE;
@@ -119,7 +114,7 @@ class Controller {
         }else{
             setcookie("id", $info['id'], time()+60*60*24*30, "/", NULL);
             setcookie("sess", $info["session"], time()+60*60*24*30, "/", NULL);
-            setcookie("email", $info["email"], time()+60*60*24*30, "/", NULL);
+            setcookie("email", $data["email"], time()+60*60*24*30, "/", NULL);
             header('Location: dashboard');
             exit();
         }

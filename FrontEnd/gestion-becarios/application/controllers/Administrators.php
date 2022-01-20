@@ -103,17 +103,15 @@ class Administrators extends CI_Controller{
         /*$this->form_validation->set_rules('mobile1', 'Phone number', ['required', 'trim', 'numeric', 'max_length[15]', 'min_length[11]', 'is_unique[admin.mobile1]'],
                 ['required'=>"required", 'is_unique'=>"This number is already attached to an admin"]);
         $this->form_validation->set_rules('mobile2', 'Other number', ['trim', 'numeric', 'max_length[15]', 'min_length[11]']);*/
-        $this->form_validation->set_rules('passwordOrig', 'Password', ['required', 'min_length[8]'], ['required'=>"Enter password"]);
-        $this->form_validation->set_rules('passwordDup', 'Password Confirmation', ['required', 'matches[passwordOrig]'], ['required'=>"Please retype password"]);
-        
+
         if($this->form_validation->run() !== FALSE){
             /**
              * insert info into db
-             * function header: add($f_name, $l_name, $email, $password, $role, $mobile1, $mobile2)
+             * function header: add($f_name, $l_name, $email,  $role, $mobile1, $mobile2)
              */
-            $hashedPassword = password_hash(set_value('passwordOrig'), PASSWORD_BCRYPT);
+
             
-            $inserted = $this->admin->add(set_value('firstName'), set_value('lastName'), set_value('email'), $hashedPassword, 
+            $inserted = $this->admin->add(set_value('firstName'), set_value('lastName'), set_value('email'),
                 set_value('role')/*, set_value('mobile1'), set_value('mobile2')*/);
             
             

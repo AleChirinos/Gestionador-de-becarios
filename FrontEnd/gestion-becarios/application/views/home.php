@@ -1,5 +1,7 @@
 <?php 
 defined('BASEPATH') OR exit('No direct script access allowed');
+require_once('config.php');
+require_once('core/controller.Class.php');
 ?>
 
 <!DOCTYPE html>
@@ -51,48 +53,55 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <body>
 
         <!-- Top content -->
-        <div class="top-content">
-
-            <div class="inner-bg">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-sm-8 col-sm-offset-2 text">
-                            <div style="font-size:100px">
-                                <h1><img src="<?=base_url()?>public/images/upb_logo.jpg" alt="1410-logo" height="250px"></h1>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-sm-6 col-sm-offset-3">
-                            <div class="bg-primary text-center">
-                                <span id="errMsg"></span>
-                            </div>
-                            <div class="form-bottom">
-                                <form id="loginForm">
-                                    <div class="form-group">
-                                        <label class="sr-only" for="email">E-mail</label>
-                                        <input type="email" placeholder="Correo Electrónico" class="form-control checkField" id="email" >
+        <div class="container" style="margin-top: 100px;">
+            <?php if(isset($_COOKIE["email"]) && isset($_COOKIE["id"]) && isset($_COOKIE["sess"])){
+                $Controller = new Controller;?>
+                <?php if($Controller -> checkUserExist($_COOKIE["email"], $_COOKIE["sess"])){?>
+                    <div class="top-content">
+                        <div class="inner-bg">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-sm-8 col-sm-offset-2 text">
+                                        <div style="font-size:100px">
+                                            <h1><img src="<?=base_url()?>public/images/upb_logo.jpg" alt="1410-logo" height="250px"></h1>
+                                        </div>
                                     </div>
-                                    <div class="form-group">
-                                        <label class="sr-only" for="password">Password</label>
-                                        <input type="password" placeholder="Contraseña" class="form-control checkField" id="password" >
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-6 col-sm-offset-3">
+                                        <div class="bg-primary text-center">
+                                            <span id="errMsg"></span>
+                                        </div>
+                                        <div class="form-bottom">
+                                            <form id="loginForm">
+                                                <div class="form-group">
+                                                    <label class="sr-only" for="email">E-mail</label>
+                                                    <input type="email" class="form-control checkField" id="email" value="<?php echo $_COOKIE["email"]; ?>">
+                                                </div>
+                                                <button style="background-color:MediumSeaGreen;" type="submit" class="btn">Iniciar Sesión</button>
+                                            </form>
+                                        </div>
                                     </div>
-                                    <button style="background-color:MediumSeaGreen;" type="submit" class="btn">Iniciar Sesión</button>
-                                </form>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-sm-12 text-center" style="color:white">
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    
-                    <div class="row">
-                        <div class="col-sm-12 text-center" style="color:white">
-                        </div>
-                    </div>
-                </div>
-            </div>
 
+                    </div>
+                    <?php echo '<a href="logout.php">Log Out</a>';
+                }?>
+            <?php }else{ ?>
+                <img src="public/images/upb_logo.jpg" alt="logo" style="max-width: 550px; margin: 0 auto; display: table;" />
+                <form action='' method="POST">
+                    <button onclick="window.location = '<?php echo $login_url; ?>'" type="button" class="btn btn-danger">Login with Google</button>
+                </form>
+
+            <?php } ?>
         </div>
-
-
         <!-- Javascript -->
         <script src="<?=base_url()?>public/js/main.js"></script>
         <script src="<?=base_url()?>public/js/access.js"></script>
@@ -102,3 +111,4 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     </body>
 
 </html>
+

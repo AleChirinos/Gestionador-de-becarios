@@ -23,14 +23,13 @@ class Admin extends CI_Model{
      * @param type $f_name
      * @param type $l_name
      * @param type $email
-     * @param type $password
      * @param type $role
      * @param type $mobile1
      * @param type $mobile2
      * @return boolean
      */
-    public function add($f_name, $l_name, $email, $password, $role/*, $mobile1, $mobile2*/){
-        $data = ['first_name'=>$f_name, 'last_name'=>$l_name, 'email'=>$email, 'password'=>$password, 'role'=>$role/*,
+    public function add($f_name, $l_name, $email, $role/*, $mobile1, $mobile2*/){
+        $data = ['first_name'=>$f_name, 'last_name'=>$l_name, 'email'=>$email, 'role'=>$role/*,
             'mobile1'=>$mobile1, 'mobile2'=>$mobile2*/];
         
         //set the datetime based on the db driver in use

@@ -44,29 +44,8 @@ $(document).ready(function(){
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     
-    //Check to ensure the password and retype password fields are the same
-    $("#passwordDup").on('keyup change focusout focus focusin', function(){
-        var orig = $("#passwordOrig").val();
-        var dup = $("#passwordDup").val();
-        
-        if(dup !== orig){
-            //show error
-            $("#passwordDupErr").addClass('fa');
-            $("#passwordDupErr").addClass('fa-times');
-            $("#passwordDupErr").removeClass('fa-check');
-            $("#passwordDupErr").css('color', 'red');
-            $("#passwordDupErr").html("");
-        }
-        
-        else{
-            //show success
-            $("#passwordDupErr").addClass('fa');
-            $("#passwordDupErr").addClass('fa-check');
-            $("#passwordDupErr").removeClass('fa-times');
-            $("#passwordDupErr").css('color', 'green');
-            $("#passwordDupErr").html("");
-        }
-    });
+
+
     
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -80,7 +59,7 @@ $(document).ready(function(){
         e.preventDefault();
         
         //reset all error msgs in case they are set
-        changeInnerHTML(['firstNameErr', 'lastNameErr', 'emailErr', 'roleErr', 'mobile1Err', 'mobile2Err', 'passwordOrigErr', 'passwordDupErr'],
+        changeInnerHTML(['firstNameErr', 'lastNameErr', 'emailErr', 'roleErr', 'mobile1Err', 'mobile2Err'],
         "");
         
         var firstName = $("#firstName").val();
@@ -89,18 +68,16 @@ $(document).ready(function(){
         var role = $("#role").val();
         //var mobile1 = $("#mobile1").val();
         //var mobile2 = $("#mobile2").val();
-        var passwordOrig = $("#passwordOrig").val();
-        var passwordDup = $("#passwordDup").val();
+
         
         //ensure all required fields are filled
-        if(!firstName || !lastName || !email || !role /*|| !mobile1*/ || !passwordOrig || !passwordDup){
+        if(!firstName || !lastName || !email || !role /*|| !mobile1*/ ){
             !firstName ? changeInnerHTML('firstNameErr', "required") : "";
             !lastName ? changeInnerHTML('lastNameErr', "required") : "";
             !email ? changeInnerHTML('emailErr', "required") : "";
             !role ? changeInnerHTML('roleErr', "required") : "";
             //!mobile1 ? changeInnerHTML('mobile1Err', "required") : "";
-            !passwordOrig ? changeInnerHTML('passwordOrigErr', "required") : "";
-            !passwordDup ? changeInnerHTML('passwordDupErr', 'required') : "";
+
             
             return;
         }
@@ -113,8 +90,7 @@ $(document).ready(function(){
         $.ajax({
             method: "POST",
             url: appRoot+"administrators/add",
-            data: {firstName:firstName, lastName:lastName, email:email, role:role, /*mobile1:mobile1, mobile2:mobile2,*/
-                passwordOrig:passwordOrig, passwordDup:passwordDup}
+            data: {firstName:firstName, lastName:lastName, email:email, role:role}
         }).done(function(returnedData){
             $("#fMsgIcon").removeClass();//remove spinner
                 
@@ -131,7 +107,7 @@ $(document).ready(function(){
                 }, 1000);
 
                 //reset all error msgs in case they are set
-                changeInnerHTML(['firstNameErr', 'lastNameErr', 'emailErr', 'roleErr', 'mobile1Err', 'mobile2Err', 'passwordOrigErr', 'passwordDupErr'],
+                changeInnerHTML(['firstNameErr', 'lastNameErr', 'emailErr', 'roleErr', 'mobile1Err', 'mobile2Err'],
                 "");
 
                 //refresh admin list table
@@ -150,8 +126,7 @@ $(document).ready(function(){
                 $("#roleErr").text(returnedData.role);
                 //$("#mobile1Err").text(returnedData.mobile1);
                 //$("#mobile2Err").text(returnedData.mobile2);
-                $("#passwordOrigErr").text(returnedData.passwordOrig);
-                $("#passwordDupErr").text(returnedData.passwordDup);
+
             }
         }).fail(function(){
             if(!navigator.onLine){

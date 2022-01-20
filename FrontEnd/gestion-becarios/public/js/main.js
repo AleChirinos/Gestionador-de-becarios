@@ -53,11 +53,10 @@ $(document).ready(function(){
         e.preventDefault();
         
         var email = $("#logInModalEmail").val();
-        var password = $("#logInModalPassword").val();
        
-       if(!email || !password){
+       if(!email){
            //display error message
-           $("#logInModalFMsg").css('color', 'red').html("Please enter both your email and password");
+           $("#logInModalFMsg").css('color', 'red').html("Please enter both your email");
            return;
        }
        
@@ -67,7 +66,7 @@ $(document).ready(function(){
        
        
        //call function to handle log in and get the returned data through a callback
-       handleLogin(email, password, function(returnedData){
+       handleLogin(email, function(returnedData){
            if(returnedData.status === 1){
                 $("#logInModalFMsg").css('color', 'green').html(returnedData.msg);
 
@@ -567,16 +566,15 @@ function checkLogin(){
 /**
  * 
  * @param {type} email
- * @param {type} password
  * @param {type} callback function to callback after execution
  * @returns {undefined}
  */
-function handleLogin(email, password, callback){
+function handleLogin(email,  callback){
     var jsonToReturn = "";
     
     $.ajax(appRoot+'access/login', {
         method: "POST",
-        data: {email:email, password:password}
+        data: {email:email}
     }).done(function(returnedData){
         if(returnedData.status === 1){
             jsonToReturn = {status:1, msg:"Authenticated..."};
@@ -584,7 +582,7 @@ function handleLogin(email, password, callback){
 
         else{
             //display error messages
-            jsonToReturn = {status:0, msg:"Invalid email/password combination"};
+            jsonToReturn = {status:0, msg:"Invalid email"};
         }
 		
 		typeof(callback) === "function" ? callback(jsonToReturn) : "";

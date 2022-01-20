@@ -6,9 +6,9 @@ jQuery(document).ready(function () {
      Fullscreen background
      */
     $.backstretch([
-        "public/images/backgrounds/2.jpg",
-        "public/images/backgrounds/3.jpg",
-        "public/images/backgrounds/1.jpg"
+        "public/images/backgrounds/17538.jpg",
+        "public/images/backgrounds/17538.jpg",
+        "public/images/backgrounds/17538.jpg"
     ], {duration: 3000, fade: 750});
 });
 
@@ -21,10 +21,10 @@ loginForm.onsubmit = function(e){
     e.preventDefault();
     
     var email = document.getElementById('email').value;
-    var password = document.getElementById('password').value;
+
     
-    if(!email || !password){
-        var errMsg = !email ? "Enter your email" : "Enter your password";
+    if(!email){
+        var errMsg = !email ? "Enter your email" : "";
         
         document.getElementById('errMsg').innerHTML = errMsg;
     }
@@ -33,7 +33,7 @@ loginForm.onsubmit = function(e){
         document.getElementById('errMsg').innerHTML = "Authenticating......";
 	
 	//call function to handle log in and get the returned data through a callback
-	handleLogin(email, password, function(returnedData){
+	handleLogin(email,  function(returnedData){
 	   if(returnedData.status === 1){
                 document.getElementById('errMsg').innerHTML = "Authenticated. Redirecting....";
                 
