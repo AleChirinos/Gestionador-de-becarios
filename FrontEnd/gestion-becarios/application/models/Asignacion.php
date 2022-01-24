@@ -46,9 +46,9 @@ class Asignacion extends CI_Model{
         //set the datetime based on the db driver in use
         $this->db->platform() == "sqlite3" 
                 ? 
-        $this->db->set('dateAdded', "datetime('now')", FALSE) 
+        $this->db->set('assignDate', "datetime('now')", FALSE) 
                 : 
-        $this->db->set('dateAdded', "NOW()", FALSE);
+        $this->db->set('assignDate', "NOW()", FALSE);
         
         $this->db->insert('asignaciones', $data);
         
@@ -95,6 +95,30 @@ class Asignacion extends CI_Model{
                             return FALSE;
                 }
             }
+
+    public function getBecario($where_clause, $fields_to_fetch){
+        $this->db->select($fields_to_fetch);
+
+        $this->db->where($where_clause);
+
+        $run_q = $this->db->get('asignaciones');
+
+        return $run_q->num_rows() ? $run_q->row() : FALSE;
+    }
+
+    public function becariossearch($value){
+        $q = "SELECT * FROM asignaciones WHERE trabajo_code LIKE '%".$this->db->escape_like_str($value)."%' ";
+
+        $run_q = $this->db->query($q, [$value, $value]);
+
+        if($run_q->num_rows() > 0){
+            return $run_q->result();
+        }
+
+        else{
+            return FALSE;
+        }
+    }
 
 
 

@@ -385,3 +385,5 @@ ERROR - 2022-01-20 16:41:12 --> Severity: error --> Exception: Unable to locate 
 ERROR - 2022-01-20 16:41:44 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
 ERROR - 2022-01-20 16:42:03 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
 ERROR - 2022-01-20 16:52:38 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
+ERROR - 2022-01-20 17:39:36 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
+ERROR - 2022-01-20 17:39:39 --> Severity: 8192 --> setcookie(): Passing null to parameter #2 ($value) of type string is deprecated C:\xampp\htdocs\gestion-becarios\system\libraries\Session\Session_driver.php 132

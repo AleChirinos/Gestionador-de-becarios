@@ -244,11 +244,12 @@ class Trabajos extends CI_Controller{
 
         $this->form_validation->set_error_delimiters('', '');
 
-        $this->form_validation->set_rules('_tId', 'Trabajo ID', ['required', 'trim', 'numeric']);
         $this->form_validation->set_rules('becarioName', 'Becario Name', ['required', 'trim','callback_crosscheckBecarioTrabajo['.$this->input->post('trabajoName', TRUE).']'], ['required'=>'required']);
+        
 
 
         if($this->form_validation->run() !== FALSE){
+
             $becarioName = set_value('becarioName');
             $becarioCode = set_value('becarioCode');
             $trabajoName = set_value('trabajoName');
@@ -256,18 +257,20 @@ class Trabajos extends CI_Controller{
             $becarioId=set_value('_bId');
             $hoursToAdd=set_value('trabajoHours');
             $hoursDisp=set_value('becHours');
+            
 
             $this->db->trans_start();//start transaction
 
-            //$insertedId = $this->asignacion->add($becarioName, $becarioCode, $trabajoName, $trabajoCode,$becarioId);
+            
 
+           $insertedId = $this->asignacion->add(set_value('becarioName'), set_value('becarioCode'), set_value('trabajoName'), set_value('_tId'),set_value('_bId'));
 
 
             $modifiedHours= $this->becario->incrementAssignedHours($becarioCode,$hoursToAdd,$hoursDisp);
 
             $desc = "Inscripción del becario {$becarioName} de código UPB {$becarioCode} al trabajo {$trabajoName} ";
 
-            //$insertedId ? $this->genmod->addevent("Asignacion de becario a trabajo", $insertedId, $desc, "becarios", $this->session->admin_id) : "";
+            $insertedId ? $this->genmod->addevent("Asignacion de becario a trabajo", $insertedId, $desc, "becarios", $this->session->admin_id) : "";
 
             $this->db->trans_complete();
 
@@ -315,7 +318,7 @@ class Trabajos extends CI_Controller{
 
     public function crosscheckBecarioTrabajo($becarioName,$trabajoName){
         //check db to ensure name was previously used for the item we are updating
-        $trabajoConBecario = $this->genmod->getTableColMultiQuery('asignaciones', 'asignId', 'becarioName','trabajo_name',$becarioName, $trabajoName);
+        $trabajoConBecario = $this->asignacion->getBecario(['becarioName'=>$becarioName, 'trabajo_name'=>$trabajoName], ['becarioId']);
 
 
 

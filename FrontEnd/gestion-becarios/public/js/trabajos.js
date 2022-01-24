@@ -124,10 +124,11 @@ $(document).ready(function(){
 
     $("#trabajoSearch").keyup(function(){
         var value = $(this).val();
+        
 
         if(value){
             $.ajax({
-                url: appRoot+"search/trabajosearch",
+                url: appRoot+"search/trabajoSearch",
                 type: "get",
                 data: {v:value},
                 success: function(returnedData){
@@ -197,6 +198,7 @@ $(document).ready(function(){
         $("#becarioDisHoursErr").html("");
         $("#selectedBecarioDefaultErr").html("");
 
+        $("#selectedBecarioDefault").val("Selecciona a tu becario:");
 
 
 
@@ -234,7 +236,7 @@ $(document).ready(function(){
         $("#becTrabajoFMsg").css('color', 'black').html("<i class='"+spinnerClass+"'></i> Realizando la asignación...");
 
         $.ajax({
-            method: "POST",
+            method: "post",
             url: appRoot+"trabajos/assignBecario",
             data: {becarioName:becarioName,becarioCode:becarioCode, trabajoName:trabajoName ,_tId:trabajoId, _bId:becarioId,trabajoHours:trabajoHours, becHours:becarioHours}
         }).done(function(returnedData){
@@ -252,8 +254,7 @@ $(document).ready(function(){
             else{
                 $("#becTrabajoFMsg").css('color', 'red').html("Existen uno o más campos vacíos o llenados de manera incorrecta");
                 $("#becarioDisHoursErr").html(returnedData.becarioHours);
-
-
+                $("#selectedBecarioDefaultErr").html(returnedData.becarioName);
             }
         }).fail(function(){
             $("#becTrabajoFMsg").css('color', 'red').html("No se puede realizar la acción en este momento. Por favor, verificar conexión a internet e intentar nuevamente más tarde");
@@ -332,6 +333,36 @@ $(document).ready(function(){
         $("#updateTrabajoHoursModal").modal('show');
     });
 
+
+    $("#trabajosListTable").on('click', '.checkTrabajo', function(){
+        //get item info and fill the form with them
+        var trabajoId = $(this).attr('id').split("-")[1];
+        
+        var trabajoName = $("#trabajoName-"+trabajoId).html();
+        var workHours = $("#workhours-"+trabajoId).html();
+        //let listItems = document.querySelectorAll("#asignados-"+trabajoId+" > li");
+
+        $.ajax({
+            url: appRoot+"search/asignadoSearch",
+            type: "get",
+            data: {v:trabajoId},
+            success: function(returnedData){
+               console.log(returnedData.allAsignados);
+            }
+        });
+
+       
+        
+       
+
+        $("#checkTrabajoModal").modal('show');
+
+        //PAra
+        $('#checkTrabajoModal').on('shown.bs.modal', function() {
+            $('#checkTrabajoModal').find('.modal-body').append('<p>append some html here</p>');
+          });
+    });
+
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -377,21 +408,6 @@ $(document).ready(function(){
         });
     });
 
-    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-    //PREVENT AUTO-SUBMISSION BY THE BARCODE SCANNER
-    $("#itemCode").keypress(function(e){
-        if(e.which === 13){
-            e.preventDefault();
-
-            //change to next input by triggering the tab keyboard
-            $("#itemName").focus();
-        }
-    });
 
 
 

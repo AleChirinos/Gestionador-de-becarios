@@ -220,6 +220,44 @@ if(isset($becarios) && !empty($becarios)){
 </div>
 
 
+<div id="checkTrabajoModal" class="modal fade" role="dialog" data-backdrop="static">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button class="close" data-dismiss="modal">&times;</button>
+                <h4 class="text-center">Marcar trabajo como cumplido</h4>
+                <div id="checkTrabajoFMsg" class="text-center"></div>
+            </div>
+            <div class="modal-body">
+               <!-- <form role="form">
+                    <div class="row">
+                        <div class="col-sm-4 form-group-sm">
+                            <label for="checkNameEdit">Nombre del trabajo</label>
+                            <input type="text" id="trabajoNameEdit" placeholder="Nombre del trabajo" autofocus class="form-control checkField">
+                            <span class="help-block errMsg" id="trabajoNameEditErr"></span>
+                        </div>
+                        
+                        
+                        <div class="col-sm-12 form-group-sm">
+                            <label for="trabajoDescriptionEdit" class="">Descripción (Opcional)</label>
+                            <textarea class="form-control" id="trabajoDescriptionEdit" placeholder="Descripción opcional del trabajo"></textarea>
+                        </div>
+    
+                    </div>
+
+                    <input type="hidden" id="trabajoIdEdit">
+                </form> -->
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-primary" id="checkTrabajoSubmit">Finalizar trabajo</button>
+                <button class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
 <!--modal to edit item-->
 <div id="addBecarioTrabajoModal" class="modal fade" role="dialog" data-backdrop="static">
     <div class="modal-dialog">
@@ -263,10 +301,10 @@ if(isset($becarios) && !empty($becarios)){
                             <span class="help-block errMsg" id="becarioDisHoursErr"></span>
                         </div>
                      </div>
-                     <input  id="trabajoBecName">
-                    <input  id="trabajoNameBec">
-                    <input  id="trabajoIdBec">
-                    <input  id="becId">
+                     <input type="hidden" id="trabajoBecName">
+                    <input type="hidden" id="trabajoNameBec">
+                    <input type="hidden" id="trabajoIdBec">
+                    <input type="hidden" id="becId">
                 </form>
             </div>
             <div class="modal-footer">

@@ -25,6 +25,8 @@ require_once('core/controller.Class.php');
 
         <script src="<?=base_url()?>public/js/jquery.min.js"></script>
         <script src="<?=base_url()?>public/bootstrap/js/bootstrap.min.js"></script>
+        <script src="sorttable.js"></script>
+
 
         <?php else: ?>
         
@@ -55,7 +57,9 @@ require_once('core/controller.Class.php');
         <!-- Top content -->
         <div class="container" style="margin-top: 100px;">
             <?php if(isset($_COOKIE["email"]) && isset($_COOKIE["id"]) && isset($_COOKIE["sess"])){
+
                 $Controller = new Controller;?>
+                
                 <?php if($Controller -> checkUserExist($_COOKIE["email"], $_COOKIE["sess"])){?>
                     <div class="top-content">
                         <div class="inner-bg">

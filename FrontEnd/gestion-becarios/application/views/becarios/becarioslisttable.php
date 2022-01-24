@@ -10,7 +10,7 @@
         <div class="panel-heading">TABLA DE BECARIOS</div>
         <?php if($allBecarios): ?>
         <div class="table table-responsive">
-            <table class="table table-bordered table-striped" style="background-color: #f5f5f5">
+            <table class="table table-bordered table-striped sortable" style="background-color: #f5f5f5">
                 <thead>
                     <tr>
                         <th>Nº</th>
@@ -21,6 +21,7 @@
                         <th>HORAS ASIGNADAS</th>
                         <th>HORAS FALTANTES</th>
                         <th>TRABAJOS ASIGNADOS</th>
+                        <th>TRABAJOS CUMPLIDOS</th>
                         <th colspan="3"> Acciones</th>
 
                     </tr>
@@ -51,7 +52,23 @@
                             foreach($allAsignaciones as $getIt)
                                                       {
                                                        if ($getIt->becarioName === $get->name && $getIt->accomplished==0 ) {
-                                                           echo '<li><a class="pointer delBecario" id="'.$getIt->trabajo_name.'">'.$getIt->trabajo_name.'</a></li>';
+                                                           echo '<li><a  id="'.$getIt->trabajo_name.'">'.$getIt->trabajo_name.'</a></li>';
+                                                           }
+                                                      }
+                           }
+
+                           ?>
+
+                           </ul>
+
+                         </td>
+                         <td>
+                           <ul>
+                           <?php if(!is_bool($allAsignaciones)) {
+                            foreach($allAsignaciones as $getIt)
+                                                      {
+                                                       if ($getIt->becarioName === $get->name && $getIt->accomplished==1 ) {
+                                                           echo '<li><a  id="'.$getIt->trabajo_name.'">'.$getIt->trabajo_name.'</a></li>';
                                                            }
                                                       }
                            }

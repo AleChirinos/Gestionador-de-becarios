@@ -174,12 +174,14 @@ $(document).ready(function(){
 
         if(value){
             $.ajax({
-                url: appRoot+"search/becariosearch",
+                url: appRoot+"search/becarioSearch",
                 type: "get",
                 data: {v:value},
                 success: function(returnedData){
                     $("#becariosListTable").html(returnedData.becariosListTable);
-                }
+                    
+                }  
+
             });
         }
 

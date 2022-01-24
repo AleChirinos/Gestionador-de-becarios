@@ -18,7 +18,7 @@
                         <th>DESCRIPCION</th>
                         <th>HORAS TOTALES</th>
                         <th>BECARIOS ASIGNADOS</th>
-                        <th colspan="4"> Acciones</th>
+                        <th colspan="5"> Acciones</th>
 
                     </tr>
                 </thead>
@@ -39,20 +39,20 @@
                         </td>
                         
                         <td>
-                          <ul>
-                                                    <?php if(!is_bool($allAsignaciones)) {
-                                                     foreach($allAsignaciones as $getIt)
-                                                                                                        {
-                                                                                                         if ($getIt->trabajo_name === $get->name && $getIt->accomplished==0 ) {
-                                                                                                             echo '<li><a class="pointer delBecario" id="'.$getIt->becarioName.'">'.$getIt->becarioName.'</a></li>';
-                                                                                                             }
-                                                                                                        }
-                                                    }
+                          <ul id="asignados-<?=$get->id?>">
+                            <?php if(!is_bool($allAsignaciones)) {
+                                foreach($allAsignaciones as $getIt)
+                                {
+                                    if ($getIt->trabajo_name === $get->name && $getIt->accomplished==0 ) {
+                                        echo '<li><a id="'.$getIt->becarioName.'">'.$getIt->becarioName.'</a></li>';
+                                        }
+                                }
+                            }?>
 
-                                                    ?>
-
-                                                    </ul>
+                            </ul>
                         </td>
+
+                        <td class="text-center text-success"><span class=" checkTrabajo" id="asign-<?=$get->id?>" title="Marcar el trabajo como cumplido"><i class="fa fa-check-circle-o fa-2x pointer" ></i></a></td>
 
                         <td class="text-center text-primary"><span class=" assignBecarios" id="asign-<?=$get->id?>" title="Añadir Becario"><i class="fa fa-user-plus fa-2x pointer" ></i></a></td>
 
