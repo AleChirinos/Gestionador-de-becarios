@@ -16,7 +16,7 @@ class Search extends CI_Controller{
         
         $this->genlib->ajaxOnly();
         
-        $this->load->model(['transaction', 'item','becario', 'trabajo','asignacion']);
+        $this->load->model(['becario', 'trabajo','asignacion']);
         
         $this->load->helper('text');
         
@@ -88,8 +88,10 @@ class Search extends CI_Controller{
             $data['allBecarios'] = $this->becario->becariosearch($this->value);
 
             $data['sn'] = 1;
+            $data['allAsignaciones']=$this->asignacion->getAll("trabajo_name", "ASC");
 
             $json['becariosListTable'] = $data['allBecarios'] ? $this->load->view('becarios/becarioslisttable', $data, TRUE) : "No existen coincidencias";
+            
 
             //set final output
             $this->output->set_content_type('application/json')->set_output(json_encode($json));
@@ -100,8 +102,10 @@ class Search extends CI_Controller{
         $data['allTrabajos'] = $this->trabajo->trabajosearch($this->value);
 
         $data['sn'] = 1;
+        $data['allAsignaciones']=$this->asignacion->getAll("trabajo_name", "ASC");
 
         $json['trabajosListTable'] = $data['allTrabajos'] ? $this->load->view('trabajos/trabajoslisttable', $data, TRUE) : "No existen coincidencias";
+        
 
         //set final output
         $this->output->set_content_type('application/json')->set_output(json_encode($json));
@@ -115,6 +119,9 @@ class Search extends CI_Controller{
         $data['sn'] = 1;
 
 
+        $json['allAsignados'] = $data['allAsignados'];
+
+        $json['status'] = $data['allAsignados'] ? 1 : 0;
 
         //set final output
         $this->output->set_content_type('application/json')->set_output(json_encode($json));

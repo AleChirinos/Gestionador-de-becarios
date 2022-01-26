@@ -247,10 +247,12 @@ if(isset($becarios) && !empty($becarios)){
 
                     <input type="hidden" id="trabajoIdEdit">
                 </form> -->
+                
             </div>
             <div class="modal-footer">
-                <button class="btn btn-primary" id="checkTrabajoSubmit">Finalizar trabajo</button>
-                <button class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+                    
+            <button class="btn btn-primary" id="checkTrabajoSubmit">Finalizar trabajo</button> 
+            <button class="btn btn-danger" data-dismiss="modal">Cancelar</button>
             </div>
         </div>
     </div>

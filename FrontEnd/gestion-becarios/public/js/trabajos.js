@@ -338,29 +338,100 @@ $(document).ready(function(){
         //get item info and fill the form with them
         var trabajoId = $(this).attr('id').split("-")[1];
         
-        var trabajoName = $("#trabajoName-"+trabajoId).html();
-        var workHours = $("#workhours-"+trabajoId).html();
-        //let listItems = document.querySelectorAll("#asignados-"+trabajoId+" > li");
+        
+        $("#checkTrabajoModal").modal('show');
 
         $.ajax({
             url: appRoot+"search/asignadoSearch",
             type: "get",
             data: {v:trabajoId},
             success: function(returnedData){
-               console.log(returnedData.allAsignados);
-            }
-        });
+                if(returnedData.status === 1){
 
+                var html='';
+                html+='<form role="form">'
+                $.each( returnedData.allAsignados, function( key, value ) {
+                    html+='<div class="row" >';
+                    
+                    
+                    html+='<div class="col-sm-4 form-group-sm"><label for="checkNameCheck">Nombre del becario</label><input type="text" id="checkNameCheck" name="checkNameCheck" readonly value="';
+                    html+=value["becarioName"];
+                    html+='" placeholder="Nombre del becario" autofocus class="form-control checkField"><span class="help-block errMsg" id="checkNameCheckErr"></span></div>';
+
+                    html+='<div class="col-sm-4 form-group-sm"><label for="checkHourCheck">Horas del trabajo</label><input type="number" id="checkHourCheck" name="checkHourCheck" value=';
+                    html+=value["hours"];
+                    html+=' class="form-control checkField" min="0"><span class="help-block errMsg" id="checkHourCheckErr"></span></div>';
+
+                    html+='</div>';
+                  });
+                html+='<input type="hidden" id="trabajoIdCheck">';
+                html+='</div></form>';
+                
+                $('#checkTrabajoModal').find('.modal-body').html(html);
+                $('#trabajoIdCheck').val(trabajoId);
+                $("#checkTrabajoSubmit").prop('disabled',false);
+                }else {
+                    $("#checkTrabajoSubmit").prop('disabled',true);
+                    $('#checkTrabajoModal').find('.modal-body').html('<h4 class="text-center">No existen becarios asignados</h4>');
+                }
+            } 
+
+        });
+          
+    });
+
+
+    $("#checkTrabajoSubmit").click(function(){
+
+        var trabajoId = $("#trabajoIdCheck").val();
+        var nameArray=[];
+        var hoursArray=[];
+
+       $('input[name="checkNameCheck"]').each(function (i, item)
+       {
+           nameArray.push(item.value);
+       });
+       $('input[name="checkHourCheck"]').each(function (i, item)
+       {
+           hoursArray.push(item.value);
+       });
+       var len=hoursArray.length;
+
+       var jsonNAr = JSON.stringify(nameArray, null, 2);
+       var jsonHAr= JSON.stringify(hoursArray, null, 2);
+      
+
+       
+        $("#checkTrabajoFMsg").html("<i class='"+spinnerClass+"'></i> Completando trabajo...");
+
+        $.ajax({
+            method: "POST",
+            url: appRoot+"trabajos/checkTrabajos",
+            data: {_tId:trabajoId, becarioName:jsonNAr, hoursAssign:jsonHAr,length:len}
+        }).done(function(returnedData){
+            if(returnedData.status === 1){
+                
+                $("#checkTrabajoFMsg").css('color', 'green').html(returnedData.msg);
+
+                setTimeout(function(){
+                    $("#checkTrabajoModal").modal('hide');
+                    $("#checkTrabajoFMsg").html("");
+                }, 1000);
+
+                cargarTrabajos();
+            }
+
+            else{
+                $("#checkTrabajoFMsg").html(returnedData.msg);
+                
+            }
+        }).fail(function(){
+            $("#checkTrabajoFMsg").html("No se puede realizar la acción en este momento. Por favor, verificar conexión a internet e intentar nuevamente más tarde");
+        });
+           
        
         
-       
-
-        $("#checkTrabajoModal").modal('show');
-
-        //PAra
-        $('#checkTrabajoModal').on('shown.bs.modal', function() {
-            $('#checkTrabajoModal').find('.modal-body').append('<p>append some html here</p>');
-          });
+            
     });
 
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

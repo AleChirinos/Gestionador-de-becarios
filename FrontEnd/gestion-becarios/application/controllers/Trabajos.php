@@ -159,7 +159,15 @@ class Trabajos extends CI_Controller{
 
             $this->db->trans_start();
 
-            $updated = $this->trabajo->updateTrabajoHours($trabajoId, $thUpdateTrabajoHours) ;
+            $updated = $this->trabajo->updateTrabajoHours($trabajoId, $thUpdateTrabajoHours);
+
+            $checkAsig=$this->asignacion->getBecarios(['trabajo_code'=>$trabajoId], ['becarioId']);
+
+            if ($checkAsig){
+                $updated2 = $this->asignacion->editByTrabajoHour($trabajoId,$thUpdateTrabajoHours);
+            }
+           
+
 
 
             //add event to log if successful
@@ -235,7 +243,36 @@ class Trabajos extends CI_Controller{
         $this->output->set_content_type('application/json')->set_output(json_encode($json));
     }
 
+    public function checkTrabajos(){
+    
 
+        $this->genlib->ajaxOnly();
+
+        $trabajoId=$this->input->post('_tId', TRUE);
+        $becarioNameArr=$this->input->post('becarioName',TRUE);
+        $hoursAsArr=$this->input->post('hoursAssign',TRUE);
+        $len=$this->input->post('length',TRUE);
+        $tryout=0;
+        $bArr = json_decode($becarioNameArr);
+        $hArr = json_decode($hoursAsArr);
+        
+       
+        for ($i = 0; $i < $len; $i++) :
+            $updated=$this->asignacion->updateAsignacion($trabajoId, $bArr[$i], $hArr[$i]);
+            $tryout= $updated  ? 1 : 0;
+        endfor;
+
+        
+       
+        
+        $json['detDat']=$len;
+        $json['status'] = $tryout === 1 ? 1 : 0;
+        $json['msg']="Se asignaron las horas correctamente";
+
+    //set final output
+    $this->output->set_content_type('application/json')->set_output(json_encode($json));
+
+    }
 
     public function assignBecario(){
         $this->genlib->ajaxOnly();
@@ -258,16 +295,12 @@ class Trabajos extends CI_Controller{
             $hoursToAdd=set_value('trabajoHours');
             $hoursDisp=set_value('becHours');
             
-
             $this->db->trans_start();//start transaction
 
-            
-
-           $insertedId = $this->asignacion->add(set_value('becarioName'), set_value('becarioCode'), set_value('trabajoName'), set_value('_tId'),set_value('_bId'));
-
+           $insertedId = $this->asignacion->add(set_value('becarioName'), set_value('becarioCode'), set_value('trabajoName'), set_value('_tId'),set_value('_bId'),set_value('trabajoHours'));
 
             $modifiedHours= $this->becario->incrementAssignedHours($becarioCode,$hoursToAdd,$hoursDisp);
-
+            
             $desc = "Inscripción del becario {$becarioName} de código UPB {$becarioCode} al trabajo {$trabajoName} ";
 
             $insertedId ? $this->genmod->addevent("Asignacion de becario a trabajo", $insertedId, $desc, "becarios", $this->session->admin_id) : "";
@@ -363,9 +396,6 @@ class Trabajos extends CI_Controller{
                     if($becarioInfo){
                         $this->becario->decrementAssignedHours($item->becarioId,$trabajo_hours,$becarioInfo->assignedhours);
                     }
-
-
-
                 endforeach;
             }
 
