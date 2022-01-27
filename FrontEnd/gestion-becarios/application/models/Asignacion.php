@@ -71,14 +71,16 @@ class Asignacion extends CI_Model{
            return TRUE;
        }
 
-    public function editByBecario($becarioName,$becarioCode,$becarioId){
-               $data = ['becarioName'=>$becarioCode,'becarioCode'=>$becarioCode];
+    public function editByBecario($becarioCode,$becarioName,$becarioId){
+               $data = ['becarioName'=>$becarioName,'becarioCode'=>$becarioCode];
 
                $this->db->where('becarioId', $becarioId);
                $this->db->update('asignaciones', $data);
 
                return TRUE;
            }
+
+
     public function editByTrabajoHour($trabajoId,$trabajoHours){
         $data = ['hours'=>$trabajoHours];
 

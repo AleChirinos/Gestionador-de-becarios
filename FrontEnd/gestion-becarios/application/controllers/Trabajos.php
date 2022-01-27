@@ -58,6 +58,7 @@ class Trabajos extends CI_Controller{
         $data['range'] = $totalTrabajos > 0 ? "Mostrando " . ($start+1) . "-" . ($start + count($data['allTrabajos'])) . " de " . $totalTrabajos : "";
         $data['links'] = $this->pagination->create_links();//page links
         $data['sn'] = $start+1;
+        $data['mark']=1;
 
 
         $json['trabajosListTable'] = $this->load->view('trabajos/trabajoslisttable', $data, TRUE);//get view with populated items table
@@ -166,7 +167,14 @@ class Trabajos extends CI_Controller{
             if ($checkAsig){
                 $updated2 = $this->asignacion->editByTrabajoHour($trabajoId,$thUpdateTrabajoHours);
             }
-           
+
+            $checkBec=$this->asignacion->getBecarios(['trabajo_code'=>$trabajoId], ['becarioCode']);
+
+            if ($checkBec){
+                foreach($checkBec as $item):
+                    $updated3 = $this->becario->actualizeAssignedHours($item->becarioCode);
+                endforeach;
+            }
 
 
 
@@ -224,9 +232,15 @@ class Trabajos extends CI_Controller{
 
             //update item in db
             $updated = $this->trabajo->edit($trabajoId, $trabajoName, $trabajoDesc);
-            $updated2 = $this->asignacion->editByTrabajo($trabajoName,$trabajoId);
 
-            $json['status'] = $updated && $updated2 ? 1 : 0;
+            $checkAsig=$this->asignacion->getBecarios(['trabajo_code'=>$trabajoId], ['becarioId']);
+
+            if ($checkAsig){
+                $updated2 = $this->asignacion->editByTrabajo($trabajoName,$trabajoId);
+            }
+
+
+            $json['status'] = $updated ? 1 : 0;
 
             //add event to log
             //function header: addevent($event, $eventRowId, $eventDesc, $eventTable, $staffId)
@@ -250,22 +264,27 @@ class Trabajos extends CI_Controller{
 
         $trabajoId=$this->input->post('_tId', TRUE);
         $becarioNameArr=$this->input->post('becarioName',TRUE);
+        $becarioCodeArr=$this->input->post('becarioCode',TRUE);
         $hoursAsArr=$this->input->post('hoursAssign',TRUE);
         $len=$this->input->post('length',TRUE);
         $tryout=0;
         $bArr = json_decode($becarioNameArr);
+        $cArr = json_decode($becarioCodeArr);
         $hArr = json_decode($hoursAsArr);
         
        
         for ($i = 0; $i < $len; $i++) :
             $updated=$this->asignacion->updateAsignacion($trabajoId, $bArr[$i], $hArr[$i]);
-            $tryout= $updated  ? 1 : 0;
+            $updated2=$this->becario->actualizeAssignedHours($cArr[$i]);
+            $updated3=$this->becario->actualizeAccomplishedHours($cArr[$i]);
+            
+            $tryout= $updated && $updated2 && $updated3  ? 1 : 0;
         endfor;
 
         
        
         
-        $json['detDat']=$len;
+        $json['detDat']=$cArr;
         $json['status'] = $tryout === 1 ? 1 : 0;
         $json['msg']="Se asignaron las horas correctamente";
 
@@ -299,7 +318,9 @@ class Trabajos extends CI_Controller{
 
            $insertedId = $this->asignacion->add(set_value('becarioName'), set_value('becarioCode'), set_value('trabajoName'), set_value('_tId'),set_value('_bId'),set_value('trabajoHours'));
 
-            $modifiedHours= $this->becario->incrementAssignedHours($becarioCode,$hoursToAdd,$hoursDisp);
+           $modifiedHours= $this->becario->actualizeAssignedHours($becarioCode);
+           $modifiedMisHours= $this->becario->decrementMissingHours($becarioCode,$hoursToAdd,$hoursDisp);
+
             
             $desc = "Inscripción del becario {$becarioName} de código UPB {$becarioCode} al trabajo {$trabajoName} ";
 
@@ -392,15 +413,14 @@ class Trabajos extends CI_Controller{
 
             if($check){
                 foreach($check as $item):
-                    $becarioInfo=$this->becario->getBecarioInfo(['id'=>$item->becarioId], ['assignedhours']);
+                    $becarioInfo=$this->becario->getBecarioInfo(['id'=>$item->becarioId], ['code','assignedhours']);
                     if($becarioInfo){
-                        $this->becario->decrementAssignedHours($item->becarioId,$trabajo_hours,$becarioInfo->assignedhours);
+                        $this->becario->actualizeAssignedHours($becarioInfo->code);
+                        $this->becario->actualizeAccomplishedHours($becarioInfo->code);
+                        //$this->becario->incrementMissingHours($item->becarioId,$trabajo_hours);
                     }
                 endforeach;
             }
-
-
-
 
             $this->db->delete('trabajos', array('id' => $trabajo_id));
             $this->db->delete('asignaciones', array('trabajo_name' => $trabajo_name));

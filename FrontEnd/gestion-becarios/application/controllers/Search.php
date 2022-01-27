@@ -102,6 +102,7 @@ class Search extends CI_Controller{
         $data['allTrabajos'] = $this->trabajo->trabajosearch($this->value);
 
         $data['sn'] = 1;
+        $data['mark']=1;
         $data['allAsignaciones']=$this->asignacion->getAll("trabajo_name", "ASC");
 
         $json['trabajosListTable'] = $data['allTrabajos'] ? $this->load->view('trabajos/trabajoslisttable', $data, TRUE) : "No existen coincidencias";
@@ -117,6 +118,8 @@ class Search extends CI_Controller{
         $data['allAsignados'] = $this->asignacion->becariossearch($this->value);
 
         $data['sn'] = 1;
+
+        $data['mark']= 1;
 
 
         $json['allAsignados'] = $data['allAsignados'];

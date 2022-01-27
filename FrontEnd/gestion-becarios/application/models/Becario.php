@@ -96,10 +96,10 @@ class Becario extends CI_Model{
      */
 
     public function updateMissingHours($becarioId, $missingHours){
-        $q = "UPDATE becarios SET missinghours= ?, totalhours=?+assignedhours+checkedhours WHERE id = ?";
+        $q = "UPDATE becarios SET missinghours= ?, totalhours=missinghours+assignedhours+checkedhours WHERE id = ?";
 
 
-        $this->db->query($q, [$missingHours, $missingHours, $becarioId]);
+        $this->db->query($q, [$missingHours, $becarioId]);
 
 
 
@@ -112,34 +112,44 @@ class Becario extends CI_Model{
         }
     }
 
-    public function incrementAssignedHours($becarioCode, $numberToadd,$numberDisp){
+
+
+
+
+    public function actualizeAssignedHours($becarioCode){
+        $q="UPDATE becarios,asignaciones SET becarios.assignedhours= (SELECT SUM(asignaciones.hours) FROM asignaciones WHERE becarios.code=asignaciones.becarioCode AND asignaciones.accomplished=0), becarios.totalhours=becarios.assignedhours+becarios.checkedhours+becarios.missinghours WHERE becarios.code = ? ";
+        $this->db->query($q,[$becarioCode]);
+
+        if($this->db->affected_rows() > 0){
+            return TRUE;
+        }
+
+        else{
+            return FALSE;
+        }
+    }
+
+    public function actualizeAccomplishedHours($becarioCode){
+        $q="UPDATE becarios,asignaciones SET becarios.checkedhours= (SELECT SUM(asignaciones.hours) FROM asignaciones WHERE becarios.code=asignaciones.becarioCode AND asignaciones.accomplished=1), becarios.totalhours=becarios.assignedhours+becarios.checkedhours+becarios.missinghours WHERE becarios.code = ?";
+        $this->db->query($q,[$becarioCode]);
+
+        if($this->db->affected_rows() > 0){
+            return TRUE;
+        }
+
+        else{
+            return FALSE;
+        }
+    }
+    
+
+    public function decrementMissingHours($becarioCode, $numberToadd,$numberDisp){
         $numberRem=$numberDisp<=$numberToadd ? $numberDisp : $numberToadd ;
 
 
 
-        $q = "UPDATE becarios SET assignedhours= assignedhours + ?, missinghours=missinghours - ?, totalhours=missinghours+assignedhours+checkedhours WHERE code = ?";
-        $this->db->query($q, [$numberToadd, $numberRem, $becarioCode]);
-
-
-
-
-
-
-        if($this->db->affected_rows() > 0){
-            return TRUE;
-        }
-
-        else{
-            return FALSE;
-        }
-    }
-
-
-    public function decrementAssignedHours($becarioId, $numberToRemove,$numberassigned){
-        $numberRem2= $numberassigned<=$numberToRemove ? $numberassigned : $numberToRemove;
-        $q = "UPDATE becarios SET assignedhours = assignedhours - ?, missinghours=missinghours + ?, totalhours=missinghours+assignedhours+checkedhours WHERE id = ?";
-        $this->db->query($q, [$numberRem2,$numberToRemove, $becarioId]);
-
+        $q = "UPDATE becarios SET missinghours=missinghours - ?, totalhours=missinghours+assignedhours+checkedhours WHERE code = ?";
+        $this->db->query($q, [$numberRem, $becarioCode]);
 
 
 
@@ -152,6 +162,20 @@ class Becario extends CI_Model{
         }
     }
 
+
+    public function incrementMissingHours($becarioId, $numberToRemove){
+        
+        $q = "UPDATE becarios SET  missinghours=missinghours + ?, totalhours=missinghours+assignedhours+checkedhours WHERE id = ?";
+        $this->db->query($q, [$numberToRemove, $becarioId]);
+
+        if($this->db->affected_rows() > 0){
+            return TRUE;
+        }
+
+        else{
+            return FALSE;
+        }
+    }
 
 
     public function edit($becarioId,$becarioName, $becarioCode){

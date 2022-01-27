@@ -358,6 +358,10 @@ $(document).ready(function(){
                     html+=value["becarioName"];
                     html+='" placeholder="Nombre del becario" autofocus class="form-control checkField"><span class="help-block errMsg" id="checkNameCheckErr"></span></div>';
 
+                    html+='<input type="hidden" id="checkCodeCheck" name="checkCodeCheck" readonnly value=';
+                    html+=value["becarioCode"];
+                    html+='>';
+
                     html+='<div class="col-sm-4 form-group-sm"><label for="checkHourCheck">Horas del trabajo</label><input type="number" id="checkHourCheck" name="checkHourCheck" value=';
                     html+=value["hours"];
                     html+=' class="form-control checkField" min="0"><span class="help-block errMsg" id="checkHourCheckErr"></span></div>';
@@ -386,6 +390,7 @@ $(document).ready(function(){
         var trabajoId = $("#trabajoIdCheck").val();
         var nameArray=[];
         var hoursArray=[];
+        var codeArray=[];
 
        $('input[name="checkNameCheck"]').each(function (i, item)
        {
@@ -395,10 +400,18 @@ $(document).ready(function(){
        {
            hoursArray.push(item.value);
        });
+
+       $('input[name="checkCodeCheck"]').each(function (i, item)
+       {
+           codeArray.push(item.value);
+       });
        var len=hoursArray.length;
 
+       var jsonCAr=JSON.stringify(codeArray, null, 2);
        var jsonNAr = JSON.stringify(nameArray, null, 2);
        var jsonHAr= JSON.stringify(hoursArray, null, 2);
+
+       console.log(codeArray);
       
 
        
@@ -407,7 +420,7 @@ $(document).ready(function(){
         $.ajax({
             method: "POST",
             url: appRoot+"trabajos/checkTrabajos",
-            data: {_tId:trabajoId, becarioName:jsonNAr, hoursAssign:jsonHAr,length:len}
+            data: {_tId:trabajoId, becarioName:jsonNAr, hoursAssign:jsonHAr,becarioCode:jsonCAr,length:len}
         }).done(function(returnedData){
             if(returnedData.status === 1){
                 
