@@ -42,7 +42,7 @@ interface CacheItemPoolInterface
      *   MUST be thrown.
      *
      * @return array|\Traversable
-     *   A traversable collection of Cache Items keyed by the cache keys of
+     *   A traversable collection of Cache Semesters keyed by the cache keys of
      *   each item. A Cache item will be returned for each key, even if that
      *   key is not found. However, if no keys are specified then an empty
      *   traversable MUST be returned instead.

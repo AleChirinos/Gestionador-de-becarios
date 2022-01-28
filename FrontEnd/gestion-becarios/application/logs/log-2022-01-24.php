@@ -1,430 +1,230 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 
-ERROR - 2022-01-24 00:05:38 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 00:06:30 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 00:06:34 --> Severity: error --> Exception: count(): Argument #1 ($value) must be of type Countable|array, bool given C:\xampp\htdocs\gestion-becarios\application\controllers\Administrators.php 53
-ERROR - 2022-01-24 00:06:34 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 00:06:35 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 00:06:39 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 00:24:33 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 00:24:34 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 00:25:01 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 00:43:20 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 00:44:07 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 00:44:14 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 00:44:15 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 00:44:15 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 00:45:04 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 00:45:06 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 00:45:07 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 00:45:08 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 00:45:08 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 00:45:08 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 00:45:10 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 00:45:10 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 00:45:10 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 00:45:11 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 00:45:11 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 00:45:11 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 00:45:11 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 00:45:12 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 00:45:12 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 00:45:12 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 00:45:12 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 00:45:12 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 00:45:13 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 00:45:14 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 00:45:16 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 00:45:16 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 00:45:16 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 00:45:16 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 00:45:17 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 00:45:49 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 00:45:51 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 00:45:52 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 00:45:52 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 00:45:53 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 00:45:55 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 00:45:55 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 00:45:55 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 00:45:55 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 00:45:55 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 00:45:55 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 00:46:05 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 00:46:06 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 00:46:07 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 00:46:07 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 00:46:07 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 00:46:07 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 00:46:07 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 00:46:59 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 00:47:02 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 00:47:03 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 00:47:03 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 00:47:03 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 00:47:15 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 00:47:15 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 00:47:15 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 00:47:16 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 00:47:16 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 00:47:16 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 00:47:16 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 00:47:16 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 00:47:17 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 00:47:17 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 00:47:17 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 00:47:18 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 00:47:18 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 00:47:37 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 00:47:40 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 00:47:40 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 00:47:40 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 00:47:41 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 00:47:43 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 00:47:44 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 00:47:44 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 00:47:44 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 00:47:44 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 00:47:44 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 00:47:44 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 00:47:44 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 00:47:45 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 00:47:45 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 00:47:46 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 00:47:46 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 00:47:46 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 00:48:54 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 00:49:11 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 00:49:17 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 00:49:17 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 00:49:18 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 00:49:20 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 00:49:20 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 00:49:21 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 00:49:21 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 00:50:05 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 00:50:07 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 00:50:07 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 00:50:09 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 00:50:09 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 00:50:09 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 00:50:10 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 00:50:10 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 00:50:10 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 00:50:22 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 00:50:23 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 00:50:25 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 00:50:25 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 00:50:25 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 00:50:26 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 00:50:26 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 00:50:26 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 00:50:26 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 00:50:27 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 00:50:28 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 00:56:24 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 00:56:28 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 00:56:29 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 00:56:29 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 00:56:30 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 00:56:31 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 00:56:32 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 00:57:42 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 00:57:42 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 00:59:13 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 00:59:16 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 00:59:16 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 00:59:16 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 00:59:17 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 00:59:17 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 00:59:17 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 00:59:17 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 00:59:18 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 00:59:22 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 00:59:24 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 00:59:36 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 01:00:53 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 01:00:59 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 01:04:43 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 01:05:24 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 01:05:26 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 01:05:29 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 01:05:29 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 01:05:30 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 01:05:32 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 01:05:36 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 01:05:36 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 01:05:36 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 01:05:37 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 01:05:37 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 01:05:37 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 01:05:37 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 01:06:31 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 01:06:32 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 01:06:33 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 01:06:34 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 01:06:37 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 01:06:37 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 01:06:37 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 01:06:37 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 01:06:37 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 01:06:38 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 01:06:38 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 01:06:38 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 01:06:39 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 01:06:40 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 01:06:40 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 01:06:41 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 01:06:41 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 01:06:42 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 01:07:05 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 01:07:05 --> Severity: error --> Exception: count(): Argument #1 ($value) must be of type Countable|array, bool given C:\xampp\htdocs\gestion-becarios\application\controllers\Administrators.php 53
-ERROR - 2022-01-24 01:07:06 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 01:07:11 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 01:07:14 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 01:07:40 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 01:07:40 --> Severity: error --> Exception: count(): Argument #1 ($value) must be of type Countable|array, bool given C:\xampp\htdocs\gestion-becarios\application\controllers\Administrators.php 53
-ERROR - 2022-01-24 01:07:41 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 01:07:53 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 01:15:15 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 01:41:23 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 01:41:25 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 01:42:11 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 01:42:11 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 01:42:12 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 01:42:12 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 01:42:19 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 01:52:38 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 01:52:38 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 01:54:40 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 01:55:03 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 01:55:57 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 01:56:10 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 02:02:50 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 02:02:52 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 02:02:56 --> Severity: Warning --> Undefined variable $becarioName C:\xampp\htdocs\gestion-becarios\application\controllers\Becarios.php 151
-ERROR - 2022-01-24 02:03:40 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 02:04:31 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 02:04:44 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 02:05:19 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 02:05:46 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 02:14:14 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 02:14:44 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 02:15:41 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 02:15:44 --> Severity: Warning --> Undefined variable $becarioName C:\xampp\htdocs\gestion-becarios\application\controllers\Becarios.php 151
-ERROR - 2022-01-24 02:15:49 --> Severity: Warning --> Undefined variable $becarioName C:\xampp\htdocs\gestion-becarios\application\controllers\Becarios.php 151
-ERROR - 2022-01-24 02:15:50 --> Severity: Warning --> Undefined variable $becarioName C:\xampp\htdocs\gestion-becarios\application\controllers\Becarios.php 151
-ERROR - 2022-01-24 02:16:58 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 02:17:14 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 02:17:58 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 02:17:59 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 02:18:12 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 02:18:40 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 02:18:46 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 02:46:11 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 02:46:37 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 02:46:40 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 02:46:42 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 02:46:45 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 03:40:23 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 04:33:48 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 04:33:57 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 04:34:01 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 14:04:04 --> 404 Page Not Found: Sorttablejs/index
-ERROR - 2022-01-24 14:04:07 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 14:06:56 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 14:06:59 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 14:07:18 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 14:07:21 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 14:07:22 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 14:07:23 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 14:07:24 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 14:07:33 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 14:07:58 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 14:08:02 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 14:08:59 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 14:09:02 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 14:09:06 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 14:09:06 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 14:09:07 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 14:09:07 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 14:09:07 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 14:09:07 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 14:09:11 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 14:09:11 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 14:09:17 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 14:10:26 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
+ERROR - 2022-01-24 14:04:29 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
+ERROR - 2022-01-24 14:04:31 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
+ERROR - 2022-01-24 14:04:58 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
+ERROR - 2022-01-24 14:05:07 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
+ERROR - 2022-01-24 14:05:10 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
+ERROR - 2022-01-24 14:05:16 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
+ERROR - 2022-01-24 14:05:34 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
+ERROR - 2022-01-24 14:09:57 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
+ERROR - 2022-01-24 14:10:10 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
+ERROR - 2022-01-24 14:10:10 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
+ERROR - 2022-01-24 14:10:10 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
+ERROR - 2022-01-24 14:10:11 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
+ERROR - 2022-01-24 14:10:12 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
+ERROR - 2022-01-24 14:10:12 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
+ERROR - 2022-01-24 14:10:21 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
+ERROR - 2022-01-24 14:10:25 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
+ERROR - 2022-01-24 14:10:25 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
+ERROR - 2022-01-24 14:10:25 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
+ERROR - 2022-01-24 14:10:27 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
+ERROR - 2022-01-24 14:10:27 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
+ERROR - 2022-01-24 14:10:27 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
+ERROR - 2022-01-24 14:10:27 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
+ERROR - 2022-01-24 14:10:27 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
 ERROR - 2022-01-24 14:10:28 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
+ERROR - 2022-01-24 14:10:29 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
+ERROR - 2022-01-24 14:10:31 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
+ERROR - 2022-01-24 14:10:31 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
+ERROR - 2022-01-24 14:10:31 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
+ERROR - 2022-01-24 14:10:32 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
+ERROR - 2022-01-24 14:10:34 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
+ERROR - 2022-01-24 14:10:36 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
 ERROR - 2022-01-24 14:10:37 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
+ERROR - 2022-01-24 14:10:38 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
+ERROR - 2022-01-24 14:10:39 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
+ERROR - 2022-01-24 14:10:40 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
+ERROR - 2022-01-24 14:10:41 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
+ERROR - 2022-01-24 14:10:41 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
 ERROR - 2022-01-24 14:10:42 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 14:11:41 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 14:11:44 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 14:11:46 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 14:12:52 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 14:12:55 --> Severity: Warning --> Undefined variable $allAsignaciones C:\xampp\htdocs\gestion-becarios\application\views\trabajos\trabajoslisttable.php 43
-ERROR - 2022-01-24 14:12:55 --> Severity: Warning --> Undefined variable $allAsignaciones C:\xampp\htdocs\gestion-becarios\application\views\trabajos\trabajoslisttable.php 44
-ERROR - 2022-01-24 14:12:55 --> Severity: Warning --> foreach() argument must be of type array|object, null given C:\xampp\htdocs\gestion-becarios\application\views\trabajos\trabajoslisttable.php 44
-ERROR - 2022-01-24 14:12:55 --> Severity: Warning --> Undefined variable $allAsignaciones C:\xampp\htdocs\gestion-becarios\application\views\trabajos\trabajoslisttable.php 43
-ERROR - 2022-01-24 14:12:55 --> Severity: Warning --> Undefined variable $allAsignaciones C:\xampp\htdocs\gestion-becarios\application\views\trabajos\trabajoslisttable.php 44
-ERROR - 2022-01-24 14:12:55 --> Severity: Warning --> foreach() argument must be of type array|object, null given C:\xampp\htdocs\gestion-becarios\application\views\trabajos\trabajoslisttable.php 44
-ERROR - 2022-01-24 14:12:55 --> Severity: Warning --> Undefined variable $allAsignaciones C:\xampp\htdocs\gestion-becarios\application\views\trabajos\trabajoslisttable.php 43
-ERROR - 2022-01-24 14:12:55 --> Severity: Warning --> Undefined variable $allAsignaciones C:\xampp\htdocs\gestion-becarios\application\views\trabajos\trabajoslisttable.php 44
-ERROR - 2022-01-24 14:12:55 --> Severity: Warning --> foreach() argument must be of type array|object, null given C:\xampp\htdocs\gestion-becarios\application\views\trabajos\trabajoslisttable.php 44
-ERROR - 2022-01-24 14:12:55 --> Severity: Warning --> Undefined variable $allAsignaciones C:\xampp\htdocs\gestion-becarios\application\views\trabajos\trabajoslisttable.php 43
-ERROR - 2022-01-24 14:12:55 --> Severity: Warning --> Undefined variable $allAsignaciones C:\xampp\htdocs\gestion-becarios\application\views\trabajos\trabajoslisttable.php 44
-ERROR - 2022-01-24 14:12:55 --> Severity: Warning --> foreach() argument must be of type array|object, null given C:\xampp\htdocs\gestion-becarios\application\views\trabajos\trabajoslisttable.php 44
-ERROR - 2022-01-24 14:12:55 --> Severity: Warning --> Undefined variable $allAsignaciones C:\xampp\htdocs\gestion-becarios\application\views\trabajos\trabajoslisttable.php 43
-ERROR - 2022-01-24 14:12:55 --> Severity: Warning --> Undefined variable $allAsignaciones C:\xampp\htdocs\gestion-becarios\application\views\trabajos\trabajoslisttable.php 44
-ERROR - 2022-01-24 14:12:55 --> Severity: Warning --> foreach() argument must be of type array|object, null given C:\xampp\htdocs\gestion-becarios\application\views\trabajos\trabajoslisttable.php 44
-ERROR - 2022-01-24 14:12:55 --> Severity: Warning --> Undefined variable $allAsignaciones C:\xampp\htdocs\gestion-becarios\application\views\trabajos\trabajoslisttable.php 43
-ERROR - 2022-01-24 14:12:55 --> Severity: Warning --> Undefined variable $allAsignaciones C:\xampp\htdocs\gestion-becarios\application\views\trabajos\trabajoslisttable.php 44
-ERROR - 2022-01-24 14:12:55 --> Severity: Warning --> foreach() argument must be of type array|object, null given C:\xampp\htdocs\gestion-becarios\application\views\trabajos\trabajoslisttable.php 44
-ERROR - 2022-01-24 14:12:55 --> Severity: Warning --> Undefined variable $allAsignaciones C:\xampp\htdocs\gestion-becarios\application\views\trabajos\trabajoslisttable.php 43
-ERROR - 2022-01-24 14:12:55 --> Severity: Warning --> Undefined variable $allAsignaciones C:\xampp\htdocs\gestion-becarios\application\views\trabajos\trabajoslisttable.php 44
-ERROR - 2022-01-24 14:12:55 --> Severity: Warning --> foreach() argument must be of type array|object, null given C:\xampp\htdocs\gestion-becarios\application\views\trabajos\trabajoslisttable.php 44
-ERROR - 2022-01-24 14:12:55 --> Severity: Warning --> Undefined variable $allAsignaciones C:\xampp\htdocs\gestion-becarios\application\views\trabajos\trabajoslisttable.php 43
-ERROR - 2022-01-24 14:12:55 --> Severity: Warning --> Undefined variable $allAsignaciones C:\xampp\htdocs\gestion-becarios\application\views\trabajos\trabajoslisttable.php 44
-ERROR - 2022-01-24 14:12:55 --> Severity: Warning --> foreach() argument must be of type array|object, null given C:\xampp\htdocs\gestion-becarios\application\views\trabajos\trabajoslisttable.php 44
-ERROR - 2022-01-24 14:12:55 --> Severity: Warning --> Undefined variable $allAsignaciones C:\xampp\htdocs\gestion-becarios\application\views\trabajos\trabajoslisttable.php 43
-ERROR - 2022-01-24 14:12:55 --> Severity: Warning --> Undefined variable $allAsignaciones C:\xampp\htdocs\gestion-becarios\application\views\trabajos\trabajoslisttable.php 44
-ERROR - 2022-01-24 14:12:55 --> Severity: Warning --> foreach() argument must be of type array|object, null given C:\xampp\htdocs\gestion-becarios\application\views\trabajos\trabajoslisttable.php 44
-ERROR - 2022-01-24 14:13:00 --> Severity: Warning --> Undefined variable $allAsignaciones C:\xampp\htdocs\gestion-becarios\application\views\trabajos\trabajoslisttable.php 43
-ERROR - 2022-01-24 14:13:00 --> Severity: Warning --> Undefined variable $allAsignaciones C:\xampp\htdocs\gestion-becarios\application\views\trabajos\trabajoslisttable.php 44
-ERROR - 2022-01-24 14:13:00 --> Severity: Warning --> foreach() argument must be of type array|object, null given C:\xampp\htdocs\gestion-becarios\application\views\trabajos\trabajoslisttable.php 44
-ERROR - 2022-01-24 14:13:00 --> Severity: Warning --> Undefined variable $allAsignaciones C:\xampp\htdocs\gestion-becarios\application\views\trabajos\trabajoslisttable.php 43
-ERROR - 2022-01-24 14:13:00 --> Severity: Warning --> Undefined variable $allAsignaciones C:\xampp\htdocs\gestion-becarios\application\views\trabajos\trabajoslisttable.php 44
-ERROR - 2022-01-24 14:13:00 --> Severity: Warning --> foreach() argument must be of type array|object, null given C:\xampp\htdocs\gestion-becarios\application\views\trabajos\trabajoslisttable.php 44
-ERROR - 2022-01-24 14:13:00 --> Severity: Warning --> Undefined variable $allAsignaciones C:\xampp\htdocs\gestion-becarios\application\views\trabajos\trabajoslisttable.php 43
-ERROR - 2022-01-24 14:13:00 --> Severity: Warning --> Undefined variable $allAsignaciones C:\xampp\htdocs\gestion-becarios\application\views\trabajos\trabajoslisttable.php 44
-ERROR - 2022-01-24 14:13:00 --> Severity: Warning --> foreach() argument must be of type array|object, null given C:\xampp\htdocs\gestion-becarios\application\views\trabajos\trabajoslisttable.php 44
-ERROR - 2022-01-24 14:13:03 --> Severity: Warning --> Undefined variable $allAsignaciones C:\xampp\htdocs\gestion-becarios\application\views\trabajos\trabajoslisttable.php 43
-ERROR - 2022-01-24 14:13:03 --> Severity: Warning --> Undefined variable $allAsignaciones C:\xampp\htdocs\gestion-becarios\application\views\trabajos\trabajoslisttable.php 44
-ERROR - 2022-01-24 14:13:03 --> Severity: Warning --> foreach() argument must be of type array|object, null given C:\xampp\htdocs\gestion-becarios\application\views\trabajos\trabajoslisttable.php 44
-ERROR - 2022-01-24 14:13:03 --> Severity: Warning --> Undefined variable $allAsignaciones C:\xampp\htdocs\gestion-becarios\application\views\trabajos\trabajoslisttable.php 43
-ERROR - 2022-01-24 14:13:03 --> Severity: Warning --> Undefined variable $allAsignaciones C:\xampp\htdocs\gestion-becarios\application\views\trabajos\trabajoslisttable.php 44
-ERROR - 2022-01-24 14:13:03 --> Severity: Warning --> foreach() argument must be of type array|object, null given C:\xampp\htdocs\gestion-becarios\application\views\trabajos\trabajoslisttable.php 44
-ERROR - 2022-01-24 14:13:03 --> Severity: Warning --> Undefined variable $allAsignaciones C:\xampp\htdocs\gestion-becarios\application\views\trabajos\trabajoslisttable.php 43
-ERROR - 2022-01-24 14:13:03 --> Severity: Warning --> Undefined variable $allAsignaciones C:\xampp\htdocs\gestion-becarios\application\views\trabajos\trabajoslisttable.php 44
-ERROR - 2022-01-24 14:13:03 --> Severity: Warning --> foreach() argument must be of type array|object, null given C:\xampp\htdocs\gestion-becarios\application\views\trabajos\trabajoslisttable.php 44
-ERROR - 2022-01-24 14:13:06 --> Severity: Warning --> Undefined variable $allAsignaciones C:\xampp\htdocs\gestion-becarios\application\views\trabajos\trabajoslisttable.php 43
-ERROR - 2022-01-24 14:13:06 --> Severity: Warning --> Undefined variable $allAsignaciones C:\xampp\htdocs\gestion-becarios\application\views\trabajos\trabajoslisttable.php 44
-ERROR - 2022-01-24 14:13:06 --> Severity: Warning --> foreach() argument must be of type array|object, null given C:\xampp\htdocs\gestion-becarios\application\views\trabajos\trabajoslisttable.php 44
-ERROR - 2022-01-24 14:13:06 --> Severity: Warning --> Undefined variable $allAsignaciones C:\xampp\htdocs\gestion-becarios\application\views\trabajos\trabajoslisttable.php 43
-ERROR - 2022-01-24 14:13:06 --> Severity: Warning --> Undefined variable $allAsignaciones C:\xampp\htdocs\gestion-becarios\application\views\trabajos\trabajoslisttable.php 44
-ERROR - 2022-01-24 14:13:06 --> Severity: Warning --> foreach() argument must be of type array|object, null given C:\xampp\htdocs\gestion-becarios\application\views\trabajos\trabajoslisttable.php 44
-ERROR - 2022-01-24 14:13:07 --> Severity: Warning --> Undefined variable $allAsignaciones C:\xampp\htdocs\gestion-becarios\application\views\trabajos\trabajoslisttable.php 43
-ERROR - 2022-01-24 14:13:07 --> Severity: Warning --> Undefined variable $allAsignaciones C:\xampp\htdocs\gestion-becarios\application\views\trabajos\trabajoslisttable.php 44
-ERROR - 2022-01-24 14:13:07 --> Severity: Warning --> foreach() argument must be of type array|object, null given C:\xampp\htdocs\gestion-becarios\application\views\trabajos\trabajoslisttable.php 44
-ERROR - 2022-01-24 14:13:13 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 14:13:15 --> Severity: Warning --> Undefined variable $allAsignaciones C:\xampp\htdocs\gestion-becarios\application\views\becarios\becarioslisttable.php 51
-ERROR - 2022-01-24 14:13:15 --> Severity: Warning --> Undefined variable $allAsignaciones C:\xampp\htdocs\gestion-becarios\application\views\becarios\becarioslisttable.php 52
-ERROR - 2022-01-24 14:13:15 --> Severity: Warning --> foreach() argument must be of type array|object, null given C:\xampp\htdocs\gestion-becarios\application\views\becarios\becarioslisttable.php 52
-ERROR - 2022-01-24 14:13:15 --> Severity: Warning --> Undefined variable $allAsignaciones C:\xampp\htdocs\gestion-becarios\application\views\becarios\becarioslisttable.php 67
-ERROR - 2022-01-24 14:13:15 --> Severity: Warning --> Undefined variable $allAsignaciones C:\xampp\htdocs\gestion-becarios\application\views\becarios\becarioslisttable.php 68
-ERROR - 2022-01-24 14:13:15 --> Severity: Warning --> foreach() argument must be of type array|object, null given C:\xampp\htdocs\gestion-becarios\application\views\becarios\becarioslisttable.php 68
-ERROR - 2022-01-24 14:13:15 --> Severity: Warning --> Undefined variable $allAsignaciones C:\xampp\htdocs\gestion-becarios\application\views\becarios\becarioslisttable.php 51
-ERROR - 2022-01-24 14:13:15 --> Severity: Warning --> Undefined variable $allAsignaciones C:\xampp\htdocs\gestion-becarios\application\views\becarios\becarioslisttable.php 52
-ERROR - 2022-01-24 14:13:15 --> Severity: Warning --> foreach() argument must be of type array|object, null given C:\xampp\htdocs\gestion-becarios\application\views\becarios\becarioslisttable.php 52
-ERROR - 2022-01-24 14:13:15 --> Severity: Warning --> Undefined variable $allAsignaciones C:\xampp\htdocs\gestion-becarios\application\views\becarios\becarioslisttable.php 67
-ERROR - 2022-01-24 14:13:15 --> Severity: Warning --> Undefined variable $allAsignaciones C:\xampp\htdocs\gestion-becarios\application\views\becarios\becarioslisttable.php 68
-ERROR - 2022-01-24 14:13:15 --> Severity: Warning --> foreach() argument must be of type array|object, null given C:\xampp\htdocs\gestion-becarios\application\views\becarios\becarioslisttable.php 68
-ERROR - 2022-01-24 14:13:15 --> Severity: Warning --> Undefined variable $allAsignaciones C:\xampp\htdocs\gestion-becarios\application\views\becarios\becarioslisttable.php 51
-ERROR - 2022-01-24 14:13:15 --> Severity: Warning --> Undefined variable $allAsignaciones C:\xampp\htdocs\gestion-becarios\application\views\becarios\becarioslisttable.php 52
-ERROR - 2022-01-24 14:13:15 --> Severity: Warning --> foreach() argument must be of type array|object, null given C:\xampp\htdocs\gestion-becarios\application\views\becarios\becarioslisttable.php 52
-ERROR - 2022-01-24 14:13:15 --> Severity: Warning --> Undefined variable $allAsignaciones C:\xampp\htdocs\gestion-becarios\application\views\becarios\becarioslisttable.php 67
-ERROR - 2022-01-24 14:13:15 --> Severity: Warning --> Undefined variable $allAsignaciones C:\xampp\htdocs\gestion-becarios\application\views\becarios\becarioslisttable.php 68
-ERROR - 2022-01-24 14:13:15 --> Severity: Warning --> foreach() argument must be of type array|object, null given C:\xampp\htdocs\gestion-becarios\application\views\becarios\becarioslisttable.php 68
-ERROR - 2022-01-24 14:13:16 --> Severity: Warning --> Undefined variable $allAsignaciones C:\xampp\htdocs\gestion-becarios\application\views\becarios\becarioslisttable.php 51
-ERROR - 2022-01-24 14:13:16 --> Severity: Warning --> Undefined variable $allAsignaciones C:\xampp\htdocs\gestion-becarios\application\views\becarios\becarioslisttable.php 52
-ERROR - 2022-01-24 14:13:16 --> Severity: Warning --> foreach() argument must be of type array|object, null given C:\xampp\htdocs\gestion-becarios\application\views\becarios\becarioslisttable.php 52
-ERROR - 2022-01-24 14:13:16 --> Severity: Warning --> Undefined variable $allAsignaciones C:\xampp\htdocs\gestion-becarios\application\views\becarios\becarioslisttable.php 67
-ERROR - 2022-01-24 14:13:16 --> Severity: Warning --> Undefined variable $allAsignaciones C:\xampp\htdocs\gestion-becarios\application\views\becarios\becarioslisttable.php 68
-ERROR - 2022-01-24 14:13:16 --> Severity: Warning --> foreach() argument must be of type array|object, null given C:\xampp\htdocs\gestion-becarios\application\views\becarios\becarioslisttable.php 68
-ERROR - 2022-01-24 14:13:19 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 14:13:21 --> Severity: Warning --> Undefined variable $json C:\xampp\htdocs\gestion-becarios\application\controllers\Search.php 120
-ERROR - 2022-01-24 14:14:41 --> Severity: Warning --> Undefined variable $allAsignaciones C:\xampp\htdocs\gestion-becarios\application\views\trabajos\trabajoslisttable.php 43
-ERROR - 2022-01-24 14:14:41 --> Severity: Warning --> Undefined variable $allAsignaciones C:\xampp\htdocs\gestion-becarios\application\views\trabajos\trabajoslisttable.php 44
-ERROR - 2022-01-24 14:14:41 --> Severity: Warning --> foreach() argument must be of type array|object, null given C:\xampp\htdocs\gestion-becarios\application\views\trabajos\trabajoslisttable.php 44
-ERROR - 2022-01-24 14:14:41 --> Severity: Warning --> Undefined variable $allAsignaciones C:\xampp\htdocs\gestion-becarios\application\views\trabajos\trabajoslisttable.php 43
-ERROR - 2022-01-24 14:14:41 --> Severity: Warning --> Undefined variable $allAsignaciones C:\xampp\htdocs\gestion-becarios\application\views\trabajos\trabajoslisttable.php 44
-ERROR - 2022-01-24 14:14:41 --> Severity: Warning --> foreach() argument must be of type array|object, null given C:\xampp\htdocs\gestion-becarios\application\views\trabajos\trabajoslisttable.php 44
-ERROR - 2022-01-24 14:14:41 --> Severity: Warning --> Undefined variable $allAsignaciones C:\xampp\htdocs\gestion-becarios\application\views\trabajos\trabajoslisttable.php 43
-ERROR - 2022-01-24 14:14:41 --> Severity: Warning --> Undefined variable $allAsignaciones C:\xampp\htdocs\gestion-becarios\application\views\trabajos\trabajoslisttable.php 44
-ERROR - 2022-01-24 14:14:41 --> Severity: Warning --> foreach() argument must be of type array|object, null given C:\xampp\htdocs\gestion-becarios\application\views\trabajos\trabajoslisttable.php 44
-ERROR - 2022-01-24 14:14:41 --> Severity: Warning --> Undefined variable $allAsignaciones C:\xampp\htdocs\gestion-becarios\application\views\trabajos\trabajoslisttable.php 43
-ERROR - 2022-01-24 14:14:41 --> Severity: Warning --> Undefined variable $allAsignaciones C:\xampp\htdocs\gestion-becarios\application\views\trabajos\trabajoslisttable.php 44
-ERROR - 2022-01-24 14:14:41 --> Severity: Warning --> foreach() argument must be of type array|object, null given C:\xampp\htdocs\gestion-becarios\application\views\trabajos\trabajoslisttable.php 44
-ERROR - 2022-01-24 14:14:41 --> Severity: Warning --> Undefined variable $allAsignaciones C:\xampp\htdocs\gestion-becarios\application\views\trabajos\trabajoslisttable.php 43
-ERROR - 2022-01-24 14:14:41 --> Severity: Warning --> Undefined variable $allAsignaciones C:\xampp\htdocs\gestion-becarios\application\views\trabajos\trabajoslisttable.php 44
-ERROR - 2022-01-24 14:14:41 --> Severity: Warning --> foreach() argument must be of type array|object, null given C:\xampp\htdocs\gestion-becarios\application\views\trabajos\trabajoslisttable.php 44
-ERROR - 2022-01-24 14:14:41 --> Severity: Warning --> Undefined variable $allAsignaciones C:\xampp\htdocs\gestion-becarios\application\views\trabajos\trabajoslisttable.php 43
-ERROR - 2022-01-24 14:14:41 --> Severity: Warning --> Undefined variable $allAsignaciones C:\xampp\htdocs\gestion-becarios\application\views\trabajos\trabajoslisttable.php 44
-ERROR - 2022-01-24 14:14:41 --> Severity: Warning --> foreach() argument must be of type array|object, null given C:\xampp\htdocs\gestion-becarios\application\views\trabajos\trabajoslisttable.php 44
-ERROR - 2022-01-24 14:14:41 --> Severity: Warning --> Undefined variable $allAsignaciones C:\xampp\htdocs\gestion-becarios\application\views\trabajos\trabajoslisttable.php 43
-ERROR - 2022-01-24 14:14:41 --> Severity: Warning --> Undefined variable $allAsignaciones C:\xampp\htdocs\gestion-becarios\application\views\trabajos\trabajoslisttable.php 44
-ERROR - 2022-01-24 14:14:41 --> Severity: Warning --> foreach() argument must be of type array|object, null given C:\xampp\htdocs\gestion-becarios\application\views\trabajos\trabajoslisttable.php 44
-ERROR - 2022-01-24 14:14:41 --> Severity: Warning --> Undefined variable $allAsignaciones C:\xampp\htdocs\gestion-becarios\application\views\trabajos\trabajoslisttable.php 43
-ERROR - 2022-01-24 14:14:41 --> Severity: Warning --> Undefined variable $allAsignaciones C:\xampp\htdocs\gestion-becarios\application\views\trabajos\trabajoslisttable.php 44
-ERROR - 2022-01-24 14:14:41 --> Severity: Warning --> foreach() argument must be of type array|object, null given C:\xampp\htdocs\gestion-becarios\application\views\trabajos\trabajoslisttable.php 44
-ERROR - 2022-01-24 14:14:41 --> Severity: Warning --> Undefined variable $allAsignaciones C:\xampp\htdocs\gestion-becarios\application\views\trabajos\trabajoslisttable.php 43
-ERROR - 2022-01-24 14:14:41 --> Severity: Warning --> Undefined variable $allAsignaciones C:\xampp\htdocs\gestion-becarios\application\views\trabajos\trabajoslisttable.php 44
-ERROR - 2022-01-24 14:14:41 --> Severity: Warning --> foreach() argument must be of type array|object, null given C:\xampp\htdocs\gestion-becarios\application\views\trabajos\trabajoslisttable.php 44
-ERROR - 2022-01-24 14:17:37 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 14:18:09 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 14:18:12 --> Severity: Warning --> Undefined variable $allAsignaciones C:\xampp\htdocs\gestion-becarios\application\views\trabajos\trabajoslisttable.php 43
-ERROR - 2022-01-24 14:18:12 --> Severity: Warning --> Undefined variable $allAsignaciones C:\xampp\htdocs\gestion-becarios\application\views\trabajos\trabajoslisttable.php 44
-ERROR - 2022-01-24 14:18:12 --> Severity: Warning --> foreach() argument must be of type array|object, null given C:\xampp\htdocs\gestion-becarios\application\views\trabajos\trabajoslisttable.php 44
-ERROR - 2022-01-24 14:18:12 --> Severity: Warning --> Undefined variable $allAsignaciones C:\xampp\htdocs\gestion-becarios\application\views\trabajos\trabajoslisttable.php 43
-ERROR - 2022-01-24 14:18:12 --> Severity: Warning --> Undefined variable $allAsignaciones C:\xampp\htdocs\gestion-becarios\application\views\trabajos\trabajoslisttable.php 44
-ERROR - 2022-01-24 14:18:12 --> Severity: Warning --> foreach() argument must be of type array|object, null given C:\xampp\htdocs\gestion-becarios\application\views\trabajos\trabajoslisttable.php 44
-ERROR - 2022-01-24 14:18:12 --> Severity: Warning --> Undefined variable $allAsignaciones C:\xampp\htdocs\gestion-becarios\application\views\trabajos\trabajoslisttable.php 43
-ERROR - 2022-01-24 14:18:12 --> Severity: Warning --> Undefined variable $allAsignaciones C:\xampp\htdocs\gestion-becarios\application\views\trabajos\trabajoslisttable.php 44
-ERROR - 2022-01-24 14:18:12 --> Severity: Warning --> foreach() argument must be of type array|object, null given C:\xampp\htdocs\gestion-becarios\application\views\trabajos\trabajoslisttable.php 44
-ERROR - 2022-01-24 14:18:12 --> Severity: Warning --> Undefined variable $allAsignaciones C:\xampp\htdocs\gestion-becarios\application\views\trabajos\trabajoslisttable.php 43
-ERROR - 2022-01-24 14:18:12 --> Severity: Warning --> Undefined variable $allAsignaciones C:\xampp\htdocs\gestion-becarios\application\views\trabajos\trabajoslisttable.php 44
-ERROR - 2022-01-24 14:18:12 --> Severity: Warning --> foreach() argument must be of type array|object, null given C:\xampp\htdocs\gestion-becarios\application\views\trabajos\trabajoslisttable.php 44
-ERROR - 2022-01-24 14:18:12 --> Severity: Warning --> Undefined variable $allAsignaciones C:\xampp\htdocs\gestion-becarios\application\views\trabajos\trabajoslisttable.php 43
-ERROR - 2022-01-24 14:18:12 --> Severity: Warning --> Undefined variable $allAsignaciones C:\xampp\htdocs\gestion-becarios\application\views\trabajos\trabajoslisttable.php 44
-ERROR - 2022-01-24 14:18:12 --> Severity: Warning --> foreach() argument must be of type array|object, null given C:\xampp\htdocs\gestion-becarios\application\views\trabajos\trabajoslisttable.php 44
-ERROR - 2022-01-24 14:18:12 --> Severity: Warning --> Undefined variable $allAsignaciones C:\xampp\htdocs\gestion-becarios\application\views\trabajos\trabajoslisttable.php 43
-ERROR - 2022-01-24 14:18:12 --> Severity: Warning --> Undefined variable $allAsignaciones C:\xampp\htdocs\gestion-becarios\application\views\trabajos\trabajoslisttable.php 44
-ERROR - 2022-01-24 14:18:12 --> Severity: Warning --> foreach() argument must be of type array|object, null given C:\xampp\htdocs\gestion-becarios\application\views\trabajos\trabajoslisttable.php 44
-ERROR - 2022-01-24 14:18:45 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 14:19:20 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 14:19:24 --> Severity: Warning --> Undefined variable $allAsignaciones C:\xampp\htdocs\gestion-becarios\application\views\becarios\becarioslisttable.php 51
-ERROR - 2022-01-24 14:19:24 --> Severity: Warning --> Undefined variable $allAsignaciones C:\xampp\htdocs\gestion-becarios\application\views\becarios\becarioslisttable.php 52
-ERROR - 2022-01-24 14:19:24 --> Severity: Warning --> foreach() argument must be of type array|object, null given C:\xampp\htdocs\gestion-becarios\application\views\becarios\becarioslisttable.php 52
-ERROR - 2022-01-24 14:19:24 --> Severity: Warning --> Undefined variable $allAsignaciones C:\xampp\htdocs\gestion-becarios\application\views\becarios\becarioslisttable.php 67
-ERROR - 2022-01-24 14:19:24 --> Severity: Warning --> Undefined variable $allAsignaciones C:\xampp\htdocs\gestion-becarios\application\views\becarios\becarioslisttable.php 68
-ERROR - 2022-01-24 14:19:24 --> Severity: Warning --> foreach() argument must be of type array|object, null given C:\xampp\htdocs\gestion-becarios\application\views\becarios\becarioslisttable.php 68
-ERROR - 2022-01-24 14:19:24 --> Severity: Warning --> Undefined variable $allAsignaciones C:\xampp\htdocs\gestion-becarios\application\views\becarios\becarioslisttable.php 51
-ERROR - 2022-01-24 14:19:24 --> Severity: Warning --> Undefined variable $allAsignaciones C:\xampp\htdocs\gestion-becarios\application\views\becarios\becarioslisttable.php 52
-ERROR - 2022-01-24 14:19:24 --> Severity: Warning --> foreach() argument must be of type array|object, null given C:\xampp\htdocs\gestion-becarios\application\views\becarios\becarioslisttable.php 52
-ERROR - 2022-01-24 14:19:24 --> Severity: Warning --> Undefined variable $allAsignaciones C:\xampp\htdocs\gestion-becarios\application\views\becarios\becarioslisttable.php 67
-ERROR - 2022-01-24 14:19:24 --> Severity: Warning --> Undefined variable $allAsignaciones C:\xampp\htdocs\gestion-becarios\application\views\becarios\becarioslisttable.php 68
-ERROR - 2022-01-24 14:19:24 --> Severity: Warning --> foreach() argument must be of type array|object, null given C:\xampp\htdocs\gestion-becarios\application\views\becarios\becarioslisttable.php 68
-ERROR - 2022-01-24 14:20:00 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 14:20:09 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 14:20:12 --> Severity: Warning --> Undefined variable $json C:\xampp\htdocs\gestion-becarios\application\controllers\Search.php 124
-ERROR - 2022-01-24 14:20:59 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 14:21:00 --> Severity: Warning --> Undefined variable $json C:\xampp\htdocs\gestion-becarios\application\controllers\Search.php 124
-ERROR - 2022-01-24 14:24:51 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 14:24:58 --> Severity: Warning --> Undefined variable $json C:\xampp\htdocs\gestion-becarios\application\controllers\Search.php 124
-ERROR - 2022-01-24 14:30:01 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 14:30:04 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 14:30:07 --> Severity: error --> Exception: syntax error, unexpected variable "$this" C:\xampp\htdocs\gestion-becarios\application\controllers\Search.php 125
-ERROR - 2022-01-24 14:30:45 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 23:09:54 --> 404 Page Not Found: Sorttablejs/index
-ERROR - 2022-01-24 23:09:54 --> 404 Page Not Found: Sorttablejs/index
-ERROR - 2022-01-24 23:09:56 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 23:10:01 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 23:10:13 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 23:11:02 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 23:13:24 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 23:14:02 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 23:17:08 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 23:17:29 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 23:18:01 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 23:18:18 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 23:18:42 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-24 23:20:11 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
+ERROR - 2022-01-24 14:10:43 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
+ERROR - 2022-01-24 14:10:43 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
+ERROR - 2022-01-24 14:10:45 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
+ERROR - 2022-01-24 14:10:46 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
+ERROR - 2022-01-24 14:10:46 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
+ERROR - 2022-01-24 14:10:47 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
+ERROR - 2022-01-24 14:10:48 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
+ERROR - 2022-01-24 14:10:49 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
+ERROR - 2022-01-24 14:10:49 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
+ERROR - 2022-01-24 14:10:57 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
+ERROR - 2022-01-24 14:10:59 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
+ERROR - 2022-01-24 14:11:03 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
+ERROR - 2022-01-24 14:11:03 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
+ERROR - 2022-01-24 14:11:04 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
+ERROR - 2022-01-24 14:11:05 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
+ERROR - 2022-01-24 14:11:06 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
+ERROR - 2022-01-24 14:11:06 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
+ERROR - 2022-01-24 14:11:07 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
+ERROR - 2022-01-24 14:11:08 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
+ERROR - 2022-01-24 14:11:09 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
+ERROR - 2022-01-24 14:11:09 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
+ERROR - 2022-01-24 14:11:10 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
+ERROR - 2022-01-24 14:11:13 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
+ERROR - 2022-01-24 14:11:14 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
+ERROR - 2022-01-24 14:11:14 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
+ERROR - 2022-01-24 14:11:15 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
+ERROR - 2022-01-24 14:11:15 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
+ERROR - 2022-01-24 14:11:16 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
+ERROR - 2022-01-24 14:15:53 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
+ERROR - 2022-01-24 14:15:56 --> Severity: Warning --> Undefined variable $allAsignaciones C:\xampp\htdocs\gestion-becarios\application\views\becarios\becarioslisttable.php 50
+ERROR - 2022-01-24 14:15:56 --> Severity: Warning --> Undefined variable $allAsignaciones C:\xampp\htdocs\gestion-becarios\application\views\becarios\becarioslisttable.php 51
+ERROR - 2022-01-24 14:15:56 --> Severity: Warning --> foreach() argument must be of type array|object, null given C:\xampp\htdocs\gestion-becarios\application\views\becarios\becarioslisttable.php 51
+ERROR - 2022-01-24 14:15:56 --> Severity: Warning --> Undefined variable $allAsignaciones C:\xampp\htdocs\gestion-becarios\application\views\becarios\becarioslisttable.php 50
+ERROR - 2022-01-24 14:15:56 --> Severity: Warning --> Undefined variable $allAsignaciones C:\xampp\htdocs\gestion-becarios\application\views\becarios\becarioslisttable.php 51
+ERROR - 2022-01-24 14:15:56 --> Severity: Warning --> foreach() argument must be of type array|object, null given C:\xampp\htdocs\gestion-becarios\application\views\becarios\becarioslisttable.php 51
+ERROR - 2022-01-24 14:15:56 --> Severity: Warning --> Undefined variable $allAsignaciones C:\xampp\htdocs\gestion-becarios\application\views\becarios\becarioslisttable.php 50
+ERROR - 2022-01-24 14:15:56 --> Severity: Warning --> Undefined variable $allAsignaciones C:\xampp\htdocs\gestion-becarios\application\views\becarios\becarioslisttable.php 51
+ERROR - 2022-01-24 14:15:56 --> Severity: Warning --> foreach() argument must be of type array|object, null given C:\xampp\htdocs\gestion-becarios\application\views\becarios\becarioslisttable.php 51
+ERROR - 2022-01-24 14:15:56 --> Severity: Warning --> Undefined variable $allAsignaciones C:\xampp\htdocs\gestion-becarios\application\views\becarios\becarioslisttable.php 50
+ERROR - 2022-01-24 14:15:56 --> Severity: Warning --> Undefined variable $allAsignaciones C:\xampp\htdocs\gestion-becarios\application\views\becarios\becarioslisttable.php 51
+ERROR - 2022-01-24 14:15:56 --> Severity: Warning --> foreach() argument must be of type array|object, null given C:\xampp\htdocs\gestion-becarios\application\views\becarios\becarioslisttable.php 51
+ERROR - 2022-01-24 14:16:03 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
+ERROR - 2022-01-24 14:16:05 --> Severity: Warning --> Undefined variable $allAsignaciones C:\xampp\htdocs\gestion-becarios\application\views\trabajos\trabajoslisttable.php 43
+ERROR - 2022-01-24 14:16:05 --> Severity: Warning --> Undefined variable $allAsignaciones C:\xampp\htdocs\gestion-becarios\application\views\trabajos\trabajoslisttable.php 44
+ERROR - 2022-01-24 14:16:05 --> Severity: Warning --> foreach() argument must be of type array|object, null given C:\xampp\htdocs\gestion-becarios\application\views\trabajos\trabajoslisttable.php 44
+ERROR - 2022-01-24 14:16:05 --> Severity: Warning --> Undefined variable $allAsignaciones C:\xampp\htdocs\gestion-becarios\application\views\trabajos\trabajoslisttable.php 43
+ERROR - 2022-01-24 14:16:05 --> Severity: Warning --> Undefined variable $allAsignaciones C:\xampp\htdocs\gestion-becarios\application\views\trabajos\trabajoslisttable.php 44
+ERROR - 2022-01-24 14:16:05 --> Severity: Warning --> foreach() argument must be of type array|object, null given C:\xampp\htdocs\gestion-becarios\application\views\trabajos\trabajoslisttable.php 44
+ERROR - 2022-01-24 14:16:05 --> Severity: Warning --> Undefined variable $allAsignaciones C:\xampp\htdocs\gestion-becarios\application\views\trabajos\trabajoslisttable.php 43
+ERROR - 2022-01-24 14:16:05 --> Severity: Warning --> Undefined variable $allAsignaciones C:\xampp\htdocs\gestion-becarios\application\views\trabajos\trabajoslisttable.php 44
+ERROR - 2022-01-24 14:16:05 --> Severity: Warning --> foreach() argument must be of type array|object, null given C:\xampp\htdocs\gestion-becarios\application\views\trabajos\trabajoslisttable.php 44
+ERROR - 2022-01-24 14:16:05 --> Severity: Warning --> Undefined variable $allAsignaciones C:\xampp\htdocs\gestion-becarios\application\views\trabajos\trabajoslisttable.php 43
+ERROR - 2022-01-24 14:16:05 --> Severity: Warning --> Undefined variable $allAsignaciones C:\xampp\htdocs\gestion-becarios\application\views\trabajos\trabajoslisttable.php 44
+ERROR - 2022-01-24 14:16:05 --> Severity: Warning --> foreach() argument must be of type array|object, null given C:\xampp\htdocs\gestion-becarios\application\views\trabajos\trabajoslisttable.php 44
+ERROR - 2022-01-24 14:16:14 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
+ERROR - 2022-01-24 14:16:17 --> 404 Page Not Found: Search/adminsearch
+ERROR - 2022-01-24 14:16:17 --> 404 Page Not Found: Search/adminsearch
+ERROR - 2022-01-24 14:16:18 --> 404 Page Not Found: Search/adminsearch
+ERROR - 2022-01-24 14:16:19 --> 404 Page Not Found: Search/adminsearch
+ERROR - 2022-01-24 14:16:19 --> 404 Page Not Found: Search/adminsearch
+ERROR - 2022-01-24 14:16:19 --> 404 Page Not Found: Search/adminsearch
+ERROR - 2022-01-24 14:16:19 --> 404 Page Not Found: Search/adminsearch
+ERROR - 2022-01-24 14:16:19 --> 404 Page Not Found: Search/adminsearch
+ERROR - 2022-01-24 14:16:20 --> 404 Page Not Found: Search/adminsearch
+ERROR - 2022-01-24 14:16:20 --> 404 Page Not Found: Search/adminsearch
+ERROR - 2022-01-24 14:16:20 --> 404 Page Not Found: Search/adminsearch
+ERROR - 2022-01-24 14:16:20 --> 404 Page Not Found: Search/adminsearch
+ERROR - 2022-01-24 14:16:20 --> 404 Page Not Found: Search/adminsearch
+ERROR - 2022-01-24 14:16:21 --> 404 Page Not Found: Search/adminsearch
+ERROR - 2022-01-24 14:16:21 --> 404 Page Not Found: Search/adminsearch
+ERROR - 2022-01-24 14:16:21 --> 404 Page Not Found: Search/adminsearch
+ERROR - 2022-01-24 14:16:21 --> 404 Page Not Found: Search/adminsearch
+ERROR - 2022-01-24 15:43:18 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
+ERROR - 2022-01-24 15:44:11 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
+ERROR - 2022-01-24 15:44:38 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
+ERROR - 2022-01-24 15:44:51 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
+ERROR - 2022-01-24 15:45:05 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
+ERROR - 2022-01-24 16:53:01 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
+ERROR - 2022-01-24 17:00:16 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
+ERROR - 2022-01-24 17:17:59 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
+ERROR - 2022-01-24 17:32:11 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
+ERROR - 2022-01-24 17:32:26 --> 404 Page Not Found: Administrators/addManagement
+ERROR - 2022-01-24 17:32:27 --> 404 Page Not Found: Administrators/addManagement
+ERROR - 2022-01-24 17:32:43 --> 404 Page Not Found: Administrators/addManagement
+ERROR - 2022-01-24 17:37:59 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
+ERROR - 2022-01-24 17:38:06 --> Severity: 8192 --> trim(): Passing null to parameter #1 ($string) of type string is deprecated C:\xampp\htdocs\gestion-becarios\system\libraries\Form_validation.php 1059
+ERROR - 2022-01-24 17:38:07 --> Severity: 8192 --> trim(): Passing null to parameter #1 ($string) of type string is deprecated C:\xampp\htdocs\gestion-becarios\system\libraries\Form_validation.php 1059
+ERROR - 2022-01-24 17:38:08 --> Severity: 8192 --> trim(): Passing null to parameter #1 ($string) of type string is deprecated C:\xampp\htdocs\gestion-becarios\system\libraries\Form_validation.php 1059
+ERROR - 2022-01-24 17:38:08 --> Severity: 8192 --> trim(): Passing null to parameter #1 ($string) of type string is deprecated C:\xampp\htdocs\gestion-becarios\system\libraries\Form_validation.php 1059
+ERROR - 2022-01-24 17:44:31 --> Severity: 8192 --> trim(): Passing null to parameter #1 ($string) of type string is deprecated C:\xampp\htdocs\gestion-becarios\system\libraries\Form_validation.php 1059
+ERROR - 2022-01-24 17:44:31 --> Severity: 8192 --> trim(): Passing null to parameter #1 ($string) of type string is deprecated C:\xampp\htdocs\gestion-becarios\system\libraries\Form_validation.php 1059
+ERROR - 2022-01-24 17:44:31 --> Severity: 8192 --> trim(): Passing null to parameter #1 ($string) of type string is deprecated C:\xampp\htdocs\gestion-becarios\system\libraries\Form_validation.php 1059
+ERROR - 2022-01-24 17:47:00 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
+ERROR - 2022-01-24 17:47:15 --> Severity: 8192 --> trim(): Passing null to parameter #1 ($string) of type string is deprecated C:\xampp\htdocs\gestion-becarios\system\libraries\Form_validation.php 1059
+ERROR - 2022-01-24 17:47:16 --> Severity: 8192 --> trim(): Passing null to parameter #1 ($string) of type string is deprecated C:\xampp\htdocs\gestion-becarios\system\libraries\Form_validation.php 1059
+ERROR - 2022-01-24 17:47:16 --> Severity: 8192 --> trim(): Passing null to parameter #1 ($string) of type string is deprecated C:\xampp\htdocs\gestion-becarios\system\libraries\Form_validation.php 1059
+ERROR - 2022-01-24 17:47:17 --> Severity: 8192 --> trim(): Passing null to parameter #1 ($string) of type string is deprecated C:\xampp\htdocs\gestion-becarios\system\libraries\Form_validation.php 1059
+ERROR - 2022-01-24 17:47:17 --> Severity: 8192 --> trim(): Passing null to parameter #1 ($string) of type string is deprecated C:\xampp\htdocs\gestion-becarios\system\libraries\Form_validation.php 1059
+ERROR - 2022-01-24 17:47:17 --> Severity: 8192 --> trim(): Passing null to parameter #1 ($string) of type string is deprecated C:\xampp\htdocs\gestion-becarios\system\libraries\Form_validation.php 1059
+ERROR - 2022-01-24 17:49:01 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
+ERROR - 2022-01-24 17:49:06 --> Severity: 8192 --> trim(): Passing null to parameter #1 ($string) of type string is deprecated C:\xampp\htdocs\gestion-becarios\system\libraries\Form_validation.php 1059
+ERROR - 2022-01-24 17:49:07 --> Severity: 8192 --> trim(): Passing null to parameter #1 ($string) of type string is deprecated C:\xampp\htdocs\gestion-becarios\system\libraries\Form_validation.php 1059
+ERROR - 2022-01-24 17:49:07 --> Severity: 8192 --> trim(): Passing null to parameter #1 ($string) of type string is deprecated C:\xampp\htdocs\gestion-becarios\system\libraries\Form_validation.php 1059
+ERROR - 2022-01-24 17:49:07 --> Severity: 8192 --> trim(): Passing null to parameter #1 ($string) of type string is deprecated C:\xampp\htdocs\gestion-becarios\system\libraries\Form_validation.php 1059
+ERROR - 2022-01-24 17:49:07 --> Severity: 8192 --> trim(): Passing null to parameter #1 ($string) of type string is deprecated C:\xampp\htdocs\gestion-becarios\system\libraries\Form_validation.php 1059
+ERROR - 2022-01-24 17:49:07 --> Severity: 8192 --> trim(): Passing null to parameter #1 ($string) of type string is deprecated C:\xampp\htdocs\gestion-becarios\system\libraries\Form_validation.php 1059
+ERROR - 2022-01-24 17:49:23 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
+ERROR - 2022-01-24 17:49:27 --> Severity: 8192 --> trim(): Passing null to parameter #1 ($string) of type string is deprecated C:\xampp\htdocs\gestion-becarios\system\libraries\Form_validation.php 1059
+ERROR - 2022-01-24 17:50:21 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
+ERROR - 2022-01-24 17:50:24 --> Severity: 8192 --> trim(): Passing null to parameter #1 ($string) of type string is deprecated C:\xampp\htdocs\gestion-becarios\system\libraries\Form_validation.php 1059
+ERROR - 2022-01-24 17:50:24 --> Severity: 8192 --> trim(): Passing null to parameter #1 ($string) of type string is deprecated C:\xampp\htdocs\gestion-becarios\system\libraries\Form_validation.php 1059
+ERROR - 2022-01-24 17:50:25 --> Severity: 8192 --> trim(): Passing null to parameter #1 ($string) of type string is deprecated C:\xampp\htdocs\gestion-becarios\system\libraries\Form_validation.php 1059
+ERROR - 2022-01-24 17:50:25 --> Severity: 8192 --> trim(): Passing null to parameter #1 ($string) of type string is deprecated C:\xampp\htdocs\gestion-becarios\system\libraries\Form_validation.php 1059
+ERROR - 2022-01-24 17:50:25 --> Severity: 8192 --> trim(): Passing null to parameter #1 ($string) of type string is deprecated C:\xampp\htdocs\gestion-becarios\system\libraries\Form_validation.php 1059
+ERROR - 2022-01-24 17:50:26 --> Severity: 8192 --> trim(): Passing null to parameter #1 ($string) of type string is deprecated C:\xampp\htdocs\gestion-becarios\system\libraries\Form_validation.php 1059
+ERROR - 2022-01-24 17:50:26 --> Severity: 8192 --> trim(): Passing null to parameter #1 ($string) of type string is deprecated C:\xampp\htdocs\gestion-becarios\system\libraries\Form_validation.php 1059
+ERROR - 2022-01-24 17:51:04 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
+ERROR - 2022-01-24 17:51:07 --> Severity: 8192 --> trim(): Passing null to parameter #1 ($string) of type string is deprecated C:\xampp\htdocs\gestion-becarios\system\libraries\Form_validation.php 1059
+ERROR - 2022-01-24 17:51:08 --> Severity: 8192 --> trim(): Passing null to parameter #1 ($string) of type string is deprecated C:\xampp\htdocs\gestion-becarios\system\libraries\Form_validation.php 1059
+ERROR - 2022-01-24 17:51:08 --> Severity: 8192 --> trim(): Passing null to parameter #1 ($string) of type string is deprecated C:\xampp\htdocs\gestion-becarios\system\libraries\Form_validation.php 1059
+ERROR - 2022-01-24 17:51:08 --> Severity: 8192 --> trim(): Passing null to parameter #1 ($string) of type string is deprecated C:\xampp\htdocs\gestion-becarios\system\libraries\Form_validation.php 1059
+ERROR - 2022-01-24 17:53:43 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
+ERROR - 2022-01-24 17:54:49 --> Severity: 8192 --> trim(): Passing null to parameter #1 ($string) of type string is deprecated C:\xampp\htdocs\gestion-becarios\system\libraries\Form_validation.php 1059
+ERROR - 2022-01-24 17:54:50 --> Severity: 8192 --> trim(): Passing null to parameter #1 ($string) of type string is deprecated C:\xampp\htdocs\gestion-becarios\system\libraries\Form_validation.php 1059
+ERROR - 2022-01-24 17:54:50 --> Severity: 8192 --> trim(): Passing null to parameter #1 ($string) of type string is deprecated C:\xampp\htdocs\gestion-becarios\system\libraries\Form_validation.php 1059
+ERROR - 2022-01-24 17:54:50 --> Severity: 8192 --> trim(): Passing null to parameter #1 ($string) of type string is deprecated C:\xampp\htdocs\gestion-becarios\system\libraries\Form_validation.php 1059
+ERROR - 2022-01-24 17:54:50 --> Severity: 8192 --> trim(): Passing null to parameter #1 ($string) of type string is deprecated C:\xampp\htdocs\gestion-becarios\system\libraries\Form_validation.php 1059
+ERROR - 2022-01-24 17:58:06 --> Severity: 8192 --> trim(): Passing null to parameter #1 ($string) of type string is deprecated C:\xampp\htdocs\gestion-becarios\system\libraries\Form_validation.php 1059
+ERROR - 2022-01-24 17:58:07 --> Severity: 8192 --> trim(): Passing null to parameter #1 ($string) of type string is deprecated C:\xampp\htdocs\gestion-becarios\system\libraries\Form_validation.php 1059
+ERROR - 2022-01-24 17:58:07 --> Severity: 8192 --> trim(): Passing null to parameter #1 ($string) of type string is deprecated C:\xampp\htdocs\gestion-becarios\system\libraries\Form_validation.php 1059
+ERROR - 2022-01-24 17:59:41 --> Severity: 8192 --> trim(): Passing null to parameter #1 ($string) of type string is deprecated C:\xampp\htdocs\gestion-becarios\system\libraries\Form_validation.php 1059
+ERROR - 2022-01-24 17:59:41 --> Severity: 8192 --> trim(): Passing null to parameter #1 ($string) of type string is deprecated C:\xampp\htdocs\gestion-becarios\system\libraries\Form_validation.php 1059
+ERROR - 2022-01-24 17:59:42 --> Severity: 8192 --> trim(): Passing null to parameter #1 ($string) of type string is deprecated C:\xampp\htdocs\gestion-becarios\system\libraries\Form_validation.php 1059
+ERROR - 2022-01-24 17:59:42 --> Severity: 8192 --> trim(): Passing null to parameter #1 ($string) of type string is deprecated C:\xampp\htdocs\gestion-becarios\system\libraries\Form_validation.php 1059
+ERROR - 2022-01-24 17:59:42 --> Severity: 8192 --> trim(): Passing null to parameter #1 ($string) of type string is deprecated C:\xampp\htdocs\gestion-becarios\system\libraries\Form_validation.php 1059
+ERROR - 2022-01-24 17:59:42 --> Severity: 8192 --> trim(): Passing null to parameter #1 ($string) of type string is deprecated C:\xampp\htdocs\gestion-becarios\system\libraries\Form_validation.php 1059
+ERROR - 2022-01-24 17:59:42 --> Severity: 8192 --> trim(): Passing null to parameter #1 ($string) of type string is deprecated C:\xampp\htdocs\gestion-becarios\system\libraries\Form_validation.php 1059
+ERROR - 2022-01-24 18:06:17 --> Severity: 8192 --> trim(): Passing null to parameter #1 ($string) of type string is deprecated C:\xampp\htdocs\gestion-becarios\system\libraries\Form_validation.php 1059
+ERROR - 2022-01-24 18:06:19 --> Severity: 8192 --> trim(): Passing null to parameter #1 ($string) of type string is deprecated C:\xampp\htdocs\gestion-becarios\system\libraries\Form_validation.php 1059
+ERROR - 2022-01-24 18:06:27 --> Severity: 8192 --> trim(): Passing null to parameter #1 ($string) of type string is deprecated C:\xampp\htdocs\gestion-becarios\system\libraries\Form_validation.php 1059
+ERROR - 2022-01-24 18:06:28 --> Severity: 8192 --> trim(): Passing null to parameter #1 ($string) of type string is deprecated C:\xampp\htdocs\gestion-becarios\system\libraries\Form_validation.php 1059
+ERROR - 2022-01-24 18:06:28 --> Severity: 8192 --> trim(): Passing null to parameter #1 ($string) of type string is deprecated C:\xampp\htdocs\gestion-becarios\system\libraries\Form_validation.php 1059
+ERROR - 2022-01-24 18:06:28 --> Severity: 8192 --> trim(): Passing null to parameter #1 ($string) of type string is deprecated C:\xampp\htdocs\gestion-becarios\system\libraries\Form_validation.php 1059
+ERROR - 2022-01-24 18:06:28 --> Severity: 8192 --> trim(): Passing null to parameter #1 ($string) of type string is deprecated C:\xampp\htdocs\gestion-becarios\system\libraries\Form_validation.php 1059
+ERROR - 2022-01-24 18:06:29 --> Severity: 8192 --> trim(): Passing null to parameter #1 ($string) of type string is deprecated C:\xampp\htdocs\gestion-becarios\system\libraries\Form_validation.php 1059
+ERROR - 2022-01-24 18:06:29 --> Severity: 8192 --> trim(): Passing null to parameter #1 ($string) of type string is deprecated C:\xampp\htdocs\gestion-becarios\system\libraries\Form_validation.php 1059
+ERROR - 2022-01-24 18:06:29 --> Severity: 8192 --> trim(): Passing null to parameter #1 ($string) of type string is deprecated C:\xampp\htdocs\gestion-becarios\system\libraries\Form_validation.php 1059
+ERROR - 2022-01-24 18:06:29 --> Severity: 8192 --> trim(): Passing null to parameter #1 ($string) of type string is deprecated C:\xampp\htdocs\gestion-becarios\system\libraries\Form_validation.php 1059
+ERROR - 2022-01-24 18:06:29 --> Severity: 8192 --> trim(): Passing null to parameter #1 ($string) of type string is deprecated C:\xampp\htdocs\gestion-becarios\system\libraries\Form_validation.php 1059
+ERROR - 2022-01-24 18:06:30 --> Severity: 8192 --> trim(): Passing null to parameter #1 ($string) of type string is deprecated C:\xampp\htdocs\gestion-becarios\system\libraries\Form_validation.php 1059
+ERROR - 2022-01-24 18:06:30 --> Severity: 8192 --> trim(): Passing null to parameter #1 ($string) of type string is deprecated C:\xampp\htdocs\gestion-becarios\system\libraries\Form_validation.php 1059
+ERROR - 2022-01-24 18:06:33 --> Severity: 8192 --> trim(): Passing null to parameter #1 ($string) of type string is deprecated C:\xampp\htdocs\gestion-becarios\system\libraries\Form_validation.php 1059
+ERROR - 2022-01-24 18:06:33 --> Severity: 8192 --> trim(): Passing null to parameter #1 ($string) of type string is deprecated C:\xampp\htdocs\gestion-becarios\system\libraries\Form_validation.php 1059
+ERROR - 2022-01-24 18:06:36 --> Severity: 8192 --> trim(): Passing null to parameter #1 ($string) of type string is deprecated C:\xampp\htdocs\gestion-becarios\system\libraries\Form_validation.php 1059
+ERROR - 2022-01-24 18:06:36 --> Severity: 8192 --> trim(): Passing null to parameter #1 ($string) of type string is deprecated C:\xampp\htdocs\gestion-becarios\system\libraries\Form_validation.php 1059
+ERROR - 2022-01-24 18:06:37 --> Severity: 8192 --> trim(): Passing null to parameter #1 ($string) of type string is deprecated C:\xampp\htdocs\gestion-becarios\system\libraries\Form_validation.php 1059
+ERROR - 2022-01-24 18:06:37 --> Severity: 8192 --> trim(): Passing null to parameter #1 ($string) of type string is deprecated C:\xampp\htdocs\gestion-becarios\system\libraries\Form_validation.php 1059
+ERROR - 2022-01-24 18:06:37 --> Severity: 8192 --> trim(): Passing null to parameter #1 ($string) of type string is deprecated C:\xampp\htdocs\gestion-becarios\system\libraries\Form_validation.php 1059
+ERROR - 2022-01-24 18:06:39 --> Severity: 8192 --> trim(): Passing null to parameter #1 ($string) of type string is deprecated C:\xampp\htdocs\gestion-becarios\system\libraries\Form_validation.php 1059
+ERROR - 2022-01-24 18:06:39 --> Severity: 8192 --> trim(): Passing null to parameter #1 ($string) of type string is deprecated C:\xampp\htdocs\gestion-becarios\system\libraries\Form_validation.php 1059
+ERROR - 2022-01-24 18:06:40 --> Severity: 8192 --> trim(): Passing null to parameter #1 ($string) of type string is deprecated C:\xampp\htdocs\gestion-becarios\system\libraries\Form_validation.php 1059
+ERROR - 2022-01-24 18:13:44 --> Severity: 8192 --> trim(): Passing null to parameter #1 ($string) of type string is deprecated C:\xampp\htdocs\gestion-becarios\system\libraries\Form_validation.php 1059
+ERROR - 2022-01-24 18:22:02 --> Severity: Warning --> Undefined property: Administrators::$management C:\xampp\htdocs\gestion-becarios\application\controllers\Administrators.php 159
+ERROR - 2022-01-24 18:22:02 --> Severity: error --> Exception: Call to a member function add() on null C:\xampp\htdocs\gestion-becarios\application\controllers\Administrators.php 159
+ERROR - 2022-01-24 19:21:36 --> Severity: Warning --> Undefined property: Administrators::$management C:\xampp\htdocs\gestion-becarios\application\controllers\Administrators.php 159
+ERROR - 2022-01-24 19:21:36 --> Severity: error --> Exception: Call to a member function add() on null C:\xampp\htdocs\gestion-becarios\application\controllers\Administrators.php 159
+ERROR - 2022-01-24 19:27:17 --> Severity: error --> Exception: Unable to locate the model you have specified: Management C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
+ERROR - 2022-01-24 19:28:48 --> Severity: error --> Exception: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'created_on' in 'field list' C:\xampp\htdocs\gestion-becarios\system\database\drivers\pdo\pdo_driver.php 184
+ERROR - 2022-01-24 19:29:05 --> Severity: error --> Exception: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'created_on' in 'field list' C:\xampp\htdocs\gestion-becarios\system\database\drivers\pdo\pdo_driver.php 184
+ERROR - 2022-01-24 19:36:29 --> Severity: error --> Exception: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'created_on' in 'field list' C:\xampp\htdocs\gestion-becarios\system\database\drivers\pdo\pdo_driver.php 184
+ERROR - 2022-01-24 19:37:18 --> Severity: error --> Exception: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'created_on' in 'field list' C:\xampp\htdocs\gestion-becarios\system\database\drivers\pdo\pdo_driver.php 184
+ERROR - 2022-01-24 22:34:43 --> Severity: error --> Exception: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'created_on' in 'field list' C:\xampp\htdocs\gestion-becarios\system\database\drivers\pdo\pdo_driver.php 184
+ERROR - 2022-01-24 22:34:44 --> Severity: error --> Exception: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'created_on' in 'field list' C:\xampp\htdocs\gestion-becarios\system\database\drivers\pdo\pdo_driver.php 184
+ERROR - 2022-01-24 22:34:45 --> Severity: error --> Exception: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'created_on' in 'field list' C:\xampp\htdocs\gestion-becarios\system\database\drivers\pdo\pdo_driver.php 184
+ERROR - 2022-01-24 22:34:45 --> Severity: error --> Exception: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'created_on' in 'field list' C:\xampp\htdocs\gestion-becarios\system\database\drivers\pdo\pdo_driver.php 184
+ERROR - 2022-01-24 22:34:45 --> Severity: error --> Exception: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'created_on' in 'field list' C:\xampp\htdocs\gestion-becarios\system\database\drivers\pdo\pdo_driver.php 184
+ERROR - 2022-01-24 22:34:45 --> Severity: error --> Exception: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'created_on' in 'field list' C:\xampp\htdocs\gestion-becarios\system\database\drivers\pdo\pdo_driver.php 184
+ERROR - 2022-01-24 22:34:45 --> Severity: error --> Exception: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'created_on' in 'field list' C:\xampp\htdocs\gestion-becarios\system\database\drivers\pdo\pdo_driver.php 184
+ERROR - 2022-01-24 22:34:46 --> Severity: error --> Exception: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'created_on' in 'field list' C:\xampp\htdocs\gestion-becarios\system\database\drivers\pdo\pdo_driver.php 184
+ERROR - 2022-01-24 22:34:46 --> Severity: error --> Exception: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'created_on' in 'field list' C:\xampp\htdocs\gestion-becarios\system\database\drivers\pdo\pdo_driver.php 184
+ERROR - 2022-01-24 22:34:46 --> Severity: error --> Exception: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'created_on' in 'field list' C:\xampp\htdocs\gestion-becarios\system\database\drivers\pdo\pdo_driver.php 184
+ERROR - 2022-01-24 22:34:46 --> Severity: error --> Exception: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'created_on' in 'field list' C:\xampp\htdocs\gestion-becarios\system\database\drivers\pdo\pdo_driver.php 184
+ERROR - 2022-01-24 22:34:46 --> Severity: error --> Exception: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'created_on' in 'field list' C:\xampp\htdocs\gestion-becarios\system\database\drivers\pdo\pdo_driver.php 184
+ERROR - 2022-01-24 22:34:49 --> Severity: error --> Exception: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'created_on' in 'field list' C:\xampp\htdocs\gestion-becarios\system\database\drivers\pdo\pdo_driver.php 184
+ERROR - 2022-01-24 22:34:49 --> Severity: error --> Exception: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'created_on' in 'field list' C:\xampp\htdocs\gestion-becarios\system\database\drivers\pdo\pdo_driver.php 184
+ERROR - 2022-01-24 22:34:59 --> Severity: error --> Exception: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'created_on' in 'field list' C:\xampp\htdocs\gestion-becarios\system\database\drivers\pdo\pdo_driver.php 184
+ERROR - 2022-01-24 22:43:35 --> Severity: error --> Exception: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'created_on' in 'field list' C:\xampp\htdocs\gestion-becarios\system\database\drivers\pdo\pdo_driver.php 184
+ERROR - 2022-01-24 22:43:35 --> Severity: error --> Exception: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'created_on' in 'field list' C:\xampp\htdocs\gestion-becarios\system\database\drivers\pdo\pdo_driver.php 184
+ERROR - 2022-01-24 22:46:11 --> Severity: error --> Exception: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'created_on' in 'field list' C:\xampp\htdocs\gestion-becarios\system\database\drivers\pdo\pdo_driver.php 184
+ERROR - 2022-01-24 22:48:09 --> Severity: error --> Exception: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'created_on' in 'field list' C:\xampp\htdocs\gestion-becarios\system\database\drivers\pdo\pdo_driver.php 184

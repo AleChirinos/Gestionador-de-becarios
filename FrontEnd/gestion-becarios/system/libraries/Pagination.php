@@ -89,7 +89,7 @@ class CI_Pagination {
 	protected $num_links = 2;
 
 	/**
-	 * Items per page
+	 * Semesters per page
 	 *
 	 * @var	int
 	 */

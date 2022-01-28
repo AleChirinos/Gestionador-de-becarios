@@ -42,7 +42,7 @@ class Administrators extends CI_Controller{
     */
     
     /**
-     * lac_ = "Load all administrators"
+     * laad_ = "Load all administrators"
      */
     public function laad_(){
         //set the sort order
@@ -99,20 +99,18 @@ class Administrators extends CI_Controller{
         $this->form_validation->set_rules('lastName', 'Last name', ['required', 'trim', 'max_length[20]', 'strtolower', 'ucfirst'], ['required'=>"required"]);
         $this->form_validation->set_rules('email', 'E-mail', ['trim', 'required', 'valid_email', 'is_unique[admin.email]', 'strtolower'], 
                 ['required'=>"required", 'is_unique'=>'E-mail exists']);
+        $this->form_validation->set_rules('career', 'Carrera', ['required','max_length[50]'], ['required'=>"required"]);
         $this->form_validation->set_rules('role', 'Role', ['required'], ['required'=>"required"]);
-        /*$this->form_validation->set_rules('mobile1', 'Phone number', ['required', 'trim', 'numeric', 'max_length[15]', 'min_length[11]', 'is_unique[admin.mobile1]'],
-                ['required'=>"required", 'is_unique'=>"This number is already attached to an admin"]);
-        $this->form_validation->set_rules('mobile2', 'Other number', ['trim', 'numeric', 'max_length[15]', 'min_length[11]']);*/
-
+        $this->form_validation->set_rules('semester', 'Semester', ['required'], ['required'=>"required"]);
         if($this->form_validation->run() !== FALSE){
             /**
              * insert info into db
-             * function header: add($f_name, $l_name, $email,  $role, $mobile1, $mobile2)
+             * function header: add($f_name, $l_name, $email,  $role, $career, $semester)
              */
 
             
             $inserted = $this->admin->add(set_value('firstName'), set_value('lastName'), set_value('email'),
-                set_value('role')/*, set_value('mobile1'), set_value('mobile2')*/);
+                set_value('role'), set_value('career'), set_value('semester')/*, set_value('mobile2')*/);
             
             
             $json = $inserted ? 
@@ -139,8 +137,8 @@ class Administrators extends CI_Controller{
     ********************************************************************************************************************************
     ********************************************************************************************************************************
     */
-    
-    
+
+
     /**
      * 
      */
@@ -153,22 +151,20 @@ class Administrators extends CI_Controller{
         
         $this->form_validation->set_rules('firstName', 'First name', ['required', 'trim', 'max_length[20]'], ['required'=>"required"]);
         $this->form_validation->set_rules('lastName', 'Last name', ['required', 'trim', 'max_length[20]'], ['required'=>"required"]);
-        /*$this->form_validation->set_rules('mobile1', 'Phone number', ['required', 'trim', 'numeric', 'max_length[15]',
-            'min_length[11]', 'callback_crosscheckMobile['. $this->input->post('adminId', TRUE).']'], ['required'=>"required"]);
-        $this->form_validation->set_rules('mobile2', 'Other number', ['trim', 'numeric', 'max_length[15]', 'min_length[11]']);*/
         $this->form_validation->set_rules('email', 'E-mail', ['required', 'trim', 'valid_email', 'callback_crosscheckEmail['. $this->input->post('adminId', TRUE).']']);
+        $this->form_validation->set_rules('career', 'Carrera', ['required','max_length[50]'], ['required'=>"required"]);
         $this->form_validation->set_rules('role', 'Role', ['required', 'trim'], ['required'=>"required"]);
-        
+        $this->form_validation->set_rules('semester', 'Semester', ['required'], ['required'=>"required"]);
         if($this->form_validation->run() !== FALSE){
             /**
              * update info in db
-             * function header: update($admin_id, $first_name, $last_name, $email, $mobile1, $mobile2, $role)
+             * function header: update($admin_id, $first_name, $last_name, $email, $career, $role,$semester)
              */
 				
             $admin_id = $this->input->post('adminId', TRUE);
 
             $updated = $this->admin->update($admin_id, set_value('firstName'), set_value('lastName'), set_value('email')/*,
-                    set_value('mobile1'), set_value('mobile2')*/, set_value('role'));
+                    set_value('mobile1')*/,set_value('semester'), set_value('career'), set_value('role'));
             
             
             $json = $updated ? 

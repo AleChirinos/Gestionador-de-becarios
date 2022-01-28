@@ -335,7 +335,7 @@ class Analytic extends CI_Model{
      */
 
     /**
-     * Items that has brought highest income (in total)
+     * Semesters that has brought highest income (in total)
      * @return boolean
      */
     public function highestEarners(){
@@ -365,7 +365,7 @@ class Analytic extends CI_Model{
     */
    
    /**
-    * Items that has brought lowest income (in total)
+    * Semesters that has brought lowest income (in total)
     * @return boolean
     */
     public function lowestEarners(){

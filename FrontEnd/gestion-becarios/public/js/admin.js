@@ -57,40 +57,34 @@ $(document).ready(function(){
     //handles the addition of new admin details .i.e. when "add admin" button is clicked
     $("#addAdminSubmit").click(function(e){
         e.preventDefault();
-        
         //reset all error msgs in case they are set
-        changeInnerHTML(['firstNameErr', 'lastNameErr', 'emailErr', 'roleErr', 'mobile1Err', 'mobile2Err'],
+        changeInnerHTML(['firstNameErr', 'lastNameErr', 'emailErr', 'roleErr', 'careerErr', 'semesterErr'],
         "");
-        
         var firstName = $("#firstName").val();
         var lastName = $("#lastName").val();
         var email = $("#email").val();
         var role = $("#role").val();
-        //var mobile1 = $("#mobile1").val();
-        //var mobile2 = $("#mobile2").val();
-
-        
+        var career = $("#career").val();
+        var semester = $("#semester").val();
         //ensure all required fields are filled
-        if(!firstName || !lastName || !email || !role /*|| !mobile1*/ ){
+        if(!firstName || !lastName || !email || !role|| !career || !semester ){
             !firstName ? changeInnerHTML('firstNameErr', "required") : "";
             !lastName ? changeInnerHTML('lastNameErr', "required") : "";
             !email ? changeInnerHTML('emailErr', "required") : "";
             !role ? changeInnerHTML('roleErr', "required") : "";
-            //!mobile1 ? changeInnerHTML('mobile1Err', "required") : "";
-
-            
+            !career ? changeInnerHTML('careerErr', "required") : "";
+            !semester ? changeInnerHTML('semesterErr', "required") : "";
             return;
         }
         
         //display message telling user action is being processed
         $("#fMsgIcon").attr('class', spinnerClass);
         $("#fMsg").text(" Processing...");
-        
         //make ajax request if all is well
         $.ajax({
             method: "POST",
             url: appRoot+"administrators/add",
-            data: {firstName:firstName, lastName:lastName, email:email, role:role}
+            data: {firstName:firstName, lastName:lastName, email:email, role:role, career:career, semester:semester}
         }).done(function(returnedData){
             $("#fMsgIcon").removeClass();//remove spinner
                 
@@ -107,14 +101,11 @@ $(document).ready(function(){
                 }, 1000);
 
                 //reset all error msgs in case they are set
-                changeInnerHTML(['firstNameErr', 'lastNameErr', 'emailErr', 'roleErr', 'mobile1Err', 'mobile2Err'],
+                changeInnerHTML(['firstNameErr', 'lastNameErr', 'emailErr', 'roleErr', 'careerErr', 'semesterErr'],
                 "");
-
                 //refresh admin list table
                 laad_();
-
             }
-
             else{
                 //display error message returned
                 $("#fMsg").css('color', 'red').html(returnedData.msg);
@@ -124,6 +115,8 @@ $(document).ready(function(){
                 $("#lastNameErr").text(returnedData.lastName);
                 $("#emailErr").text(returnedData.email);
                 $("#roleErr").text(returnedData.role);
+                $("#semesterErr").text(returnedData.semester);
+                $("#careerErr").text(returnedData.career);
                 //$("#mobile1Err").text(returnedData.mobile1);
                 //$("#mobile2Err").text(returnedData.mobile2);
 
@@ -134,39 +127,37 @@ $(document).ready(function(){
             }
         });
     });
-    
-    
+
+
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    
-    
+
     //handles the updating of admin details
     $("#editAdminSubmit").click(function(e){
         e.preventDefault();
         
         if(formChanges("editAdminForm")){
             //reset all error msgs in case they are set
-            changeInnerHTML(['firstNameEditErr', 'lastNameEditErr', 'emailEditErr', 'roleEditErr', 'mobile1Err', 'mobile2Err'], "");
+            changeInnerHTML(['firstNameEditErr', 'lastNameEditErr', 'emailEditErr', 'roleEditErr', 'careerEditErr', 'semesterEditErr'], "");
 
             var firstName = $("#firstNameEdit").val();
             var lastName = $("#lastNameEdit").val();
             var email = $("#emailEdit").val();
-            //var mobile1 = $("#mobile1Edit").val();
-            //var mobile2 = $("#mobile2Edit").val();
+            var career = $("#careerEdit").val();
             var role = $("#roleEdit").val();
             var adminId = $("#adminId").val();
-
+            var semester = $("#semester").val();
             //ensure all required fields are filled
             if(!firstName || !lastName || !email || !role /*|| !mobile1*/){
                 !firstName ? changeInnerHTML('firstNameEditErr', "required") : "";
                 !lastName ? changeInnerHTML('lastNameEditErr', "required") : "";
                 !email ? changeInnerHTML('emailEditErr', "required") : "";
-                //!mobile1 ? changeInnerHTML('mobile1EditErr', "required") : "";
+                !career ? changeInnerHTML('careerEditErr', "required") : "";
                 !role ? changeInnerHTML('roleEditErr', "required") : "";
-
+                !semester ? changeInnerHTML('semesterEditErr', "required") : "";
                 return;
             }
 
@@ -183,7 +174,7 @@ $(document).ready(function(){
             $.ajax({
                 method: "POST",
                 url: appRoot+"administrators/update",
-                data: {firstName:firstName, lastName:lastName, email:email, role:role, /*mobile1:mobile1, mobile2:mobile2,*/ adminId:adminId}
+                data: {firstName:firstName, lastName:lastName, email:email, role:role, career:career,adminId:adminId,semester:semester}
             }).done(function(returnedData){
                 $("#fMsgEditIcon").removeClass();//remove spinner
 
@@ -197,7 +188,7 @@ $(document).ready(function(){
                     }, 1000);
 
                     //reset all error msgs in case they are set
-                    changeInnerHTML(['firstNameEditErr', 'lastNameEditErr', 'emailEditErr', 'roleEditErr', 'mobile1Err', 'mobile2Err'], "");
+                    changeInnerHTML(['firstNameEditErr', 'lastNameEditErr', 'emailEditErr', 'roleEditErr', 'careerEditErr', 'semesterEditErr'], "");
 
                     //refresh admin list table
                     laad_();
@@ -212,9 +203,9 @@ $(document).ready(function(){
                     $("#firstNameEditErr").html(returnedData.firstName);
                     $("#lastNameEditErr").html(returnedData.lastName);
                     $("#emailEditErr").html(returnedData.email);
-                    //$("#mobile1EditErr").html(returnedData.mobile1);
-                    //$("#mobile2EditErr").html(returnedData.mobile2);
                     $("#roleEditErr").html(returnedData.role);
+                    $("#careerEditErr").html(returnedData.career);
+                    $("#semesterEditErr").html(returnedData.semester);
                 }
             }).fail(function(){
                     if(!navigator.onLine){
@@ -367,17 +358,15 @@ $(document).ready(function(){
         var lastName = $(this).siblings(".lastName").html();
         var role = $(this).siblings(".adminRole").html();
         var email = $(this).siblings(".adminEmail").children('a').html();
-        //var mobile1 = $(this).siblings(".adminMobile1").html();
-        //var mobile2 = $(this).siblings(".adminMobile2").html();
-        
+        var career = $(this).siblings(".career").html();
+        var semester = $(this).siblings(".semester").html();
         //prefill the form fields
         $("#firstNameEdit").val(firstName);
         $("#lastNameEdit").val(lastName);
         $("#emailEdit").val(email);
-        //$("#mobile1Edit").val(mobile1);
-        //$("#mobile2Edit").val(mobile2);
+        $("#careerEdit").val(career);
         $("#roleEdit").val(role);
-        
+        $("#semesterEdit").val(semester);
         $("#editAdminModal").modal('show');
     });
     
@@ -420,61 +409,3 @@ function resetAdminSN(){
 }
 
 
-
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-
-
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-
-
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-
-
-
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-
-
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-
-
-
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-
-
-
-
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

@@ -70,8 +70,8 @@ defined('BASEPATH') OR exit('');
                             </a>
                         </li>
 
-                        <li class="<?= $pageTitle == 'Items' ? 'active' : '' ?>">
-                            <a href="<?= site_url('items') ?>">
+                        <li class="<?= $pageTitle == 'Semesters' ? 'active' : '' ?>">
+                            <a href="<?= site_url('semesters') ?>">
                                 <i class="fa fa-cart-plus"></i>
                                 Inventory Items
                             </a>
@@ -85,6 +85,8 @@ defined('BASEPATH') OR exit('');
                                 Admin Management
                             </a>
                         </li>
+
+
                         <?php endif; ?>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
@@ -116,19 +118,19 @@ defined('BASEPATH') OR exit('');
                     <br>
                     <ul class="nav nav-pills nav-stacked pointer">
                         <li class="<?= $pageTitle == 'Dashboard' ? 'active' : '' ?>">
-                            <a id ="init" href="<?= site_url('dashboard') ?>" style="color:#365b99;"  onmouseenter="myEnter1()"  onmouseout="myOut1()"  onclick="this.onmouseover=null; this.onmouseout=null;myClick1()" >
+                            <a id ="init" href="<?= site_url('dashboard') ?>" style="color:#365b99;"  >
                                 <i class="fa fa-home"></i>
                                 Inicio
                             </a>
                         </li>
                         <li class="<?= $pageTitle == 'Trabajos' ? 'active' : '' ?>">
-                            <a id ="trans" href="<?= site_url('trabajos') ?>" style="color:#365b99;"  onmouseenter="myEnter2()"  onclick="myClick2()" onmouseout="myOut2()" >
+                            <a id ="trans" href="<?= site_url('trabajos') ?>" style="color:#365b99;"   >
                                 <i class="fa fa-exchange"></i>
                                 Trabajos
                             </a>
                         </li>
                         <li class="<?= $pageTitle == 'Becarios' ? 'active' : '' ?>">
-                            <a id ="inv" href="<?= site_url('becarios') ?>"  style="color:#365b99;"  onmouseenter="myEnter4()"  onclick="myClick4()" onmouseout="myOut4()" >
+                            <a id ="inv" href="<?= site_url('becarios') ?>"  style="color:#365b99;"   >
                                 <i class="fa fa-user"></i>
                                 Becarios
                             </a>
@@ -139,9 +141,16 @@ defined('BASEPATH') OR exit('');
 
 
                             <li class="<?= $pageTitle == 'Administrators' ? 'active' : '' ?>">
-                                <a  id ="admi" href="<?= site_url('administrators') ?>" style="color:#365b99;"  onmouseenter="myEnter6()"  onclick="myClick6()" onmouseout="myOut6()" >
+                                <a  id ="admi" href="<?= site_url('administrators') ?>" style="color:#365b99;"  >
                                     <i class="fa fa-user"></i>
-                                    Gestión Administrativa
+                                    Administración De Usuarios
+                                </a>
+                            </li>
+
+                            <li class="<?= $pageTitle == 'Semesters' ? 'active' : '' ?>">
+                                <a href="<?= site_url('semesters') ?>">
+                                    <i class="fa fa-calendar-o"></i>
+                                    Gestiones
                                 </a>
                             </li>
 
@@ -168,6 +177,15 @@ defined('BASEPATH') OR exit('');
                         </li>-->
 
                         <?php endif; ?>
+
+                        <li class="<?= $pageTitle == 'Reportes' ? 'active' : '' ?>">
+                                <a href="<?= site_url('reportes') ?>">
+                                    <i class="fa fa-bar-chart-o"></i>
+                                    Reportes
+                                </a>
+                            </li>
+
+
                     </ul>
                     <br>
                 </div>
@@ -255,17 +273,3 @@ defined('BASEPATH') OR exit('');
         <!---end of Login Modal-->
     </body>
 </html>
-
-<script>
-    function myClick1() {
-        document.getElementById("init").style:focus.backgroundColor = "#5ca434";
-    }
-
-    function myEnter1() {
-        document.getElementById("init").style.backgroundColor = "#4c7354";
-    }
-
-    function myOut1() {
-        document.getElementById("init").style.backgroundColor = "#34533c";
-    }
-</script>

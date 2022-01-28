@@ -1,94 +1,91 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 
-ERROR - 2022-01-27 00:26:42 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-27 00:26:51 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-27 00:50:49 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-27 00:51:23 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-27 00:51:49 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-27 00:51:59 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-27 00:51:59 --> Severity: error --> Exception: count(): Argument #1 ($value) must be of type Countable|array, bool given C:\xampp\htdocs\gestion-becarios\application\controllers\Administrators.php 53
-ERROR - 2022-01-27 00:52:00 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-27 00:52:04 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-27 00:52:06 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-27 00:52:16 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-27 00:52:25 --> Severity: Warning --> Attempt to read property "becarioCode" on array C:\xampp\htdocs\gestion-becarios\application\controllers\Trabajos.php 175
-ERROR - 2022-01-27 00:52:25 --> Severity: Warning --> Attempt to read property "becarioCode" on array C:\xampp\htdocs\gestion-becarios\application\controllers\Trabajos.php 175
-ERROR - 2022-01-27 00:52:25 --> Severity: Warning --> Attempt to read property "becarioCode" on array C:\xampp\htdocs\gestion-becarios\application\controllers\Trabajos.php 175
-ERROR - 2022-01-27 00:52:32 --> Severity: Warning --> Attempt to read property "becarioCode" on array C:\xampp\htdocs\gestion-becarios\application\controllers\Trabajos.php 175
-ERROR - 2022-01-27 00:52:32 --> Severity: Warning --> Attempt to read property "becarioCode" on array C:\xampp\htdocs\gestion-becarios\application\controllers\Trabajos.php 175
-ERROR - 2022-01-27 00:52:32 --> Severity: Warning --> Attempt to read property "becarioCode" on array C:\xampp\htdocs\gestion-becarios\application\controllers\Trabajos.php 175
-ERROR - 2022-01-27 00:52:33 --> Severity: Warning --> Attempt to read property "becarioCode" on array C:\xampp\htdocs\gestion-becarios\application\controllers\Trabajos.php 175
-ERROR - 2022-01-27 00:52:33 --> Severity: Warning --> Attempt to read property "becarioCode" on array C:\xampp\htdocs\gestion-becarios\application\controllers\Trabajos.php 175
-ERROR - 2022-01-27 00:52:33 --> Severity: Warning --> Attempt to read property "becarioCode" on array C:\xampp\htdocs\gestion-becarios\application\controllers\Trabajos.php 175
-ERROR - 2022-01-27 00:52:33 --> Severity: Warning --> Attempt to read property "becarioCode" on array C:\xampp\htdocs\gestion-becarios\application\controllers\Trabajos.php 175
-ERROR - 2022-01-27 00:52:33 --> Severity: Warning --> Attempt to read property "becarioCode" on array C:\xampp\htdocs\gestion-becarios\application\controllers\Trabajos.php 175
-ERROR - 2022-01-27 00:52:33 --> Severity: Warning --> Attempt to read property "becarioCode" on array C:\xampp\htdocs\gestion-becarios\application\controllers\Trabajos.php 175
-ERROR - 2022-01-27 00:53:39 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-27 00:54:13 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-27 00:54:30 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-27 00:54:30 --> Severity: error --> Exception: count(): Argument #1 ($value) must be of type Countable|array, bool given C:\xampp\htdocs\gestion-becarios\application\controllers\Administrators.php 53
-ERROR - 2022-01-27 00:54:31 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-27 00:56:11 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-27 00:56:12 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-27 00:56:13 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-27 00:56:17 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-27 00:56:23 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-27 00:56:29 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-27 00:56:37 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-27 00:56:37 --> Severity: error --> Exception: count(): Argument #1 ($value) must be of type Countable|array, bool given C:\xampp\htdocs\gestion-becarios\application\controllers\Administrators.php 53
-ERROR - 2022-01-27 00:56:38 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-27 00:56:39 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-27 00:56:43 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-27 00:56:43 --> Severity: error --> Exception: count(): Argument #1 ($value) must be of type Countable|array, bool given C:\xampp\htdocs\gestion-becarios\application\controllers\Administrators.php 53
-ERROR - 2022-01-27 00:56:45 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-27 00:56:50 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-27 00:56:50 --> Severity: error --> Exception: count(): Argument #1 ($value) must be of type Countable|array, bool given C:\xampp\htdocs\gestion-becarios\application\controllers\Administrators.php 53
-ERROR - 2022-01-27 00:56:52 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-27 00:57:26 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-27 00:57:50 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-27 00:57:50 --> Severity: error --> Exception: count(): Argument #1 ($value) must be of type Countable|array, bool given C:\xampp\htdocs\gestion-becarios\application\controllers\Administrators.php 53
-ERROR - 2022-01-27 00:57:52 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-27 00:58:03 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-27 00:58:04 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-27 00:58:06 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-27 00:58:09 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-27 00:58:11 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-27 00:58:23 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-27 00:58:25 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-27 00:58:32 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-27 00:58:52 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-27 00:58:56 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-27 00:58:56 --> Severity: error --> Exception: count(): Argument #1 ($value) must be of type Countable|array, bool given C:\xampp\htdocs\gestion-becarios\application\controllers\Administrators.php 53
-ERROR - 2022-01-27 00:58:58 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-27 00:59:35 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-27 00:59:38 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-27 00:59:43 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-27 00:59:58 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-27 01:00:28 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-27 01:00:54 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-27 01:01:04 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-27 01:01:11 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-27 01:01:16 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-27 01:01:23 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-27 01:02:03 --> Severity: 8192 --> ctype_digit(): Argument of type null will be interpreted as string in the future C:\xampp\htdocs\gestion-becarios\system\libraries\Pagination.php 522
-ERROR - 2022-01-27 01:02:15 --> Severity: 8192 --> ctype_digit(): Argument of type null will be interpreted as string in the future C:\xampp\htdocs\gestion-becarios\system\libraries\Pagination.php 522
-ERROR - 2022-01-27 01:02:27 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-27 01:02:38 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-27 01:02:42 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-27 01:03:13 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-27 01:07:29 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-27 01:07:34 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-27 01:07:36 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-27 01:07:48 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-27 01:07:49 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-27 01:07:59 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-27 01:08:00 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-27 01:10:30 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-27 03:02:18 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-27 03:04:20 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-27 03:04:56 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-27 03:05:03 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-27 03:05:24 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-27 03:05:36 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-27 03:05:44 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
-ERROR - 2022-01-27 03:05:55 --> Severity: error --> Exception: Unable to locate the model you have specified: Transaction C:\xampp\htdocs\gestion-becarios\system\core\Loader.php 344
+ERROR - 2022-01-27 00:29:27 --> Severity: 8192 --> setcookie(): Passing null to parameter #2 ($value) of type string is deprecated C:\xampp\htdocs\gestion-becarios\system\libraries\Session\Session_driver.php 132
+ERROR - 2022-01-27 00:40:19 --> Severity: 8192 --> setcookie(): Passing null to parameter #2 ($value) of type string is deprecated C:\xampp\htdocs\gestion-becarios\system\libraries\Session\Session_driver.php 132
+ERROR - 2022-01-27 00:51:19 --> Severity: Warning --> Undefined property: stdClass::$select C:\xampp\htdocs\gestion-becarios\application\views\semesters\itemslisttable.php 39
+ERROR - 2022-01-27 00:51:19 --> Severity: Warning --> Undefined property: stdClass::$select C:\xampp\htdocs\gestion-becarios\application\views\semesters\itemslisttable.php 39
+ERROR - 2022-01-27 00:51:19 --> Severity: Warning --> Undefined property: stdClass::$select C:\xampp\htdocs\gestion-becarios\application\views\semesters\itemslisttable.php 39
+ERROR - 2022-01-27 03:08:51 --> Severity: 8192 --> setcookie(): Passing null to parameter #2 ($value) of type string is deprecated C:\xampp\htdocs\gestion-becarios\system\libraries\Session\Session_driver.php 132
+ERROR - 2022-01-27 19:34:58 --> Severity: Warning --> Trying to access array offset on value of type bool C:\xampp\htdocs\gestion-becarios\core\controller.Class.php 73
+ERROR - 2022-01-27 19:34:58 --> Severity: Warning --> Trying to access array offset on value of type bool C:\xampp\htdocs\gestion-becarios\core\controller.Class.php 73
+ERROR - 2022-01-27 19:34:58 --> Severity: Warning --> Trying to access array offset on value of type bool C:\xampp\htdocs\gestion-becarios\core\controller.Class.php 73
+ERROR - 2022-01-27 19:34:58 --> Severity: Warning --> Trying to access array offset on value of type bool C:\xampp\htdocs\gestion-becarios\core\controller.Class.php 73
+ERROR - 2022-01-27 19:38:44 --> Severity: 8192 --> json_decode(): Passing null to parameter #1 ($json) of type string is deprecated C:\xampp\htdocs\gestion-becarios\application\controllers\Trabajos.php 269
+ERROR - 2022-01-27 19:38:44 --> Severity: Warning --> Trying to access array offset on value of type null C:\xampp\htdocs\gestion-becarios\application\controllers\Trabajos.php 274
+ERROR - 2022-01-27 19:38:44 --> Severity: Warning --> Trying to access array offset on value of type null C:\xampp\htdocs\gestion-becarios\application\controllers\Trabajos.php 275
+ERROR - 2022-01-27 19:38:45 --> Severity: 8192 --> json_decode(): Passing null to parameter #1 ($json) of type string is deprecated C:\xampp\htdocs\gestion-becarios\application\controllers\Trabajos.php 269
+ERROR - 2022-01-27 19:38:45 --> Severity: Warning --> Trying to access array offset on value of type null C:\xampp\htdocs\gestion-becarios\application\controllers\Trabajos.php 274
+ERROR - 2022-01-27 19:38:45 --> Severity: Warning --> Trying to access array offset on value of type null C:\xampp\htdocs\gestion-becarios\application\controllers\Trabajos.php 275
+ERROR - 2022-01-27 19:47:36 --> Severity: error --> Exception: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '?, totalhours=missinghours+assignedhours+checkedhours WHERE id = ?' at line 1 C:\xampp\htdocs\gestion-becarios\system\database\drivers\pdo\pdo_driver.php 184
+ERROR - 2022-01-27 19:47:46 --> Severity: error --> Exception: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '?, totalhours=missinghours+assignedhours+checkedhours WHERE id = ?' at line 1 C:\xampp\htdocs\gestion-becarios\system\database\drivers\pdo\pdo_driver.php 184
+ERROR - 2022-01-27 19:49:21 --> Severity: 8192 --> json_decode(): Passing null to parameter #1 ($json) of type string is deprecated C:\xampp\htdocs\gestion-becarios\application\controllers\Trabajos.php 269
+ERROR - 2022-01-27 19:49:21 --> Severity: Warning --> Trying to access array offset on value of type null C:\xampp\htdocs\gestion-becarios\application\controllers\Trabajos.php 274
+ERROR - 2022-01-27 19:49:21 --> Severity: Warning --> Trying to access array offset on value of type null C:\xampp\htdocs\gestion-becarios\application\controllers\Trabajos.php 275
+ERROR - 2022-01-27 19:49:21 --> Severity: Warning --> Trying to access array offset on value of type null C:\xampp\htdocs\gestion-becarios\application\controllers\Trabajos.php 274
+ERROR - 2022-01-27 19:49:21 --> Severity: Warning --> Trying to access array offset on value of type null C:\xampp\htdocs\gestion-becarios\application\controllers\Trabajos.php 275
+ERROR - 2022-01-27 19:49:22 --> Severity: Warning --> Trying to access array offset on value of type null C:\xampp\htdocs\gestion-becarios\application\controllers\Trabajos.php 274
+ERROR - 2022-01-27 19:49:22 --> Severity: Warning --> Trying to access array offset on value of type null C:\xampp\htdocs\gestion-becarios\application\controllers\Trabajos.php 275
+ERROR - 2022-01-27 19:50:38 --> Severity: 8192 --> json_decode(): Passing null to parameter #1 ($json) of type string is deprecated C:\xampp\htdocs\gestion-becarios\application\controllers\Trabajos.php 269
+ERROR - 2022-01-27 19:50:38 --> Severity: Warning --> Trying to access array offset on value of type null C:\xampp\htdocs\gestion-becarios\application\controllers\Trabajos.php 274
+ERROR - 2022-01-27 19:50:38 --> Severity: Warning --> Trying to access array offset on value of type null C:\xampp\htdocs\gestion-becarios\application\controllers\Trabajos.php 275
+ERROR - 2022-01-27 19:55:01 --> Severity: 8192 --> json_decode(): Passing null to parameter #1 ($json) of type string is deprecated C:\xampp\htdocs\gestion-becarios\application\controllers\Trabajos.php 269
+ERROR - 2022-01-27 19:55:01 --> Severity: Warning --> Trying to access array offset on value of type null C:\xampp\htdocs\gestion-becarios\application\controllers\Trabajos.php 274
+ERROR - 2022-01-27 19:55:01 --> Severity: Warning --> Trying to access array offset on value of type null C:\xampp\htdocs\gestion-becarios\application\controllers\Trabajos.php 275
+ERROR - 2022-01-27 19:55:01 --> Severity: Warning --> Trying to access array offset on value of type null C:\xampp\htdocs\gestion-becarios\application\controllers\Trabajos.php 274
+ERROR - 2022-01-27 19:55:01 --> Severity: Warning --> Trying to access array offset on value of type null C:\xampp\htdocs\gestion-becarios\application\controllers\Trabajos.php 275
+ERROR - 2022-01-27 19:55:09 --> Severity: 8192 --> json_decode(): Passing null to parameter #1 ($json) of type string is deprecated C:\xampp\htdocs\gestion-becarios\application\controllers\Trabajos.php 269
+ERROR - 2022-01-27 19:55:09 --> Severity: Warning --> Trying to access array offset on value of type null C:\xampp\htdocs\gestion-becarios\application\controllers\Trabajos.php 274
+ERROR - 2022-01-27 19:55:09 --> Severity: Warning --> Trying to access array offset on value of type null C:\xampp\htdocs\gestion-becarios\application\controllers\Trabajos.php 275
+ERROR - 2022-01-27 19:55:09 --> Severity: Warning --> Trying to access array offset on value of type null C:\xampp\htdocs\gestion-becarios\application\controllers\Trabajos.php 274
+ERROR - 2022-01-27 19:55:09 --> Severity: Warning --> Trying to access array offset on value of type null C:\xampp\htdocs\gestion-becarios\application\controllers\Trabajos.php 275
+ERROR - 2022-01-27 19:55:10 --> Severity: 8192 --> json_decode(): Passing null to parameter #1 ($json) of type string is deprecated C:\xampp\htdocs\gestion-becarios\application\controllers\Trabajos.php 269
+ERROR - 2022-01-27 19:55:10 --> Severity: Warning --> Trying to access array offset on value of type null C:\xampp\htdocs\gestion-becarios\application\controllers\Trabajos.php 274
+ERROR - 2022-01-27 19:55:10 --> Severity: Warning --> Trying to access array offset on value of type null C:\xampp\htdocs\gestion-becarios\application\controllers\Trabajos.php 275
+ERROR - 2022-01-27 19:55:10 --> Severity: Warning --> Trying to access array offset on value of type null C:\xampp\htdocs\gestion-becarios\application\controllers\Trabajos.php 274
+ERROR - 2022-01-27 19:55:10 --> Severity: Warning --> Trying to access array offset on value of type null C:\xampp\htdocs\gestion-becarios\application\controllers\Trabajos.php 275
+ERROR - 2022-01-27 19:56:26 --> Severity: 8192 --> json_decode(): Passing null to parameter #1 ($json) of type string is deprecated C:\xampp\htdocs\gestion-becarios\application\controllers\Trabajos.php 269
+ERROR - 2022-01-27 19:56:26 --> Severity: Warning --> Trying to access array offset on value of type null C:\xampp\htdocs\gestion-becarios\application\controllers\Trabajos.php 274
+ERROR - 2022-01-27 20:06:41 --> Severity: 8192 --> trim(): Passing null to parameter #1 ($string) of type string is deprecated C:\xampp\htdocs\gestion-becarios\system\libraries\Form_validation.php 1059
+ERROR - 2022-01-27 20:06:48 --> Severity: 8192 --> trim(): Passing null to parameter #1 ($string) of type string is deprecated C:\xampp\htdocs\gestion-becarios\system\libraries\Form_validation.php 1059
+ERROR - 2022-01-27 20:06:49 --> Severity: 8192 --> trim(): Passing null to parameter #1 ($string) of type string is deprecated C:\xampp\htdocs\gestion-becarios\system\libraries\Form_validation.php 1059
+ERROR - 2022-01-27 20:07:46 --> Severity: 8192 --> trim(): Passing null to parameter #1 ($string) of type string is deprecated C:\xampp\htdocs\gestion-becarios\system\libraries\Form_validation.php 1059
+ERROR - 2022-01-27 20:09:43 --> Severity: 8192 --> trim(): Passing null to parameter #1 ($string) of type string is deprecated C:\xampp\htdocs\gestion-becarios\system\libraries\Form_validation.php 1059
+ERROR - 2022-01-27 20:13:45 --> Severity: 8192 --> trim(): Passing null to parameter #1 ($string) of type string is deprecated C:\xampp\htdocs\gestion-becarios\system\libraries\Form_validation.php 1059
+ERROR - 2022-01-27 20:13:48 --> Severity: 8192 --> trim(): Passing null to parameter #1 ($string) of type string is deprecated C:\xampp\htdocs\gestion-becarios\system\libraries\Form_validation.php 1059
+ERROR - 2022-01-27 20:14:49 --> Severity: 8192 --> trim(): Passing null to parameter #1 ($string) of type string is deprecated C:\xampp\htdocs\gestion-becarios\system\libraries\Form_validation.php 1059
+ERROR - 2022-01-27 20:15:13 --> Severity: 8192 --> trim(): Passing null to parameter #1 ($string) of type string is deprecated C:\xampp\htdocs\gestion-becarios\system\libraries\Form_validation.php 1059
+ERROR - 2022-01-27 20:15:14 --> Severity: 8192 --> trim(): Passing null to parameter #1 ($string) of type string is deprecated C:\xampp\htdocs\gestion-becarios\system\libraries\Form_validation.php 1059
+ERROR - 2022-01-27 20:15:18 --> Severity: 8192 --> trim(): Passing null to parameter #1 ($string) of type string is deprecated C:\xampp\htdocs\gestion-becarios\system\libraries\Form_validation.php 1059
+ERROR - 2022-01-27 20:15:27 --> Severity: 8192 --> trim(): Passing null to parameter #1 ($string) of type string is deprecated C:\xampp\htdocs\gestion-becarios\system\libraries\Form_validation.php 1059
+ERROR - 2022-01-27 20:15:35 --> Severity: 8192 --> trim(): Passing null to parameter #1 ($string) of type string is deprecated C:\xampp\htdocs\gestion-becarios\system\libraries\Form_validation.php 1059
+ERROR - 2022-01-27 20:18:08 --> Severity: 8192 --> trim(): Passing null to parameter #1 ($string) of type string is deprecated C:\xampp\htdocs\gestion-becarios\system\libraries\Form_validation.php 1059
+ERROR - 2022-01-27 20:18:09 --> Severity: 8192 --> trim(): Passing null to parameter #1 ($string) of type string is deprecated C:\xampp\htdocs\gestion-becarios\system\libraries\Form_validation.php 1059
+ERROR - 2022-01-27 20:45:07 --> Severity: 8192 --> trim(): Passing null to parameter #1 ($string) of type string is deprecated C:\xampp\htdocs\gestion-becarios\system\libraries\Form_validation.php 1059
+ERROR - 2022-01-27 20:45:19 --> Severity: 8192 --> trim(): Passing null to parameter #1 ($string) of type string is deprecated C:\xampp\htdocs\gestion-becarios\system\libraries\Form_validation.php 1059
+ERROR - 2022-01-27 20:45:22 --> Severity: 8192 --> trim(): Passing null to parameter #1 ($string) of type string is deprecated C:\xampp\htdocs\gestion-becarios\system\libraries\Form_validation.php 1059
+ERROR - 2022-01-27 20:45:23 --> Severity: 8192 --> trim(): Passing null to parameter #1 ($string) of type string is deprecated C:\xampp\htdocs\gestion-becarios\system\libraries\Form_validation.php 1059
+ERROR - 2022-01-27 20:45:26 --> Severity: 8192 --> trim(): Passing null to parameter #1 ($string) of type string is deprecated C:\xampp\htdocs\gestion-becarios\system\libraries\Form_validation.php 1059
+ERROR - 2022-01-27 20:45:26 --> Severity: 8192 --> trim(): Passing null to parameter #1 ($string) of type string is deprecated C:\xampp\htdocs\gestion-becarios\system\libraries\Form_validation.php 1059
+ERROR - 2022-01-27 20:45:27 --> Severity: 8192 --> trim(): Passing null to parameter #1 ($string) of type string is deprecated C:\xampp\htdocs\gestion-becarios\system\libraries\Form_validation.php 1059
+ERROR - 2022-01-27 20:45:27 --> Severity: 8192 --> trim(): Passing null to parameter #1 ($string) of type string is deprecated C:\xampp\htdocs\gestion-becarios\system\libraries\Form_validation.php 1059
+ERROR - 2022-01-27 20:45:27 --> Severity: 8192 --> trim(): Passing null to parameter #1 ($string) of type string is deprecated C:\xampp\htdocs\gestion-becarios\system\libraries\Form_validation.php 1059
+ERROR - 2022-01-27 20:45:27 --> Severity: 8192 --> trim(): Passing null to parameter #1 ($string) of type string is deprecated C:\xampp\htdocs\gestion-becarios\system\libraries\Form_validation.php 1059
+ERROR - 2022-01-27 20:45:27 --> Severity: 8192 --> trim(): Passing null to parameter #1 ($string) of type string is deprecated C:\xampp\htdocs\gestion-becarios\system\libraries\Form_validation.php 1059
+ERROR - 2022-01-27 20:45:28 --> Severity: 8192 --> trim(): Passing null to parameter #1 ($string) of type string is deprecated C:\xampp\htdocs\gestion-becarios\system\libraries\Form_validation.php 1059
+ERROR - 2022-01-27 20:45:28 --> Severity: 8192 --> trim(): Passing null to parameter #1 ($string) of type string is deprecated C:\xampp\htdocs\gestion-becarios\system\libraries\Form_validation.php 1059
+ERROR - 2022-01-27 20:45:29 --> Severity: 8192 --> trim(): Passing null to parameter #1 ($string) of type string is deprecated C:\xampp\htdocs\gestion-becarios\system\libraries\Form_validation.php 1059
+ERROR - 2022-01-27 22:00:28 --> Severity: 8192 --> trim(): Passing null to parameter #1 ($string) of type string is deprecated C:\xampp\htdocs\gestion-becarios\system\libraries\Form_validation.php 1059
+ERROR - 2022-01-27 22:01:00 --> Severity: 8192 --> trim(): Passing null to parameter #1 ($string) of type string is deprecated C:\xampp\htdocs\gestion-becarios\system\libraries\Form_validation.php 1059
+ERROR - 2022-01-27 22:31:15 --> 404 Page Not Found: Reportes/index
+ERROR - 2022-01-27 22:32:15 --> 404 Page Not Found: Reportes/index
+ERROR - 2022-01-27 23:05:47 --> 404 Page Not Found: Jquery-editable-selectmincss/index
+ERROR - 2022-01-27 23:05:47 --> 404 Page Not Found: Jquery-editable-selectminjs/index
+ERROR - 2022-01-27 23:05:47 --> 404 Page Not Found: Jquery-editable-selectminjs/index
+ERROR - 2022-01-27 23:06:38 --> 404 Page Not Found: Jquery-editable-selectmincss/index
+ERROR - 2022-01-27 23:06:38 --> 404 Page Not Found: Jquery-editable-selectminjs/index
+ERROR - 2022-01-27 23:06:39 --> 404 Page Not Found: Jquery-editable-selectmincss/index
+ERROR - 2022-01-27 23:06:39 --> 404 Page Not Found: Jquery-editable-selectminjs/index
+ERROR - 2022-01-27 23:06:39 --> 404 Page Not Found: Jquery-editable-selectminjs/index
+ERROR - 2022-01-27 23:06:42 --> 404 Page Not Found: Jquery-editable-selectminjs/index
+ERROR - 2022-01-27 23:06:42 --> 404 Page Not Found: Jquery-editable-selectmincss/index
+ERROR - 2022-01-27 23:06:42 --> 404 Page Not Found: Jquery-editable-selectminjs/index

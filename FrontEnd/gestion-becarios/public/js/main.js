@@ -180,7 +180,7 @@ function changeClassName(elementId, newClassName){
 /**
  * Change the innerHTML of elements
  * @param {type} elementId
- * @param {type} newValue
+ * @param {string} newValue
  * @returns {String}
  */
 function changeInnerHTML(elementId, newValue){
@@ -470,7 +470,7 @@ function drm_(){
 function totalEarnedToday(){
     $.ajax({
         method:"POST",
-        url: appRoot+"misc/totalearnedtoday"
+
     }).done(function(returnedData){
         //paste the returnedData on the navbar to show total amount earned on current day
         $("#totalEarnedToday").html(returnedData.totalEarnedToday);

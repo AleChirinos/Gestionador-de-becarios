@@ -19,37 +19,67 @@ class Admin extends CI_Model{
     */
     
     /**
-     * 
-     * @param type $f_name
-     * @param type $l_name
-     * @param type $email
-     * @param type $role
-     * @param type $mobile1
-     * @param type $mobile2
-     * @return boolean
-     */
-    public function add($f_name, $l_name, $email, $role/*, $mobile1, $mobile2*/){
-        $data = ['first_name'=>$f_name, 'last_name'=>$l_name, 'email'=>$email, 'role'=>$role/*,
-            'mobile1'=>$mobile1, 'mobile2'=>$mobile2*/];
-        
+ *
+ * @param type $f_name
+ * @param type $l_name
+ * @param type $email
+ * @param type $role
+ * @param type $career
+ * @param type $semester
+ * @return boolean
+ */
+    public function add($f_name, $l_name, $email, $role, $career, $semester){
+        $data = ['first_name'=>$f_name, 'last_name'=>$l_name, 'email'=>$email, 'role'=>$role,
+            'career'=>$career, 'semester'=>$semester];
+
         //set the datetime based on the db driver in use
-        $this->db->platform() == "sqlite3" 
-                ? 
-        $this->db->set('created_on', "datetime('now')", FALSE) 
-                : 
-        $this->db->set('created_on', "NOW()", FALSE);
-        
+        $this->db->platform() == "sqlite3"
+            ?
+            $this->db->set('created_on', "datetime('now')", FALSE)
+            :
+            $this->db->set('created_on', "NOW()", FALSE);
+
         $this->db->insert('admin', $data);
-        
+
         if($this->db->affected_rows() > 0){
             return $this->db->insert_id();
         }
-        
+
         else{
             return FALSE;
         }
     }
-    
+
+    /*
+    ********************************************************************************************************************************
+    ********************************************************************************************************************************
+    ********************************************************************************************************************************
+    ********************************************************************************************************************************
+    ********************************************************************************************************************************
+    */
+
+    /**
+     *
+     * @param type $m_name
+     * @return boolean
+     */
+    public function addManagement($m_name){
+        $data = ['m_name'=>$m_name];
+        //set the datetime based on the db driver in use
+        $this->db->platform() == "sqlite3"
+            ?
+            $this->db->set('created_on', "datetime('now')", FALSE)
+            :
+            $this->db->set('created_on', "NOW()", FALSE);
+        $this->db->insert('management', $data);
+        if($this->db->affected_rows() > 0){
+            return $this->db->insert_id();
+        }
+        else{
+            return FALSE;
+        }
+    }
+
     /*
     ********************************************************************************************************************************
     ********************************************************************************************************************************
@@ -99,7 +129,7 @@ class Admin extends CI_Model{
      * @return boolean
      */
     public function get_admin_info($email){
-        $this->db->select('id, first_name, last_name, role');
+        $this->db->select('id, first_name, last_name, role, career,semester');
         $this->db->where('email', $email);
 
         $run_q = $this->db->get('admin');
@@ -133,7 +163,7 @@ class Admin extends CI_Model{
      * @return boolean
      */
     public function getAll($orderBy = "first_name", $orderFormat = "ASC", $start = 0, $limit = ""){
-        $this->db->select('id, first_name, last_name, email, role, created_on, last_login, account_status, deleted');
+        $this->db->select('id, first_name, last_name, email, role, career,semester, created_on, last_login, account_status, deleted');
         $this->db->where("id != ", $_SESSION['admin_id']);
         $this->db->where("email != ", "demo@1410inc.xyz");//added to prevent people from removing the demo admin account
         $this->db->limit($limit, $start);
@@ -233,9 +263,11 @@ class Admin extends CI_Model{
                 || first_name LIKE '%".$this->db->escape_like_str($value)."%'
                 || last_name LIKE '%".$this->db->escape_like_str($value)."%' 
                 || email LIKE '%".$this->db->escape_like_str($value)."%'
+                || career LIKE '%".$this->db->escape_like_str($value)."%'
+                || semester LIKE '%".$this->db->escape_like_str($value)."%'
                 )";
 
-        $run_q = $this->db->query($q, [$value, $value, $value, $value, $value, $value]);
+        $run_q = $this->db->query($q, [$value, $value, $value, $value, $value, $value, $value, $value]);
 
         if($run_q->num_rows() > 0){
             return $run_q->result();
@@ -254,9 +286,9 @@ class Admin extends CI_Model{
     ********************************************************************************************************************************
     */
     
-    public function update($admin_id, $first_name, $last_name, $email, /*$mobile1, $mobile2,*/ $role){
-        $data = ['first_name'=>$first_name, 'last_name'=>$last_name, /*'mobile1'=>$mobile1, 'mobile2'=>$mobile2,*/ 'email'=>$email,
-            'role'=>$role];
+    public function update($admin_id, $first_name, $last_name, $email, $career ,$semester,/*$mobile1, $mobile2,*/ $role){
+        $data = ['first_name'=>$first_name, 'last_name'=>$last_name, 'career'=>$career, /*'mobile1'=>$mobile1, 'mobile2'=>$mobile2,*/ 'email'=>$email,
+            'role'=>$role,'semester'=>$semester];
         
         $this->db->where('id', $admin_id);
         

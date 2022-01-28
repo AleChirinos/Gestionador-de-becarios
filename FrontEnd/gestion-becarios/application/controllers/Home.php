@@ -70,8 +70,10 @@ class Home extends CI_Controller {
                         $admin_id = $get->id;
                         
                         $_SESSION['admin_id'] = $admin_id;
+                        $_SESSION['admin_semester'] = $get->semester;
                         $_SESSION['admin_email'] = $givenEmail;
                         $_SESSION['admin_role'] = $get->role;
+                        $_SESSION['admin_career'] = $get->career;
                         $_SESSION['admin_initial'] = strtoupper(substr($get->first_name, 0, 1));
                         $_SESSION['admin_name'] = $get->first_name . " " . $get->last_name;
                     }

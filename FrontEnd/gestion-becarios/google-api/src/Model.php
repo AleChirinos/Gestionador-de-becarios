@@ -241,7 +241,7 @@ class Model implements \ArrayAccess
   /**
    * Verify if $obj is an array.
    * @throws \Google\Exception Thrown if $obj isn't an array.
-   * @param array $obj Items that should be validated.
+   * @param array $obj Semesters that should be validated.
    * @param string $method Method expecting an array as an argument.
    */
   public function assertIsArray($obj, $method)

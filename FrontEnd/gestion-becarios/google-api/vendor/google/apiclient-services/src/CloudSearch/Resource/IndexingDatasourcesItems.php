@@ -132,7 +132,7 @@ class IndexingDatasourcesItems extends \Google\Service\Resource
    * service account to execute. The service account used is the one whitelisted
    * in the corresponding data source. (items.listIndexingDatasourcesItems)
    *
-   * @param string $name Name of the Data Source to list Items. Format:
+   * @param string $name Name of the Data Source to list Semesters. Format:
    * datasources/{source_id}
    * @param array $optParams Optional parameters.
    *
@@ -167,7 +167,7 @@ class IndexingDatasourcesItems extends \Google\Service\Resource
    * NEW_ITEM ACCEPTED Reserving items ensures that polling from other threads
    * cannot create overlapping sets. After handling the reserved items, the client
    * should put items back into the unreserved state, either by calling index, or
-   * by calling push with the type REQUEUE. Items automatically become available
+   * by calling push with the type REQUEUE. Semesters automatically become available
    * (unreserved) after 4 hours even if no update or push method is called. This
    * API requires an admin or service account to execute. The service account used
    * is the one whitelisted in the corresponding data source. (items.poll)

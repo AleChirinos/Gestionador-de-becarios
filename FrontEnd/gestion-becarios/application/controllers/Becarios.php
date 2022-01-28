@@ -76,17 +76,17 @@ class Becarios extends CI_Controller{
             ['required'=>"required", 'is_unique'=>"Ya existe un becario de ese nombre"]);
         $this->form_validation->set_rules('becarioCode', 'Becario Code', ['required', 'trim', 'max_length[20]', 'is_unique[becarios.code]'],
             ['required'=>"required", 'is_unique'=>"Ya existe un becario con el código indicado"]);
-
+        $this->form_validation->set_rules('career', 'Carrera', ['required','max_length[50]'], ['required'=>"required"]);
 
         if($this->form_validation->run() !== FALSE){
             $this->db->trans_start();//start transaction
 
 
-            $insertedId = $this->becario->add(set_value('becarioName'), set_value('becarioCode'));
+            $insertedId = $this->becario->add(set_value('becarioName'), set_value('becarioCode'), set_value('career') );
 
             $becarioName = set_value('becarioName');
             $becarioCode = set_value('becarioCode');
-
+            $career = set_value('career');
 
             //insert into eventlog
             //function header: addevent($event, $eventRowId, $eventDesc, $eventTable, $staffId)
@@ -192,7 +192,7 @@ class Becarios extends CI_Controller{
 
             $this->db->trans_start();
 
-            $updated = $this->becario->updateMissingHours($becarioId, $mhUpdateMissingHours) ;
+            $updated = $this->becario->updateMissingHours($becarioId, $mhUpdateMissingHours);
 
 
             //add event to log if successful
@@ -242,16 +242,18 @@ class Becarios extends CI_Controller{
             'callback_crosscheckName['.$this->input->post('_bId', TRUE).']'], ['required'=>'required']);
         $this->form_validation->set_rules('becarioCode', 'Becario Code', ['required', 'trim',
             'callback_crosscheckCode['.$this->input->post('_bId', TRUE).']'], ['required'=>'required']);
-
+        $this->form_validation->set_rules('career', 'Carrera', ['required','max_length[50]'], ['required'=>"required"]);
         if($this->form_validation->run() !== FALSE){
+
             $becarioId = set_value('_bId');
             $becarioName = set_value('becarioName');
             $becarioCode = set_value('becarioCode');
+            $career = set_value('career');
 
             //update item in db
-            $updated = $this->becario->edit($becarioId, $becarioName, $becarioCode);
-
-            $updated2 = $this->asignacion->editByBecario($becarioCode,$becarioName,$becarioId);
+            $updated = $this->becario->edit($becarioId, $becarioName, $becarioCode, $career);
+            $updated2 = $this->asignacion->editByBecario($becarioName,$becarioCode,$becarioId);
+            
 
             $json['status'] = $updated && $updated2 ? 1 : 0;
 
@@ -283,8 +285,9 @@ class Becarios extends CI_Controller{
 
     public function crosscheckName($becarioName, $becarioId){
         //check db to ensure name was previously used for the item we are updating
-        $becarioConNombre = $this->genmod->getTableCol('becarios', 'id', 'name', $becarioName);
 
+
+        $becarioConNombre = $this->genmod->getTableCol('becarios', 'id', 'name', $becarioName);
 
         if(!$becarioConNombre || ($becarioConNombre == $becarioId)){
             return TRUE;

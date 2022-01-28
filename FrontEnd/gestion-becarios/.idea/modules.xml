@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/mini-inventory-and-sales-management-system.iml" filepath="$PROJECT_DIR$/.idea/mini-inventory-and-sales-management-system.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/gestion-becarios.iml" filepath="$PROJECT_DIR$/.idea/gestion-becarios.iml" />
     </modules>
   </component>
 </project>

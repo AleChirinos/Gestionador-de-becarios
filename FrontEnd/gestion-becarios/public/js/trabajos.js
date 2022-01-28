@@ -2,6 +2,8 @@
 
 $(document).ready(function(){
 
+    $('.selectedBecarioDefault').select2();
+
     checkDocumentVisibility(checkLogin);//check document visibility in order to confirm user's log in status
 
     //load all items once the page is ready
@@ -46,17 +48,17 @@ $(document).ready(function(){
     $("#addNewTrabajo").click(function(e){
         e.preventDefault();
 
-        changeInnerHTML(['trabajoNameErr', 'trabajoHoursErr', 'addCustErrMsg'], "");
+        changeInnerHTML(['trabajoNameErr', 'trabajoHoursErr', 'addCustErrMsg','careerErr'], "");
 
         var trabajoName = $("#trabajoName").val();
         var trabajoHours = $("#trabajoHours").val();
         var trabajoDescription = $("#trabajoDescription").val();
-
-        if(!trabajoName || !trabajoHours){
+        var career = $("#career").val();
+        if(!trabajoName || !trabajoHours|| !career){
             !trabajoName ? $("#trabajoNameErr").text("Se requiere llenar el campo") : "";
 
             !trabajoHours ? $("#trabajoHoursErr").text("Se requiere llenar el campo") : "";
-
+            !career ? changeInnerHTML('careerErr', "required") : "";
             $("#addCustErrMsg").text("Existen uno o varios campos vacíos");
 
             return;
@@ -67,7 +69,7 @@ $(document).ready(function(){
         $.ajax({
             type: "post",
             url: appRoot+"trabajos/add",
-            data:{trabajoName:trabajoName, trabajoHours:trabajoHours, trabajoDesc:trabajoDescription},
+            data:{trabajoName:trabajoName, trabajoHours:trabajoHours, trabajoDesc:trabajoDescription, career:career},
 
             success: function(returnedData){
                 if(returnedData.status === 1){
@@ -88,6 +90,7 @@ $(document).ready(function(){
                     $("#trabajoNameErr").text(returnedData.trabajoName);
                     $("#trabajoHoursErr").text(returnedData.trabajoHours);
                     $("#addCustErrMsg").text(returnedData.msg);
+                    $("#careerErr").text(returnedData.career);
                 }
             },
 
@@ -124,7 +127,7 @@ $(document).ready(function(){
 
     $("#trabajoSearch").keyup(function(){
         var value = $(this).val();
-        
+
 
         if(value){
             $.ajax({
@@ -158,12 +161,12 @@ $(document).ready(function(){
         var trabajoId = $(this).attr('id').split("-")[1];
         var trabajoName = $("#trabajoName-"+trabajoId).html();
         var trabajoDesc = $("#trabajoDesc-"+trabajoId).attr('title');
-
+        var career = $(this).siblings(".career").html();
         //prefill form with info
         $("#trabajoIdEdit").val(trabajoId);
         $("#trabajoNameEdit").val(trabajoName);
         $("#trabajoDescriptionEdit").val(trabajoDesc);
-
+        $("#careerEdit").val(career);
 
 
         $("#editTrabajoFMsg").html("");
@@ -337,8 +340,8 @@ $(document).ready(function(){
     $("#trabajosListTable").on('click', '.checkTrabajo', function(){
         //get item info and fill the form with them
         var trabajoId = $(this).attr('id').split("-")[1];
-        
-        
+
+
         $("#checkTrabajoModal").modal('show');
 
         $.ajax({
@@ -348,40 +351,38 @@ $(document).ready(function(){
             success: function(returnedData){
                 if(returnedData.status === 1){
 
-                var html='';
-                html+='<form role="form">'
-                $.each( returnedData.allAsignados, function( key, value ) {
-                    html+='<div class="row" >';
-                    
-                    
-                    html+='<div class="col-sm-4 form-group-sm"><label for="checkNameCheck">Nombre del becario</label><input type="text" id="checkNameCheck" name="checkNameCheck" readonly value="';
-                    html+=value["becarioName"];
-                    html+='" placeholder="Nombre del becario" autofocus class="form-control checkField"><span class="help-block errMsg" id="checkNameCheckErr"></span></div>';
+                    var html='';
+                    html+='<form role="form">'
+                    $.each( returnedData.allAsignados, function( key, value ) {
+                        html+='<div class="row" >';
+                        html+='<div class="col-sm-4 form-group-sm"><label for="checkNameCheck">Nombre del becario</label><input type="text" id="checkNameCheck" name="checkNameCheck" readonly value="';
+                        html+=value["becarioName"];
+                        html+='" placeholder="Nombre del becario" autofocus class="form-control checkField"><span class="help-block errMsg" id="checkNameCheckErr"></span></div>';
 
-                    html+='<input type="hidden" id="checkCodeCheck" name="checkCodeCheck" readonnly value=';
-                    html+=value["becarioCode"];
-                    html+='>';
+                        html+='<input type="hidden" id="checkCodeCheck" name="checkCodeCheck" readonnly value=';
+                        html+=value["becarioCode"];
+                        html+='>';
 
-                    html+='<div class="col-sm-4 form-group-sm"><label for="checkHourCheck">Horas del trabajo</label><input type="number" id="checkHourCheck" name="checkHourCheck" value=';
-                    html+=value["hours"];
-                    html+=' class="form-control checkField" min="0"><span class="help-block errMsg" id="checkHourCheckErr"></span></div>';
+                        html+='<div class="col-sm-4 form-group-sm"><label for="checkHourCheck">Horas del trabajo</label><input type="number" id="checkHourCheck" name="checkHourCheck" value=';
+                        html+=value["hours"];
+                        html+=' class="form-control checkField" min="0"><span class="help-block errMsg" id="checkHourCheckErr"></span></div>';
 
-                    html+='</div>';
-                  });
-                html+='<input type="hidden" id="trabajoIdCheck">';
-                html+='</div></form>';
-                
-                $('#checkTrabajoModal').find('.modal-body').html(html);
-                $('#trabajoIdCheck').val(trabajoId);
-                $("#checkTrabajoSubmit").prop('disabled',false);
+                        html+='</div>';
+                    });
+                    html+='<input type="hidden" id="trabajoIdCheck">';
+                    html+='</div></form>';
+
+                    $('#checkTrabajoModal').find('.modal-body').html(html);
+                    $('#trabajoIdCheck').val(trabajoId);
+                    $("#checkTrabajoSubmit").prop('disabled',false);
                 }else {
                     $("#checkTrabajoSubmit").prop('disabled',true);
                     $('#checkTrabajoModal').find('.modal-body').html('<h4 class="text-center">No existen becarios asignados</h4>');
                 }
-            } 
+            }
 
         });
-          
+
     });
 
 
@@ -391,39 +392,35 @@ $(document).ready(function(){
         var nameArray=[];
         var hoursArray=[];
         var codeArray=[];
+        $('input[name="checkNameCheck"]').each(function (i, item)
+        {
+            nameArray.push(item.value);
+        });
+        $('input[name="checkHourCheck"]').each(function (i, item)
+        {
+            hoursArray.push(item.value);
+        });
+        $('input[name="checkCodeCheck"]').each(function (i, item)
+        {
+            codeArray.push(item.value);
+        });
+        var len=hoursArray.length;
 
-       $('input[name="checkNameCheck"]').each(function (i, item)
-       {
-           nameArray.push(item.value);
-       });
-       $('input[name="checkHourCheck"]').each(function (i, item)
-       {
-           hoursArray.push(item.value);
-       });
+        var jsonCAr=JSON.stringify(codeArray, null, 2);
+        var jsonNAr = JSON.stringify(nameArray, null, 2);
+        var jsonHAr= JSON.stringify(hoursArray, null, 2);
 
-       $('input[name="checkCodeCheck"]').each(function (i, item)
-       {
-           codeArray.push(item.value);
-       });
-       var len=hoursArray.length;
+        console.log(codeArray);
 
-       var jsonCAr=JSON.stringify(codeArray, null, 2);
-       var jsonNAr = JSON.stringify(nameArray, null, 2);
-       var jsonHAr= JSON.stringify(hoursArray, null, 2);
-
-       console.log(codeArray);
-      
-
-       
         $("#checkTrabajoFMsg").html("<i class='"+spinnerClass+"'></i> Completando trabajo...");
 
         $.ajax({
             method: "POST",
             url: appRoot+"trabajos/checkTrabajos",
-            data: {_tId:trabajoId, becarioName:jsonNAr, hoursAssign:jsonHAr,becarioCode:jsonCAr,length:len}
+            data: {_tId:trabajoId, becarioName:jsonNAr, hoursAssign:jsonHAr, becarioCode:jsonCAr,length:len}
         }).done(function(returnedData){
             if(returnedData.status === 1){
-                
+
                 $("#checkTrabajoFMsg").css('color', 'green').html(returnedData.msg);
 
                 setTimeout(function(){
@@ -436,15 +433,15 @@ $(document).ready(function(){
 
             else{
                 $("#checkTrabajoFMsg").html(returnedData.msg);
-                
+
             }
         }).fail(function(){
             $("#checkTrabajoFMsg").html("No se puede realizar la acción en este momento. Por favor, verificar conexión a internet e intentar nuevamente más tarde");
         });
-           
-       
-        
-            
+
+
+
+
     });
 
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

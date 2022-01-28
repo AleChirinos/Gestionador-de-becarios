@@ -3,7 +3,6 @@ defined('BASEPATH') OR exit('');
 require_once 'functions.php';
 
 
-
 class Trabajos extends CI_Controller{
 
     public function __construct(){
@@ -60,7 +59,6 @@ class Trabajos extends CI_Controller{
         $data['sn'] = $start+1;
         $data['mark']=1;
 
-
         $json['trabajosListTable'] = $this->load->view('trabajos/trabajoslisttable', $data, TRUE);//get view with populated items table
 
         $this->output->set_content_type('application/json')->set_output(json_encode($json));
@@ -78,17 +76,17 @@ class Trabajos extends CI_Controller{
         $this->form_validation->set_rules('trabajoName', 'Trabajo name', ['required', 'trim', 'max_length[80]', 'is_unique[trabajos.name]'],
             ['required'=>"required", 'is_unique'=>"Ya existe un un trabajo con ese nombre"]);
         $this->form_validation->set_rules('trabajoHours', 'Trabajo Hours', ['required', 'trim', 'numeric'], ['required'=>"required"]);
-
+        $this->form_validation->set_rules('career', 'Carrera', ['required','max_length[50]'], ['required'=>"required"]);
 
         if($this->form_validation->run() !== FALSE){
             $this->db->trans_start();//start transaction
 
 
-            $insertedId = $this->trabajo->add(set_value('trabajoName'), set_value('trabajoDesc'), set_value('trabajoHours'));
+            $insertedId = $this->trabajo->add(set_value('trabajoName'), set_value('trabajoDesc'), set_value('trabajoHours'), set_value('career'));
 
             $trabajoName = set_value('trabajoName');
             $trabajoHours = set_value('trabajoHours');
-
+            $career = set_value('career');
 
             //insert into eventlog
             //function header: addevent($event, $eventRowId, $eventDesc, $eventTable, $staffId)
@@ -176,8 +174,6 @@ class Trabajos extends CI_Controller{
                 endforeach;
             }
 
-
-
             //add event to log if successful
 
             $event = "Modificado de horas de trabajo a cumplir";
@@ -224,21 +220,20 @@ class Trabajos extends CI_Controller{
         $this->form_validation->set_rules('trabajoName', 'Trabajo Name', ['required', 'trim',
             'callback_crosscheckName['.$this->input->post('_tId', TRUE).']'], ['required'=>'required']);
         $this->form_validation->set_rules('trabajoDesc', 'Trabajo Description', ['trim']);
-
+        $this->form_validation->set_rules('career', 'Carrera', ['required','max_length[50]'], ['required'=>"required"]);
         if($this->form_validation->run() !== FALSE){
             $trabajoId = set_value('_tId');
             $trabajoName = set_value('trabajoName');
             $trabajoDesc = set_value('trabajoDesc');
-
+            $career = set_value('career');
             //update item in db
-            $updated = $this->trabajo->edit($trabajoId, $trabajoName, $trabajoDesc);
+            $updated = $this->trabajo->edit($trabajoId, $trabajoName, $trabajoDesc,$career);
 
             $checkAsig=$this->asignacion->getBecarios(['trabajo_code'=>$trabajoId], ['becarioId']);
 
             if ($checkAsig){
                 $updated2 = $this->asignacion->editByTrabajo($trabajoName,$trabajoId);
             }
-
 
             $json['status'] = $updated ? 1 : 0;
 
@@ -258,7 +253,7 @@ class Trabajos extends CI_Controller{
     }
 
     public function checkTrabajos(){
-    
+
 
         $this->genlib->ajaxOnly();
 
@@ -269,27 +264,28 @@ class Trabajos extends CI_Controller{
         $len=$this->input->post('length',TRUE);
         $tryout=0;
         $bArr = json_decode($becarioNameArr);
-        $cArr = json_decode($becarioCodeArr);
         $hArr = json_decode($hoursAsArr);
-        
-       
+        $cArr = json_decode($becarioCodeArr);
+
+
         for ($i = 0; $i < $len; $i++) :
             $updated=$this->asignacion->updateAsignacion($trabajoId, $bArr[$i], $hArr[$i]);
             $updated2=$this->becario->actualizeAssignedHours($cArr[$i]);
             $updated3=$this->becario->actualizeAccomplishedHours($cArr[$i]);
             
-            $tryout= $updated && $updated2 && $updated3  ? 1 : 0;
+
+            $tryout= $updated && $updated2 && $updated3 ? 1 : 0;
         endfor;
 
-        
-       
-        
+
+
+
         $json['detDat']=$cArr;
         $json['status'] = $tryout === 1 ? 1 : 0;
         $json['msg']="Se asignaron las horas correctamente";
 
-    //set final output
-    $this->output->set_content_type('application/json')->set_output(json_encode($json));
+        //set final output
+        $this->output->set_content_type('application/json')->set_output(json_encode($json));
 
     }
 
@@ -301,7 +297,7 @@ class Trabajos extends CI_Controller{
         $this->form_validation->set_error_delimiters('', '');
 
         $this->form_validation->set_rules('becarioName', 'Becario Name', ['required', 'trim','callback_crosscheckBecarioTrabajo['.$this->input->post('trabajoName', TRUE).']'], ['required'=>'required']);
-        
+
 
 
         if($this->form_validation->run() !== FALSE){
@@ -313,15 +309,14 @@ class Trabajos extends CI_Controller{
             $becarioId=set_value('_bId');
             $hoursToAdd=set_value('trabajoHours');
             $hoursDisp=set_value('becHours');
-            
+
             $this->db->trans_start();//start transaction
 
-           $insertedId = $this->asignacion->add(set_value('becarioName'), set_value('becarioCode'), set_value('trabajoName'), set_value('_tId'),set_value('_bId'),set_value('trabajoHours'));
+            $insertedId = $this->asignacion->add(set_value('becarioName'), set_value('becarioCode'), set_value('trabajoName'), set_value('_tId'),set_value('_bId'),set_value('trabajoHours'));
 
-           $modifiedHours= $this->becario->actualizeAssignedHours($becarioCode);
-           $modifiedMisHours= $this->becario->decrementMissingHours($becarioCode,$hoursToAdd,$hoursDisp);
+            $modifiedHours= $this->becario->actualizeAssignedHours($becarioCode);
+            $modifiedMisHours= $this->becario->decrementMissingHours($becarioCode,$hoursToAdd,$hoursDisp);
 
-            
             $desc = "Inscripción del becario {$becarioName} de código UPB {$becarioCode} al trabajo {$trabajoName} ";
 
             $insertedId ? $this->genmod->addevent("Asignacion de becario a trabajo", $insertedId, $desc, "becarios", $this->session->admin_id) : "";
@@ -421,6 +416,9 @@ class Trabajos extends CI_Controller{
                     }
                 endforeach;
             }
+
+
+
 
             $this->db->delete('trabajos', array('id' => $trabajo_id));
             $this->db->delete('asignaciones', array('trabajo_name' => $trabajo_name));

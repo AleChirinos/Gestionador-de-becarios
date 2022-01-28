@@ -13,49 +13,49 @@ class Asignacion extends CI_Model{
 
     public function getAll($orderBy, $orderFormat){
 
-            $this->db->order_by($orderBy, $orderFormat);
+        $this->db->order_by($orderBy, $orderFormat);
 
 
-            $run_q = $this->db->get('asignaciones');
+        $run_q = $this->db->get('asignaciones');
 
-            if($run_q->num_rows() > 0){
-                return $run_q->result();
-            }
-
-            else{
-                return FALSE;
-            }
+        if($run_q->num_rows() > 0){
+            return $run_q->result();
         }
-    
+
+        else{
+            return FALSE;
+        }
+    }
+
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    
 
 
 
-    
+
+
 
     public function add($becarioName, $becarioCode, $trabajoName,$trabajoCode,$becarioId,$trabajoHours){
 
 
         $data = ['becarioName'=>$becarioName, 'becarioCode'=>$becarioCode, 'becarioId'=>$becarioId, 'trabajo_name'=>$trabajoName,'trabajo_code'=>$trabajoCode, 'hours'=>$trabajoHours,'accomplished'=>0];
-                
+
         //set the datetime based on the db driver in use
-        $this->db->platform() == "sqlite3" 
-                ? 
-        $this->db->set('assignDate', "datetime('now')", FALSE) 
-                : 
-        $this->db->set('assignDate', "NOW()", FALSE);
-        
+        $this->db->platform() == "sqlite3"
+            ?
+            $this->db->set('assignDate', "datetime('now')", FALSE)
+            :
+            $this->db->set('assignDate', "NOW()", FALSE);
+
         $this->db->insert('asignaciones', $data);
-        
+
         if($this->db->insert_id()){
             return $this->db->insert_id();
         }
-        
+
         else{
             return FALSE;
         }
@@ -63,50 +63,48 @@ class Asignacion extends CI_Model{
 
 
     public function editByTrabajo($trabajoName,$trabajoId){
-           $data = ['trabajo_name'=>$trabajoName];
+        $data = ['trabajo_name'=>$trabajoName];
 
-           $this->db->where('trabajo_code', $trabajoId);
-           $this->db->update('asignaciones', $data);
+        $this->db->where('trabajo_code', $trabajoId);
+        $this->db->update('asignaciones', $data);
 
-           return TRUE;
-       }
+        return TRUE;
+    }
 
-    public function editByBecario($becarioCode,$becarioName,$becarioId){
-               $data = ['becarioName'=>$becarioName,'becarioCode'=>$becarioCode];
+    public function editByBecario($becarioName,$becarioCode,$becarioId){
+        $data = ['becarioName'=>$becarioName,'becarioCode'=>$becarioCode];
 
-               $this->db->where('becarioId', $becarioId);
-               $this->db->update('asignaciones', $data);
+        $this->db->where('becarioId', $becarioId);
+        $this->db->update('asignaciones', $data);
 
-               return TRUE;
-           }
-
-
+        return TRUE;
+    }
     public function editByTrabajoHour($trabajoId,$trabajoHours){
         $data = ['hours'=>$trabajoHours];
 
         $whereArray = array('trabajo_code' => $trabajoId, 'accomplished' => 0);
 
-           $this->db->where($whereArray);
-           $this->db->update('asignaciones', $data);
+        $this->db->where($whereArray);
+        $this->db->update('asignaciones', $data);
 
-           return TRUE;
+        return TRUE;
     }
 
     public function getBecarios($where_clause, $fields_to_fetch){
-                $this->db->select($fields_to_fetch);
+        $this->db->select($fields_to_fetch);
 
-                $this->db->where($where_clause);
+        $this->db->where($where_clause);
 
-                $run_q = $this->db->get('asignaciones');
+        $run_q = $this->db->get('asignaciones');
 
-                if($run_q->num_rows() > 0){
-                            return $run_q->result();
-                        }
+        if($run_q->num_rows() > 0){
+            return $run_q->result();
+        }
 
-                else{
-                            return FALSE;
-                }
-            }
+        else{
+            return FALSE;
+        }
+    }
 
     public function getBecario($where_clause, $fields_to_fetch){
         $this->db->select($fields_to_fetch);

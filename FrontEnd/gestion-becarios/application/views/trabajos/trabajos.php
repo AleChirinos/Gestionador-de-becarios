@@ -5,28 +5,30 @@ $current_items = [];
 
 if(isset($becarios) && !empty($becarios)){
     foreach($becarios as $get){
+
         $current_items[$get->code] = $get->name;
-         echo '<script>';
-         echo 'console.log('. json_encode( $get->name ) .')';
-         echo '</script>';
+        echo '<script>';
+        echo 'console.log('. json_encode( $get->name ) .')';
+        echo '</script>';
+
     }
 }
 ?>
 
 <script>
-    var currentBecarios = <?=json_encode($current_items)?>;
+    const currentBecarios = <?=json_encode($current_items)?>;
     console.log(currentBecarios);
 </script>
 
 
-<div class="pwell hidden-print">   
+<div class="pwell hidden-print">
     <div class="row">
         <div class="col-sm-12">
             <!-- sort and co row-->
             <div class="row">
                 <div class="col-sm-12">
                     <div class="col-sm-2 form-inline form-group-sm">
-                        <button class="btn btn-primary btn-sm" id='createTrabajo'>Añadir nuevo trabajo</button>
+                        <button class="btn btn-primary btn-sm" id='createTrabajo'>Añadir Nuevo Trabajo</button>
                     </div>
                     <div class="col-sm-3 form-inline form-group-sm">
                         <label for="trabajosListPerPage">Mostrar</label>
@@ -65,9 +67,9 @@ if(isset($becarios) && !empty($becarios)){
             <!-- end of sort and co div-->
         </div>
     </div>
-    
+
     <hr>
-    
+
     <!-- row of adding new item form and items list table-->
     <div class="row">
         <div class="col-sm-12">
@@ -77,14 +79,14 @@ if(isset($becarios) && !empty($becarios)){
                     <button class="close cancelAddTrabajo">&times;</button><br>
                     <form name="addNewTrabajoForm" id="addNewTrabajoForm" role="form">
                         <div class="text-center errMsg" id='addCustErrMsg'></div>
-                        
+
                         <br>
-                        
+
                         <div class="row">
                             <div class="col-sm-12 form-group-sm">
                                 <label for="trabajoName">Nombre del trabajo</label>
-                                <input type="text" id="trabajoName" name="trabajoName" placeholder="Ej: Limpiar la mesa" maxlength="80"
-                                    class="form-control" onchange="checkField(this.value, 'trabajoNameErr')">
+                                <input type="text" id="trabajoName" name="trabajoName" placeholder="Nombre del Trabajo" maxlength="80"
+                                       class="form-control" onchange="checkField(this.value, 'trabajoNameErr')">
                                 <span class="help-block errMsg" id="trabajoNameErr"></span>
                             </div>
                         </div>
@@ -93,7 +95,7 @@ if(isset($becarios) && !empty($becarios)){
                             <div class="col-sm-12 form-group-sm">
                                 <label for="trabajoDescription" class="">Descripción (Opcional)</label>
                                 <textarea class="form-control" id="trabajoDescription" name="trabajoDescription" rows='4'
-                                    placeholder="Ej: Limpiar cada mesa de la cafetería del campus de Achocalla"></textarea>
+                                          placeholder="Descripción (Opcional)"></textarea>
                             </div>
                         </div>
 
@@ -101,11 +103,19 @@ if(isset($becarios) && !empty($becarios)){
                             <div class="col-sm-12 form-group-sm">
                                 <label for="trabajoHours">Cantidad de horas de trabajo</label>
                                 <input type="number" id="trabajoHours" name="trabajoHours" placeholder="Horas de trabajo"
-                                    class="form-control" min="0" onchange="checkField(this.value, 'trabajoHoursErr')">
+                                       class="form-control" min="0" onchange="checkField(this.value, 'trabajoHoursErr')">
                                 <span class="help-block errMsg" id="trabajoHoursErr"></span>
                             </div>
                         </div>
-
+                        <div class="row">
+                        <div class="form-group-sm col-sm-6">
+                            <label for='career' class="control-label">Carrera</label>
+                            <input type="hidden" id='career' class="form-control checkField" value="<?php echo $this->session->admin_career; ?>">
+                            <br>
+                            <label for='career' class="control-label"><?php echo $this->session->admin_career; ?></label>
+                            <span class="help-block errMsg" id="careerErr"></span>
+                        </div>
+                        </div>
                         <br>
                         <div class="row text-center">
                             <div class="col-sm-6 form-group-sm">
@@ -119,7 +129,7 @@ if(isset($becarios) && !empty($becarios)){
                     </form><!-- end of form-->
                 </div>
             </div>
-            
+
             <!--- Item list div-->
             <div class="col-sm-12" id="trabajosListDiv">
                 <!-- Item list Table-->
@@ -160,12 +170,12 @@ if(isset($becarios) && !empty($becarios)){
                             <input type="text" readonly id="thUpdateTrabajoName" class="form-control">
                         </div>
                     </div>
-                    
+
                     <div class="row">
                         <div class="col-sm-6 form-group-sm">
                             <label for="thUpdateTrabajoHours">Horas de trabajo</label>
                             <input type="number" id="thUpdateTrabajoHours"
-                                class="form-control checkField" min="0">
+                                   class="form-control checkField" min="0">
                             <span class="help-block errMsg" id="thUpdateTrabajoHoursErr"></span>
                         </div>
                     </div>
@@ -199,13 +209,13 @@ if(isset($becarios) && !empty($becarios)){
                             <input type="text" id="trabajoNameEdit" placeholder="Nombre del trabajo" autofocus class="form-control checkField">
                             <span class="help-block errMsg" id="trabajoNameEditErr"></span>
                         </div>
-                        
-                        
+
+
                         <div class="col-sm-12 form-group-sm">
                             <label for="trabajoDescriptionEdit" class="">Descripción (Opcional)</label>
                             <textarea class="form-control" id="trabajoDescriptionEdit" placeholder="Descripción opcional del trabajo"></textarea>
                         </div>
-    
+
                     </div>
 
                     <input type="hidden" id="trabajoIdEdit">
@@ -229,30 +239,30 @@ if(isset($becarios) && !empty($becarios)){
                 <div id="checkTrabajoFMsg" class="text-center"></div>
             </div>
             <div class="modal-body">
-               <!-- <form role="form">
-                    <div class="row">
-                        <div class="col-sm-4 form-group-sm">
-                            <label for="checkNameEdit">Nombre del trabajo</label>
-                            <input type="text" id="trabajoNameEdit" placeholder="Nombre del trabajo" autofocus class="form-control checkField">
-                            <span class="help-block errMsg" id="trabajoNameEditErr"></span>
-                        </div>
-                        
-                        
-                        <div class="col-sm-12 form-group-sm">
-                            <label for="trabajoDescriptionEdit" class="">Descripción (Opcional)</label>
-                            <textarea class="form-control" id="trabajoDescriptionEdit" placeholder="Descripción opcional del trabajo"></textarea>
-                        </div>
-    
-                    </div>
+                <!-- <form role="form">
+                     <div class="row">
+                         <div class="col-sm-4 form-group-sm">
+                             <label for="checkNameEdit">Nombre del trabajo</label>
+                             <input type="text" id="trabajoNameEdit" placeholder="Nombre del trabajo" autofocus class="form-control checkField">
+                             <span class="help-block errMsg" id="trabajoNameEditErr"></span>
+                         </div>
 
-                    <input type="hidden" id="trabajoIdEdit">
-                </form> -->
-                
+
+                         <div class="col-sm-12 form-group-sm">
+                             <label for="trabajoDescriptionEdit" class="">Descripción (Opcional)</label>
+                             <textarea class="form-control" id="trabajoDescriptionEdit" placeholder="Descripción opcional del trabajo"></textarea>
+                         </div>
+
+                     </div>
+
+                     <input type="hidden" id="trabajoIdEdit">
+                 </form> -->
+
             </div>
             <div class="modal-footer">
-                    
-            <button class="btn btn-primary" id="checkTrabajoSubmit">Finalizar trabajo</button> 
-            <button class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+
+                <button class="btn btn-primary" id="checkTrabajoSubmit">Finalizar trabajo</button>
+                <button class="btn btn-danger" data-dismiss="modal">Cancelar</button>
             </div>
         </div>
     </div>
@@ -272,38 +282,37 @@ if(isset($becarios) && !empty($becarios)){
             <div class="modal-body">
                 <form role="form">
                     <div class="row">
-
-
-                     <div class="col-sm-4 form-group-sm">
+                        <div class="col-sm-4 form-group-lg">
                             <label for="selectedBecarioDefault">Becario</label>
-                            <select class="form-control" id="selectedBecarioDefault" onchange="selectedBecario(this)">
-                            <option selected>Selecciona a tu becario:</option>
-                             <?php
+                            <select class="form-control selectedBecarioDefault" id="selectedBecarioDefault" onchange="selectedBecario(this)">
+                                <option selected>Selecciona a tu becario:</option>
+                                <?php
 
                                 foreach($becarios as $row)
-                                        {
-                                          echo '<option value="'.$row->code.'">'.$row->name.'</option>';
-                                 }
-                              ?>
+                                {
+                                    if($this->session->admin_career ===$row->career){
+                                        echo '<option value="'.$row->code.'">'.$row->name.'</option>';}
+                                    }
+                                ?>
                             </select>
-                             <span class="help-block errMsg" id="selectedBecarioDefaultErr"></span>
+                            <span class="help-block errMsg" id="selectedBecarioDefaultErr"></span>
                         </div>
 
                         <div class="col-sm-4 form-group-sm">
                             <label for="becarioAssignHours">Horas del trabajo</label>
                             <input type="number" readonly id="becarioAssignHours"
-                            class="form-control checkField" min="0">
+                                   class="form-control checkField" min="0">
                             <span class="help-block errMsg" id="becarioAssignHoursErr"></span>
                         </div>
 
                         <div class="col-sm-4 form-group-sm">
                             <label for="becarioDisHours">Horas faltantes (becario) </label>
                             <input type="number" readonly id="becarioDisHours"
-                            class="form-control checkField" min="0">
+                                   class="form-control checkField" min="0">
                             <span class="help-block errMsg" id="becarioDisHoursErr"></span>
                         </div>
-                     </div>
-                     <input type="hidden" id="trabajoBecName">
+                    </div>
+                    <input type="hidden" id="trabajoBecName">
                     <input type="hidden" id="trabajoNameBec">
                     <input type="hidden" id="trabajoIdBec">
                     <input type="hidden" id="becId">
