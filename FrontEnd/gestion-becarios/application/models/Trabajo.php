@@ -131,7 +131,7 @@ class Trabajo extends CI_Model{
 
     public function getReport($value,$semester){
 
-        $this->db->select("trabajos.*,asignaciones.accomplished, asignaciones.becarioName, asignaciones.becarioCode, asignaciones.hours");
+        $this->db->select("trabajos.*,asignaciones.assignDate,asignaciones.accomplished, asignaciones.becarioName, asignaciones.becarioCode, asignaciones.hours");
           $this->db->from('trabajos');
           $this->db->join('asignaciones', 'trabajos.id = asignaciones.trabajo_code');
         $whereArray = array('trabajos.semester' => $semester, 'trabajos.id' => $value);

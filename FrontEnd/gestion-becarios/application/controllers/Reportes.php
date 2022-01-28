@@ -31,9 +31,9 @@ class Reportes extends CI_Controller{
 
         $this->load->helper('text');
 
-        $value->$this->input->get('value', TRUE);
-        $semester->$this->input->get('semester', TRUE);
-        $option->$this->input->get('option', TRUE);
+        $value=$this->input->get('value', TRUE);
+        $semester=$this->input->get('semester', TRUE);
+        $option=$this->input->get('option', TRUE);
 
         $data['allInfo'] =  $option==="becario" ? $this->becario->getReport($value,$semester) : $this->trabajo->getReport($value,$semester) ;
         $data['type']=$option;

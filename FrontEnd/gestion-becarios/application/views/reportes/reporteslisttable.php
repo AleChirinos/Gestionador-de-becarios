@@ -40,14 +40,14 @@
                                     <span id="workhours-<?=$get->id?>"><?=$get->hours?></span>
                                 </td>
                                 <td><span id="trabajoName-<?=$get->id?>">
-                                <?php if($get->accomplished===1): ?>
-                                    TERMINADO
+                                <?php if($get->accomplished==1): ?>
+                                TERMINADO
                                 <?php else: ?>
                                 EN PROCESO
                                 <?php endif; ?>
                             </span></td>
                                 <td>
-                                    <span id="assignedDate-<?=$get->id?>"><?=$get->assignedDate?></span>
+                                    <span id="assignedDate-<?=$get->id?>"><?=$get->assignDate?></span>
                                 </td>
                                
                             </tr>
@@ -77,14 +77,14 @@
                                 <td><span id="becarioName-<?=$get->id?>"><?=$get->becarioName?></span></td>
                                 <td><span id="becarioCode-<?=$get->id?>"><?=$get->becarioCode?></span></td>
                                 <td><span id="accomplished-<?=$get->id?>">
-                                <?php if($get->accomplished===1): ?>
+                                <?php if($get->accomplished==1): ?>
                                     TERMINADO
                                 <?php else: ?>
                                 EN PROCESO
                                 <?php endif; ?>
                             </span></td>
                                 <td>
-                                    <span id="assignedDate-<?=$get->id?>"><?=$get->assignedDate?></span>
+                                    <span id="assignedDate-<?=$get->id?>"><?=$get->assignDate?></span>
                                 </td>
                                 <td>
                                     <span id="hours-<?=$get->id?>"><?=$get->hours?></span>

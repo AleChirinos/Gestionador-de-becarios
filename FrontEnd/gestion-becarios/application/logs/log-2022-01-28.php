@@ -77,3 +77,50 @@ ERROR - 2022-01-28 04:19:56 --> Severity: Warning --> Undefined variable $value 
 ERROR - 2022-01-28 04:19:56 --> Severity: error --> Exception: Object of class Reportes could not be converted to string C:\xampp\htdocs\gestion-becarios\application\controllers\Reportes.php 34
 ERROR - 2022-01-28 04:21:12 --> Severity: Warning --> Undefined variable $value C:\xampp\htdocs\gestion-becarios\application\controllers\Reportes.php 34
 ERROR - 2022-01-28 04:21:12 --> Severity: error --> Exception: Object of class Reportes could not be converted to string C:\xampp\htdocs\gestion-becarios\application\controllers\Reportes.php 34
+ERROR - 2022-01-28 04:26:56 --> Severity: Warning --> Undefined variable $value C:\xampp\htdocs\gestion-becarios\application\controllers\Reportes.php 34
+ERROR - 2022-01-28 04:26:56 --> Severity: error --> Exception: Object of class Reportes could not be converted to string C:\xampp\htdocs\gestion-becarios\application\controllers\Reportes.php 34
+ERROR - 2022-01-28 15:29:23 --> Severity: Warning --> Trying to access array offset on value of type bool C:\xampp\htdocs\gestion-becarios\core\controller.Class.php 73
+ERROR - 2022-01-28 15:29:23 --> Severity: Warning --> Trying to access array offset on value of type bool C:\xampp\htdocs\gestion-becarios\core\controller.Class.php 73
+ERROR - 2022-01-28 15:29:23 --> Severity: Warning --> Trying to access array offset on value of type bool C:\xampp\htdocs\gestion-becarios\core\controller.Class.php 73
+ERROR - 2022-01-28 15:29:23 --> Severity: Warning --> Trying to access array offset on value of type bool C:\xampp\htdocs\gestion-becarios\core\controller.Class.php 73
+ERROR - 2022-01-28 15:30:57 --> Severity: error --> Exception: Unmatched '}' C:\xampp\htdocs\gestion-becarios\application\views\home.php 94
+ERROR - 2022-01-28 15:32:03 --> Severity: Warning --> Undefined variable $value C:\xampp\htdocs\gestion-becarios\application\controllers\Reportes.php 34
+ERROR - 2022-01-28 15:32:03 --> Severity: error --> Exception: Object of class Reportes could not be converted to string C:\xampp\htdocs\gestion-becarios\application\controllers\Reportes.php 34
+ERROR - 2022-01-28 15:59:33 --> Severity: Warning --> Undefined property: stdClass::$trabajo_name C:\xampp\htdocs\gestion-becarios\application\views\reportes\reporteslisttable.php 38
+ERROR - 2022-01-28 15:59:33 --> Severity: Warning --> Undefined property: stdClass::$hours C:\xampp\htdocs\gestion-becarios\application\views\reportes\reporteslisttable.php 40
+ERROR - 2022-01-28 15:59:33 --> Severity: Warning --> Undefined property: stdClass::$accomplished C:\xampp\htdocs\gestion-becarios\application\views\reportes\reporteslisttable.php 43
+ERROR - 2022-01-28 15:59:33 --> Severity: Warning --> Undefined property: stdClass::$assignedDate C:\xampp\htdocs\gestion-becarios\application\views\reportes\reporteslisttable.php 50
+ERROR - 2022-01-28 15:59:33 --> Severity: Warning --> Undefined property: stdClass::$trabajo_name C:\xampp\htdocs\gestion-becarios\application\views\reportes\reporteslisttable.php 38
+ERROR - 2022-01-28 15:59:33 --> Severity: Warning --> Undefined property: stdClass::$hours C:\xampp\htdocs\gestion-becarios\application\views\reportes\reporteslisttable.php 40
+ERROR - 2022-01-28 15:59:33 --> Severity: Warning --> Undefined property: stdClass::$accomplished C:\xampp\htdocs\gestion-becarios\application\views\reportes\reporteslisttable.php 43
+ERROR - 2022-01-28 15:59:33 --> Severity: Warning --> Undefined property: stdClass::$assignedDate C:\xampp\htdocs\gestion-becarios\application\views\reportes\reporteslisttable.php 50
+ERROR - 2022-01-28 15:59:33 --> Severity: Warning --> Undefined property: stdClass::$trabajo_name C:\xampp\htdocs\gestion-becarios\application\views\reportes\reporteslisttable.php 38
+ERROR - 2022-01-28 15:59:33 --> Severity: Warning --> Undefined property: stdClass::$hours C:\xampp\htdocs\gestion-becarios\application\views\reportes\reporteslisttable.php 40
+ERROR - 2022-01-28 15:59:33 --> Severity: Warning --> Undefined property: stdClass::$accomplished C:\xampp\htdocs\gestion-becarios\application\views\reportes\reporteslisttable.php 43
+ERROR - 2022-01-28 15:59:33 --> Severity: Warning --> Undefined property: stdClass::$assignedDate C:\xampp\htdocs\gestion-becarios\application\views\reportes\reporteslisttable.php 50
+ERROR - 2022-01-28 15:59:33 --> Severity: Warning --> Undefined property: stdClass::$trabajo_name C:\xampp\htdocs\gestion-becarios\application\views\reportes\reporteslisttable.php 38
+ERROR - 2022-01-28 15:59:33 --> Severity: Warning --> Undefined property: stdClass::$hours C:\xampp\htdocs\gestion-becarios\application\views\reportes\reporteslisttable.php 40
+ERROR - 2022-01-28 15:59:33 --> Severity: Warning --> Undefined property: stdClass::$accomplished C:\xampp\htdocs\gestion-becarios\application\views\reportes\reporteslisttable.php 43
+ERROR - 2022-01-28 15:59:33 --> Severity: Warning --> Undefined property: stdClass::$assignedDate C:\xampp\htdocs\gestion-becarios\application\views\reportes\reporteslisttable.php 50
+ERROR - 2022-01-28 15:59:33 --> Severity: Warning --> Undefined property: stdClass::$trabajo_name C:\xampp\htdocs\gestion-becarios\application\views\reportes\reporteslisttable.php 38
+ERROR - 2022-01-28 15:59:33 --> Severity: Warning --> Undefined property: stdClass::$hours C:\xampp\htdocs\gestion-becarios\application\views\reportes\reporteslisttable.php 40
+ERROR - 2022-01-28 15:59:33 --> Severity: Warning --> Undefined property: stdClass::$accomplished C:\xampp\htdocs\gestion-becarios\application\views\reportes\reporteslisttable.php 43
+ERROR - 2022-01-28 15:59:33 --> Severity: Warning --> Undefined property: stdClass::$assignedDate C:\xampp\htdocs\gestion-becarios\application\views\reportes\reporteslisttable.php 50
+ERROR - 2022-01-28 15:59:33 --> Severity: Warning --> Undefined property: stdClass::$trabajo_name C:\xampp\htdocs\gestion-becarios\application\views\reportes\reporteslisttable.php 38
+ERROR - 2022-01-28 15:59:33 --> Severity: Warning --> Undefined property: stdClass::$hours C:\xampp\htdocs\gestion-becarios\application\views\reportes\reporteslisttable.php 40
+ERROR - 2022-01-28 15:59:33 --> Severity: Warning --> Undefined property: stdClass::$accomplished C:\xampp\htdocs\gestion-becarios\application\views\reportes\reporteslisttable.php 43
+ERROR - 2022-01-28 15:59:33 --> Severity: Warning --> Undefined property: stdClass::$assignedDate C:\xampp\htdocs\gestion-becarios\application\views\reportes\reporteslisttable.php 50
+ERROR - 2022-01-28 15:59:33 --> Severity: Warning --> Undefined property: stdClass::$trabajo_name C:\xampp\htdocs\gestion-becarios\application\views\reportes\reporteslisttable.php 38
+ERROR - 2022-01-28 15:59:33 --> Severity: Warning --> Undefined property: stdClass::$hours C:\xampp\htdocs\gestion-becarios\application\views\reportes\reporteslisttable.php 40
+ERROR - 2022-01-28 15:59:33 --> Severity: Warning --> Undefined property: stdClass::$accomplished C:\xampp\htdocs\gestion-becarios\application\views\reportes\reporteslisttable.php 43
+ERROR - 2022-01-28 15:59:33 --> Severity: Warning --> Undefined property: stdClass::$assignedDate C:\xampp\htdocs\gestion-becarios\application\views\reportes\reporteslisttable.php 50
+ERROR - 2022-01-28 15:59:33 --> Severity: Warning --> Undefined property: stdClass::$trabajo_name C:\xampp\htdocs\gestion-becarios\application\views\reportes\reporteslisttable.php 38
+ERROR - 2022-01-28 15:59:33 --> Severity: Warning --> Undefined property: stdClass::$hours C:\xampp\htdocs\gestion-becarios\application\views\reportes\reporteslisttable.php 40
+ERROR - 2022-01-28 15:59:33 --> Severity: Warning --> Undefined property: stdClass::$accomplished C:\xampp\htdocs\gestion-becarios\application\views\reportes\reporteslisttable.php 43
+ERROR - 2022-01-28 15:59:33 --> Severity: Warning --> Undefined property: stdClass::$assignedDate C:\xampp\htdocs\gestion-becarios\application\views\reportes\reporteslisttable.php 50
+ERROR - 2022-01-28 16:00:11 --> Severity: Warning --> Undefined property: stdClass::$assignedDate C:\xampp\htdocs\gestion-becarios\application\views\reportes\reporteslisttable.php 50
+ERROR - 2022-01-28 16:00:11 --> Severity: Warning --> Undefined property: stdClass::$assignedDate C:\xampp\htdocs\gestion-becarios\application\views\reportes\reporteslisttable.php 50
+ERROR - 2022-01-28 16:05:32 --> Severity: Warning --> Undefined property: stdClass::$assignedDate C:\xampp\htdocs\gestion-becarios\application\views\reportes\reporteslisttable.php 87
+ERROR - 2022-01-28 16:05:32 --> Severity: Warning --> Undefined property: stdClass::$assignedDate C:\xampp\htdocs\gestion-becarios\application\views\reportes\reporteslisttable.php 87
+ERROR - 2022-01-28 16:06:02 --> Severity: Warning --> Undefined property: stdClass::$assignDate C:\xampp\htdocs\gestion-becarios\application\views\reportes\reporteslisttable.php 87
+ERROR - 2022-01-28 16:06:02 --> Severity: Warning --> Undefined property: stdClass::$assignDate C:\xampp\htdocs\gestion-becarios\application\views\reportes\reporteslisttable.php 87

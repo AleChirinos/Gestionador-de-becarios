@@ -24,6 +24,7 @@ $(document).ready(function(){
             success: function(returnedData){
                     if(returnedData.status === 1){
                         var html='';
+                        html+='<option value="null">Seleccionar sujeto</option>';
                         $.each( returnedData.allData, function( key, value ) {
                             html+='<option value= ';
                             html+=value.id;
@@ -32,6 +33,7 @@ $(document).ready(function(){
                             html+='</option>';
                             
                         });
+
                         $("#searchOpt").empty().append(html);
                     }else {
                         $("#searchOpt").empty();
@@ -66,7 +68,7 @@ function cargarReporte(url){
     var value=$("#searchOpt").val();
     console.log(option + ':' + semester + ':' +value);
 
-    if (value){
+    if (value || value!=="null"){
         $.ajax({
             type:'get',
             url: url ? url : appRoot+"reportes/cargarReportes/",
@@ -83,8 +85,6 @@ function cargarReporte(url){
     } else {
         $("#reportesListTable").html('<h3 style="text-align: center;" >Seleccionar un objeto para el reporte</h3>');
     }
-
-    
 
     return false;
 }
