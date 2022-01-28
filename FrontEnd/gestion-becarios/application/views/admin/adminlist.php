@@ -15,6 +15,7 @@ defined('BASEPATH') OR exit('');
                     <th>CORREO</th>
                     <th>TIPO DE USUARIO</th>
                     <th>CARRERA</th>
+                    <th>GESTIÓN</th>
                     <th>FECHA DE CREACIÓN</th>
                     <th>ÚLTIMO INICIO DE SESIÓN</th>
                     <th>EDITAR</th>
@@ -24,7 +25,7 @@ defined('BASEPATH') OR exit('');
             </thead>
             <tbody>
             <?php foreach($allAdministrators as $get):?>
-                <?php if($get->deleted == "0" && $get->role =="Gesti" && $this->session->admin_career ===$get->career && $this->session->admin_semester ===$get->semester):?>
+                <?php if($get->deleted == "0" && $get->role ==="Gesti" && $this->session->admin_career === $get->career && $this->session->admin_semester ===$get->semester):?>
                     <tr>
                         <th class="adminSN"><?=$sn?>.</th>
                         <td class="adminName"><?=$get->first_name ." ". $get->last_name?></td>
@@ -33,6 +34,7 @@ defined('BASEPATH') OR exit('');
                         <td class="adminEmail"><?=mailto($get->email)?></td>
                         <td class="adminRole"><?=$get->role?></td>
                         <td class="adminCareer"><?=$get->career?></td>
+                        <td class="adminSemester"><?=$get->semester?></td>
                         <td><?=date('jS M, Y h:i:sa', strtotime($get->created_on))?></td>
                         <td>
                             <?=$get->last_login === "0000-00-00 00:00:00" ? "---" : date('jS M, Y h:i:sa', strtotime($get->last_login))?>
@@ -81,6 +83,7 @@ defined('BASEPATH') OR exit('');
                         <th>CORREO</th>
                         <th>TIPO DE USUARIO</th>
                         <th>CARRERA</th>
+                        <th>GESTIÓN</th>
                         <th>FECHA DE CREACIÓN</th>
                         <th>ÚLTIMO INICIO DE SESIÓN</th>
                         <th>EDITAR</th>
@@ -90,7 +93,7 @@ defined('BASEPATH') OR exit('');
                     </thead>
                     <tbody>
                     <?php foreach($allAdministrators as $get):?>
-                        <?php if($get->deleted == "0" && $get->role !="Gesti"):?>
+                        <?php if($get->deleted == "0" && $get->role !=="Gesti"):?>
                             <tr>
                                 <th class="adminSN"><?=$sn?>.</th>
                                 <td class="adminName"><?=$get->first_name ." ". $get->last_name?></td>
@@ -99,6 +102,7 @@ defined('BASEPATH') OR exit('');
                                 <td class="adminEmail"><?=mailto($get->email)?></td>
                                 <td class="adminRole"><?=$get->role?></td>
                                 <td class="adminCareer"><?=$get->career?></td>
+                                <td class="adminSemester"><?=$get->semester?></td>
                                 <td><?=date('jS M, Y h:i:sa', strtotime($get->created_on))?></td>
                                 <td>
                                     <?=$get->last_login === "0000-00-00 00:00:00" ? "---" : date('jS M, Y h:i:sa', strtotime($get->last_login))?>

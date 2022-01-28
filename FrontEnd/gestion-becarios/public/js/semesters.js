@@ -174,7 +174,7 @@ $(document).ready(function(){
         
         if(value){
             $.ajax({
-                url: appRoot+"search/itemsearch",
+                url: appRoot+"search/semesterSearch",
                 type: "get",
                 data: {v:value},
                 success: function(returnedData){

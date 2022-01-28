@@ -14,7 +14,7 @@ class Administrators extends CI_Controller{
         
         $this->genlib->superOnly();
         
-        $this->load->model(['admin']);
+        $this->load->model(['admin','semester']);
     }
     
     /*
@@ -26,7 +26,9 @@ class Administrators extends CI_Controller{
     */
     
     public function index(){
-        $data['pageContent'] = $this->load->view('admin/admin', '', TRUE);
+        $resData['semesters'] = $this->semester->getAll('name', 'ASC');
+
+        $data['pageContent'] = $this->load->view('admin/admin', $resData, TRUE);
         $data['pageTitle'] = "Administrators";
         
         $this->load->view('main', $data);
@@ -46,11 +48,22 @@ class Administrators extends CI_Controller{
      */
     public function laad_(){
         //set the sort order
+
+
         $orderBy = $this->input->get('orderBy', TRUE) ? $this->input->get('orderBy', TRUE) : "first_name";
         $orderFormat = $this->input->get('orderFormat', TRUE) ? $this->input->get('orderFormat', TRUE) : "ASC";
+        $gest=$this->input->get('gest',TRUE) ? $this->input->get('gest', TRUE) : "" ;
+
+        if ($gest!=="null"){
+            $totalAdministrators = count($this->admin->getAll($gest));
+        } else {
+            $totalAdministrators = 0;
+        }
+
         
         //count the total administrators in db (excluding the currently logged in admin)
-        $totalAdministrators = count($this->admin->getAll());
+
+        
         
         $this->load->library('pagination');
         
@@ -65,7 +78,11 @@ class Administrators extends CI_Controller{
         $this->pagination->initialize($config);//initialize the library class
         
         //get all customers from db
-        $data['allAdministrators'] = $this->admin->getAll($orderBy, $orderFormat, $start, $limit);
+        
+        
+        $data['allAdministrators'] = $gest!=="null" ? $this->admin->getAll($gest,$orderBy, $orderFormat, $start, $limit) : FALSE;
+
+
         $data['range'] = $totalAdministrators > 0 ? ($start+1) . "-" . ($start + count($data['allAdministrators'])) . " de " . $totalAdministrators : "";
         $data['links'] = $this->pagination->create_links();//page links
         $data['sn'] = $start+1;

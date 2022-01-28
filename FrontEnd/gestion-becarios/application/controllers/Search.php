@@ -16,7 +16,7 @@ class Search extends CI_Controller{
 
         $this->genlib->ajaxOnly();
 
-        $this->load->model(['item','becario', 'trabajo','asignacion']);
+        $this->load->model(['item','becario', 'trabajo','asignacion','admin','semester']);
 
         $this->load->helper('text');
 
@@ -79,7 +79,28 @@ class Search extends CI_Controller{
         $data['sn'] = 1;
         $data['cum_total'] = $this->item->getItemsCumTotal();
 
-        $json['itemsListTable'] = $data['allItems'] ? $this->load->view('items/itemslisttable', $data, TRUE) : "No match found";
+        $json['itemsListTable'] = $data['allItems'] ? $this->load->view('items/itemslisttable', $data, TRUE) : "No se encontraron resultados";
+
+        //set final output
+        $this->output->set_content_type('application/json')->set_output(json_encode($json));
+    }
+
+    public function semesterSearch(){
+        $data['allItems'] = $this->semester->semestersearch($this->value);
+        $data['sn'] = 1;
+        $json['itemsListTable'] = $data['allItems'] ? $this->load->view('semesters/itemslisttable', $data, TRUE) : "No se encontraron resultados";
+
+        //set final output
+        $this->output->set_content_type('application/json')->set_output(json_encode($json));
+    }
+
+
+    public function adminsearch(){
+        $data['allAdministrators'] = $this->admin->adminSearch($this->value);
+        $data['sn'] = 1;
+        
+
+        $json['allAdmin'] = $data['allAdministrators'] ? $this->load->view('admin/adminlist', $data, TRUE) : "No se encontraron resultados";
 
         //set final output
         $this->output->set_content_type('application/json')->set_output(json_encode($json));
@@ -92,7 +113,7 @@ class Search extends CI_Controller{
         $data['sn'] = 1;
         $data['allAsignaciones']=$this->asignacion->getAll("trabajo_name", "ASC");
 
-        $json['becariosListTable'] = $data['allBecarios'] ? $this->load->view('becarios/becarioslisttable', $data, TRUE) : "No existen coincidencias";
+        $json['becariosListTable'] = $data['allBecarios'] ? $this->load->view('becarios/becarioslisttable', $data, TRUE) : "No se encontraron resultados";
 
 
         //set final output
@@ -107,7 +128,7 @@ class Search extends CI_Controller{
         $data['mark']=1;
         $data['allAsignaciones']=$this->asignacion->getAll("trabajo_name", "ASC");
 
-        $json['trabajosListTable'] = $data['allTrabajos'] ? $this->load->view('trabajos/trabajoslisttable', $data, TRUE) : "No existen coincidencias";
+        $json['trabajosListTable'] = $data['allTrabajos'] ? $this->load->view('trabajos/trabajoslisttable', $data, TRUE) : "No se encontraron resultados";
 
 
         //set final output
@@ -142,6 +163,8 @@ class Search extends CI_Controller{
         //set final output
         $this->output->set_content_type('application/json')->set_output(json_encode($json));
     }
+
+    
 
 
 

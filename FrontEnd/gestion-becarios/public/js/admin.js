@@ -1,6 +1,8 @@
 'use strict';
 
 $(document).ready(function(){
+
+    $('.selectedSemesterDefault').select2();
     checkDocumentVisibility(checkLogin);//check document visibility in order to confirm user's log in status
 	
 	
@@ -36,6 +38,11 @@ $(document).ready(function(){
 
         return false;
     });
+
+    $("#selectedSemesterDefault").change(function(){
+        laad_();
+    });
+
     
     
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -229,6 +236,7 @@ $(document).ready(function(){
     $("#adminSearch").on('keyup change', function(){
         var value = $(this).val();
         
+        
         if(value){//search only if there is at least one char in input
             $.ajax({
                 type: "get",
@@ -390,14 +398,16 @@ function laad_(url){
     var orderBy = $("#adminListSortBy").val().split("-")[0];
     var orderFormat = $("#adminListSortBy").val().split("-")[1];
     var limit = $("#adminListPerPage").val();
+    var gest=$("#selectedSemesterDefault").val();
+    
+
     
     $.ajax({
         type:'get',
         url: url ? url : appRoot+"administrators/laad_/",
-        data: {orderBy:orderBy, orderFormat:orderFormat, limit:limit},
+        data: {orderBy:orderBy, orderFormat:orderFormat, limit:limit, gest:gest},
      }).done(function(returnedData){
             hideFlashMsg();
-			
             $("#allAdmin").html(returnedData.adminTable);
         });
 }

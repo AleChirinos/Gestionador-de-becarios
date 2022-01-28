@@ -162,8 +162,9 @@ class Admin extends CI_Model{
      * @param type $limit
      * @return boolean
      */
-    public function getAll($orderBy = "first_name", $orderFormat = "ASC", $start = 0, $limit = ""){
+    public function getAll($gest,$orderBy = "first_name", $orderFormat = "ASC", $start = 0, $limit = ""){
         $this->db->select('id, first_name, last_name, email, role, career,semester, created_on, last_login, account_status, deleted');
+        $this->db->where("semester", $gest);
         $this->db->where("id != ", $_SESSION['admin_id']);
         $this->db->where("email != ", "demo@1410inc.xyz");//added to prevent people from removing the demo admin account
         $this->db->limit($limit, $start);
@@ -256,16 +257,7 @@ class Admin extends CI_Model{
                 id != {$_SESSION['admin_id']}
                     AND
                 (
-                MATCH(first_name) AGAINST(?)
-                || MATCH(last_name) AGAINST(?)
-                || MATCH(first_name, last_name) AGAINST(?)
-                || MATCH(email) AGAINST(?)
-                || first_name LIKE '%".$this->db->escape_like_str($value)."%'
-                || last_name LIKE '%".$this->db->escape_like_str($value)."%' 
-                || email LIKE '%".$this->db->escape_like_str($value)."%'
-                || career LIKE '%".$this->db->escape_like_str($value)."%'
-                || semester LIKE '%".$this->db->escape_like_str($value)."%'
-                )";
+                MATCH(first_name) AGAINST(?) || MATCH(last_name) AGAINST(?) || MATCH(first_name, last_name) AGAINST(?) || MATCH(email) AGAINST(?) || first_name LIKE '%".$this->db->escape_like_str($value)."%' || last_name LIKE '%".$this->db->escape_like_str($value)."%' || email LIKE '%".$this->db->escape_like_str($value)."%' || career LIKE '%".$this->db->escape_like_str($value)."%' || semester LIKE '%".$this->db->escape_like_str($value)."%')";
 
         $run_q = $this->db->query($q, [$value, $value, $value, $value, $value, $value, $value, $value]);
 

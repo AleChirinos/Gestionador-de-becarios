@@ -4,8 +4,6 @@
     <?= isset($range) && !empty($range) ? $range : ""; ?>
 </div>
 
-<div class='col-sm-6 text-right'><b>Valor/precio total de los elementos:</b>Bs. </div>
-
 <div class='col-xs-12'>
     <div class="panel panel-primary">
         <!-- Default panel contents -->
