@@ -14,6 +14,7 @@
                 <thead>
                     <tr>
                         <th>Nº</th>
+                        <th>ID en B.D.</th>
                         <th>NOMBRE</th>
                         <th>CÓDIGO</th>
                         <th>HORAS TOTALES</th>
@@ -31,6 +32,7 @@
                             <tr>
                                 <input type="hidden" value="<?=$get->id?>" class="curBecarioId">
                                 <th class="becarioSN"><?=$sn?>.</th>
+                                <td><a class="pointer vtr" title="Click para ver el reporte"><?= $get->id ?></a></td>
                                 <td><span id="becarioName-<?=$get->id?>"><?=$get->name?></span></td>
                                 <td><span id="becarioCode-<?=$get->id?>"><?=$get->code?></td>
                                 <td>

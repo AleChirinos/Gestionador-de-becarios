@@ -35,15 +35,16 @@ class Reportes extends CI_Controller{
         $semester=$this->input->get('semester', TRUE);
         $option=$this->input->get('option', TRUE);
 
+
+        $data['allSubjectInfo']=$option==="becario" ? $this->becario->getBecarioInfo(['id'=>$value], ['semester','name','id','code','missinghours','totalhours']) : $this->trabajo->getTrabajoInfo(['id'=>$value], ['semester','name','id','workhours','description']);
         $data['allInfo'] =  $option==="becario" ? $this->becario->getReport($value,$semester) : $this->trabajo->getReport($value,$semester) ;
         $data['type']=$option;
         $data['sn']=1;
-
+        $json['allInfo']=$data['allInfo'];
         $json['reportesListTable'] = $this->load->view('reportes/reporteslisttable', $data, TRUE);//get view with populated items table
 
         $this->output->set_content_type('application/json')->set_output(json_encode($json));   
     }
-
 
 
 }

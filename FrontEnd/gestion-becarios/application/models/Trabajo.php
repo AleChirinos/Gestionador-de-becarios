@@ -146,5 +146,33 @@ class Trabajo extends CI_Model{
             return FALSE;
         }
     }
-        
+
+    public function getTrabajoInfo($where_clause, $fields_to_fetch){
+        $this->db->select($fields_to_fetch);
+
+        $this->db->where($where_clause);
+
+        $run_q = $this->db->get('trabajos');
+
+        return $run_q->num_rows() ? $run_q->row() : FALSE;
+    }
+    
+
+    public function getTrabajoReportById($value){
+
+        $this->db->select("trabajos.*,asignaciones.assignDate,asignaciones.accomplished, asignaciones.becarioName, asignaciones.becarioCode, asignaciones.hours");
+          $this->db->from('trabajos');
+          $this->db->join('asignaciones', 'trabajos.id = asignaciones.trabajo_code');
+        $whereArray = array('trabajos.id' => $value);
+        $this->db->where($whereArray);
+          $run_q= $this->db->get();
+
+        if($run_q->num_rows() > 0){
+            return $run_q->result();
+        }
+    
+        else{
+            return FALSE;
+        }
+    }
 }

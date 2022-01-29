@@ -73,6 +73,22 @@ class Genmod extends CI_Model{
             return FALSE;
         }
     }
+
+    public function getTableColMultiple($tableName, $selColName, $whereColName, $colValue,$whereColName2, $colValue2){
+        $q = "SELECT $selColName FROM $tableName WHERE $whereColName = ? AND $whereColName2 = ?";
+        
+        $run_q = $this->db->query($q, [$colValue,$colValue2]);
+        
+        if($run_q->num_rows() > 0){
+            foreach($run_q->result() as $get){
+                return $get->$selColName;
+            }
+        }
+        
+        else{
+            return FALSE;
+        }
+    }
     
     /*
     ********************************************************************************************************************************

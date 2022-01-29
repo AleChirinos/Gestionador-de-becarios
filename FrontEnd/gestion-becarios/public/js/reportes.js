@@ -30,16 +30,17 @@ $(document).ready(function(){
                             html+=value.id;
                             html+=' >';
                             html+=value.name;
-                            html+='</option>';
-                            
+                            html+='</option>';       
                         });
 
                         $("#searchOpt").empty().append(html);
+                        cargarReporte();
                     }else {
+                        cargarReporte();
                         $("#searchOpt").empty();
+                        
                     }
                 }
-    
             });
 
        } else {
@@ -76,6 +77,7 @@ function cargarReporte(url){
             success: function(returnedData){
                 hideFlashMsg();
                 $("#reportesListTable").html(returnedData.reportesListTable);
+                console.log(returnedData.allInfo);
             },
             error: function(){
                 $("#reportesListTable").html('<h3 style="text-align: center;" >Error al realizar el reporte</h3>');

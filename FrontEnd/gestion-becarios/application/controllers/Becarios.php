@@ -331,6 +331,52 @@ class Becarios extends CI_Controller{
         }
     }
 
+    private function genReportPopup($becInfo,$becarioName,$becarioCode,$becarioSemester,$becarioMissingHours,$ref) {
+        $data['allReportInfo'] = $becInfo;
+        $data['becarioName'] = $becarioName;
+        $data['becarioCode'] = $becarioCode;
+        $data['becarioSemester'] = $becarioSemester;
+        $data['becarioMissingHours'] = $becarioMissingHours;
+        $data['ref'] = $ref;
+       
+        //generate and return receipt
+        $reportPopUp = $this->load->view('becarios/becariosreportpopup', $data, TRUE);
+    
+        return $reportPopUp;
+    }
+
+    public function vtr_(){
+    $this->genlib->ajaxOnly();
+
+    $ref = $this->input->post('ref',TRUE);
+
+    $becInfo = $this->becario->getBecarioReportById($ref);
+    
+    //loop through the transInfo to get needed info
+    if ($becInfo) {
+      $json['status'] = 1;
+
+      $becarioName = $becInfo[0]['name'];
+      $becarioCode = $becInfo[0]['code'];
+      $becarioSemester= $this->genmod->getTableCol('semesters','name','id',$becInfo[0]['semester']);
+      $becarioMissingHours=$becInfo[0]['missinghours'];
+      
+
+      $json['reportPopUp'] = $this->genReportPopup(
+        $becInfo,
+        $becarioName,
+        $becarioCode,
+        $becarioSemester,
+        $becarioMissingHours,
+        $ref
+      );
+    } else {
+      $json['status'] = 0;
+    }
+
+    $this->output->set_content_type('application/json')->set_output(json_encode($json));
+  }
+
     /*
     ********************************************************************************************************************************
     ********************************************************************************************************************************
@@ -363,4 +409,7 @@ class Becarios extends CI_Controller{
 
 
     }
+
+
+
 }

@@ -244,7 +244,7 @@ class Becario extends CI_Model{
 
     public function getReport($value,$semester){
 
-       $q="SELECT becarios.id , asignaciones.trabajo_name, asignaciones.accomplished, asignaciones.hours, asignaciones.assignDate FROM becarios INNER JOIN asignaciones ON becarios.id = asignaciones.becarioId  WHERE becarios.semester= ? AND becarios.id= ?";
+       $q="SELECT becarios.* , asignaciones.trabajo_name, asignaciones.accomplished, asignaciones.hours, asignaciones.assignDate FROM becarios INNER JOIN asignaciones ON becarios.id = asignaciones.becarioId  WHERE becarios.semester= ? AND becarios.id= ?";
 
    
         $run_q = $this->db->query($q, [$semester, $value]);
@@ -260,6 +260,23 @@ class Becario extends CI_Model{
         }
     }
 
+    public function getBecarioReportById($value){
+
+        $q="SELECT becarios.* , asignaciones.trabajo_name, asignaciones.accomplished, asignaciones.hours, asignaciones.assignDate FROM becarios INNER JOIN asignaciones ON becarios.id = asignaciones.becarioId  WHERE becarios.id= ? ";
+ 
+    
+         $run_q = $this->db->query($q, [$value]);
+ 
+         
+ 
+         if($run_q->num_rows() > 0){
+             return $run_q->result();
+         }
+ 
+         else{
+             return FALSE;
+         }
+    }
 
 
 

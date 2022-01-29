@@ -30,4 +30,15 @@ class Reports extends CI_Controller{
         
         $this->load->view('main', $data);
     }
+
+public function gettablecol($selColName, $whereColName, $colValue)
+  {
+    $a = $this->genmod->gettablecol('semesters', $selColName, $whereColName, $colValue);
+
+    $json['status'] = $a ? 1 : 0;
+    $json['colVal'] = $a;
+
+    $this->output->set_content_type('application/json')->set_output(json_encode($json));
+  }
+
 }

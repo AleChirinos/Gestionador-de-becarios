@@ -221,14 +221,14 @@ defined('BASEPATH') OR exit('');
         <!--Modal end-->
 
         <!--modal to display transaction receipt when a transaction's ref is clicked on the transaction list table -->
-        <div class="modal fade" role='dialog' data-backdrop='static' id="transReceiptModal">
+        <div class="modal fade" role='dialog' data-backdrop='static' id="reportPopUpModal">
             <div class="modal-dialog modal-sm">
                 <div class="modal-content">
                     <div class="modal-header hidden-print">
                         <button class="close" data-dismiss='modal'>&times;</button>
-                        <h4 class="text-center">Transaction Receipt</h4>
+                        <h4 class="text-center">Reporte del sujeto</h4>
                     </div>
-                    <div class="modal-body" id='transReceipt'></div>
+                    <div class="modal-body" id='reportPopUp'></div>
                 </div>
             </div>
         </div>

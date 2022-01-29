@@ -432,6 +432,54 @@ class Trabajos extends CI_Controller{
         $this->output->set_content_type('application/json')->set_output(json_encode($json));
     }
 
+
+    private function genReportPopup($traInfo,$trabajoName,$trabajoHours,$trabajoSemester,$trabajoStatus,$ref) {
+        $data['allReportInfo'] = $traInfo;
+        $data['trabajoName'] = $trabajoName;
+        $data['trabajoHours'] = $trabajoHours;
+        $data['trabajoSemester'] = $trabajoSemester;
+        $data['trabajoStatus'] = $trabajoStatus;
+        $data['ref'] = $ref;
+       
+        //generate and return receipt
+        $reportPopUp = $this->load->view('trabajos/trabajosreportpopup', $data, TRUE);
+    
+        return $reportPopUp;
+    }
+
+    public function vtr_(){
+    $this->genlib->ajaxOnly();
+
+    $ref = $this->input->post('ref');
+
+    $traInfo = $this->trabajo->getTrabajoReportById($ref);
+    
+    //loop through the transInfo to get needed info
+    if ($traInfo) {
+      $json['status'] = 1;
+
+      $trabajoName = $traInfo[0]['name'];
+      $trabajoHours = $traInfo[0]['workhours'];
+      $trabajoSemester= $this->genmod->getTableCol('semesters','name','id',$traInfo[0]['semester']);
+      $trabajoStatus=$traInfo[0]['accomplished'];
+      
+
+      $json['reportPopUp'] = $this->genReportPopup(
+        $traInfo,
+        $trabajoName,
+        $trabajoHours,
+        $trabajoSemester,
+        $trabajoStatus,
+        $ref
+      );
+    } else {
+      $json['status'] = 0;
+    }
+
+    $this->output->set_content_type('application/json')->set_output(json_encode($json));
+  }
+
+
     public function report(){
         //get all transactions from db ranging from $from_date to $to_date
 

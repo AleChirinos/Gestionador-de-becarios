@@ -14,6 +14,7 @@
                     <thead>
                     <tr>
                         <th>Nº</th>
+                        <th>ID en B.D.</th>
                         <th>NOMBRE</th>
                         <th>DESCRIPCION</th>
                         <th>HORAS TOTALES</th>
@@ -38,6 +39,7 @@
                                 <?php endif; ?>
                                 <input type="hidden" value="<?=$get->id?>" class="curTrabajoId">
                                 <th class="trabajoSN"><?=$sn?>.</th>
+                                <td><a class="pointer vtr" title="Click para ver el reporte"><?= $get->id ?></a></td>
                                 <td><span id="trabajoName-<?=$get->id?>"><?=$get->name?></span></td>
                                 <td>
                             <span id="trabajoDesc-<?=$get->id?>" data-toggle="tooltip" title="<?=$get->description?>" data-placement="auto">
@@ -52,16 +54,17 @@
                                 <td>
                                     <ul id="asignados-<?=$get->id?>">
                                         <?php if(!is_bool($allAsignaciones)) {
-                                        if ($mark==1) {
-                                            echo '<h6 >Este trabajo ha sido completado</h6>';
-                                        } else {
+                                            
                                             foreach($allAsignaciones as $getIt)
                                             {
-                                                if ($getIt->trabajo_name === $get->name && $getIt->accomplished==0 && $this->session->admin_career ===$get->career) {
+                                                if ($getIt->trabajo_name === $get->name && $this->session->admin_career ===$get->career) {
                                                     echo '<li><a id="'.$getIt->becarioName.'">'.$getIt->becarioName.'</a></li>';
                                                 }
                                             }
-                                        }
+                                            if ($mark==1) {
+                                                echo '<h6>Este trabajo ha sido completado</h6>';
+                                            }
+                                            
                                         }?>
 
                                     </ul>
