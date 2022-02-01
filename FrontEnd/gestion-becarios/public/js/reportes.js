@@ -37,14 +37,14 @@ $(document).ready(function(){
                         cargarReporte();
                     }else {
                         cargarReporte();
-                        $("#searchOpt").empty();
+                        $("#searchOpt").empty().append('<option value="null">Seleccionar sujeto</option>');
                         
                     }
                 }
             });
 
        } else {
-        $("#searchOpt").empty();
+        $("#searchOpt").empty().append('<option value="null">Seleccionar sujeto</option>');
         cargarReporte();
        }
 

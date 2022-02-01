@@ -70,6 +70,21 @@ class Becario extends CI_Model{
         }
     }
 
+    public function becarioSemsearch($value,$career){
+        $q = "SELECT * FROM becarios WHERE semester= ? AND career=?";
+
+
+        $run_q = $this->db->query($q, [$value, $career]);
+
+        if($run_q->num_rows() > 0){
+            return $run_q->result();
+        }
+
+        else{
+            return FALSE;
+        }
+    }
+
     public function getBecarioInfo($where_clause, $fields_to_fetch){
         $this->db->select($fields_to_fetch);
 

@@ -238,15 +238,10 @@ class Administrators extends CI_Controller{
         $item_id = $this->input->post('i', TRUE);
         $admin_id = $this->input->post('_aId');
         $new_value = $this->genmod->gettablecol('admin', 'deleted', 'id', $admin_id) == 1 ? 0 : 1;
-
-        $done = $this->admin->delete($admin_id, $new_value);
-
-        $json['status'] = $done ? 1 : 0;
         $json['_nv'] = $new_value;
         $json['_aId'] = $admin_id;
-                if($item_id){
-                    $this->db->where('id', $item_id)->delete('admin');
-
+                if($admin_id){
+                    $this->db->delete('admin', array('id' => $admin_id));
                     $json['status'] = 1;
                 }
 

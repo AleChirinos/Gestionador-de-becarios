@@ -39,6 +39,7 @@
                                 <?php endif; ?>
                                 <input type="hidden" value="<?=$get->id?>" class="curTrabajoId">
                                 <th class="trabajoSN"><?=$sn?>.</th>
+                                <span hidden id="trabajoSem-<?=$get->id?>"><?=$get->semester?></span>
                                 <td><a class="pointer vtr" title="Click para ver el reporte"><?= $get->id ?></a></td>
                                 <td><span id="trabajoName-<?=$get->id?>"><?=$get->name?></span></td>
                                 <td>

@@ -183,11 +183,13 @@ $(document).ready(function(){
         var trabajoId = $(this).attr('id').split("-")[1];
         var trabajoName = $("#trabajoName-"+trabajoId).html();
         var trabajoHours = $("#workhours-"+trabajoId).html();
-
+        var trabajoSem= $("#trabajoSem-"+trabajoId).html();
+       
 
 
         //prefill form with info
         $("#trabajoIdBec").val(trabajoId);
+        $("#trabajoSem").val(trabajoSem);
         $("#trabajoNameBec").val(trabajoName);
         $("#becarioAssignHours").val(trabajoHours);
         $("#becarioDisHours").val("");
@@ -199,16 +201,37 @@ $(document).ready(function(){
         $("#becarioDisHoursErr").html("");
         $("#selectedBecarioDefaultErr").html("");
 
+        
+            $.ajax({
+                url: appRoot+"search/becarioSemSearch",
+                type: "get",
+                data: {v:trabajoSem},
+                success: function(returnedData){
+                        if(returnedData.status === 1){
+                            console.log(returnedData.semester);
+                            
+                            var html='';
+                            html+='<option selected>Selecciona a tu becario:</option>';
+                            $.each( returnedData.allData, function( key, value ) {
+                                html+='<option value= ';
+                                html+=value.code;
+                                html+=' >';
+                                html+=value.name;
+                                html+='</option>';       
+                            });
+    
+                            $("#selectedBecarioDefault").empty().append(html);
+                           
+                        }else {
+                            var html='<option selected>Selecciona a tu becario:</option>';
+                            $("#selectedBecarioDefault").empty().append(html);  
+                        }
+                    }
+                });
+    
+
         $("#selectedBecarioDefault").val("Selecciona a tu becario:");
-
-
-
-
         $("#addBecarioTrabajoModal").modal('show');
-
-
-
-        //launch modal
 
     });
 
@@ -556,6 +579,8 @@ function cargarTrabajos(url){
     var orderBy = $("#trabajosListSortBy").val().split("-")[0];
     var orderFormat = $("#trabajosListSortBy").val().split("-")[1];
     var limit = $("#trabajosListPerPage").val();
+
+    
 
 
     $.ajax({

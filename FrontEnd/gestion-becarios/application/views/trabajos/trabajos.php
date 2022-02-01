@@ -145,14 +145,8 @@ if(isset($becarios) && !empty($becarios)){
                 <div class="row">
                     <div class="col-sm-12" id="trabajosListTable"></div>
                 </div>
-                <!--end of table-->
-                <div class="col-sm-2  form-group-sm">
-                   <span class="pointer text-primary">
-                       <button class='btn btn-primary btn-sm' data-toggle='modal' data-target='#reportIt'>
-                           <i class="fa fa-newspaper-o"></i> Generar Reporte
-                       </button>
-                   </span>
-                </div>
+                
+                
             </div>
             <!--- End of item list div-->
 
@@ -296,15 +290,7 @@ if(isset($becarios) && !empty($becarios)){
                         <div class="col-sm-4 form-group-lg">
                             <label for="selectedBecarioDefault">Becario</label>
                             <select class="form-control selectedBecarioDefault" id="selectedBecarioDefault" onchange="selectedBecario(this)">
-                                <option selected>Selecciona a tu becario:</option>
-                                <?php
-
-                                foreach($becarios as $row)
-                                {
-                                    if($this->session->admin_career ===$row->career){
-                                        echo '<option value="'.$row->code.'">'.$row->name.'</option>';}
-                                    }
-                                ?>
+                                
                             </select>
                             <span class="help-block errMsg" id="selectedBecarioDefaultErr"></span>
                         </div>
@@ -327,6 +313,7 @@ if(isset($becarios) && !empty($becarios)){
                     <input type="hidden" id="trabajoNameBec">
                     <input type="hidden" id="trabajoIdBec">
                     <input type="hidden" id="becId">
+                    <input type="hidden" id="trabajoSem">
                 </form>
             </div>
             <div class="modal-footer">

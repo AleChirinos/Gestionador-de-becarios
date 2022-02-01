@@ -104,13 +104,7 @@ defined('BASEPATH') OR exit('');
                     <div class="col-sm-12" id="itemsListTable"></div>
                 </div>
                 <!--end of table-->
-                <div class="col-sm-2  form-group-sm">
-                                            <span class="pointer text-primary">
-                                                <button class='btn btn-primary btn-sm' data-toggle='modal' data-target='#reportIt'>
-                                                    <i class="fa fa-newspaper-o"></i> Generar Reporte
-                                                </button>
-                                            </span>
-                                        </div>
+                
             </div>
             <!--- End of item list div-->
 

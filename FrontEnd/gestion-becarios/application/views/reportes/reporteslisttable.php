@@ -145,11 +145,15 @@
         <div class="table table-responsive">
             <table class="table table-bordered table-striped" style="background-color: #f5f5f5">
             <?php if($type==="becario"): ?>
+                <?php $horasAsign = 0; ?>
+                <?php $horasCumplid = 0; ?>
+                <?php $horasTot=0;?>
 
                 <tr>
                 <th><h4>Horas cumplidas en total:<h4> </th>
                 <td><h4><span id="checkedhours-<?=$allSubjectInfo->id?>"><?php if($this->genmod->getTableColMultiple('asignaciones', 'SUM(hours)', 'becarioCode', $allSubjectInfo->code,'accomplished',1)):?>
                     <?=$this->genmod->getTableColMultiple('asignaciones', 'SUM(hours)', 'becarioCode', $allSubjectInfo->code,'accomplished',1)?>
+                    <?php $horasCumplid = $this->genmod->getTableColMultiple('asignaciones', 'SUM(hours)', 'becarioCode', $allSubjectInfo->code,'accomplished',1);?>
                     <?php else:?>
                         <?=0?>
                         <?php endif;?>
@@ -159,6 +163,7 @@
                 <th><h4>Horas asignadas en total: <h4></th>
                 <td><h4><span id="assignedhours-<?=$allSubjectInfo->id?>"><?php if($this->genmod->getTableColMultiple('asignaciones', 'SUM(hours)', 'becarioCode', $allSubjectInfo->code,'accomplished',0)):?>
                 <?=$this->genmod->getTableColMultiple('asignaciones', 'SUM(hours)', 'becarioCode', $allSubjectInfo->code,'accomplished',0)?>
+                <?php $horasAsign = $this->genmod->getTableColMultiple('asignaciones', 'SUM(hours)', 'becarioCode', $allSubjectInfo->code,'accomplished',0); ?>
                 <?php else:?>
                         <?=0?>
                         <?php endif;?>
@@ -169,7 +174,10 @@
                 <td><h4><span id="missinghours-<?=$allSubjectInfo->id?>"><?=$allSubjectInfo->missinghours?></span></h4></td>
                 </tr>
                 <th><h4>Horas totales del becario: <h4></th>
-                <td><h4><span id="totalhours-<?=$allSubjectInfo->id?>"><?=$allSubjectInfo->totalhours?></span></h4></td>
+                <td><h4><span id="totalhours-<?=$allSubjectInfo->id?>">
+                <?php $horasTot=$horasAsign+$horasCumplid+$allSubjectInfo->missinghours?>
+                <?=$horasTot?>                    
+                </span></h4></td>
                 </tr>
             <?php elseif($type==="trabajo"): ?>
 

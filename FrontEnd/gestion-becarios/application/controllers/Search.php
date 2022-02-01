@@ -120,6 +120,18 @@ class Search extends CI_Controller{
         $this->output->set_content_type('application/json')->set_output(json_encode($json));
     }
 
+    public function becarioSemSearch(){
+
+        $data['allBecarios'] = $this->becario->becarioSemsearch($this->value,$this->session->admin_career);
+        
+        $json['semester']=$this->session->admin_career;
+        $json['allData'] = $data['allBecarios'];
+        $json['status'] = 1;
+
+        //set final output
+        $this->output->set_content_type('application/json')->set_output(json_encode($json));
+    }
+
     public function trabajoSearch(){
 
         $data['allTrabajos'] = $this->trabajo->trabajosearch($this->value);
