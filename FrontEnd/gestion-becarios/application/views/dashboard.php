@@ -174,3 +174,4 @@ defined('BASEPATH') OR exit('');
 
 
 <div align="center"><img src="<?=base_url()?>public/images/upb_logo_transparent.png"  alt=""></div>
+<script src="<?=base_url('public/js/dashboard.js')?>"></script>
