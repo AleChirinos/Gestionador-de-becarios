@@ -12,7 +12,7 @@ class Dashboard extends CI_Controller{
         
         $this->genlib->checkLogin();
         
-        $this->load->model(['analytic']);
+        $this->load->model(['analytic','trabajo','becario']);
     }
     
     
@@ -28,9 +28,13 @@ class Dashboard extends CI_Controller{
      * 
      */
     public function index(){
+        
+        $data['trabajosTerminados'] = $this->trabajo->terminadosLimit();
+        $data['trabajosAsignados'] = $this->trabajo->asignadosLimit();
+        $data['becariosConMasHorasFaltantes']=$this->becario->becarioHourLimit();
+        $data['trabajosPorHour']=$this->trabajo->trabajoHourLimit();
 
-       
-        $values['pageContent'] = $this->load->view('dashboard', '', TRUE);
+        $values['pageContent'] = $this->load->view('dashboard', $data, TRUE);
         
         $values['pageTitle'] = "Dashboard";
         

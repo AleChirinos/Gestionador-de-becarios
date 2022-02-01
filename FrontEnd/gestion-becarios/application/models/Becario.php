@@ -293,6 +293,20 @@ class Becario extends CI_Model{
         }
     }
 
+    public function becarioHourLimit(){
+        $q = "SELECT * from becarios ORDER BY missinghours DESC LIMIT 5";
+
+        $run_q = $this->db->query($q);
+
+        if($run_q->num_rows() > 0){
+            return $run_q->result();
+        }
+
+        else{
+            return FALSE;
+        }
+    }
+
 
 
 

@@ -175,4 +175,49 @@ class Trabajo extends CI_Model{
         }
     }
 
+    public function terminadosLimit(){
+        $q = "SELECT trabajos.name, asignaciones.lastUpdated, COUNT( asignaciones.trabajo_code) as 'totBec' FROM trabajos
+                INNER JOIN asignaciones ON trabajos.id=asignaciones.trabajo_code WHERE asignaciones.accomplished=1 GROUP BY asignaciones.trabajo_code ORDER BY totBec DESC LIMIT 5";
+
+        $run_q = $this->db->query($q);
+
+        if($run_q->num_rows() > 0){
+            return $run_q->result();
+        }
+
+        else{
+            return FALSE;
+        }
+    }
+
+    public function asignadosLimit(){
+        $q = "SELECT trabajos.name, trabajos.workhours, COUNT( asignaciones.trabajo_code) as 'totBec' FROM trabajos
+                INNER JOIN asignaciones ON trabajos.id=asignaciones.trabajo_code WHERE asignaciones.accomplished=0 GROUP BY asignaciones.trabajo_code ORDER BY totBec DESC LIMIT 5";
+
+        $run_q = $this->db->query($q);
+
+        if($run_q->num_rows() > 0){
+            return $run_q->result();
+        }
+
+        else{
+            return FALSE;
+        }
+    }
+
+    public function trabajoHourLimit(){
+        $q = "SELECT trabajos.*, asignaciones.accomplished FROM trabajos
+        INNER JOIN asignaciones ON trabajos.id=asignaciones.trabajo_code ORDER BY workhours DESC LIMIT 5";
+
+        $run_q = $this->db->query($q);
+
+        if($run_q->num_rows() > 0){
+            return $run_q->result();
+        }
+
+        else{
+            return FALSE;
+        }
+    }
+
 }
