@@ -14,7 +14,6 @@
                     <thead>
                     <tr>
                         <th>Nº</th>
-                        <th>ID en B.D.</th>
                         <th>NOMBRE</th>
                         <th>DESCRIPCION</th>
                         <th>HORAS TOTALES</th>
@@ -24,7 +23,7 @@
                     </thead>
                     <tbody>
                     <?php foreach($allTrabajos as $get): ?>
-                        <?php if($this->session->admin_career ===$get->career):?>
+                        <?php if($this->session->admin_career ===$get->career ):?>
                             <tr>
                                 <?php if(!is_bool($allAsignaciones)): ?>
                                     <?php $mark=0;?>
@@ -40,7 +39,6 @@
                                 <input type="hidden" value="<?=$get->id?>" class="curTrabajoId">
                                 <th class="trabajoSN"><?=$sn?>.</th>
                                 <span hidden id="trabajoSem-<?=$get->id?>"><?=$get->semester?></span>
-                                <td><a class="pointer vtr" title="Click para ver el reporte"><?= $get->id ?></a></td>
                                 <td><span id="trabajoName-<?=$get->id?>"><?=$get->name?></span></td>
                                 <td>
                             <span id="trabajoDesc-<?=$get->id?>" data-toggle="tooltip" title="<?=$get->description?>" data-placement="auto">
@@ -55,14 +53,15 @@
                                 <td>
                                     <ul id="asignados-<?=$get->id?>">
                                         <?php if(!is_bool($allAsignaciones)) {
+                                            $temp=0;
                                             if ($mark==1) {
-                                                echo '<h6 >Este trabajo ha sido completado</h6>';
-                                            } else {
-                                                foreach($allAsignaciones as $getIt)
-                                                {
-                                                    if ($getIt->trabajo_name === $get->name && $getIt->accomplished==0 && $this->session->admin_career ===$get->career) {
-                                                        echo '<li><a id="'.$getIt->becarioName.'">'.$getIt->becarioName.'</a></li>';
-                                                    }
+                                                echo '<h6 style="text-align:center; font-weight: bold">Este trabajo ha sido completado</h6>';
+                                                $temp=1;
+                                            }
+                                            foreach($allAsignaciones as $getIt)
+                                            {
+                                                if ($getIt->trabajo_name === $get->name && $getIt->accomplished==$temp) {
+                                                    echo '<li><a id="'.$getIt->becarioName.'">'.$getIt->becarioName.'</a></li>';
                                                 }
                                             }
                                         }?>
@@ -79,7 +78,7 @@
                                     <td colspan=5 class="text-center"><i class="fa fa-trash fa-2x text-danger delTrabajo pointer"  title="Eliminar trabajo"></i></td>
                                 <?php endif;?>
                             </tr>
-                        <?php $sn++; ?>
+                            <?php $sn++; ?>
                         <?php endif; ?>
                     <?php endforeach; ?>
                     </tbody>
@@ -93,9 +92,3 @@
     <!--- panel end-->
 </div>
 
-<!---Pagination div-->
-<div class="col-sm-12 text-center">
-    <ul class="pagination">
-        <?= $links ?? "" ?>
-    </ul>
-</div>

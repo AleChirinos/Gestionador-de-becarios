@@ -26,6 +26,7 @@ class Administrators extends CI_Controller{
     */
 
     public function index(){
+
         $resData['semesters'] = $this->semester->getAll('name', 'ASC');
         $data['pageContent'] = $this->load->view('admin/admin', $resData, TRUE);
         $data['pageTitle'] = "Administrators";
@@ -46,45 +47,20 @@ class Administrators extends CI_Controller{
      * laad_ = "Load all administrators"
      */
     public function laad_(){
+
         //set the sort order
         $orderBy = $this->input->get('orderBy', TRUE) ? $this->input->get('orderBy', TRUE) : "first_name";
         $orderFormat = $this->input->get('orderFormat', TRUE) ? $this->input->get('orderFormat', TRUE) : "ASC";
-        $gest=$this->input->get('gest',TRUE) ? $this->input->get('gest', TRUE) : "" ;
-        $check=false;
+
+        $totalAdministrators = count($this->admin->getAll());
+
+        $start=0;
+
         
-        if ($gest!=="null"){
-            $check=$this->admin->getAll($gest);
-            if($check){
-                $totalAdministrators = count($this->admin->getAll($gest));
-                $updatedSem= $this->admin->updateAdminSemester($gest);
-            } 
-           
-        } else {
-            $check=false;
-            $totalAdministrators = 0;
-        }
 
-        //count the total administrators in db (excluding the currently logged in admin)      
-       
-        $this->load->library('pagination');
-
-        $pageNumber = $this->uri->segment(3, 0);//set page number to zero if the page number is not set in the third segment of uri
-
-        $limit = $this->input->get('limit', TRUE) ? $this->input->get('limit', TRUE) : 10;//show $limit per page
-        $start = $pageNumber == 0 ? 0 : ($pageNumber - 1) * $limit;//start from 0 if pageNumber is 0, else start from the next iteration
-
-        //call setPaginationConfig($totalRows, $urlToCall, $limit, $attributes) in genlib to configure pagination
-        $config = $this->genlib->setPaginationConfig($totalAdministrators, "administrators/laad_", $limit, ['class'=>'lnp']);
-
-        $this->pagination->initialize($config);//initialize the library class
-
-        //get all customers from db
-        
-        $data['allAdministrators'] = $gest!=="null" && $check ? $this->admin->getAll($gest,$orderBy, $orderFormat, $start, $limit) : FALSE;
+        $data['allAdministrators'] = $this->admin->getAll($orderBy, $orderFormat, $start,'');
         $data['range'] = $totalAdministrators > 0 ? ($start+1) . "-" . ($start + count($data['allAdministrators'])) . " de " . $totalAdministrators : "";
-        $data['links'] = $this->pagination->create_links();//page links
         $data['sn'] = $start+1;
-
         $json['adminTable'] = $this->load->view('admin/adminlist', $data, TRUE);//get view with populated customers table
 
         $this->output->set_content_type('application/json')->set_output(json_encode($json));
@@ -113,7 +89,7 @@ class Administrators extends CI_Controller{
         $this->form_validation->set_rules('firstName', 'First name', ['required', 'trim', 'max_length[20]', 'strtolower', 'ucfirst'], ['required'=>"required"]);
         $this->form_validation->set_rules('lastName', 'Last name', ['required', 'trim', 'max_length[20]', 'strtolower', 'ucfirst'], ['required'=>"required"]);
         $this->form_validation->set_rules('email', 'E-mail', ['trim', 'required', 'valid_email', 'is_unique[admin.email]', 'strtolower'],
-                ['required'=>"required", 'is_unique'=>'E-mail exists']);
+            ['required'=>"required", 'is_unique'=>'E-mail exists']);
         $this->form_validation->set_rules('role', 'Role', ['required'], ['required'=>"required"]);
         $this->form_validation->set_rules('career', 'Carrera', ['required','max_length[50]'], ['required'=>"required"]);
         $this->form_validation->set_rules('semester', 'Semester', ['required'], ['required'=>"required"]);
@@ -183,9 +159,9 @@ class Administrators extends CI_Controller{
 
 
             $json = $updated ?
-                    ['status'=>1, 'msg'=>"Admin info successfully updated"]
-                    :
-                    ['status'=>0, 'msg'=>"Oops! Unexpected server error! Pls contact administrator for help. Sorry for the embarrassment"];
+                ['status'=>1, 'msg'=>"Admin info successfully updated"]
+                :
+                ['status'=>0, 'msg'=>"Oops! Unexpected server error! Pls contact administrator for help. Sorry for the embarrassment"];
         }
 
         else{
@@ -240,10 +216,10 @@ class Administrators extends CI_Controller{
         $new_value = $this->genmod->gettablecol('admin', 'deleted', 'id', $admin_id) == 1 ? 0 : 1;
         $json['_nv'] = $new_value;
         $json['_aId'] = $admin_id;
-                if($admin_id){
-                    $this->db->delete('admin', array('id' => $admin_id));
-                    $json['status'] = 1;
-                }
+        if($admin_id){
+            $this->db->delete('admin', array('id' => $admin_id));
+            $json['status'] = 1;
+        }
 
         $this->output->set_content_type('application/json')->set_output(json_encode($json));
     }
@@ -265,15 +241,12 @@ class Administrators extends CI_Controller{
     /*public function crosscheckMobile($mobile_number, $admin_id){
         //check db to ensure number was previously used for admin with $admin_id i.e. the same admin we're updating his details
         $adminWithNum = $this->genmod->getTableCol('admin', 'id', 'mobile1', $mobile_number);
-
         if($adminWithNum == $admin_id){
             //used for same admin. All is well.
             return TRUE;
         }
-
         else{
             $this->form_validation->set_message('crosscheckMobile', 'This number is already attached to an administrator');
-
             return FALSE;
         }
     }*/

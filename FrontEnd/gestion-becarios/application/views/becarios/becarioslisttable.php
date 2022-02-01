@@ -14,7 +14,6 @@
                 <thead>
                     <tr>
                         <th>Nº</th>
-                        <th>ID en B.D.</th>
                         <th>NOMBRE</th>
                         <th>CÓDIGO</th>
                         <th>HORAS TOTALES</th>
@@ -22,9 +21,10 @@
                         <th>HORAS ASIGNADAS</th>
                         <th>HORAS FALTANTES</th>
                         <th>TRABAJOS ASIGNADOS</th>
-
-                        <th colspan="3"> Acciones</th>
-
+                        <th>TRABAJOS TERMINADOS</th>
+                        <?php if($this->session->admin_role !== "Gesti") {?>
+                        <th colspan="3"> ACCIONES</th>
+                        <?php };?>
                     </tr>
                 </thead>
                 <tbody>
@@ -33,7 +33,6 @@
                             <tr>
                                 <input type="hidden" value="<?=$get->id?>" class="curBecarioId">
                                 <th class="becarioSN"><?=$sn?>.</th>
-                                <td><a class="pointer vtr" title="Click para ver el reporte"><?= $get->id ?></a></td>
                                 <td><span id="becarioName-<?=$get->id?>"><?=$get->name?></span></td>
                                 <td><span id="becarioCode-<?=$get->id?>"><?=$get->code?></td>
                                 <td>
@@ -60,11 +59,25 @@
                                         }?>
                                     </ul>
                                 </td>
+                                <td>
+                                    <ul>
+                                        <?php if(!is_bool($allAsignaciones)) {
+                                            foreach($allAsignaciones as $getIt)
+                                            {
+                                                if ($getIt->becarioName === $get->name && $getIt->accomplished==1 && $this->session->admin_career ===$get->career) {
+                                                    echo '<li><a class="pointer delBecario" id="'.$getIt->trabajo_name.'">'.$getIt->trabajo_name.'</a></li>';
+                                                }
+                                            }
+                                        }?>
+                                    </ul>
+                                </td>
+                                <?php if($this->session->admin_role !== "Gesti") {?>
                                 <td class="text-center text-primary"><span class=" updateMissingHours" id="stock-<?=$get->id?>" title="Modificar horas de trabajo becario a cumplir"><i class="fa fa-clock-o fa-2x pointer"></i></span></td>
                                 <td class="text-center text-primary">
                                     <span class="editBecario" id="edit-<?=$get->id?>" title="Modificar información de becario"><i class="fa fa-pencil fa-2x pointer"></i> </span>
                                 </td>
                                 <td class="text-center"><i class="fa fa-trash fa-2x text-danger delBecario pointer" title="Eliminar becario" ></i></td>
+                                <?php };?>
                             </tr>
                             <?php $sn++; ?>
                         <?php endif; ?>
@@ -80,9 +93,4 @@
     <!--- panel end-->
 </div>
 
-<!---Pagination div-->
-<div class="col-sm-12 text-center">
-    <ul class="pagination">
-        <?= isset($links) ? $links : "" ?>
-    </ul>
-</div>
+

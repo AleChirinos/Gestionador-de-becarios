@@ -8,10 +8,12 @@ defined('BASEPATH') OR exit('');
             <!-- sort and co row-->
             <div class="row">
                 <div class="col-sm-12">
+                    <?php if($this->session->admin_role !== "Gesti") {?>
                     <div class="col-sm-2 form-inline form-group-sm">
                         <button class="btn btn-primary btn-sm" id='createBecario'>Añadir nuevo becario</button>
                     </div>
-                    <div class="col-sm-3 form-inline form-group-sm">
+                    <?php };?>
+                    <!-- <div class="col-sm-3 form-inline form-group-sm">
                         <label for="becariosListPerPage">Mostrar</label>
                         <select id="becariosListPerPage" class="form-control">
                             <option value="1">1</option>
@@ -27,7 +29,7 @@ defined('BASEPATH') OR exit('');
                         <label>por hoja</label>
                         <br><br><br>
 
-                    </div>
+                    </div> -->
 
                     <div class="col-sm-4 form-group-sm form-inline">
                         <label for="becariosListSortBy">Ordenar por</label>
@@ -51,6 +53,7 @@ defined('BASEPATH') OR exit('');
                         <label for='becarioSearch'><i class="fa fa-search"></i></label>
                         <input type="search" id="becarioSearch" class="form-control" placeholder="Buscar becarios">
                     </div>
+
                 </div>
             </div>
             <!-- end of sort and co div-->

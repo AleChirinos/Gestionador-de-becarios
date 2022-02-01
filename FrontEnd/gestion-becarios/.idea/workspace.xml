@@ -23,7 +23,7 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProblemsViewState">
-    <option name="selectedTabId" value="ProjectErrors" />
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectId" id="24CZEUfEWGmpwf4CqRuE1Ecbu4o" />
   <component name="ProjectViewState">
@@ -34,7 +34,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/application/views/becarios" />
+    <property name="last_opened_file_path" value="D:/Downloads/proyecto (2)" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="web-ide.project.structure" />
     <property name="vue.rearranger.settings.migration" value="true" />
@@ -74,6 +74,8 @@
       <workItem from="1643404216318" duration="1220000" />
       <workItem from="1643411562395" duration="37000" />
       <workItem from="1643479195389" duration="18810000" />
+      <workItem from="1643666142983" duration="42312000" />
+      <workItem from="1643733983655" duration="4168000" />
     </task>
     <servers />
   </component>

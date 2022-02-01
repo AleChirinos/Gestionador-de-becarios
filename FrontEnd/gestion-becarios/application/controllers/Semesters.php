@@ -53,22 +53,11 @@ class Semesters extends CI_Controller{
         //count the total number of semesters in db
         $totalItems = $this->db->count_all('semesters');
 
-        $this->load->library('pagination');
-
-        $pageNumber = $this->uri->segment(3, 0);//set page number to zero if the page number is not set in the third segment of uri
-
-        $limit = $this->input->get('limit', TRUE) ? $this->input->get('limit', TRUE) : 10;//show $limit per page
-        $start = $pageNumber == 0 ? 0 : ($pageNumber - 1) * $limit;//start from 0 if pageNumber is 0, else start from the next iteration
-
-        //call setPaginationConfig($totalRows, $urlToCall, $limit, $attributes) in genlib to configure pagination
-        $config = $this->genlib->setPaginationConfig($totalItems, "semesters/lilt", $limit, ['onclick'=>'return lilt(this.href);']);
-
-        $this->pagination->initialize($config);//initialize the library class
+        $start=0;
 
         //get all semesters from db
-        $data['allItems'] = $this->item->getAll($orderBy, $orderFormat, $start, $limit);
+        $data['allItems'] = $this->item->getAll($orderBy, $orderFormat, $start, "");
         $data['range'] = $totalItems > 0 ? "Mostrando " . ($start+1) . "-" . ($start + count($data['allItems'])) . " de " . $totalItems : "";
-        $data['links'] = $this->pagination->create_links();//page links
         $data['sn'] = $start+1;
 
         $json['itemsListTable'] = $this->load->view('semesters/itemslisttable', $data, TRUE);//get view with populated semesters table
@@ -253,21 +242,6 @@ class Semesters extends CI_Controller{
 
         $this->output->set_content_type('application/json')->set_output(json_encode($json));
     }
-    /*
-    public function suspend(){
-        $this->genlib->ajaxOnly();
-
-        $admin_semester = $this->input->post('_aId');
-        $new_status = $this->genmod->gettablecol('semester', 'account_status', 'id', $admin_id) == 1 ? 0 : 1;
-
-        $done = $this->admin->suspend($admin_id, $new_status);
-
-        $json['status'] = $done ? 1 : 0;
-        $json['_ns'] = $new_status;
-        $json['_aId'] = $admin_id;
-
-        $this->output->set_content_type('application/json')->set_output(json_encode($json));
-    }*/
 
    /*
     ********************************************************************************************************************************
@@ -394,6 +368,21 @@ class Semesters extends CI_Controller{
 
             return FALSE;
         }
+    }
+
+    public function changeSemester(){
+        $this->genlib->ajaxOnly();
+
+        $admin_id = $this->input->post('_aId');
+        $semester_id = $this->input->post('_sId');
+        $semester_selected = $this->input->post('_sSlct');
+        $semester_career= $this->input->post('_sCrr');
+        $done = $this->item->changeSemester($admin_id, $semester_id, $semester_career);
+
+        $json['status'] = $done ? 1 : 0;
+        $json['_ns'] = 1;
+
+        $this->output->set_content_type('application/json')->set_output(json_encode($json));
     }
 
     /*

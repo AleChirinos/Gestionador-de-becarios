@@ -115,7 +115,7 @@ $(document).ready(function(){
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     //reload items list table when events occur
-    $("#trabajosListPerPage, #trabajosListSortBy").change(function(){
+    $("#trabajosListSortBy").change(function(){
         displayFlashMsg("Espere un momento...", spinnerClass, "", "");
         cargarTrabajos();
     });
@@ -184,7 +184,7 @@ $(document).ready(function(){
         var trabajoName = $("#trabajoName-"+trabajoId).html();
         var trabajoHours = $("#workhours-"+trabajoId).html();
         var trabajoSem= $("#trabajoSem-"+trabajoId).html();
-       
+
 
 
         //prefill form with info
@@ -201,34 +201,34 @@ $(document).ready(function(){
         $("#becarioDisHoursErr").html("");
         $("#selectedBecarioDefaultErr").html("");
 
-        
-            $.ajax({
-                url: appRoot+"search/becarioSemSearch",
-                type: "get",
-                data: {v:trabajoSem},
-                success: function(returnedData){
-                        if(returnedData.status === 1){
-                            console.log(returnedData.semester);
-                            
-                            var html='';
-                            html+='<option selected>Selecciona a tu becario:</option>';
-                            $.each( returnedData.allData, function( key, value ) {
-                                html+='<option value= ';
-                                html+=value.code;
-                                html+=' >';
-                                html+=value.name;
-                                html+='</option>';       
-                            });
-    
-                            $("#selectedBecarioDefault").empty().append(html);
-                           
-                        }else {
-                            var html='<option selected>Selecciona a tu becario:</option>';
-                            $("#selectedBecarioDefault").empty().append(html);  
-                        }
-                    }
-                });
-    
+
+        $.ajax({
+            url: appRoot+"search/becarioSemSearch",
+            type: "get",
+            data: {v:trabajoSem},
+            success: function(returnedData){
+                if(returnedData.status === 1){
+                    console.log(returnedData.semester);
+
+                    var html='';
+                    html+='<option selected>Selecciona a tu becario:</option>';
+                    $.each( returnedData.allData, function( key, value ) {
+                        html+='<option value= ';
+                        html+=value.code;
+                        html+=' >';
+                        html+=value.name;
+                        html+='</option>';
+                    });
+
+                    $("#selectedBecarioDefault").empty().append(html);
+
+                }else {
+                    var html='<option selected>Selecciona a tu becario:</option>';
+                    $("#selectedBecarioDefault").empty().append(html);
+                }
+            }
+        });
+
 
         $("#selectedBecarioDefault").val("Selecciona a tu becario:");
         $("#addBecarioTrabajoModal").modal('show');
@@ -578,9 +578,8 @@ $(document).ready(function(){
 function cargarTrabajos(url){
     var orderBy = $("#trabajosListSortBy").val().split("-")[0];
     var orderFormat = $("#trabajosListSortBy").val().split("-")[1];
-    var limit = $("#trabajosListPerPage").val();
+    var limit = "";
 
-    
 
 
     $.ajax({

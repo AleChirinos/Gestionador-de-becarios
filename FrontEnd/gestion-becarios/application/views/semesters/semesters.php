@@ -11,23 +11,6 @@ defined('BASEPATH') OR exit('');
                     <div class="col-sm-2 form-inline form-group-sm">
                         <button class="btn btn-primary btn-sm" id='createItem'>Añadir Nueva Gestión</button>
                     </div>
-                    <div class="col-sm-3 form-inline form-group-sm">
-                        <label for="itemsListPerPage">Mostrar</label>
-                        <select id="itemsListPerPage" class="form-control">
-                            <option value="1">1</option>
-                            <option value="5">5</option>
-                            <option value="10" selected>10</option>
-                            <option value="15">15</option>
-                            <option value="20">20</option>
-                            <option value="20">20</option>
-                            <option value="30">30</option>
-                            <option value="50">50</option>
-                            <option value="100">100</option>
-                        </select>
-                        <label>por hoja</label>
-                        <br><br><br>
-
-                    </div>
 
                     <div class="col-sm-4 form-group-sm form-inline">
                         <label for="itemsListSortBy">Ordenar por</label>
@@ -104,7 +87,7 @@ defined('BASEPATH') OR exit('');
                     <div class="col-sm-12" id="itemsListTable"></div>
                 </div>
                 <!--end of table-->
-                
+               
             </div>
             <!--- End of item list div-->
 

@@ -162,7 +162,7 @@ $(document).ready(function(){
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     //reload items list table when events occur
-    $("#becariosListPerPage, #becariosListSortBy").change(function(){
+    $("#becariosListSortBy").change(function(){
         displayFlashMsg("Espere un momento...", spinnerClass, "", "");
         cargarBecarios();
     });
@@ -414,7 +414,7 @@ $(document).ready(function(){
 function cargarBecarios(url){
     var orderBy = $("#becariosListSortBy").val().split("-")[0];
     var orderFormat = $("#becariosListSortBy").val().split("-")[1];
-    var limit = $("#becariosListPerPage").val();
+    var limit = "";
 
 
     $.ajax({

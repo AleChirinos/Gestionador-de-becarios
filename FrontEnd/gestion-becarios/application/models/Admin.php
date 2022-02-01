@@ -19,15 +19,15 @@ class Admin extends CI_Model{
     */
 
     /**
- *
- * @param type $f_name
- * @param type $l_name
- * @param type $email
- * @param type $role
- * @param type $career
- * @param type $semester
- * @return boolean
- */
+     *
+     * @param type $f_name
+     * @param type $l_name
+     * @param type $email
+     * @param type $role
+     * @param type $career
+     * @param type $semester
+     * @return boolean
+     */
     public function add($f_name, $l_name, $email, $role, $career, $semester){
         $data = ['first_name'=>$f_name, 'last_name'=>$l_name, 'email'=>$email, 'role'=>$role,
             'career'=>$career, 'semester'=>$semester];
@@ -98,10 +98,10 @@ class Admin extends CI_Model{
 
         //set the datetime based on the db driver in use
         $this->db->platform() == "sqlite3"
-                ?
-        $this->db->set('last_login', "datetime('now')", FALSE)
-                :
-        $this->db->set('last_login', "NOW()", FALSE);
+            ?
+            $this->db->set('last_login', "datetime('now')", FALSE)
+            :
+            $this->db->set('last_login', "NOW()", FALSE);
 
         $this->db->update('admin');
 
@@ -146,13 +146,13 @@ class Admin extends CI_Model{
 
 
 
-   /*
-    ********************************************************************************************************************************
-    ********************************************************************************************************************************
-    ********************************************************************************************************************************
-    ********************************************************************************************************************************
-    ********************************************************************************************************************************
-    */
+    /*
+     ********************************************************************************************************************************
+     ********************************************************************************************************************************
+     ********************************************************************************************************************************
+     ********************************************************************************************************************************
+     ********************************************************************************************************************************
+     */
 
     /**
      *
@@ -162,10 +162,11 @@ class Admin extends CI_Model{
      * @param type $limit
      * @return boolean
      */
-    public function getAll($gest,$orderBy = "first_name", $orderFormat = "ASC", $start = 0, $limit = ""){
+    public function getAll($orderBy = "first_name", $orderFormat = "ASC", $start = 0, $limit = ""){
         $this->db->select('id, first_name, last_name, email, role, created_on, last_login, account_status, deleted, career,semester');
-        $this->db->where("semester", $gest);
+
         $this->db->where("id != ", $_SESSION['admin_id']);
+
         $this->db->where("email != ", "demo@1410inc.xyz");//added to prevent people from removing the demo admin account
         $this->db->limit($limit, $start);
         $this->db->order_by($orderBy, $orderFormat);
@@ -190,12 +191,12 @@ class Admin extends CI_Model{
     ********************************************************************************************************************************
     */
 
-   /**
-    *
-    * @param type $admin_id
-    * @param type $new_status New account status
-    * @return boolean
-    */
+    /**
+     *
+     * @param type $admin_id
+     * @param type $new_status New account status
+     * @return boolean
+     */
     public function suspend($admin_id, $new_status){
         $this->db->where('id', $admin_id);
         $this->db->update('admin', ['account_status'=>$new_status]);
@@ -210,20 +211,20 @@ class Admin extends CI_Model{
     }
 
 
-   /*
-    ********************************************************************************************************************************
-    ********************************************************************************************************************************
-    ********************************************************************************************************************************
-    ********************************************************************************************************************************
-    ********************************************************************************************************************************
-    */
+    /*
+     ********************************************************************************************************************************
+     ********************************************************************************************************************************
+     ********************************************************************************************************************************
+     ********************************************************************************************************************************
+     ********************************************************************************************************************************
+     */
 
-   /**
-    *
-    * @param type $admin_id
-    * @param type $new_value
-    * @return boolean
-    */
+    /**
+     *
+     * @param type $admin_id
+     * @param type $new_value
+     * @return boolean
+     */
     public function delete($admin_id, $new_value){
         $this->db->where('id', $admin_id);
         $this->db->update('admin', ['deleted'=>$new_value]);
@@ -235,7 +236,7 @@ class Admin extends CI_Model{
         else{
             return FALSE;
         }
-   }
+    }
 
 
     /*
@@ -301,27 +302,11 @@ class Admin extends CI_Model{
     public function updateAdminSemester($semester){
         $data = ['semester'=>$semester];
         $this->db->where('id',$this->session->admin_id);
-        $this->db->update('admin', $data);   
+        $this->db->update('admin', $data);
         return TRUE;
     }
 
 
-    /*
-    ********************************************************************************************************************************
-    ********************************************************************************************************************************
-    ********************************************************************************************************************************
-    ********************************************************************************************************************************
-    ********************************************************************************************************************************
-    */
-/*
-    public function getSemesterInfo($where_clause, $fields_to_fetch){
-        $this->db->select($fields_to_fetch);
 
-        $this->db->where($where_clause);
-
-        $run_q = $this->db->get('semesters');
-
-        return $run_q->num_rows() ? $run_q->row() : FALSE;
-    }*/
 
 }

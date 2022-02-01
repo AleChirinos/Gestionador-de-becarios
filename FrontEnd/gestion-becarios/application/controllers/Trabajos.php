@@ -11,7 +11,7 @@ class Trabajos extends CI_Controller{
 
         $this->genlib->checkLogin();
 
-        $this->load->model(['trabajo','becario','asignacion']);
+        $this->load->model(['trabajo','becario','asignacion','semester']);
     }
 
     /**
@@ -39,24 +39,20 @@ class Trabajos extends CI_Controller{
         //count the total number of items in db
         $totalTrabajos= $this->db->count_all('trabajos');
 
-        $this->load->library('pagination');
+        
+        $start = 0;
+    
 
-        $pageNumber = $this->uri->segment(3, 0);//set page number to zero if the page number is not set in the third segment of uri
-
-        $limit = $this->input->get('limit', TRUE) ? $this->input->get('limit', TRUE) : 10;//show $limit per page
-        $start = $pageNumber == 0 ? 0 : ($pageNumber - 1) * $limit;//start from 0 if pageNumber is 0, else start from the next iteration
-
-
-        //call setPaginationConfig($totalRows, $urlToCall, $limit, $attributes) in genlib to configure pagination
-        $config = $this->genlib->setPaginationConfig($totalTrabajos, "trabajos/cargarTrabajos", $limit, ['onclick'=>'return cargarTrabajos(this.href);']);
-
-        $this->pagination->initialize($config);//initialize the library class
-
+        $semester=$this->semester->getSemesterInfo(['selected'=>1], ['id','name']);
+        if ($semester){
+            $data['allTrabajos'] = $this->trabajo->getAllBySemester($semester->id,$orderBy,$orderFormat);
+        } else {
+            $data['allTrabajos'] = $this->trabajo->getAll($orderBy, $orderFormat, $start,'');
+        }
         //get all items from db
-        $data['allTrabajos'] = $this->trabajo->getAll($orderBy, $orderFormat, $start, $limit);
+        
         $data['allAsignaciones']=$this->asignacion->getAll("trabajo_name", "ASC");
         $data['range'] = $totalTrabajos > 0 ? "Mostrando " . ($start+1) . "-" . ($start + count($data['allTrabajos'])) . " de " . $totalTrabajos : "";
-        $data['links'] = $this->pagination->create_links();//page links
         $data['sn'] = $start+1;
         $data['mark']=1;
 

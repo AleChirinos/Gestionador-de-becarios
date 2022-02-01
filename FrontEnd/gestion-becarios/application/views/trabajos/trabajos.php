@@ -30,23 +30,7 @@ if(isset($becarios) && !empty($becarios)){
                     <div class="col-sm-2 form-inline form-group-sm">
                         <button class="btn btn-primary btn-sm" id='createTrabajo'>Añadir Nuevo Trabajo</button>
                     </div>
-                    <div class="col-sm-3 form-inline form-group-sm">
-                        <label for="trabajosListPerPage">Mostrar</label>
-                        <select id="trabajosListPerPage" class="form-control">
-                            <option value="1">1</option>
-                            <option value="5">5</option>
-                            <option value="10" selected>10</option>
-                            <option value="15">15</option>
-                            <option value="20">20</option>
-                            <option value="20">20</option>
-                            <option value="30">30</option>
-                            <option value="50">50</option>
-                            <option value="100">100</option>
-                        </select>
-                        <label>por hoja</label>
-                        <br><br><br>
-
-                    </div>
+                
 
                     <div class="col-sm-4 form-group-sm form-inline">
                         <label for="trabajosListSortBy">Ordenar por</label>
@@ -145,8 +129,7 @@ if(isset($becarios) && !empty($becarios)){
                 <div class="row">
                     <div class="col-sm-12" id="trabajosListTable"></div>
                 </div>
-                
-                
+                <!--end of table-->        
             </div>
             <!--- End of item list div-->
 
@@ -290,7 +273,15 @@ if(isset($becarios) && !empty($becarios)){
                         <div class="col-sm-4 form-group-lg">
                             <label for="selectedBecarioDefault">Becario</label>
                             <select class="form-control selectedBecarioDefault" id="selectedBecarioDefault" onchange="selectedBecario(this)">
-                                
+                                <option selected>Selecciona a tu becario:</option>
+                                <?php
+
+                                foreach($becarios as $row)
+                                {
+                                    if($this->session->admin_career ===$row->career){
+                                        echo '<option value="'.$row->code.'">'.$row->name.'</option>';}
+                                    }
+                                ?>
                             </select>
                             <span class="help-block errMsg" id="selectedBecarioDefaultErr"></span>
                         </div>
@@ -313,7 +304,6 @@ if(isset($becarios) && !empty($becarios)){
                     <input type="hidden" id="trabajoNameBec">
                     <input type="hidden" id="trabajoIdBec">
                     <input type="hidden" id="becId">
-                    <input type="hidden" id="trabajoSem">
                 </form>
             </div>
             <div class="modal-footer">

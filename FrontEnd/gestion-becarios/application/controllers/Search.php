@@ -120,18 +120,6 @@ class Search extends CI_Controller{
         $this->output->set_content_type('application/json')->set_output(json_encode($json));
     }
 
-    public function becarioSemSearch(){
-
-        $data['allBecarios'] = $this->becario->becarioSemsearch($this->value,$this->session->admin_career);
-        
-        $json['semester']=$this->session->admin_career;
-        $json['allData'] = $data['allBecarios'];
-        $json['status'] = 1;
-
-        //set final output
-        $this->output->set_content_type('application/json')->set_output(json_encode($json));
-    }
-
     public function trabajoSearch(){
 
         $data['allTrabajos'] = $this->trabajo->trabajosearch($this->value);
@@ -183,7 +171,17 @@ class Search extends CI_Controller{
     ********************************************************************************************************************************
     ********************************************************************************************************************************
     */
+    public function becarioSemSearch(){
 
+        $data['allBecarios'] = $this->becario->becarioSemsearch($this->value,$this->session->admin_career);
+
+        $json['semester']=$this->session->admin_career;
+        $json['allData'] = $data['allBecarios'];
+        $json['status'] = 1;
+
+        //set final output
+        $this->output->set_content_type('application/json')->set_output(json_encode($json));
+    }
 
 
     public function transSearch(){
@@ -191,6 +189,22 @@ class Search extends CI_Controller{
         $data['sn'] = 1;
 
         $json['transTable'] = $data['allTransactions'] ? $this->load->view('transactions/transtable', $data, TRUE) : "No match found";
+
+        //set final output
+        $this->output->set_content_type('application/json')->set_output(json_encode($json));
+    }
+
+
+    /*
+    ********************************************************************************************************************************
+    ********************************************************************************************************************************
+    ********************************************************************************************************************************
+    ********************************************************************************************************************************
+    ********************************************************************************************************************************
+    */
+
+    public function otherSearch(){
+
 
         //set final output
         $this->output->set_content_type('application/json')->set_output(json_encode($json));
@@ -209,21 +223,6 @@ class Search extends CI_Controller{
         $this->output->set_content_type('application/json')->set_output(json_encode($json));
     }
 
-
-    /*
-    ********************************************************************************************************************************
-    ********************************************************************************************************************************
-    ********************************************************************************************************************************
-    ********************************************************************************************************************************
-    ********************************************************************************************************************************
-    */
-
-    public function otherSearch(){
-       
-
-        //set final output
-        $this->output->set_content_type('application/json')->set_output(json_encode($json));
-    }
 
 
     /*

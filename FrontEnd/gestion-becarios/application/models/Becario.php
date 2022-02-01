@@ -85,6 +85,8 @@ class Becario extends CI_Model{
         }
     }
 
+    
+
     public function getBecarioInfo($where_clause, $fields_to_fetch){
         $this->db->select($fields_to_fetch);
 
@@ -256,6 +258,24 @@ class Becario extends CI_Model{
         }
     }
 
+    public function getAllBySemester($semester,$orderBy,$orderFormat){
+        $this->db->limit('', 0);
+        $this->db->order_by($orderBy, $orderFormat);
+        $this->db->where('semester', $semester);
+
+
+
+        $run_q = $this->db->get('becarios');
+
+        if($run_q->num_rows() > 0){
+            return $run_q->result();
+        }
+
+        else{
+            return FALSE;
+        }
+    }
+
 
     public function getReport($value,$semester){
 
@@ -306,7 +326,6 @@ class Becario extends CI_Model{
             return FALSE;
         }
     }
-
 
 
 

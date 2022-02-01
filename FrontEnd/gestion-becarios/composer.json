@@ -1,7 +1,8 @@
 {
     "require": {
         "phpunit/phpunit": "^9.5",
-        "google/apiclient": "^2.0"
+        "google/apiclient": "^2.0",
+      "ext-mysqli": "*"
     },
     "autoload": {
         "psr-4": {

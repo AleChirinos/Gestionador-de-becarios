@@ -60,7 +60,7 @@ class UpdateTableColumnPropertiesRequest extends \Google\Collection
   /**
    * @return TableColumnProperties
    */
-  public function getTableColumnProperties()
+  public function careerumnProperties()
   {
     return $this->tableColumnProperties;
   }

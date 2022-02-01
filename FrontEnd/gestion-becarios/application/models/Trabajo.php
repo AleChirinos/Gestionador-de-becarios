@@ -128,6 +128,24 @@ class Trabajo extends CI_Model{
         }
     }
 
+    public function getAllBySemester($semester,$orderBy,$orderFormat){
+        $this->db->limit('', 0);
+        $this->db->order_by($orderBy, $orderFormat);
+        $this->db->where('semester', $semester);
+
+
+
+        $run_q = $this->db->get('trabajos');
+
+        if($run_q->num_rows() > 0){
+            return $run_q->result();
+        }
+
+        else{
+            return FALSE;
+        }
+    }
+
     public function getReport($value,$semester){
 
         $this->db->select("trabajos.*,asignaciones.assignDate,asignaciones.accomplished, asignaciones.becarioName, asignaciones.becarioCode, asignaciones.hours");

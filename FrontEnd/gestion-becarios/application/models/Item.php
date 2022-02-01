@@ -195,7 +195,27 @@ class Item extends CI_Model{
            return FALSE;
        }
    }
-   
+
+    /**
+     *
+     * @param type $admin_id
+     * @param type $new_status New account status
+     * @return boolean
+     */
+    public function changeSemester($admin_id, $semester_id, $semester_career){
+        $this->db->where('career', $semester_career);
+        $this->db->update('semesters', ['selected'=>"0"]);
+        $this->db->where('id', $semester_id);
+        $this->db->update('semesters', ['selected'=>"1"]);
+        $this->db->where('id', $admin_id);
+        $this->db->update('admin', ['semester'=>" $semester_id"]);
+        if($this->db->affected_rows()){
+            return TRUE;
+        }
+        else{
+            return FALSE;
+        }
+    }
    
    /*
     ********************************************************************************************************************************

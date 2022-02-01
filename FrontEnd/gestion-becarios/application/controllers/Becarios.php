@@ -10,7 +10,7 @@ class Becarios extends CI_Controller{
 
         $this->genlib->checkLogin();
 
-        $this->load->model(['becario','asignacion']);
+        $this->load->model(['becario','asignacion','semester']);
     }
 
     /**
@@ -37,27 +37,22 @@ class Becarios extends CI_Controller{
         //count the total number of items in db
         $totalBecarios= $this->db->count_all('becarios');
 
-        $this->load->library('pagination');
-
-        $pageNumber = $this->uri->segment(3, 0);//set page number to zero if the page number is not set in the third segment of uri
-
-        $limit = $this->input->get('limit', TRUE) ? $this->input->get('limit', TRUE) : 10;//show $limit per page
-        $start = $pageNumber == 0 ? 0 : ($pageNumber - 1) * $limit;//start from 0 if pageNumber is 0, else start from the next iteration
-
-
-        //call setPaginationConfig($totalRows, $urlToCall, $limit, $attributes) in genlib to configure pagination
-        $config = $this->genlib->setPaginationConfig($totalBecarios, "becarios/cargarBecarios", $limit, ['onclick'=>'return cargarBecarios(this.href);']);
-
-        $this->pagination->initialize($config);//initialize the library class
+        $start=0;       
 
         //get all items from db
-        $data['allBecarios'] = $this->becario->getAll($orderBy, $orderFormat, $start, $limit);
+        $semester=$this->semester->getSemesterInfo(['selected'=>1], ['id','name']);
+
+        if($semester){
+            $data['allBecarios']=$this->becario->getAllBySemester($semester->id,$orderBy,$orderFormat);
+        } else {
+            $data['allBecarios'] = $this->becario->getAll($orderBy, $orderFormat, $start, '');
+        }
+        
+
         $data['allAsignaciones']=$this->asignacion->getAll("trabajo_name", "ASC");
         $data['range'] = $totalBecarios > 0 ? "Mostrando " . ($start+1) . "-" . ($start + count($data['allBecarios'])) . " de " . $totalBecarios : "";
-        $data['links'] = $this->pagination->create_links();//page links
         $data['sn'] = $start+1;
-
-
+   
         $json['becariosListTable'] = $this->load->view('becarios/becarioslisttable', $data, TRUE);//get view with populated items table
 
         $this->output->set_content_type('application/json')->set_output(json_encode($json));
@@ -71,6 +66,9 @@ class Becarios extends CI_Controller{
         $this->load->library('form_validation');
 
         $this->form_validation->set_error_delimiters('', '');
+
+        //$this->form_validation->set_rules('becarioName', 'Becario name', ['required', 'trim', 'max_length[80]', 'callback_crosscheckNameSem['.set_value('semester').']'], ['required'=>'required']);
+        //$this->form_validation->set_rules('becarioCode', 'Becario Code', ['required', 'trim', 'max_length[20]', 'callback_crosscheckCodeSem['.set_value('semester').']'], ['required'=>'required']);
 
         $this->form_validation->set_rules('becarioName', 'Becario name', ['required', 'trim', 'max_length[80]', 'is_unique[becarios.name]'],
             ['required'=>"required", 'is_unique'=>"Ya existe un becario de ese nombre"]);
@@ -281,6 +279,39 @@ class Becarios extends CI_Controller{
      ********************************************************************************************************************************
      */
 
+    public function crosscheckNameSem($becarioName, $semester){
+        //check db to ensure name was previously used for the item we are updating
+        $becarioConNombre = $this->genmod->getTableColMultiple('becarios', 'id', 'name', $becarioName, 'semester', $semester);
+
+
+        if(!$becarioConNombre){
+            return TRUE;
+        }
+
+        else{//if it exist
+            $this->form_validation->set_message('crosscheckNameSem', 'Ya existe un becario registrado en la gestion con este nombre');
+
+            return FALSE;
+        }
+    }
+
+
+    public function crosscheckCodeSem($becarioCode, $semester){
+       
+        $becarioConNombre = $this->genmod->getTableColMultiple('becarios', 'id', 'code', $becarioCode, 'semester', $semester);
+
+
+        if(!$becarioConNombre){
+            return TRUE;
+        }
+
+        else{
+            $this->form_validation->set_message('crosscheckCodeSem', 'Ya existe un becario registrado en la gestion con este codigo');
+
+            return FALSE;
+        }
+    }
+
     public function crosscheckName($becarioName, $becarioId){
         //check db to ensure name was previously used for the item we are updating
         $becarioConNombre = $this->genmod->getTableCol('becarios', 'id', 'name', $becarioName);
@@ -322,7 +353,7 @@ class Becarios extends CI_Controller{
         }
 
         else{//if it exist
-            $this->form_validation->set_message('crosscheckCode', 'Ya existe un becario registrado con este nombre');
+            $this->form_validation->set_message('crosscheckCode', 'Ya existe un becario registrado con este código');
 
             return FALSE;
         }

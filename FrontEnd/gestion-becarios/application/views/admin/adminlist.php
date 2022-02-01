@@ -1,6 +1,10 @@
 <?php
 defined('BASEPATH') OR exit('');
+
+
 ?>
+
+
 
 <?php echo isset($range) && !empty($range) ? "Mostrando ".$range : ""?>
 <div class="panel panel-primary">
@@ -25,7 +29,7 @@ defined('BASEPATH') OR exit('');
             </thead>
             <tbody>
             <?php foreach($allAdministrators as $get):?>
-                <?php if($get->deleted == "0" && $get->role =="Gesti" && $this->session->admin_career ===$get->career && $this->session->admin_semester ===$get->semester):?>
+                <?php if($get->deleted == "0" && $get->role =="Gesti" && $this->session->admin_career ===$get->career ):?>
                     <tr>
                         <th class="adminSN"><?=$sn?>.</th>
                         <td class="adminName"><?=$get->first_name ." ". $get->last_name?></td>
@@ -136,8 +140,3 @@ defined('BASEPATH') OR exit('');
         <?php endif; ?>
     </div>
 <?php endif; ?>
-<!-- Pagination -->
-<div class="row text-center">
-    <?php echo $links ?? "" ?>
-</div>
-<!-- Pagination ends -->

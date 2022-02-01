@@ -143,6 +143,44 @@ $(document).ready(function(){
             }
         });
     });
+
+
+
+    //When the toggle on/off button is clicked to change the account status of an admin (i.e. suspend or lift suspension)
+    $("#itemsListTable").on('click', '.selectSemester', function(){
+        var ElemId = $(this).attr('id');
+        var adminId = ElemId.split("-")[0];//get the adminId
+        var semesterId = ElemId.split("-")[1];//get the adminId
+        var semesterSelected = ElemId.split("-")[2];//get the adminId
+        var semesterCareer = ElemId.split("-")[3];//get the adminId
+        console.log(adminId);
+        console.log(semesterId);
+        console.log(semesterSelected);
+        console.log(semesterCareer);
+        //show spinner
+        //$("#"+ElemId).html("<i class='"+spinnerClass+"'</i>");
+        if(semesterSelected == 0){
+            $.ajax({
+                url: appRoot+"semesters/changeSemester",
+                method: "POST",
+                data: {_aId:adminId,_sId:semesterId,_sSlct:semesterSelected,_sCrr:semesterCareer}
+            }).done(function(returnedData){
+                if(returnedData.status === 1){
+                    //change the icon to "on" if it's "off" before the change and vice-versa
+                    //var newIconClass = returnedData._ns === 1 ? "fa fa-toggle-on pointer" : "fa fa-toggle-off pointer";
+                    console.log('Hi !');
+                    lilt();
+                    //change the icon
+                    //("#sus-"+returnedData._aId).html("<i class='"+ newIconClass +"'></i>");
+
+                }
+
+                else{
+                    console.log('err');
+                }
+            });
+        }
+    });
     
     
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -152,7 +190,7 @@ $(document).ready(function(){
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     
     //reload semesters list table when events occur
-    $("#itemsListPerPage, #itemsListSortBy").change(function(){
+    $("#itemsListSortBy").change(function(){
         displayFlashMsg("Please wait...", spinnerClass, "", "");
         lilt();
     });
@@ -448,7 +486,7 @@ $(document).ready(function(){
 function lilt(url){
     var orderBy = $("#itemsListSortBy").val().split("-")[0];
     var orderFormat = $("#itemsListSortBy").val().split("-")[1];
-    var limit = $("#itemsListPerPage").val();
+    var limit = "";
     
     
     $.ajax({

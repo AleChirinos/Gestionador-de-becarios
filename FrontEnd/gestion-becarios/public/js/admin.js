@@ -15,7 +15,7 @@ $(document).ready(function(){
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     //reload the list of admin when fields are changed
-    $("#adminListSortBy, #adminListPerPage").change(function(){
+    $("#adminListSortBy").change(function(){
         displayFlashMsg("Please wait...", spinnerClass, "", "");
         laad_();
     });
@@ -38,7 +38,6 @@ $(document).ready(function(){
     });
 
     $("#selectedSemesterDefault").change(function(){
-
         laad_();
     });
 
@@ -396,14 +395,12 @@ $(document).ready(function(){
 function laad_(url){
     var orderBy = $("#adminListSortBy").val().split("-")[0];
     var orderFormat = $("#adminListSortBy").val().split("-")[1];
-    var limit = $("#adminListPerPage").val();
-    var gest=$("#selectedSemesterDefault").val();
-    console.log(gest);
+    var limit = "";
 
     $.ajax({
         type:'get',
         url: url ? url : appRoot+"administrators/laad_/",
-        data: {orderBy:orderBy, orderFormat:orderFormat, limit:limit, gest:gest},
+        data: {orderBy:orderBy, orderFormat:orderFormat, limit:limit},
      }).done(function(returnedData){
             hideFlashMsg();
 

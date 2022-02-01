@@ -11,17 +11,17 @@ $(document).ready(function(){
 
 
     $("#groupList, #gestList").change(function(){
-        
-       var option=$("#groupList").val();
-       var semester=$("#gestList").val();
-       console.log(option+ ' : ' +semester);
 
-       if (option !=="null"){
-        $.ajax({
-            url: appRoot+"search/dataSearch",
-            type: "get",
-            data: {v:option,s:semester},
-            success: function(returnedData){
+        var option=$("#groupList").val();
+        var semester=$("#gestList").val();
+        console.log(option+ ' : ' +semester);
+
+        if (option !=="null"){
+            $.ajax({
+                url: appRoot+"search/dataSearch",
+                type: "get",
+                data: {v:option,s:semester},
+                success: function(returnedData){
                     if(returnedData.status === 1){
                         var html='';
                         html+='<option value="null">Seleccionar sujeto</option>';
@@ -30,7 +30,7 @@ $(document).ready(function(){
                             html+=value.id;
                             html+=' >';
                             html+=value.name;
-                            html+='</option>';       
+                            html+='</option>';
                         });
 
                         $("#searchOpt").empty().append(html);
@@ -38,21 +38,21 @@ $(document).ready(function(){
                     }else {
                         cargarReporte();
                         $("#searchOpt").empty().append('<option value="null">Seleccionar sujeto</option>');
-                        
+
                     }
                 }
             });
 
-       } else {
-        $("#searchOpt").empty().append('<option value="null">Seleccionar sujeto</option>');
-        cargarReporte();
-       }
+        } else {
+            $("#searchOpt").empty().append('<option value="null">Seleccionar sujeto</option>');
+            cargarReporte();
+        }
 
     });
 
 
 
-    $("#searchOpt").change(function(){       
+    $("#searchOpt").change(function(){
         cargarReporte();
 
     });
@@ -63,7 +63,7 @@ $(document).ready(function(){
 
 
 function cargarReporte(url){
-    
+
     var option=$("#groupList").val();
     var semester=$("#gestList").val();
     var value=$("#searchOpt").val();

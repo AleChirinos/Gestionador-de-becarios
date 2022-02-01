@@ -2,41 +2,41 @@
 defined('BASEPATH') OR exit('');
 ?>
 
-<div class="pwell hidden-print">   
+<div class="pwell hidden-print">
     <div class="row">
         <div class="col-sm-12">
             <!-- sort and co row-->
             <div class="row">
                 <div class="col-sm-12">
-            
+
                     <div class="col-lg-4 form-group-sm form-inline">
                         <label for="groupList">Grupo de obtención de reportes</label>
                         <select  id="groupList" class="form-control">
                             <option value="null">Seleccionar orígen de reporte</option>
                             <option value="becario">Becarios</option>
-                            <option value="trabajo">Trabajos</option>       
+                            <option value="trabajo">Trabajos</option>
                         </select>
                     </div>
 
                     <div class="col-lg-3 form-group-sm form-inline">
                         <label for="gestList">Gestion de busqueda</label>
                         <select id="gestList" class="form-control selectedSemesterDefault" style="width: 50%">
-                        <?php
+                            <?php
                             if(!is_bool($gestiones)){
                                 foreach($gestiones as $row)
-                                {  
+                                {
                                     echo '<option value="'.$row->id.'">'.$row->name.'</option>';
-                                }   
+                                }
                             }
-                            
-                        ?>
+
+                            ?>
                         </select>
                     </div>
 
                     <div class="col-lg-5 form-group-sm form-inline">
                         <label for="searchOpt">Buscar información de</label>
                         <select class="form-control selectedCheckDefault" style="width: 50%" id="searchOpt">
-                        <option value="null">Seleccionar sujeto</option>
+                            <option value="null">Seleccionar sujeto</option>
                         </select>
                     </div>
                 </div>
@@ -44,9 +44,9 @@ defined('BASEPATH') OR exit('');
             <!-- end of sort and co div-->
         </div>
     </div>
-    
+
     <hr>
-    
+
     <!-- row of adding new item form and items list table-->
     <div class="row">
         <div class="col-sm-12">
@@ -56,35 +56,35 @@ defined('BASEPATH') OR exit('');
                     <button class="close cancelAddBecario">&times;</button><br>
                     <form name="addNewBecarioForm" id="addNewBecarioForm" role="form">
                         <div class="text-center errMsg" id='addCustErrMsg'></div>
-                        
+
                         <br>
-                        
+
                         <div class="row">
                             <div class="col-sm-12 form-group-sm">
                                 <label for="becarioCode">Código UPB del Becario</label>
                                 <input type="text" id="becarioCode" name="becarioCode" placeholder="Ej: 51225" maxlength="80"
-                                    class="form-control" onchange="checkField(this.value, 'becarioCodeErr')" autofocus>
+                                       class="form-control" onchange="checkField(this.value, 'becarioCodeErr')" autofocus>
                                 <!--<span class="help-block"><input type="checkbox" id="gen4me"> auto-generate</span>-->
                                 <span class="help-block errMsg" id="becarioCodeErr"></span>
                             </div>
                         </div>
-                        
+
                         <div class="row">
                             <div class="col-sm-12 form-group-sm">
                                 <label for="becarioName">Nombre y apellido del becario</label>
                                 <input type="text" id="becarioName" name="becarioName" placeholder="Ej: Patricio Vargas" maxlength="80"
-                                    class="form-control" onchange="checkField(this.value, 'becarioNameErr')">
+                                       class="form-control" onchange="checkField(this.value, 'becarioNameErr')">
                                 <span class="help-block errMsg" id="becarioNameErr"></span>
                             </div>
                         </div>
                         <div class="row">
-                        <div class="form-group-sm col-sm-6">
-                            <label for='career' class="control-label">Carrera</label>
+                            <div class="form-group-sm col-sm-6">
+                                <label for='career' class="control-label">Carrera</label>
                                 <input type="hidden" id='career' class="form-control checkField" value="<?php echo $this->session->admin_career; ?>">
                                 <br>
                                 <label for='career' class="control-label"><?php echo $this->session->admin_career; ?></label>
-                            <span class="help-block errMsg" id="careerErr"></span>
-                        </div>
+                                <span class="help-block errMsg" id="careerErr"></span>
+                            </div>
                         </div>
                         <br>
                         <div class="row text-center">
@@ -99,7 +99,7 @@ defined('BASEPATH') OR exit('');
                     </form><!-- end of form-->
                 </div>
             </div>
-            
+
             <!--- Item list div-->
             <div class="col-sm-12" id="becariosListDiv">
                 <!-- Item list Table-->
@@ -107,7 +107,7 @@ defined('BASEPATH') OR exit('');
                     <div class="col-sm-12" id="reportesListTable"></div>
                 </div>
                 <!--end of table-->
-                
+
             </div>
             <!--- End of item list div-->
 
@@ -145,7 +145,7 @@ defined('BASEPATH') OR exit('');
                         <div class="col-sm-6 form-group-sm">
                             <label for="mhUpdateMissingHours">Horas de trabajo becario faltantes</label>
                             <input type="number" id="mhUpdateMissingHours"
-                                class="form-control checkField" min="0">
+                                   class="form-control checkField" min="0">
                             <span class="help-block errMsg" id="mhUpdateMissingHoursErr"></span>
                         </div>
                     </div>
@@ -190,7 +190,7 @@ defined('BASEPATH') OR exit('');
                         <div class="col-sm-6 form-group-sm">
                             <label for="mhUpdateMissingHours">Horas de trabajo becario faltantes</label>
                             <input type="number" id="mhUpdateMissingHours"
-                                class="form-control checkField" min="0">
+                                   class="form-control checkField" min="0">
                             <span class="help-block errMsg" id="mhUpdateMissingHoursErr"></span>
                         </div>
                     </div>
@@ -223,7 +223,7 @@ defined('BASEPATH') OR exit('');
                             <input type="text" id="becarioNameEdit" placeholder="Nombre del Becario" autofocus class="form-control checkField">
                             <span class="help-block errMsg" id="becarioNameEditErr"></span>
                         </div>
-                        
+
                         <div class="col-sm-4 form-group-sm">
                             <label for="becarioCode">Código UPB del becario</label>
                             <input type="text" id="becarioCodeEdit" class="form-control">
@@ -233,12 +233,12 @@ defined('BASEPATH') OR exit('');
                     <div class="row">
                         <div class="form-group-sm col-sm-6">
                             <label for='career' class="control-label">Carrera</label>
-                                <input type="hidden" id='career' class="form-control checkField" value="<?php echo $this->session->admin_career; ?>">
-                                <br>
-                                <label for='career' class="control-label"><?php echo $this->session->admin_career; ?></label>
+                            <input type="hidden" id='career' class="form-control checkField" value="<?php echo $this->session->admin_career; ?>">
+                            <br>
+                            <label for='career' class="control-label"><?php echo $this->session->admin_career; ?></label>
                             <span class="help-block errMsg" id="careerErr"></span>
                         </div>
-                        </div>
+                    </div>
 
                     <input type="hidden" id="becarioIdEdit">
                 </form>

@@ -12,7 +12,7 @@ defined('BASEPATH') OR exit('');
                         Nuevo Usuario
                     </div>
 
-                    <div class="col-sm-3 form-inline form-group-sm">
+                    <!--div class="col-sm-3 form-inline form-group-sm">
                         <label for="adminListPerPage">Mostrar</label>
                         <select id="adminListPerPage" class="form-control">
                             <option value="1">1</option>
@@ -25,9 +25,9 @@ defined('BASEPATH') OR exit('');
                             <option value="100">100</option>
                         </select>
                         <label for="adminListPerPage">por página</label>
-                    </div>
+                    </div-->
                     <div class="col-sm-4 form-inline form-group-sm">
-                        <label for="adminListSortBy" class="control-label">Ordenar por</label> 
+                        <label for="adminListSortBy" class="control-label">Ordenar por</label>
                         <select id="adminListSortBy" class="form-control">
                             <option value="first_name-ASC" selected>Nombre (A a Z)</option>
                             <option value="first_name-DESC">Nombre (Z a A)</option>
@@ -42,39 +42,38 @@ defined('BASEPATH') OR exit('');
                         <input type="search" id="adminSearch" placeholder="Buscar...." class="form-control">
                     </div>
                     <br><br><br>
-                    <div class="col-sm-4 form-group-sm">
+                    <!--div class="col-sm-4 form-group-sm">
                         <label for="selectedSemesterDefault">Seleccionar Gestión</label>
-                        <select class="form-control selectedSemesterDefault" id="selectedSemesterDefault">
-                            <option value="null"  selected> Selecciona la Gestión Actual</option>
+                        <select class="form-control selectedSemesterDefault" id="selectedSemesterDefault"-->
+                    <?php
+                    $mark=0;
+                    ?>
+                    <?php
+                    foreach($semesters as $row)
+                    {
+                        if($row->selected===1 && $this->session->admin_career ===$row->career){
+                            $mark=$row->id;
+                        }
+                    }
+                    
+                    ?>
+                    <input type="hidden" id="markPut" value='<?php echo($mark);?>'>
 
-                            <?php
-                            foreach($semesters as $row)
-                            {
-                                /*if ($this->session->admin_semester === $row->id) {
-                                    echo '<option value="' . $row->id . '" selected>' . $row->name . '</option>';
-                                }
-                                else */if($this->session->admin_career ===$row->career ) {
-                                    echo '<option value="' . $row->id . '">' . $row->name . '</option>';
-                                }
-                            }
-                            ?>
-                        </select>
-                        <span class="help-block errMsg" id="selectedSemesterDefaultErr"></span>
-                    </div>
-                    </div>
                 </div>
             </div>
-            
-            <hr>
-            <!-- Header (sort order etc.) ends -->
-            
-            <!-- Admin list -->
-            <div class="row">
-                <div class="col-sm-12" id="allAdmin"></div>
-            </div>
-            <!-- Admin list ends -->
         </div>
+
+        <!-- Header (sort order etc.) ends -->
+
+        <!-- Admin list -->
+        <div class="row">
+            <div class="col-sm-12" id="allAdmin" >
+
+            </div>
+        </div>
+        <!-- Admin list ends -->
     </div>
+</div>
 
 
 
@@ -103,8 +102,8 @@ defined('BASEPATH') OR exit('');
                             <span class="help-block errMsg" id="lastNameErr"></span>
                         </div>
                     </div>
-                    
-                    
+
+
                     <div class="row">
                         <div class="form-group-sm col-sm-6">
                             <label for='email' class="control-label">Correo Electrónico</label>
@@ -113,14 +112,14 @@ defined('BASEPATH') OR exit('');
                         </div>
                         <div class="form-group-sm col-sm-6">
                             <label for='role' class="control-label">Puesto</label>
-                                <?php if($this->session->admin_role === "Super"): ?>
-                                    <select class="form-control checkField" id='role'>
-                                    <option value=''>Tipo de Usuario</option>
-                                    <option value='Super'>Administrador</option>
-                                    <option value='Jefe De Carrera'>Jefe de Carrera</option>
-                                    <option value='Gestionador'>Gestionador</option>
+                            <?php if($this->session->admin_role === "Super"): ?>
+                            <select class="form-control checkField" id='role'>
+                                <option value=''>Tipo de Usuario</option>
+                                <option value='Super'>Administrador</option>
+                                <option value='Jefe De Carrera'>Jefe de Carrera</option>
+                                <option value='Gestionador'>Gestionador</option>
                                 <?php else: ?>
-                                     <input  type="hidden" class="form-control checkField" id='role' value='Gestionador'>
+                                    <input  type="hidden" class="form-control checkField" id='role' value='Gestionador'>
                                     <br>
                                     <label for='career' class="control-label">Gestionador</label>
                                 <?php endif; ?>
@@ -147,9 +146,9 @@ defined('BASEPATH') OR exit('');
                             <?php if($this->session->admin_role === "Super"): ?>
                                 <input type="text" id='semester' class="form-control checkField" placeholder="Semestre">
                             <?php else: ?>
-                                <input type="hidden" id='semester' class="form-control checkField" value="<?php echo $this->session->admin_semester; ?>">
+                                <input type="hidden" id='semester' class="form-control checkField" value="<?=$mark ?>">
                                 <br>
-                                <label for='semester' class="control-label"><?php echo $this->session->admin_semester; ?></label>
+                                <label for='semester' class="control-label"><?=$mark ?></label>
                             <?php endif; ?>
                             <span class="help-block errMsg" id="semesterErr"></span>
                         </div>
@@ -271,9 +270,9 @@ defined('BASEPATH') OR exit('');
                             <select class="form-control checkField" id='semesterEdit'>
                                 <option value=''>Semestre</option>
                                 <?php else: ?>
-                                    <input  type="hidden" class="form-control checkField" id='semesterEdit' value='<?php echo $this->session->admin_semester; ?>'>
+                                    <input  type="hidden" class="form-control checkField" id='semesterEdit' value='<?=$mark ?>'>
                                     <br>
-                                    <label for='semesterEdit' class="control-label"><?php echo $this->session->admin_semester; ?></label>
+                                    <label for='semesterEdit' class="control-label"><?=$mark ?></label>
                                 <?php endif; ?>
                             </select>
                             <span class="help-block errMsg" id="semesterEditErr"></span>

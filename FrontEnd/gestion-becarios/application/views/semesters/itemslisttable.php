@@ -27,8 +27,8 @@
                         <th class="itemSN"><?=$sn?>.</th>
                         <td><span id="itemName-<?=$get->id?>"><?=$get->name?></span></td>
                         <td><span id="itemCode-<?=$get->id?>"><?=$get->career?></td>
-                        <td class="text-center selectSemester text-success" id="sus-<?=$get->id?>">
-                            <?php if($this->session->admin_semester === $get->id): ?>
+                        <td class="text-center selectSemester text-success" id="<?=$this->session->admin_id?>-<?=$get->id?>-<?=$get->selected?>-<?=$get->career?>">
+                            <?php if($get->selected != 0): ?>
                                 <i class="fa fa-toggle-on pointer"></i>
                             <?php else: ?>
                                 <i class="fa fa-toggle-off pointer"></i>
