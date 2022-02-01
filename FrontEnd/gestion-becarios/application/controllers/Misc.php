@@ -66,7 +66,7 @@ class Misc extends CI_Controller{
         
         $this->genlib->superOnly();
         
-        $file_path = BASEPATH . "sqlite/1410inventory.sqlite";//link to db file
+        $file_path = BASEPATH . "sqlite/getbecas.sqlite";//link to db file
         
         $this->output->set_content_type('')->set_output(file_get_contents($file_path));
     }
@@ -83,14 +83,14 @@ class Misc extends CI_Controller{
         $this->genlib->superOnly();
         
         //create a copy of the db file currently in the sqlite dir for keep in case something go wrong
-        if(file_exists(BASEPATH."sqlite/1410inventory.sqlite")){
-            copy(BASEPATH."sqlite/1410inventory.sqlite", BASEPATH."sqlite/backups/".time().".sqlite");
+        if(file_exists(BASEPATH."sqlite/getbecas.sqlite")){
+            copy(BASEPATH."sqlite/getbecas.sqlite", BASEPATH."sqlite/backups/".time().".sqlite");
         }
         
         $config['upload_path'] = BASEPATH . "sqlite/";//db files are stored in the basepath
         $config['allowed_types'] = 'sqlite';
         $config['file_ext_tolower'] = TRUE;
-        $config['file_name'] = "1410inventory.sqlite";
+        $config['file_name'] = "getbecas.sqlite";
         $config['max_size'] = 2000;//in kb
         $config['overwrite'] = TRUE;//overwrite the previous file
 

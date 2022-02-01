@@ -29,20 +29,16 @@ class Dashboard extends CI_Controller{
      */
     public function index(){
 
-        /*$data['leastDemanded'] = $this->analytic->leastDemanded();
-        $data['highestEarners'] = $this->analytic->highestEarners();
-        $data['lowestEarners'] = $this->analytic->lowestEarners();
-        $data['totalSalesToday'] = (int)$this->analytic->totalSalesToday();
-        $data['transByDays'] = $this->analytic->getTransByDays();
-        $data['transByMonths'] = $this->analytic->getTransByMonths();
-        $data['transByYears'] = $this->analytic->getTransByYears();*/
-        
-        //$values['pageContent'] = $this->load->view('dashboard', $data, TRUE);
+       
+        $values['pageContent'] = $this->load->view('dashboard', '', TRUE);
         
         $values['pageTitle'] = "Dashboard";
         
         $this->load->view('main', $values);
     }
+
+
+
     
     /*
     ********************************************************************************************************************************

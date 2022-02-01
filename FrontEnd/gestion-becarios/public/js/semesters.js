@@ -83,13 +83,7 @@ $(document).ready(function(){
             $("#itemCode").val("");
         }
     });
-    
-    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    
+
     //handles the submission of adding new item
     $("#addNewItem").click(function(e){
         e.preventDefault();
@@ -98,7 +92,7 @@ $(document).ready(function(){
         
         var itemName = $("#itemName").val();
         var itemCode = $("#itemCode").val();
-        var itemDescription = $("#itemDescription").val();
+
         
         if(!itemName  || !itemCode){
             !itemName ? $("#itemNameErr").text("required") : "";
@@ -114,7 +108,7 @@ $(document).ready(function(){
         $.ajax({
             type: "post",
             url: appRoot+"semesters/add",
-            data:{itemName:itemName,  itemDescription:itemDescription, itemCode:itemCode},
+            data:{itemName:itemName, itemCode:itemCode},
             
             success: function(returnedData){
                 if(returnedData.status === 1){
@@ -202,17 +196,17 @@ $(document).ready(function(){
         
         //get item info
         var itemId = $(this).attr('id').split("-")[1];
-        var itemDesc = $("#itemDesc-"+itemId).attr('title');
+
         var itemName = $("#itemName-"+itemId).html();
         var itemPrice = $("#itemPrice-"+itemId).html().split(".")[0].replace(",", "");
         var itemCode = $("#itemCode-"+itemId).html();
-        
+
         //prefill form with info
         $("#itemIdEdit").val(itemId);
         $("#itemNameEdit").val(itemName);
         $("#itemCodeEdit").val(itemCode);
         $("#itemPriceEdit").val(itemPrice);
-        $("#itemDescriptionEdit").val(itemDesc);
+
         
         //remove all error messages that might exist
         $("#editItemFMsg").html("");
@@ -233,9 +227,9 @@ $(document).ready(function(){
     $("#editItemSubmit").click(function(){
         var itemName = $("#itemNameEdit").val();
         var itemPrice = $("#itemPriceEdit").val();
-        var itemDesc = $("#itemDescriptionEdit").val();
         var itemId = $("#itemIdEdit").val();
         var itemCode = $("#itemCodeEdit").val();
+
         
         if(!itemName || !itemPrice || !itemId){
             !itemName ? $("#itemNameEditErr").html("Item name cannot be empty") : "";
@@ -249,7 +243,7 @@ $(document).ready(function(){
         $.ajax({
             method: "POST",
             url: appRoot+"semesters/edit",
-            data: {itemName:itemName, itemPrice:itemPrice, itemDesc:itemDesc, _iId:itemId, itemCode:itemCode}
+            data: {itemName:itemName, itemPrice:itemPrice, _iId:itemId, itemCode:itemCode}
         }).done(function(returnedData){
             if(returnedData.status === 1){
                 $("#editItemFMsg").css('color', 'green').html("Item successfully updated");
@@ -304,10 +298,10 @@ $(document).ready(function(){
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     
     //runs when the update type is changed while trying to update stock
-    //sets a default description if update type is "newStock"
+    //sets a default if update type is "newStock"
     $("#stockUpdateType").on('change', function(){
         var updateType = $("#stockUpdateType").val();
-        
+
         if(updateType && (updateType === 'newStock')){
             $("#stockUpdateDescription").val("New semesters were purchased");
         }
@@ -329,8 +323,8 @@ $(document).ready(function(){
         var stockUpdateQuantity = $("#stockUpdateQuantity").val();
         var stockUpdateDescription = $("#stockUpdateDescription").val();
         var itemId = $("#stockUpdateItemId").val();
-        
-        if(!updateType || !stockUpdateQuantity || !stockUpdateDescription || !itemId){
+
+        if(!updateType || !stockUpdateQuantity ||  !stockUpdateDescription || !itemId){
             !updateType ? $("#stockUpdateTypeErr").html("required") : "";
             !stockUpdateQuantity ? $("#stockUpdateQuantityErr").html("required") : "";
             !stockUpdateDescription ? $("#stockUpdateDescriptionErr").html("required") : "";

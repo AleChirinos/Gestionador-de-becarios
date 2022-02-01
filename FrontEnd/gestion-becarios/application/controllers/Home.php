@@ -86,13 +86,13 @@ class Home extends CI_Controller {
             }
             
             else{//if  is not correct
-                $json['msg'] = "Incorrect email combination";
+                $json['msg'] = "Combinación de email incorrecta";
                 $json['status'] = 0;
             }
         }
         
         else{//if form validation fails            
-            $json['msg'] = "One or more required fields are empty or not correctly filled";
+            $json['msg'] = "Uno o más campos han sido incorrectamente llenados o vacíos";
             $json['status'] = 0;
         }
         

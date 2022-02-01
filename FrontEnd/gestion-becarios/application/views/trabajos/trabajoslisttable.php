@@ -54,30 +54,25 @@
                                 <td>
                                     <ul id="asignados-<?=$get->id?>">
                                         <?php if(!is_bool($allAsignaciones)) {
-                                            
-                                            foreach($allAsignaciones as $getIt)
-                                            {
-                                                if ($getIt->trabajo_name === $get->name && $this->session->admin_career ===$get->career) {
-                                                    echo '<li><a id="'.$getIt->becarioName.'">'.$getIt->becarioName.'</a></li>';
+                                            if ($mark==1) {
+                                                echo '<h6 >Este trabajo ha sido completado</h6>';
+                                            } else {
+                                                foreach($allAsignaciones as $getIt)
+                                                {
+                                                    if ($getIt->trabajo_name === $get->name && $getIt->accomplished==0 && $this->session->admin_career ===$get->career) {
+                                                        echo '<li><a id="'.$getIt->becarioName.'">'.$getIt->becarioName.'</a></li>';
+                                                    }
                                                 }
                                             }
-                                            if ($mark==1) {
-                                                echo '<h6>Este trabajo ha sido completado</h6>';
-                                            }
-                                            
                                         }?>
 
                                     </ul>
                                 </td>
                                 <?php if($mark===0): ?>
                                     <td class="text-center text-success"><span class=" checkTrabajo" id="asign-<?=$get->id?>" title="Marcar el trabajo como cumplido"><i class="fa fa-check-circle-o fa-2x pointer" ></i></span></td>
-
                                     <td class="text-center text-primary"><span class=" assignBecarios" id="asign-<?=$get->id?>" title="Añadir Becario"><i class="fa fa-user-plus fa-2x pointer" ></i></span></td>
-
                                     <td class="text-center text-primary"><span class=" updateTrabajoHours" id="stock-<?=$get->id?>" title="Modificar horas de trabajo"><i class="fa fa-clock-o fa-2x pointer"></i></span></td>
-
                                     <td class="text-center text-primary"><span class="editTrabajo" id="edit-<?=$get->id?>"  title="Modificar información de trabajo"><i class="fa fa-pencil fa-2x pointer"></i></span></td>
-
                                     <td class="text-center"><i class="fa fa-trash fa-2x text-danger delTrabajo pointer"  title="Eliminar trabajo"></i></td>
                                 <?php else:?>
                                     <td colspan=5 class="text-center"><i class="fa fa-trash fa-2x text-danger delTrabajo pointer"  title="Eliminar trabajo"></i></td>

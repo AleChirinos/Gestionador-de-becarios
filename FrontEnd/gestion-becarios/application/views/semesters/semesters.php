@@ -83,13 +83,6 @@ defined('BASEPATH') OR exit('');
                             </div>
                         </div>
 
-                        <div class="row">
-                            <div class="col-sm-12 form-group-sm">
-                                <label for="itemDescription" class="">Descripción (Opcional)</label>
-                                <textarea class="form-control" id="itemDescription" name="itemDescription" rows='4'
-                                    placeholder="Descrición"></textarea>
-                            </div>
-                        </div>
                         <br>
                         <div class="row text-center">
                             <div class="col-sm-6 form-group-sm">
@@ -111,7 +104,13 @@ defined('BASEPATH') OR exit('');
                     <div class="col-sm-12" id="itemsListTable"></div>
                 </div>
                 <!--end of table-->
-                
+                <div class="col-sm-2  form-group-sm">
+                                            <span class="pointer text-primary">
+                                                <button class='btn btn-primary btn-sm' data-toggle='modal' data-target='#reportIt'>
+                                                    <i class="fa fa-newspaper-o"></i> Generar Reporte
+                                                </button>
+                                            </span>
+                                        </div>
             </div>
             <!--- End of item list div-->
 
@@ -134,24 +133,17 @@ defined('BASEPATH') OR exit('');
                     <div class="row">
                         <div class="col-sm-4 form-group-sm">
                             <label>Nombre del elemento</label>
-                            <input type="text" readonly id="stockUpdateItemName" class="form-control">
+                            <label for="stockUpdateItemName"></label><input type="text" readonly id="stockUpdateItemName" class="form-control">
                         </div>
                         
                         <div class="col-sm-4 form-group-sm">
                             <label>Código del elemento</label>
-                            <input type="text" readonly id="stockUpdateItemCode" class="form-control">
+                            <label for="stockUpdateItemCode"></label><input type="text" readonly id="stockUpdateItemCode" class="form-control">
                         </div>
 
                     </div>
                     <br>
-                    
-                    <div class="row">
-                        <div class="col-sm-12 form-group-sm">
-                            <label for="stockUpdateDescription" class="">Descripción</label>
-                            <textarea class="form-control checkField" id="stockUpdateDescription" placeholder="Actualizar descripción"></textarea>
-                            <span class="help-block errMsg" id="stockUpdateDescriptionErr"></span>
-                        </div>
-                    </div>
+
                     
                     <input type="hidden" id="stockUpdateItemId">
                 </form>
@@ -187,18 +179,12 @@ defined('BASEPATH') OR exit('');
                         
                         <div class="col-sm-4 form-group-sm">
                             <label for="itemCode">Código del elemento</label>
-                            <input type="text" id="itemCodeEdit" class="form-control">
+                            <label for="itemCodeEdit"></label><input type="text" id="itemCodeEdit" class="form-control">
                             <span class="help-block errMsg" id="itemCodeEditErr"></span>
                         </div>
 
                     </div>
-                    
-                    <div class="row">
-                        <div class="col-sm-12 form-group-sm">
-                            <label for="itemDescriptionEdit" class="">Descripción (Opcional)</label>
-                            <textarea class="form-control" id="itemDescriptionEdit" placeholder="Optional Item Description"></textarea>
-                        </div>
-                    </div>
+
                     <input type="hidden" id="itemIdEdit">
                 </form>
             </div>

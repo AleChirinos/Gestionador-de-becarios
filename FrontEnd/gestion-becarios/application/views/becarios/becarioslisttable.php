@@ -22,6 +22,7 @@
                         <th>HORAS ASIGNADAS</th>
                         <th>HORAS FALTANTES</th>
                         <th>TRABAJOS ASIGNADOS</th>
+
                         <th colspan="3"> Acciones</th>
 
                     </tr>

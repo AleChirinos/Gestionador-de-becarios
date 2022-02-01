@@ -21,7 +21,7 @@ class Search extends CI_Controller{
         $this->load->helper('text');
 
         $this->value = $this->input->get('v', TRUE);
-        
+
         $this->value2=$this->input->get('s',TRUE);
     }
 
@@ -74,17 +74,6 @@ class Search extends CI_Controller{
     */
 
 
-    public function itemSearch(){
-        $data['allItems'] = $this->item->itemsearch($this->value);
-        $data['sn'] = 1;
-        $data['cum_total'] = $this->item->getItemsCumTotal();
-
-        $json['itemsListTable'] = $data['allItems'] ? $this->load->view('items/itemslisttable', $data, TRUE) : "No se encontraron resultados";
-
-        //set final output
-        $this->output->set_content_type('application/json')->set_output(json_encode($json));
-    }
-
     public function semesterSearch(){
         $data['allItems'] = $this->semester->semestersearch($this->value);
         $data['sn'] = 1;
@@ -98,9 +87,20 @@ class Search extends CI_Controller{
     public function adminsearch(){
         $data['allAdministrators'] = $this->admin->adminSearch($this->value);
         $data['sn'] = 1;
-        
+
 
         $json['allAdmin'] = $data['allAdministrators'] ? $this->load->view('admin/adminlist', $data, TRUE) : "No se encontraron resultados";
+
+        //set final output
+        $this->output->set_content_type('application/json')->set_output(json_encode($json));
+    }
+
+    public function itemSearch(){
+        $data['allItems'] = $this->item->itemsearch($this->value);
+        $data['sn'] = 1;
+        $data['cum_total'] = $this->item->getItemsCumTotal();
+
+        $json['itemsListTable'] = $data['allItems'] ? $this->load->view('items/itemslisttable', $data, TRUE) : "No match found";
 
         //set final output
         $this->output->set_content_type('application/json')->set_output(json_encode($json));
@@ -113,7 +113,7 @@ class Search extends CI_Controller{
         $data['sn'] = 1;
         $data['allAsignaciones']=$this->asignacion->getAll("trabajo_name", "ASC");
 
-        $json['becariosListTable'] = $data['allBecarios'] ? $this->load->view('becarios/becarioslisttable', $data, TRUE) : "No se encontraron resultados";
+        $json['becariosListTable'] = $data['allBecarios'] ? $this->load->view('becarios/becarioslisttable', $data, TRUE) : "No existen coincidencias";
 
 
         //set final output
@@ -128,7 +128,7 @@ class Search extends CI_Controller{
         $data['mark']=1;
         $data['allAsignaciones']=$this->asignacion->getAll("trabajo_name", "ASC");
 
-        $json['trabajosListTable'] = $data['allTrabajos'] ? $this->load->view('trabajos/trabajoslisttable', $data, TRUE) : "No se encontraron resultados";
+        $json['trabajosListTable'] = $data['allTrabajos'] ? $this->load->view('trabajos/trabajoslisttable', $data, TRUE) : "No existen coincidencias";
 
 
         //set final output
@@ -154,7 +154,7 @@ class Search extends CI_Controller{
 
     public function dataSearch(){
         $data['allData'] = $this->value==="becario" ? $this->becario->getBySemester($this->value2) : $this->trabajo->getBySemester($this->value2);
-        
+
         $data['sn'] = 1;
 
         $json['allData'] = $data['allData'];
@@ -163,12 +163,6 @@ class Search extends CI_Controller{
         //set final output
         $this->output->set_content_type('application/json')->set_output(json_encode($json));
     }
-
-    
-
-
-
-
 
     /*
     ********************************************************************************************************************************
@@ -190,6 +184,19 @@ class Search extends CI_Controller{
         $this->output->set_content_type('application/json')->set_output(json_encode($json));
     }
 
+    public function becarioPublicSearch(){
+        $data['allBecarioInfo'] = $this->becario->getBecarioInfo(['code'=>$this->value], ['code','semester','missinghours','name','id']);
+        $data['allTrabajosInfo']= $this->asignacion->getBecarios(['becarioCode'=>$this->value], ['trabajo_name','hours','assignDate','accomplished']);
+        $misHours=$this->genmod->getTableCol('becarios', 'missinghours', 'code', $this->value);
+        $asigHours=$this->genmod->getTableCol('asignaciones', 'hours', 'becarioCode', $this->value) ? $this->genmod->getTableColMultiple('asignaciones', 'SUM(hours)', 'becarioCode', $this->value,'accomplished',0) : 0;
+        $accoHours=$this->genmod->getTableCol('asignaciones', 'hours', 'becarioCode', $this->value) ? $this->genmod->getTableColMultiple('asignaciones', 'SUM(hours)', 'becarioCode', $this->value,'accomplished',1) : 0;
+
+        $data['hoursTot']= $misHours + $asigHours + $accoHours;
+        $data['sn'] = 1;
+        $json['becarioInfoListTable'] = $data['allBecarioInfo'] ? $this->load->view('dashboardlisttable', $data, TRUE) : "No existen coincidencias";
+        $this->output->set_content_type('application/json')->set_output(json_encode($json));
+    }
+
 
     /*
     ********************************************************************************************************************************
@@ -200,7 +207,7 @@ class Search extends CI_Controller{
     */
 
     public function otherSearch(){
-
+       
 
         //set final output
         $this->output->set_content_type('application/json')->set_output(json_encode($json));

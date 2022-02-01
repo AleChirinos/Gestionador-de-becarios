@@ -16,7 +16,6 @@
                         <th>Nº</th>
                         <th>NOMBRE</th>
                         <th>CÓDIGO</th>
-                        <th>DESCRIPCIÓN</th>
                         <th>ESCOGER GESTIÓN</th>
                     </tr>
                 </thead>
@@ -28,13 +27,8 @@
                         <th class="itemSN"><?=$sn?>.</th>
                         <td><span id="itemName-<?=$get->id?>"><?=$get->name?></span></td>
                         <td><span id="itemCode-<?=$get->id?>"><?=$get->career?></td>
-                        <td>
-                            <span id="itemDesc-<?=$get->id?>" data-toggle="tooltip" title="<?=$get->description?>" data-placement="auto">
-                                <?=word_limiter($get->description, 15)?>
-                            </span>
-                        </td>
                         <td class="text-center selectSemester text-success" id="sus-<?=$get->id?>">
-                            <?php if($get->selected === "1"): ?>
+                            <?php if($this->session->admin_semester === $get->id): ?>
                                 <i class="fa fa-toggle-on pointer"></i>
                             <?php else: ?>
                                 <i class="fa fa-toggle-off pointer"></i>
@@ -58,6 +52,6 @@
 <!---Pagination div-->
 <div class="col-sm-12 text-center">
     <ul class="pagination">
-        <?= isset($links) ? $links : "" ?>
+        <?= $links ?? "" ?>
     </ul>
 </div>

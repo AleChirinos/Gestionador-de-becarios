@@ -90,13 +90,22 @@ defined('BASEPATH') OR exit('');
                             </div>
                         </div>
                         <div class="row">
-                        <div class="form-group-sm col-sm-6">
-                            <label for='career' class="control-label">Carrera</label>
+                            <div class="form-group-sm col-sm-6">
+                                <label for='career' class="control-label">Carrera</label>
                                 <input type="hidden" id='career' class="form-control checkField" value="<?php echo $this->session->admin_career; ?>">
                                 <br>
                                 <label for='career' class="control-label"><?php echo $this->session->admin_career; ?></label>
-                            <span class="help-block errMsg" id="careerErr"></span>
+                                <span class="help-block errMsg" id="careerErr"></span>
+                            </div>
                         </div>
+                        <div class="row">
+                            <div class="form-group-sm col-sm-6">
+                                <label for='semester' class="control-label">Semestre</label>
+                                <input type="hidden" id='semester' class="form-control checkField" value="<?php echo $this->session->admin_semester; ?>">
+                                <br>
+                                <label for='semester' class="control-label"><?php echo $this->session->admin_semester; ?></label>
+                                <span class="help-block errMsg" id="semesterErr"></span>
+                            </div>
                         </div>
                         <br>
                         <div class="row text-center">
@@ -156,6 +165,7 @@ defined('BASEPATH') OR exit('');
                             <label>Código UPB del estudiante</label>
                             <input type="text" readonly id="mhUpdateBecarioCode" class="form-control">
                         </div>
+
                     </div>
                     <br>
                     <div class="row">
@@ -206,12 +216,12 @@ defined('BASEPATH') OR exit('');
                     <div class="row">
                         <div class="form-group-sm col-sm-6">
                             <label for='career' class="control-label">Carrera</label>
-                                <input type="hidden" id='career' class="form-control checkField" value="<?php echo $this->session->admin_career; ?>">
-                                <br>
-                                <label for='career' class="control-label"><?php echo $this->session->admin_career; ?></label>
+                            <input type="hidden" id='career' class="form-control checkField" value="<?php echo $this->session->admin_career; ?>">
+                            <br>
+                            <label for='career' class="control-label"><?php echo $this->session->admin_career; ?></label>
                             <span class="help-block errMsg" id="careerErr"></span>
                         </div>
-                        </div>
+                    </div>
 
                     <input type="hidden" id="becarioIdEdit">
                 </form>

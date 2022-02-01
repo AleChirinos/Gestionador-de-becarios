@@ -1,9 +1,7 @@
 'use strict';
 
 $(document).ready(function(){
-
-    $('.selectedBecarioDefault').select2();
-
+    $('.selectedBecarioDefault').select2()
     checkDocumentVisibility(checkLogin);//check document visibility in order to confirm user's log in status
 
     //load all items once the page is ready
@@ -48,17 +46,19 @@ $(document).ready(function(){
     $("#addNewTrabajo").click(function(e){
         e.preventDefault();
 
-        changeInnerHTML(['trabajoNameErr', 'trabajoHoursErr', 'addCustErrMsg','careerErr'], "");
+        changeInnerHTML(['trabajoNameErr', 'trabajoHoursErr', 'addCustErrMsg','careerErr','semesterErr'], "");
 
         var trabajoName = $("#trabajoName").val();
         var trabajoHours = $("#trabajoHours").val();
         var trabajoDescription = $("#trabajoDescription").val();
         var career = $("#career").val();
-        if(!trabajoName || !trabajoHours|| !career){
+        var semester = $("#semester").val();
+        if(!trabajoName || !trabajoHours|| !career|| !semester){
             !trabajoName ? $("#trabajoNameErr").text("Se requiere llenar el campo") : "";
 
             !trabajoHours ? $("#trabajoHoursErr").text("Se requiere llenar el campo") : "";
             !career ? changeInnerHTML('careerErr', "required") : "";
+            !semester ? changeInnerHTML('semesterErr', "required") : "";
             $("#addCustErrMsg").text("Existen uno o varios campos vacíos");
 
             return;
@@ -69,7 +69,7 @@ $(document).ready(function(){
         $.ajax({
             type: "post",
             url: appRoot+"trabajos/add",
-            data:{trabajoName:trabajoName, trabajoHours:trabajoHours, trabajoDesc:trabajoDescription, career:career},
+            data:{trabajoName:trabajoName, trabajoHours:trabajoHours, trabajoDesc:trabajoDescription, career:career, semester:semester},
 
             success: function(returnedData){
                 if(returnedData.status === 1){
@@ -91,6 +91,7 @@ $(document).ready(function(){
                     $("#trabajoHoursErr").text(returnedData.trabajoHours);
                     $("#addCustErrMsg").text(returnedData.msg);
                     $("#careerErr").text(returnedData.career);
+                    $("#semesterErr").text(returnedData.semester);
                 }
             },
 
@@ -166,12 +167,9 @@ $(document).ready(function(){
         $("#trabajoIdEdit").val(trabajoId);
         $("#trabajoNameEdit").val(trabajoName);
         $("#trabajoDescriptionEdit").val(trabajoDesc);
-        $("#careerEdit").val(career);
-
-
         $("#editTrabajoFMsg").html("");
         $("#trabajoNameEditErr").html("");
-
+        $("#careerEdit").val(career);
 
 
         //launch modal
@@ -355,6 +353,8 @@ $(document).ready(function(){
                     html+='<form role="form">'
                     $.each( returnedData.allAsignados, function( key, value ) {
                         html+='<div class="row" >';
+
+
                         html+='<div class="col-sm-4 form-group-sm"><label for="checkNameCheck">Nombre del becario</label><input type="text" id="checkNameCheck" name="checkNameCheck" readonly value="';
                         html+=value["becarioName"];
                         html+='" placeholder="Nombre del becario" autofocus class="form-control checkField"><span class="help-block errMsg" id="checkNameCheckErr"></span></div>';
@@ -412,12 +412,14 @@ $(document).ready(function(){
 
         console.log(codeArray);
 
+
+
         $("#checkTrabajoFMsg").html("<i class='"+spinnerClass+"'></i> Completando trabajo...");
 
         $.ajax({
             method: "POST",
             url: appRoot+"trabajos/checkTrabajos",
-            data: {_tId:trabajoId, becarioName:jsonNAr, hoursAssign:jsonHAr, becarioCode:jsonCAr,length:len}
+            data: {_tId:trabajoId, becarioName:jsonNAr, hoursAssign:jsonHAr,becarioCode:jsonCAr,length:len}
         }).done(function(returnedData){
             if(returnedData.status === 1){
 

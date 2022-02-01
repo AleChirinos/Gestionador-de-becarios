@@ -45,17 +45,19 @@ defined('BASEPATH') OR exit('');
                     <div class="col-sm-4 form-group-sm">
                         <label for="selectedSemesterDefault">Seleccionar Gestión</label>
                         <select class="form-control selectedSemesterDefault" id="selectedSemesterDefault">
-                            <option value="null" selected>Selecciona la Gestión Actual</option>
-                            <?php
+                            <option value="null"  selected> Selecciona la Gestión Actual</option>
 
+                            <?php
                             foreach($semesters as $row)
                             {
-                                if($this->session->admin_career ===$row->career){
-                                    echo '<option value="'.$row->id.'">'.$row->name.'</option>';
+                                /*if ($this->session->admin_semester === $row->id) {
+                                    echo '<option value="' . $row->id . '" selected>' . $row->name . '</option>';
+                                }
+                                else */if($this->session->admin_career ===$row->career ) {
+                                    echo '<option value="' . $row->id . '">' . $row->name . '</option>';
                                 }
                             }
                             ?>
-
                         </select>
                         <span class="help-block errMsg" id="selectedSemesterDefaultErr"></span>
                     </div>

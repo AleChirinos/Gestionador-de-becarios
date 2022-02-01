@@ -33,9 +33,9 @@ class Becario extends CI_Model{
     }
 
 
-    public function add($becarioName, $becarioCode, $career){
+    public function add($becarioName, $becarioCode, $career, $semester){
         $data = ['name'=>$becarioName, 'code'=>$becarioCode,
-            'career'=>$career, 'totalhours'=>0, 'checkedhours'=>0, 'assignedhours'=>0,'missinghours'=>0];
+            'career'=>$career, 'semester'=>$semester, 'totalhours'=>0, 'checkedhours'=>0, 'assignedhours'=>0,'missinghours'=>0];
 
         //set the datetime based on the db driver in use
         $this->db->platform() == "sqlite3"
@@ -214,8 +214,8 @@ class Becario extends CI_Model{
         }
     }
 
-    public function edit($becarioId,$becarioName, $becarioCode, $career){
-        $data = ['name'=>$becarioName, 'code'=>$becarioCode, 'career'=>$career ];
+    public function edit($becarioId,$becarioName, $becarioCode){
+        $data = ['name'=>$becarioName, 'code'=>$becarioCode ];
 
         $this->db->where('id', $becarioId);
         $this->db->update('becarios', $data);
@@ -240,16 +240,16 @@ class Becario extends CI_Model{
             return FALSE;
         }
     }
-   
+
 
     public function getReport($value,$semester){
 
-       $q="SELECT becarios.* , asignaciones.trabajo_name, asignaciones.accomplished, asignaciones.hours, asignaciones.assignDate FROM becarios INNER JOIN asignaciones ON becarios.id = asignaciones.becarioId  WHERE becarios.semester= ? AND becarios.id= ?";
+        $q="SELECT becarios.* , asignaciones.trabajo_name, asignaciones.accomplished, asignaciones.hours, asignaciones.assignDate FROM becarios INNER JOIN asignaciones ON becarios.id = asignaciones.becarioId  WHERE becarios.semester= ? AND becarios.id= ?";
 
-   
+
         $run_q = $this->db->query($q, [$semester, $value]);
 
-        
+
 
         if($run_q->num_rows() > 0){
             return $run_q->result();
@@ -263,19 +263,19 @@ class Becario extends CI_Model{
     public function getBecarioReportById($value){
 
         $q="SELECT becarios.* , asignaciones.trabajo_name, asignaciones.accomplished, asignaciones.hours, asignaciones.assignDate FROM becarios INNER JOIN asignaciones ON becarios.id = asignaciones.becarioId  WHERE becarios.id= ? ";
- 
-    
-         $run_q = $this->db->query($q, [$value]);
- 
-         
- 
-         if($run_q->num_rows() > 0){
-             return $run_q->result();
-         }
- 
-         else{
-             return FALSE;
-         }
+
+
+        $run_q = $this->db->query($q, [$value]);
+
+
+
+        if($run_q->num_rows() > 0){
+            return $run_q->result();
+        }
+
+        else{
+            return FALSE;
+        }
     }
 
 

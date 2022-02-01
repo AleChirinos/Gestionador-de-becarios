@@ -2,46 +2,59 @@
 defined('BASEPATH') OR exit('');
 ?>
 
-<div class="row latestStuffs">
-    <div class="col-sm-4">
-        <div class="panel panel-info">
-            <div class="panel-body latestStuffsBody" style="background-color: #5cb85c">
-                <div class="pull-left"><i class="fa fa-exchange"></i></div>
-                <div class="pull-right">
-                    
-                    <div class="latestStuffsText">Total De Elementos Vendidos</div>
-                </div>
-            </div>
-            <div class="panel-footer text-center" style="color:#5cb85c">Número Total De Elementos Vendidos</div>
-        </div>
-    </div>
-    <div class="col-sm-4">
-        <div class="panel panel-info">
-            <div class="panel-body latestStuffsBody" style="background-color: #f0ad4e">
-                <div class="pull-left"><i class="fa fa-tasks"></i></div>
-                <div class="pull-right">
 
-                    <div class="latestStuffsText pull-right">Total de Transacciones</div>
+
+
+
+
+<div class="pwell hidden-print">   
+    <div class="row">
+        <div class="col-sm-12">
+            <!-- sort and co row-->
+            <div class="row">
+                <div class="col-sm-12">
+            
+                    <div class="col-lg-6 form-group-lg form-inline" >
+                        <h4>Bienvenido al sistema de gestión de becarios de la UPB</h4>
+                        <h6>Ingrese un código de estudiante para revisar su información</h6>
+                        <label for='becarioDashSearch'><i class="fa fa-search"></i></label>
+                        <input type="search" id="becarioDashSearch" class="form-control" placeholder="Ingresar código">
+                        
+                            
+                        
+                    </div>
+
+                    
                 </div>
             </div>
-            <div class="panel-footer text-center" style="color:#f0ad4e">Número Total de Transacciones</div>
+            <!-- end of sort and co div-->
         </div>
     </div>
-    <div class="col-sm-4">
-        <div class="panel panel-info">
-            <div class="panel-body latestStuffsBody" style="background-color: #337ab7">
-                <div class="pull-left"><i class="fa fa-shopping-cart"></i></div>
-                <div class="pull-right">
-     
-                    <div class="latestStuffsText pull-right">Elementos en Inventario</div>
+    
+    <hr>
+    
+    <!-- row of adding new item form and items list table-->
+    <div class="row">
+        <div class="col-sm-12">
+            <!--Form to add/update an item-->
+            
+            
+            <!--- Item list div-->
+            <div class="col-sm-12" id="becariosDashListDiv">
+                <!-- Item list Table-->
+                <div class="row">
+                    <div class="col-sm-12" id="becarioDashListTable"></div>
                 </div>
+                <!--end of table-->
+                
             </div>
-            <div class="panel-footer text-center" style="color:#337ab7">Número de Elementos en Inventario</div>
+            <!--- End of item list div-->
+
         </div>
     </div>
+    <!-- End of row of adding new item form and items list table-->
 </div>
 
-<div align="center"><img src="<?=base_url()?>public/images/ema.png"  alt=""></div>
 
-<script src="<?=base_url('public/js/chart.js'); ?>"></script>
+<div align="center"><img src="<?=base_url()?>public/images/upb_logo_transparent.png"  alt=""></div>
 <script src="<?=base_url('public/js/dashboard.js')?>"></script>

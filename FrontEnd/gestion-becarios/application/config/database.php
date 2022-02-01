@@ -75,7 +75,7 @@ $query_builder = TRUE;
 
 //details for mysql
 $db['mysql'] = array(
-	'dsn'	=> 'mysql:hostname=localhost; dbname=1410inventory',
+	'dsn'	=> 'mysql:hostname=localhost; dbname=getbecas',
 	'hostname' => 'sql309.epizy.com',
 	'username' => 'root',
 	'password' => '',
@@ -103,7 +103,7 @@ $db['sqlite'] = array(
 	'hostname' => '',
 	'username' => '',
 	'password' => '',
-	'database' => BASEPATH . 'sqlite/1410inventory.sqlite',
+	'database' => BASEPATH . 'sqlite/getbecas.sqlite',
 	'dbdriver' => 'sqlite3',
 	'dbprefix' => '',
 	'pconnect' => FALSE,

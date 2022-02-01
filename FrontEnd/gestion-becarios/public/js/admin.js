@@ -1,37 +1,35 @@
 'use strict';
 
 $(document).ready(function(){
-
-    $('.selectedSemesterDefault').select2();
     checkDocumentVisibility(checkLogin);//check document visibility in order to confirm user's log in status
-	
-	
+    $('.selectedSemesterDefault').select2();
+
     //load all admin once the page is ready
     //function header: laad_(url)
     laad_();
-    
+
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    
+
     //reload the list of admin when fields are changed
     $("#adminListSortBy, #adminListPerPage").change(function(){
         displayFlashMsg("Please wait...", spinnerClass, "", "");
         laad_();
     });
-    
+
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    
+
     //load and show page when pagination link is clicked
     $("#allAdmin").on('click', '.lnp', function(e){
         e.preventDefault();
-		
+
         displayFlashMsg("Please wait...", spinnerClass, "", "");
 
         laad_($(this).attr('href'));
@@ -40,27 +38,27 @@ $(document).ready(function(){
     });
 
     $("#selectedSemesterDefault").change(function(){
+
         laad_();
     });
 
-    
-    
+
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    
 
 
-    
+
+
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    
-    
+
+
     //handles the addition of new admin details .i.e. when "add admin" button is clicked
     $("#addAdminSubmit").click(function(e){
         e.preventDefault();
@@ -83,7 +81,7 @@ $(document).ready(function(){
             !semester ? changeInnerHTML('semesterErr', "required") : "";
             return;
         }
-        
+
         //display message telling user action is being processed
         $("#fMsgIcon").attr('class', spinnerClass);
         $("#fMsg").text(" Processing...");
@@ -94,7 +92,7 @@ $(document).ready(function(){
             data: {firstName:firstName, lastName:lastName, email:email, role:role, career:career, semester:semester}
         }).done(function(returnedData){
             $("#fMsgIcon").removeClass();//remove spinner
-                
+
             if(returnedData.status === 1){
                 $("#fMsg").css('color', 'green').text(returnedData.msg);
 
@@ -122,8 +120,9 @@ $(document).ready(function(){
                 $("#lastNameErr").text(returnedData.lastName);
                 $("#emailErr").text(returnedData.email);
                 $("#roleErr").text(returnedData.role);
-                $("#semesterErr").text(returnedData.semester);
                 $("#careerErr").text(returnedData.career);
+                $("#semesterErr").text(returnedData.semester);
+
                 //$("#mobile1Err").text(returnedData.mobile1);
                 //$("#mobile2Err").text(returnedData.mobile2);
 
@@ -145,7 +144,7 @@ $(document).ready(function(){
     //handles the updating of admin details
     $("#editAdminSubmit").click(function(e){
         e.preventDefault();
-        
+
         if(formChanges("editAdminForm")){
             //reset all error msgs in case they are set
             changeInnerHTML(['firstNameEditErr', 'lastNameEditErr', 'emailEditErr', 'roleEditErr', 'careerEditErr', 'semesterEditErr'], "");
@@ -153,17 +152,18 @@ $(document).ready(function(){
             var firstName = $("#firstNameEdit").val();
             var lastName = $("#lastNameEdit").val();
             var email = $("#emailEdit").val();
-            var career = $("#careerEdit").val();
             var role = $("#roleEdit").val();
+            var career = $("#careerEdit").val();
+            var semester = $("#semesterEdit").val();
             var adminId = $("#adminId").val();
-            var semester = $("#semester").val();
+
             //ensure all required fields are filled
-            if(!firstName || !lastName || !email || !role /*|| !mobile1*/){
+            if(!firstName || !lastName || !email || !role || !career || !semester ){
                 !firstName ? changeInnerHTML('firstNameEditErr', "required") : "";
                 !lastName ? changeInnerHTML('lastNameEditErr', "required") : "";
                 !email ? changeInnerHTML('emailEditErr', "required") : "";
-                !career ? changeInnerHTML('careerEditErr', "required") : "";
                 !role ? changeInnerHTML('roleEditErr', "required") : "";
+                !career ? changeInnerHTML('careerEditErr', "required") : "";
                 !semester ? changeInnerHTML('semesterEditErr', "required") : "";
                 return;
             }
@@ -181,7 +181,7 @@ $(document).ready(function(){
             $.ajax({
                 method: "POST",
                 url: appRoot+"administrators/update",
-                data: {firstName:firstName, lastName:lastName, email:email, role:role, career:career,adminId:adminId,semester:semester}
+                data: {firstName:firstName, lastName:lastName, email:email, role:role, career:career,semester:semester, adminId:adminId}
             }).done(function(returnedData){
                 $("#fMsgEditIcon").removeClass();//remove spinner
 
@@ -220,23 +220,22 @@ $(document).ready(function(){
                     }
                 });
         }
-        
+
         else{
             $("#fMsgEdit").html("No changes were made");
         }
     });
-    
+
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    
-    
+
+
     //handles admin search
     $("#adminSearch").on('keyup change', function(){
         var value = $(this).val();
-        
-        
+
         if(value){//search only if there is at least one char in input
             $.ajax({
                 type: "get",
@@ -247,28 +246,28 @@ $(document).ready(function(){
                 }
             });
         }
-        
+
         else{
             laad_();
         }
     });
-    
-    
+
+
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    
+
     //When the toggle on/off button is clicked to change the account status of an admin (i.e. suspend or lift suspension)
     $("#allAdmin").on('click', '.suspendAdmin', function(){
         var ElemId = $(this).attr('id');
-        
+
         var adminId = ElemId.split("-")[1];//get the adminId
-        
+
         //show spinner
         $("#"+ElemId).html("<i class='"+spinnerClass+"'</i>");
-        
+
         if(adminId){
             $.ajax({
                 url: appRoot+"administrators/suspend",
@@ -278,20 +277,20 @@ $(document).ready(function(){
                 if(returnedData.status === 1){
                     //change the icon to "on" if it's "off" before the change and vice-versa
                     var newIconClass = returnedData._ns === 1 ? "fa fa-toggle-on pointer" : "fa fa-toggle-off pointer";
-                    
+
                     //change the icon
                     $("#sus-"+returnedData._aId).html("<i class='"+ newIconClass +"'></i>");
-                    
+
                 }
-                
+
                 else{
                     console.log('err');
                 }
             });
         }
     });
-    
-    
+
+
     /*
     ******************************************************************************************************************************
     ******************************************************************************************************************************
@@ -299,8 +298,8 @@ $(document).ready(function(){
     ******************************************************************************************************************************
     ******************************************************************************************************************************
     */
-    
-    
+
+
     //When the trash icon in front of an admin account is clicked on the admin list table (i.e. to delete the account)
     $("#allAdmin").on('click', '.deleteAdmin', function(e){
         var confirm = window.confirm("Proceed?");
@@ -342,8 +341,8 @@ $(document).ready(function(){
 
 
 
-    
-    
+
+
     /*
     ******************************************************************************************************************************
     ******************************************************************************************************************************
@@ -351,33 +350,33 @@ $(document).ready(function(){
     ******************************************************************************************************************************
     ******************************************************************************************************************************
     */
-    
-    
+
+
     //to launch the modal to allow for the editing of admin info
     $("#allAdmin").on('click', '.editAdmin', function(){
-        
+
         var adminId = $(this).attr('id').split("-")[1];
-        
+
         $("#adminId").val(adminId);
-        
+
         //get info of admin with adminId and prefill the form with it
         //alert($(this).siblings(".adminEmail").children('a').html());
         var firstName = $(this).siblings(".firstName").html();
         var lastName = $(this).siblings(".lastName").html();
         var role = $(this).siblings(".adminRole").html();
         var email = $(this).siblings(".adminEmail").children('a').html();
-        var career = $(this).siblings(".career").html();
-        var semester = $(this).siblings(".semester").html();
+        var career = $(this).siblings(".adminCareer").html();
+        var semester = $(this).siblings(".adminSemester").html();
         //prefill the form fields
         $("#firstNameEdit").val(firstName);
         $("#lastNameEdit").val(lastName);
         $("#emailEdit").val(email);
-        $("#careerEdit").val(career);
         $("#roleEdit").val(role);
+        $("#careerEdit").val(career);
         $("#semesterEdit").val(semester);
         $("#editAdminModal").modal('show');
     });
-    
+
 });
 
 
@@ -399,15 +398,15 @@ function laad_(url){
     var orderFormat = $("#adminListSortBy").val().split("-")[1];
     var limit = $("#adminListPerPage").val();
     var gest=$("#selectedSemesterDefault").val();
-    
+    console.log(gest);
 
-    
     $.ajax({
         type:'get',
         url: url ? url : appRoot+"administrators/laad_/",
         data: {orderBy:orderBy, orderFormat:orderFormat, limit:limit, gest:gest},
      }).done(function(returnedData){
             hideFlashMsg();
+
             $("#allAdmin").html(returnedData.adminTable);
         });
 }
@@ -417,5 +416,7 @@ function resetAdminSN(){
         $(this).html(parseInt(i)+1);
     });
 }
+
+
 
 

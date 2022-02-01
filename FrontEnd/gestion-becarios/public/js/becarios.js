@@ -3,12 +3,10 @@
 $(document).ready(function(){
     checkDocumentVisibility(checkLogin);//check document visibility in order to confirm user's log in status
 
-
-    
     //load all items once the page is ready
     cargarBecarios();
 
-    
+
 
     //WHEN USE BARCODE SCANNER IS CLICKED
     $("#useBarcodeScanner").click(function(e){
@@ -96,16 +94,18 @@ $(document).ready(function(){
     $("#addNewBecario").click(function(e){
         e.preventDefault();
 
-        changeInnerHTML(['becarioNameErr', 'becarioCodeErr', 'addCustErrMsg','careerErr'], "");
+        changeInnerHTML(['becarioNameErr', 'becarioCodeErr', 'addCustErrMsg','careerErr','semesterErr'], "");
 
         var becarioName = $("#becarioName").val();
         var becarioCode = $("#becarioCode").val();
         var career = $("#career").val();
-        if(!becarioName || !becarioCode|| !career){
+        var semester = $("#semester").val();
+        if(!becarioName || !becarioCode|| !career|| !semester){
             !becarioName ? $("#becarioNameErr").text("Se requiere llenar el campo") : "";
 
             !becarioCode ? $("#becarioCodeErr").text("Se requiere llenar el campo") : "";
             !career ? changeInnerHTML('careerErr', "required") : "";
+            !semester ? changeInnerHTML('semesterErr', "required") : "";
             $("#addCustErrMsg").text("Existen uno o varios campos vacíos");
 
             return;
@@ -116,7 +116,7 @@ $(document).ready(function(){
         $.ajax({
             type: "post",
             url: appRoot+"becarios/add",
-            data:{becarioName:becarioName, becarioCode:becarioCode, career:career},
+            data:{becarioName:becarioName, becarioCode:becarioCode, career:career, semester:semester},
 
             success: function(returnedData){
                 if(returnedData.status === 1){
@@ -138,6 +138,7 @@ $(document).ready(function(){
                     $("#becarioCodeErr").text(returnedData.becarioCode);
                     $("#addCustErrMsg").text(returnedData.msg);
                     $("#careerErr").text(returnedData.career);
+                    $("#semesterErr").text(returnedData.semester);
                 }
             },
 
@@ -177,7 +178,7 @@ $(document).ready(function(){
 
         if(value){
             $.ajax({
-                url: appRoot+"search/becariosearch",
+                url: appRoot+"search/becarioSearch",
                 type: "get",
                 data: {v:value},
                 success: function(returnedData){
@@ -214,7 +215,6 @@ $(document).ready(function(){
         $("#becarioCodeEdit").val(becarioCode);
         $("#careerEdit").val(career);
 
-
         $("#editBecarioFMsg").html("");
         $("#becarioNameEditErr").html("");
         $("#becarioCodeEditErr").html("");
@@ -232,9 +232,6 @@ $(document).ready(function(){
         var becarioId = $("#becarioIdEdit").val();
         var becarioCode = $("#becarioCodeEdit").val();
         var career=$("#careerEdit").val();
-
-        
-
         if(!becarioName || !becarioCode || !becarioId){
             !becarioName ? $("#becarioNameEditErr").html("El campo de nombre no debe estar vacío") : "";
             !becarioCode ? $("#becarioCodeEditErr").html("El campo de código no debe estar vacío") : "";
@@ -286,11 +283,11 @@ $(document).ready(function(){
         var becarioMissingHours = $("#missinghours-"+becarioId).html();
         var becarioCode = $("#becarioCode-"+becarioId).html();
 
+
         $("#mhUpdateBecarioId").val(becarioId);
         $("#mhUpdateBecarioName").val(becarioName);
         $("#mhUpdateBecarioCode").val(becarioCode);
         $("#mhUpdateMissingHours").val(becarioMissingHours);
-
         $("#updateMissingHoursModal").modal('show');
     });
 

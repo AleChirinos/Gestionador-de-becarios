@@ -1,6 +1,6 @@
 'use strict';
 
-var appRoot = setAppRoot("gestion-becarios", "gestion-becarios");
+var appRoot = setAppRoot("gestion-becarios2", "gestion-becarios2");
 var spinnerClass = 'fa fa-spinner faa-spin animated';
 
 $(document).ready(function(){
@@ -8,9 +8,8 @@ $(document).ready(function(){
     
     //get total amount earned on current day(on page load)
     totalEarnedToday();
-    
-    
-    
+
+
     $("#becariosListTable").on('click', '.vtr', function(){
         vtrBec_(this);
     });
@@ -20,10 +19,6 @@ $(document).ready(function(){
         vtrTra_(this);
     });
 
-
-
-    
-    
     //To validate form fields
     $('form').on('change', '.checkField', function(){
         
@@ -152,11 +147,11 @@ $(document).ready(function(){
  * @returns {undefined}
  */
 function ptr_(){
-	//change the font-size
+    //change the font-size
     $("#reportPopUpToPrint").css({fontSize:'8px'});
-	
+
     window.print();//trigger the print dialog
-	
+
     $("#reportPopUpModal").modal('hide');//dismiss modal
 }
 
@@ -439,15 +434,15 @@ function vtrBec_(elem){
     var ref = elem.innerHTML;
     console.log(ref);
 
-    
+
     if(ref){
         //show the loading icon
         $("#reportPopUp").html("<i class='fa fa-spinner faa-spin animated'></i> Cargando reporte");
-        
+
         //show modal
         $("#reportPopUpModal").modal('show');
 
-        
+
         //make server request
         $.ajax({
             url: appRoot+"becarios/vtr_",
@@ -458,7 +453,7 @@ function vtrBec_(elem){
                 if(returnedData.status === 1){
                     $("#reportPopUp").html(returnedData.reportPopUp);
                 }
-                
+
                 else{
                     $("#reportPopUp").html("Estudiante no encontrado");
                 }
@@ -471,15 +466,15 @@ function vtrTra_(elem){
     var ref = elem.innerHTML;
     console.log(ref);
 
-    
+
     if(ref){
         //show the loading icon
         $("#reportPopUp").html("<i class='fa fa-spinner faa-spin animated'></i> Cargando reporte");
-        
+
         //show modal
         $("#reportPopUpModal").modal('show');
 
-        
+
         //make server request
         $.ajax({
             url: appRoot+"trabajos/vtr_",
@@ -489,7 +484,7 @@ function vtrTra_(elem){
                 if(returnedData.status === 1){
                     $("#reportPopUp").html(returnedData.reportPopUp);
                 }
-                
+
                 else{
                     $("#reportPopUp").html("Trabajo no encontrado");
                 }
@@ -499,7 +494,6 @@ function vtrTra_(elem){
 }
 
 
-
 /**
  * drm = "Dismiss receipt modal"
  * @returns {undefined}
@@ -519,31 +513,6 @@ function totalEarnedToday(){
         $("#totalEarnedToday").html(returnedData.totalEarnedToday);
     });
 }
-
-
-
-/**
- * drm = "Dismiss receipt modal"
- * @returns {undefined}
- */
-function drm_(){
-    $("#transReceiptModal").modal("hide");
-}
-
-
-
-function totalEarnedToday(){
-    $.ajax({
-        method:"POST",
-
-    }).done(function(returnedData){
-        //paste the returnedData on the navbar to show total amount earned on current day
-        $("#totalEarnedToday").html(returnedData.totalEarnedToday);
-    });
-}
-
-
-
 
 
 

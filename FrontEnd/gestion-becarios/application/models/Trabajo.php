@@ -32,9 +32,9 @@ class Trabajo extends CI_Model{
     }
 
 
-    public function add($trabajoName, $trabajoDesc, $trabajoHours, $career){
+    public function add($trabajoName, $trabajoDesc, $trabajoHours, $career, $semester){
         $data = ['name'=>$trabajoName, 'description'=>$trabajoDesc,
-            'career'=>$career, 'workhours'=>$trabajoHours];
+            'career'=>$career, 'semester'=>$semester,'workhours'=>$trabajoHours];
 
         //set the datetime based on the db driver in use
         $this->db->platform() == "sqlite3"
@@ -99,9 +99,8 @@ class Trabajo extends CI_Model{
         }
     }
 
-    public function edit($trabajoId, $trabajoName, $trabajoDesc,$career){
-        $data = ['name'=>$trabajoName, 'description'=>$trabajoDesc ,
-            'career'=>$career];
+    public function edit($trabajoId, $trabajoName, $trabajoDesc){
+        $data = ['name'=>$trabajoName, 'description'=>$trabajoDesc];
 
 
         $this->db->where('id', $trabajoId);
@@ -132,16 +131,16 @@ class Trabajo extends CI_Model{
     public function getReport($value,$semester){
 
         $this->db->select("trabajos.*,asignaciones.assignDate,asignaciones.accomplished, asignaciones.becarioName, asignaciones.becarioCode, asignaciones.hours");
-          $this->db->from('trabajos');
-          $this->db->join('asignaciones', 'trabajos.id = asignaciones.trabajo_code');
+        $this->db->from('trabajos');
+        $this->db->join('asignaciones', 'trabajos.id = asignaciones.trabajo_code');
         $whereArray = array('trabajos.semester' => $semester, 'trabajos.id' => $value);
         $this->db->where($whereArray);
-          $run_q= $this->db->get();
+        $run_q= $this->db->get();
 
         if($run_q->num_rows() > 0){
             return $run_q->result();
         }
-    
+
         else{
             return FALSE;
         }
@@ -156,23 +155,24 @@ class Trabajo extends CI_Model{
 
         return $run_q->num_rows() ? $run_q->row() : FALSE;
     }
-    
+
 
     public function getTrabajoReportById($value){
 
         $this->db->select("trabajos.*,asignaciones.assignDate,asignaciones.accomplished, asignaciones.becarioName, asignaciones.becarioCode, asignaciones.hours");
-          $this->db->from('trabajos');
-          $this->db->join('asignaciones', 'trabajos.id = asignaciones.trabajo_code');
+        $this->db->from('trabajos');
+        $this->db->join('asignaciones', 'trabajos.id = asignaciones.trabajo_code');
         $whereArray = array('trabajos.id' => $value);
         $this->db->where($whereArray);
-          $run_q= $this->db->get();
+        $run_q= $this->db->get();
 
         if($run_q->num_rows() > 0){
             return $run_q->result();
         }
-    
+
         else{
             return FALSE;
         }
     }
+
 }

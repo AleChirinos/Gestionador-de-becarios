@@ -9,7 +9,7 @@ class Admin extends CI_Model{
     public function __construct(){
         parent::__construct();
     }
-    
+
     /*
     ********************************************************************************************************************************
     ********************************************************************************************************************************
@@ -17,7 +17,7 @@ class Admin extends CI_Model{
     ********************************************************************************************************************************
     ********************************************************************************************************************************
     */
-    
+
     /**
  *
  * @param type $f_name
@@ -87,34 +87,34 @@ class Admin extends CI_Model{
     ********************************************************************************************************************************
     ********************************************************************************************************************************
     */
-    
+
     /**
-     * 
+     *
      * @param type $admin_id
      * @return boolean
      */
     public function update_last_login($admin_id){
         $this->db->where('id', $admin_id);
-        
+
         //set the datetime based on the db driver in use
-        $this->db->platform() == "sqlite3" 
-                ? 
-        $this->db->set('last_login', "datetime('now')", FALSE) 
-                : 
+        $this->db->platform() == "sqlite3"
+                ?
+        $this->db->set('last_login', "datetime('now')", FALSE)
+                :
         $this->db->set('last_login', "NOW()", FALSE);
-        
+
         $this->db->update('admin');
-        
+
         if(!$this->db->error()){
             return TRUE;
         }
-        
+
         else{
             return FALSE;
         }
     }
-    
-    
+
+
     /*
     ********************************************************************************************************************************
     ********************************************************************************************************************************
@@ -122,7 +122,7 @@ class Admin extends CI_Model{
     ********************************************************************************************************************************
     ********************************************************************************************************************************
     */
-    
+
     /**
      * Get some details about an admin (stored in session)
      * @param type $email
@@ -153,9 +153,9 @@ class Admin extends CI_Model{
     ********************************************************************************************************************************
     ********************************************************************************************************************************
     */
-    
+
     /**
-     * 
+     *
      * @param type $orderBy
      * @param type $orderFormat
      * @param type $start
@@ -163,25 +163,25 @@ class Admin extends CI_Model{
      * @return boolean
      */
     public function getAll($gest,$orderBy = "first_name", $orderFormat = "ASC", $start = 0, $limit = ""){
-        $this->db->select('id, first_name, last_name, email, role, career,semester, created_on, last_login, account_status, deleted');
+        $this->db->select('id, first_name, last_name, email, role, created_on, last_login, account_status, deleted, career,semester');
         $this->db->where("semester", $gest);
         $this->db->where("id != ", $_SESSION['admin_id']);
         $this->db->where("email != ", "demo@1410inc.xyz");//added to prevent people from removing the demo admin account
         $this->db->limit($limit, $start);
         $this->db->order_by($orderBy, $orderFormat);
-        
+
         $run_q = $this->db->get('admin');
-        
+
         if($run_q->num_rows() > 0){
             return $run_q->result();
         }
-        
+
         else{
             return FALSE;
         }
     }
-    
-    
+
+
     /*
     ********************************************************************************************************************************
     ********************************************************************************************************************************
@@ -189,14 +189,14 @@ class Admin extends CI_Model{
     ********************************************************************************************************************************
     ********************************************************************************************************************************
     */
-    
+
    /**
-    * 
+    *
     * @param type $admin_id
     * @param type $new_status New account status
     * @return boolean
-    */ 
-    public function suspend($admin_id, $new_status){       
+    */
+    public function suspend($admin_id, $new_status){
         $this->db->where('id', $admin_id);
         $this->db->update('admin', ['account_status'=>$new_status]);
 
@@ -217,17 +217,17 @@ class Admin extends CI_Model{
     ********************************************************************************************************************************
     ********************************************************************************************************************************
     */
-    
+
    /**
-    * 
+    *
     * @param type $admin_id
     * @param type $new_value
     * @return boolean
     */
-    public function delete($admin_id, $new_value){       
+    public function delete($admin_id, $new_value){
         $this->db->where('id', $admin_id);
         $this->db->update('admin', ['deleted'=>$new_value]);
-       
+
         if($this->db->affected_rows()){
             return TRUE;
         }
@@ -245,10 +245,10 @@ class Admin extends CI_Model{
     ********************************************************************************************************************************
     ********************************************************************************************************************************
     */
-   
-   
+
+
     /**
-     * 
+     *
      * @param type $value
      * @return boolean
      */
@@ -257,9 +257,18 @@ class Admin extends CI_Model{
                 id != {$_SESSION['admin_id']}
                     AND
                 (
-                MATCH(first_name) AGAINST(?) || MATCH(last_name) AGAINST(?) || MATCH(first_name, last_name) AGAINST(?) || MATCH(email) AGAINST(?) || first_name LIKE '%".$this->db->escape_like_str($value)."%' || last_name LIKE '%".$this->db->escape_like_str($value)."%' || email LIKE '%".$this->db->escape_like_str($value)."%' || career LIKE '%".$this->db->escape_like_str($value)."%' || semester LIKE '%".$this->db->escape_like_str($value)."%')";
+                MATCH(first_name) AGAINST(?)
+                || MATCH(last_name) AGAINST(?)
+                || MATCH(first_name, last_name) AGAINST(?)
+                || MATCH(email) AGAINST(?)
+                || first_name LIKE '%".$this->db->escape_like_str($value)."%'
+                || last_name LIKE '%".$this->db->escape_like_str($value)."%' 
+                || email LIKE '%".$this->db->escape_like_str($value)."%'
+                || career LIKE '%".$this->db->escape_like_str($value)."%'
+                || semester LIKE '%".$this->db->escape_like_str($value)."%'
+                )";
 
-        $run_q = $this->db->query($q, [$value, $value, $value, $value, $value, $value, $value, $value]);
+        $run_q = $this->db->query($q, [$value, $value, $value, $value, $value, $value, $value, $value, $value]);
 
         if($run_q->num_rows() > 0){
             return $run_q->result();
@@ -269,7 +278,7 @@ class Admin extends CI_Model{
             return FALSE;
         }
     }
-    
+
     /*
     ********************************************************************************************************************************
     ********************************************************************************************************************************
@@ -277,19 +286,26 @@ class Admin extends CI_Model{
     ********************************************************************************************************************************
     ********************************************************************************************************************************
     */
-    
-    public function update($admin_id, $first_name, $last_name, $email, $career ,$semester,/*$mobile1, $mobile2,*/ $role){
-        $data = ['first_name'=>$first_name, 'last_name'=>$last_name, 'career'=>$career, /*'mobile1'=>$mobile1, 'mobile2'=>$mobile2,*/ 'email'=>$email,
-            'role'=>$role,'semester'=>$semester];
-        
+
+    public function update($first_name, $last_name, $email,/*$mobile1, $mobile2,*/ $role, $career ,$semester,$admin_id ){
+        $data = ['first_name'=>$first_name, 'last_name'=>$last_name, /*'mobile1'=>$mobile1, 'mobile2'=>$mobile2,*/ 'email'=>$email,
+            'role'=>$role,'career'=>$career, 'semester'=>$semester];
+
         $this->db->where('id', $admin_id);
-        
+
         $this->db->update('admin', $data);
-        
+
         return TRUE;
     }
-    
-    
+
+    public function updateAdminSemester($semester){
+        $data = ['semester'=>$semester];
+        $this->db->where('id',$this->session->admin_id);
+        $this->db->update('admin', $data);   
+        return TRUE;
+    }
+
+
     /*
     ********************************************************************************************************************************
     ********************************************************************************************************************************
@@ -297,7 +313,15 @@ class Admin extends CI_Model{
     ********************************************************************************************************************************
     ********************************************************************************************************************************
     */
-    
-    
-   
+/*
+    public function getSemesterInfo($where_clause, $fields_to_fetch){
+        $this->db->select($fields_to_fetch);
+
+        $this->db->where($where_clause);
+
+        $run_q = $this->db->get('semesters');
+
+        return $run_q->num_rows() ? $run_q->row() : FALSE;
+    }*/
+
 }

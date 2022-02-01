@@ -23,9 +23,9 @@ require_once('core/controller.Class.php');
         <link rel="stylesheet" href="<?=base_url()?>public/bootstrap/css/bootstrap.min.css">
         <link rel="stylesheet" href="<?=base_url()?>public/font-awesome/css/font-awesome.min.css">
 
-        <script src="<?=base_url()?>public/js/jquery.min.js"></script>
-        <script src="<?=base_url()?>public/bootstrap/js/bootstrap.min.js"></script>
-
+            <script src="<?=base_url()?>public/js/jquery.min.js"></script>
+            <script src="<?=base_url()?>public/bootstrap/js/bootstrap.min.js">
+            </script><script src="sorttable.js"></script>
         <?php else: ?>
         
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">

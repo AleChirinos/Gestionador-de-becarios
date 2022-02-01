@@ -77,17 +77,17 @@ class Becarios extends CI_Controller{
         $this->form_validation->set_rules('becarioCode', 'Becario Code', ['required', 'trim', 'max_length[20]', 'is_unique[becarios.code]'],
             ['required'=>"required", 'is_unique'=>"Ya existe un becario con el código indicado"]);
         $this->form_validation->set_rules('career', 'Carrera', ['required','max_length[50]'], ['required'=>"required"]);
-
+        $this->form_validation->set_rules('semester', 'Semestre', ['required','max_length[50]'], ['required'=>"required"]);
         if($this->form_validation->run() !== FALSE){
             $this->db->trans_start();//start transaction
 
 
-            $insertedId = $this->becario->add(set_value('becarioName'), set_value('becarioCode'), set_value('career') );
+            $insertedId = $this->becario->add(set_value('becarioName'), set_value('becarioCode'), set_value('career'), set_value('semester') );
 
             $becarioName = set_value('becarioName');
             $becarioCode = set_value('becarioCode');
             $career = set_value('career');
-
+            $semester = set_value('semester');
             //insert into eventlog
             //function header: addevent($event, $eventRowId, $eventDesc, $eventTable, $staffId)
             $desc = "Inscripción del becario {$becarioName} de código UPB {$becarioCode}";
@@ -192,7 +192,7 @@ class Becarios extends CI_Controller{
 
             $this->db->trans_start();
 
-            $updated = $this->becario->updateMissingHours($becarioId, $mhUpdateMissingHours);
+            $updated = $this->becario->updateMissingHours($becarioId, $mhUpdateMissingHours) ;
 
 
             //add event to log if successful
@@ -242,18 +242,16 @@ class Becarios extends CI_Controller{
             'callback_crosscheckName['.$this->input->post('_bId', TRUE).']'], ['required'=>'required']);
         $this->form_validation->set_rules('becarioCode', 'Becario Code', ['required', 'trim',
             'callback_crosscheckCode['.$this->input->post('_bId', TRUE).']'], ['required'=>'required']);
-        $this->form_validation->set_rules('career', 'Carrera', ['required','max_length[50]'], ['required'=>"required"]);
-        if($this->form_validation->run() !== FALSE){
 
+        if($this->form_validation->run() !== FALSE){
             $becarioId = set_value('_bId');
             $becarioName = set_value('becarioName');
             $becarioCode = set_value('becarioCode');
-            $career = set_value('career');
 
             //update item in db
-            $updated = $this->becario->edit($becarioId, $becarioName, $becarioCode, $career);
+            $updated = $this->becario->edit($becarioId, $becarioName, $becarioCode);
+
             $updated2 = $this->asignacion->editByBecario($becarioName,$becarioCode,$becarioId);
-            
 
             $json['status'] = $updated && $updated2 ? 1 : 0;
 
@@ -285,9 +283,8 @@ class Becarios extends CI_Controller{
 
     public function crosscheckName($becarioName, $becarioId){
         //check db to ensure name was previously used for the item we are updating
-
-
         $becarioConNombre = $this->genmod->getTableCol('becarios', 'id', 'name', $becarioName);
+
 
         if(!$becarioConNombre || ($becarioConNombre == $becarioId)){
             return TRUE;
@@ -331,6 +328,7 @@ class Becarios extends CI_Controller{
         }
     }
 
+
     private function genReportPopup($becInfo,$becarioName,$becarioCode,$becarioSemester,$becarioMissingHours,$ref) {
         $data['allReportInfo'] = $becInfo;
         $data['becarioName'] = $becarioName;
@@ -338,45 +336,44 @@ class Becarios extends CI_Controller{
         $data['becarioSemester'] = $becarioSemester;
         $data['becarioMissingHours'] = $becarioMissingHours;
         $data['ref'] = $ref;
-       
+
         //generate and return receipt
         $reportPopUp = $this->load->view('becarios/becariosreportpopup', $data, TRUE);
-    
+
         return $reportPopUp;
     }
 
     public function vtr_(){
-    $this->genlib->ajaxOnly();
+        $this->genlib->ajaxOnly();
 
-    $ref = $this->input->post('ref',TRUE);
+        $ref = $this->input->post('ref',TRUE);
 
-    $becInfo = $this->becario->getBecarioReportById($ref);
-    
-    //loop through the transInfo to get needed info
-    if ($becInfo) {
-      $json['status'] = 1;
+        $becInfo = $this->becario->getBecarioReportById($ref);
 
-      $becarioName = $becInfo[0]['name'];
-      $becarioCode = $becInfo[0]['code'];
-      $becarioSemester= $this->genmod->getTableCol('semesters','name','id',$becInfo[0]['semester']);
-      $becarioMissingHours=$becInfo[0]['missinghours'];
-      
+        //loop through the transInfo to get needed info
+        if ($becInfo) {
+            $json['status'] = 1;
 
-      $json['reportPopUp'] = $this->genReportPopup(
-        $becInfo,
-        $becarioName,
-        $becarioCode,
-        $becarioSemester,
-        $becarioMissingHours,
-        $ref
-      );
-    } else {
-      $json['status'] = 0;
+            $becarioName = $becInfo[0]['name'];
+            $becarioCode = $becInfo[0]['code'];
+            $becarioSemester= $this->genmod->getTableCol('semesters','name','id',$becInfo[0]['semester']);
+            $becarioMissingHours=$becInfo[0]['missinghours'];
+
+
+            $json['reportPopUp'] = $this->genReportPopup(
+                $becInfo,
+                $becarioName,
+                $becarioCode,
+                $becarioSemester,
+                $becarioMissingHours,
+                $ref
+            );
+        } else {
+            $json['status'] = 0;
+        }
+
+        $this->output->set_content_type('application/json')->set_output(json_encode($json));
     }
-
-    $this->output->set_content_type('application/json')->set_output(json_encode($json));
-  }
-
     /*
     ********************************************************************************************************************************
     ********************************************************************************************************************************
@@ -409,7 +406,4 @@ class Becarios extends CI_Controller{
 
 
     }
-
-
-
 }

@@ -49,8 +49,8 @@ class Item extends CI_Model{
      * @param type $itemCode
      * @return boolean
      */
-    public function add($itemName,$itemDescription, $itemCode){
-        $data = ['name'=>$itemName,  'description'=>$itemDescription, 'career'=>$itemCode];
+    public function add($itemName,$itemCode){
+        $data = ['name'=>$itemName,'career'=>$itemCode];
                 
         //set the datetime based on the db driver in use
         $this->db->platform() == "sqlite3" 
@@ -69,7 +69,27 @@ class Item extends CI_Model{
             return FALSE;
         }
     }
-    
+
+
+    /**
+     *
+     * @param type $semester_id
+     * * @param type $admin_id
+     * @param type $new_status New account status
+     * @return boolean
+     */
+    public function suspend($semester_id, $admin_id){
+        $this->db->where('id', $admin_id);
+        $this->db->update('admin', ['semester'=>$semester_id]);
+
+        if($this->db->affected_rows()){
+            return TRUE;
+        }
+
+        else{
+            return FALSE;
+        }
+    }
     /*
     ********************************************************************************************************************************
     ********************************************************************************************************************************
@@ -214,7 +234,7 @@ class Item extends CI_Model{
     * @param type $itemDesc
     * @param type $itemPrice
     */
-   public function edit($itemId, $itemName, $itemDesc, $itemPrice){
+   public function edit($itemId, $itemName,$itemDesc,  $itemPrice){
        $data = ['name'=>$itemName, 'unitPrice'=>$itemPrice, 'description'=>$itemDesc];
        
        $this->db->where('id', $itemId);

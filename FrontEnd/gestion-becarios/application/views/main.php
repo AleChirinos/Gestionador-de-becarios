@@ -85,8 +85,6 @@ defined('BASEPATH') OR exit('');
                                 Admin Management
                             </a>
                         </li>
-
-
                         <?php endif; ?>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
@@ -175,16 +173,13 @@ defined('BASEPATH') OR exit('');
                                 Event Log
                             </a>
                         </li>-->
-
-                        <?php endif; ?>
-
-                        <li class="<?= $pageTitle == 'Reportes' ? 'active' : '' ?>">
+                            <li class="<?= $pageTitle == 'Reportes' ? 'active' : '' ?>">
                                 <a href="<?= site_url('reportes') ?>">
                                     <i class="fa fa-bar-chart-o"></i>
                                     Reportes
                                 </a>
                             </li>
-
+                        <?php endif; ?>
 
                     </ul>
                     <br>
@@ -226,7 +221,7 @@ defined('BASEPATH') OR exit('');
                 <div class="modal-content">
                     <div class="modal-header hidden-print">
                         <button class="close" data-dismiss='modal'>&times;</button>
-                        <h4 class="text-center">Reporte del sujeto</h4>
+                        <h4 class="text-center">Reporte del Usuario</h4>
                     </div>
                     <div class="modal-body" id='reportPopUp'></div>
                 </div>

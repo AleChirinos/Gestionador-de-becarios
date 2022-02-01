@@ -3,7 +3,7 @@ require_once 'vendor/autoload.php';
 
 $clientID = '271064182383-jiqq967o31578qu7op4v3o1hp8ippjf6.apps.googleusercontent.com';
 $clientSecret = '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';
-$redirectUrl = 'http://localhost/gestion-becarios/login.php';
+$redirectUrl = 'http://localhost/gestion-becarios2/login.php';
 
 $client = new Google_Client();
 $client -> setClientId($clientID);

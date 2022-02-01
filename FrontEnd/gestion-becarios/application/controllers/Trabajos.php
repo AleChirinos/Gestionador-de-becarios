@@ -3,6 +3,7 @@ defined('BASEPATH') OR exit('');
 require_once 'functions.php';
 
 
+
 class Trabajos extends CI_Controller{
 
     public function __construct(){
@@ -77,17 +78,17 @@ class Trabajos extends CI_Controller{
             ['required'=>"required", 'is_unique'=>"Ya existe un un trabajo con ese nombre"]);
         $this->form_validation->set_rules('trabajoHours', 'Trabajo Hours', ['required', 'trim', 'numeric'], ['required'=>"required"]);
         $this->form_validation->set_rules('career', 'Carrera', ['required','max_length[50]'], ['required'=>"required"]);
-
+        $this->form_validation->set_rules('semester', 'Semestre', ['required','max_length[50]'], ['required'=>"required"]);
         if($this->form_validation->run() !== FALSE){
             $this->db->trans_start();//start transaction
 
 
-            $insertedId = $this->trabajo->add(set_value('trabajoName'), set_value('trabajoDesc'), set_value('trabajoHours'), set_value('career'));
+            $insertedId = $this->trabajo->add(set_value('trabajoName'), set_value('trabajoDesc'), set_value('trabajoHours'), set_value('career'), set_value('semester'));
 
             $trabajoName = set_value('trabajoName');
             $trabajoHours = set_value('trabajoHours');
             $career = set_value('career');
-
+            $semester = set_value('semester');
             //insert into eventlog
             //function header: addevent($event, $eventRowId, $eventDesc, $eventTable, $staffId)
             $desc = "Creación del trabajo {$trabajoName} con horas requeridas {$trabajoHours}";
@@ -220,14 +221,14 @@ class Trabajos extends CI_Controller{
         $this->form_validation->set_rules('trabajoName', 'Trabajo Name', ['required', 'trim',
             'callback_crosscheckName['.$this->input->post('_tId', TRUE).']'], ['required'=>'required']);
         $this->form_validation->set_rules('trabajoDesc', 'Trabajo Description', ['trim']);
-        $this->form_validation->set_rules('career', 'Carrera', ['required','max_length[50]'], ['required'=>"required"]);
+
         if($this->form_validation->run() !== FALSE){
             $trabajoId = set_value('_tId');
             $trabajoName = set_value('trabajoName');
             $trabajoDesc = set_value('trabajoDesc');
-            $career = set_value('career');
+
             //update item in db
-            $updated = $this->trabajo->edit($trabajoId, $trabajoName, $trabajoDesc,$career);
+            $updated = $this->trabajo->edit($trabajoId, $trabajoName, $trabajoDesc);
 
             $checkAsig=$this->asignacion->getBecarios(['trabajo_code'=>$trabajoId], ['becarioId']);
 
@@ -272,9 +273,8 @@ class Trabajos extends CI_Controller{
             $updated=$this->asignacion->updateAsignacion($trabajoId, $bArr[$i], $hArr[$i]);
             $updated2=$this->becario->actualizeAssignedHours($cArr[$i]);
             $updated3=$this->becario->actualizeAccomplishedHours($cArr[$i]);
-            
 
-            $tryout= $updated && $updated2 && $updated3 ? 1 : 0;
+            $tryout= $updated && $updated2 && $updated3  ? 1 : 0;
         endfor;
 
 
@@ -432,7 +432,6 @@ class Trabajos extends CI_Controller{
         $this->output->set_content_type('application/json')->set_output(json_encode($json));
     }
 
-
     private function genReportPopup($traInfo,$trabajoName,$trabajoHours,$trabajoSemester,$trabajoStatus,$ref) {
         $data['allReportInfo'] = $traInfo;
         $data['trabajoName'] = $trabajoName;
@@ -440,45 +439,44 @@ class Trabajos extends CI_Controller{
         $data['trabajoSemester'] = $trabajoSemester;
         $data['trabajoStatus'] = $trabajoStatus;
         $data['ref'] = $ref;
-       
+
         //generate and return receipt
         $reportPopUp = $this->load->view('trabajos/trabajosreportpopup', $data, TRUE);
-    
+
         return $reportPopUp;
     }
 
     public function vtr_(){
-    $this->genlib->ajaxOnly();
+        $this->genlib->ajaxOnly();
 
-    $ref = $this->input->post('ref');
+        $ref = $this->input->post('ref');
 
-    $traInfo = $this->trabajo->getTrabajoReportById($ref);
-    
-    //loop through the transInfo to get needed info
-    if ($traInfo) {
-      $json['status'] = 1;
+        $traInfo = $this->trabajo->getTrabajoReportById($ref);
 
-      $trabajoName = $traInfo[0]['name'];
-      $trabajoHours = $traInfo[0]['workhours'];
-      $trabajoSemester= $this->genmod->getTableCol('semesters','name','id',$traInfo[0]['semester']);
-      $trabajoStatus=$traInfo[0]['accomplished'];
-      
+        //loop through the transInfo to get needed info
+        if ($traInfo) {
+            $json['status'] = 1;
 
-      $json['reportPopUp'] = $this->genReportPopup(
-        $traInfo,
-        $trabajoName,
-        $trabajoHours,
-        $trabajoSemester,
-        $trabajoStatus,
-        $ref
-      );
-    } else {
-      $json['status'] = 0;
+            $trabajoName = $traInfo[0]['name'];
+            $trabajoHours = $traInfo[0]['workhours'];
+            $trabajoSemester= $this->genmod->getTableCol('semesters','name','id',$traInfo[0]['semester']);
+            $trabajoStatus=$traInfo[0]['accomplished'];
+
+
+            $json['reportPopUp'] = $this->genReportPopup(
+                $traInfo,
+                $trabajoName,
+                $trabajoHours,
+                $trabajoSemester,
+                $trabajoStatus,
+                $ref
+            );
+        } else {
+            $json['status'] = 0;
+        }
+
+        $this->output->set_content_type('application/json')->set_output(json_encode($json));
     }
-
-    $this->output->set_content_type('application/json')->set_output(json_encode($json));
-  }
-
 
     public function report(){
         //get all transactions from db ranging from $from_date to $to_date
